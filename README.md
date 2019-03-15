@@ -11,7 +11,7 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 * TCP-IP详解卷一卷二卷三合集：协议.rar [[Download]](/book/TCP-IP详解卷一卷二卷三合集：协议.rar)
 * [追踪Linux.TCP／IP代码运行：基于2.6内核].pdf [[Download]](/book/%5B追踪Linux.TCP／IP代码运行：基于2.6内核%5D.pdf)
 * 图解HTTP.pdf [[Download]](/book/图解HTTP.pdf)
-* HTTP权威指南.pdf [[Download]](/book/HTTP权威指南.pdf)
+* HTTP权威指南.pdf [[Download]](/book/HTTP权威指南（中文版）.pdf)
 * HTTPS权威指南.pdf [[Download]](/book/HTTPS权威指南.pdf)
 * 图解密码技术 第三版.pdf [[Download]](/book/图解密码技术%20第三版.pdf)
 * Web性能权威指南.pdf [[Download]](/book/Web性能权威指南.pdf)
