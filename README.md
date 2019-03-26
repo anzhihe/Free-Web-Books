@@ -15,6 +15,7 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 * HTTPS权威指南.pdf [[Download]](/book/HTTPS权威指南.pdf)
 * Learning HTTP/2.pdf [[Download]](/book/learninghttp2.pdf)
 * 图解密码技术 第三版.pdf [[Download]](/book/图解密码技术%20第三版.pdf)
+* openssl-cookbook-中文版.pdf [[Download]](/book/openssl-cookbook-中文版.pdf)
 * Web性能权威指南.pdf [[Download]](/book/Web性能权威指南.pdf)
 * 大型网站技术架构：核心原理与案例分析.pdf [[Download]](/book/大型网站技术架构：核心原理与案例分析.pdf)
 * HTML5权威指南.pdf [[Download]](/book/HTML5权威指南.pdf)
