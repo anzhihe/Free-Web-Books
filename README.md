@@ -17,6 +17,7 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 * 图解密码技术 第三版 [[Download]](/book/图解密码技术%20第三版.pdf)
 * openssl-cookbook-中文版 [[Download]](/book/openssl-cookbook-中文版.pdf)
 * Web性能权威指南 [[Download]](/book/Web性能权威指南.pdf)
+* High_Performance_Browser_Networking [[Download]](/book/High_Performance_Browser_Networking.pdf)
 * 大型网站技术架构：核心原理与案例分析 [[Download]](/book/大型网站技术架构：核心原理与案例分析.pdf)
 * HTML5权威指南 [[Download]](/book/HTML5权威指南.pdf)
 * JavaScript权威指南 6e [[Download]](/book/JavaScript权威指南%206e.pdf)
