@@ -44,4 +44,4 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 * 深入理解Nginx模块开发与架构解析 [[Download]](/book/深入理解Nginx模块开发与架构解析.pdf)
 * 深入理解Nginx模块开发与架构解析第2版 [[Download]](/book/深入理解Nginx模块开发与架构解析第2版.pdf)
 * Nginx模块开发指南使用 [[Download]](/book/Nginx模块开发指南使用C++11和Boost程序库(罗剑锋著).pdf)
-* OpenResty-Best-Practices [[Download]](/book/OpenResty-Best-Practices.pdf)
+* xxxOpenResty-Best-Practices [[Download]](/book/OpenResty-Best-Practices.pdf)
