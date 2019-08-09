@@ -45,3 +45,15 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 * 深入理解Nginx模块开发与架构解析第2版 [[Download]](/book/深入理解Nginx模块开发与架构解析第2版.pdf)
 * Nginx模块开发指南使用 [[Download]](/book/Nginx模块开发指南使用C++11和Boost程序库(罗剑锋著).pdf)
 * OpenResty-Best-Practices [[Download]](/book/OpenResty-Best-Practices.pdf)
+
+---
+
+- [Manpage of TCPDUMP](https://www.tcpdump.org/manpages/tcpdump.1.html)
+- [tcpdump使用技巧](https://chegva.com/2473.html)
+- [Wireashark Document](https://www.wireshark.org/docs/)
+- [一站式学习Wireshark](https://www.w3cschool.cn/wireshark/?)
+- [Linux上使用wireshark(tshark)抓包分析](https://chegva.com/3019.html)
+- [Wireshark网络分析的艺术](https://github.com/anzhihe/Free-Web-Books/blob/master/book/Wireshark网络分析的艺术.pdf)
+- [Wireshark数据包分析实战](https://github.com/anzhihe/Free-Web-Books/blob/master/book/Wireshark数据包分析实战.pdf)
+- [Wireshark数据包分析实战详解](https://github.com/anzhihe/Free-Web-Books/blob/master/book/Wireshark数据包分析实战详解.pdf)
+
