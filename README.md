@@ -22,6 +22,7 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 * 企业应用架构模式 [[Download]](/book/企业应用架构模式.pdf)
 * High_Performance_Browser_Networking [[Download]](/book/High_Performance_Browser_Networking.pdf)
 * HTML_and_CSS_Design_and_Build_Websites [[Download]](/book/HTML_and_CSS_Design_and_Build_Websites.pdf)
+* Head First HTML与CSS中文版 [[Download]](/book/Head%20First%20HTML与CSS中文版.pdf)
 * HTML5权威指南 [[Download]](/book/HTML5权威指南.pdf)
 * JavaScript权威指南 6e [[Download]](/book/JavaScript权威指南%206e.pdf)
 * HTML5与CSS3权威指南 [[Download]](/book/HTML5与CSS3权威指南.pdf)
