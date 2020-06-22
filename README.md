@@ -2,6 +2,10 @@
 
 This is my personal collection of free tcp/ip web http(s) books, feel free to share and read.
 
+Google Drive：https://drive.google.com/drive/folders/1r2GWk5-PmKya6qBw7mzMhGLwDeVw-I-S?usp=sharing
+
+百度网盘：https://pan.baidu.com/s/1uZcJDbBsz7s2GKRrWw2WTg  密码:dhnr
+
 ## List of Books
 
 You can find all the books listed below in [**book**](/book) folder of this repo:
@@ -25,10 +29,12 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 * Head First HTML与CSS中文版 [[Download]](/book/Head%20First%20HTML与CSS中文版.pdf)
 * Head First JavaScript中文版 [[Download]](/book/head%20first%20javascript%20中文版.pdf)
 * Head First Jquery中文版 [[Download]](/book/Head%20First%20Jquery中文版.pdf)
+* Head First Web设计中文版
 * HTML5权威指南 [[Download]](/book/HTML5权威指南.pdf)
 * JavaScript权威指南 6e [[Download]](/book/JavaScript权威指南%206e.pdf)
 * HTML5与CSS3权威指南 [[Download]](/book/HTML5与CSS3权威指南.pdf)
 * jQuery权威指南（第2版） [[Download]](/book/jQuery权威指南（第2版）.pdf)
+* 深入理解PHP：高级技巧、面向对象与核心技术（原书第3版)
 * Apache Cookbook [[Download]](/book/Apache%20Cookbook.pdf)
 * Apache-2.2-中文手册 [[Download]](/book/Apache-2.2-中文手册.chm)
 * httpd-docs-2.4.12.en [[Download]](/book/httpd-docs-2.4.12.en.pdf)
