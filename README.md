@@ -60,21 +60,4 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 
 ---
 
-- [Manpage of TCPDUMP](https://www.tcpdump.org/manpages/tcpdump.1.html)
-- [tcpdump使用技巧](https://chegva.com/2473.html)
-- [Wireashark Document](https://www.wireshark.org/docs/)
-- [Linux上使用wireshark(tshark)抓包分析](https://chegva.com/3019.html)
-- [tshark-man-pages](https://www.wireshark.org/docs/man-pages/tshark.html)
-- [一站式学习Wireshark](https://www.w3cschool.cn/wireshark/?)
-- [Wireshark抓包实例诊断](https://wizardforcel.gitbooks.io/network-basic/22.html)
-- [Wireshark使用](http://2mysite.net/archives/wireshark/)
-- [Wireshark分析艺术(读书总结)](https://juejin.im/post/5be52e68e51d453b6e027ea2#heading-0)
-- [Wireshark（详细介绍与TCP三次握手数据分析）](https://www.cnblogs.com/Chilam007/p/6973990.html)
-- [Wireshark 抓包理解 HTTPS 请求流程](https://www.jianshu.com/p/cf8c2f2cd18a)
-- [常用网络报文协议](https://chegva.com/2426.html)
-- [Wireshark网络分析的艺术](https://github.com/anzhihe/Free-Web-Books/blob/master/book/Wireshark网络分析的艺术.pdf)
-- [Wireshark数据包分析实战](https://github.com/anzhihe/Free-Web-Books/blob/master/book/Wireshark数据包分析实战.pdf)
-- [Wireshark数据包分析实战详解](https://github.com/anzhihe/Free-Web-Books/blob/master/book/Wireshark数据包分析实战详解.pdf)
-- [Wireshark网络分析就这么简单](https://github.com/anzhihe/Free-Web-Books/blob/master/book/Wireshark网络分析就这么简单.pdf)
-- [Wireshark抓包全集（85种协议、类别的抓包文件)](https://github.com/anzhihe/Free-Web-Books/blob/master/book/Wireshark%E6%8A%93%E5%8C%85%E5%85%A8%E9%9B%86%EF%BC%8885%E7%A7%8D%E5%8D%8F%E8%AE%AE%E3%80%81%E7%B1%BB%E5%88%AB%E7%9A%84%E6%8A%93%E5%8C%85%E6%96%87%E4%BB%B6%EF%BC%89.zip)
-- [Web协议详解与抓包实战](https://github.com/geektime-geekbang/geektime-webprotocol)
+- [Web 開發人員的路線圖](https://github.com/goodjack/developer-roadmap-chinese)
