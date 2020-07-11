@@ -61,3 +61,4 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 ---
 
 - [Web 開發人員的路線圖](https://github.com/goodjack/developer-roadmap-chinese)
+- [resources.oreilly.com-examples](https://resources.oreilly.com/examples)
