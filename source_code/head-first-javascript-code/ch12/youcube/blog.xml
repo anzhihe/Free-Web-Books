@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<blog>
+  <title>YouCube - The Blog for Cube Puzzlers</title>
+  <author>Puzzler Ruby</author>
+  <entries>
+    <entry>
+      <date>08/14/2008</date>
+      <body>Got the new cube I ordered. It's a real pearl.</body>
+    </entry>
+    <entry>
+      <date>08/19/2008</date>
+      <body>Solved the new cube but of course, now I'm bored and shopping for a new one.</body>
+    </entry>
+    <entry>
+      <date>08/16/2008</date>
+      <body>Managed to get a headache toiling over the new cube. Gotta nap.</body>
+    </entry>
+    <entry>
+      <date>08/21/2008</date>
+      <body>Found a 7x7x7 cube for sale online. Yikes! That one could be a beast.</body>
+    </entry>
+    <entry>
+      <date>08/29/2008</date>
+      <body>Met up with some fellow cubers to discuss the prospect of a 7x7x7 cube. Mixed feelings.</body>
+    </entry>
+    <entry>
+      <date>08/27/2008</date>
+      <body>Went ahead and ordered the scary 7x7x7 cube. Starting a mental exercise regimen to prepare.</body>
+    </entry>
+    <entry>
+      <date>09/3/2008</date>
+      <body>Attended a rally outside of a local toy store that stopped carrying cube puzzles. Power to the puzzlers!</body>
+    </entry>
+    <entry>
+      <date>09/5/2008</date>
+      <body>Got the new 7x7x7 cube. Could be my last blog post for a while...</body>
+    </entry>
+    <entry>
+      <date>09/19/2008</date>
+      <body>Wow, it took me a month but the new cube is finally solved!</body>
+      <image>cube777.png</image>
+    </entry>
+    <entry>
+      <date>09/24/2008</date>
+      <body>I dreamed last night a huge cube was chasing me, and it kept yelling my name backwards...Ybur!</body>
+    </entry>
+    <entry>
+      <date>09/26/2008</date>
+      <body>These dreams just keep getting weirder...now I'm seeing a cube take itself apart. What <strong>does</strong> it mean?</body>
+      <image>cubeapart.png</image>
+    </entry>
+  </entries>
+</blog>

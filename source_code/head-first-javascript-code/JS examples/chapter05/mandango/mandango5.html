@@ -1,0 +1,121 @@
+<html>
+  <head>
+    <title>Mandango - The Macho Movie Ticket Finder</title>
+
+    <script type="text/javascript">
+      var seats = [[ false, true, false, true, true, true, false, true, false ],
+                   [ false, true, false, false, true, false, true, true, true ],
+                   [ true, true, true, true, true, true, false, true, false ],
+                   [ true, true, true, false, true, false, false, true, false ]];
+      var selSeat = -1;
+
+      function initSeats() {
+        // Initialize the appearance of all seats
+        for (var i = 0; i < seats.length; i++) {
+          for (var j = 0; j < seats[i].length; j++) {
+            if (seats[i][j]) {
+              // Set the seat to available
+              document.getElementById("seat" + (i * seats[i].length + j)).src = "seat_avail.png";
+              document.getElementById("seat" + (i * seats[i].length + j)).alt = "Available seat";
+            }
+            else {
+              // Set the seat to unavailable
+              document.getElementById("seat" + (i * seats[i].length + j)).src = "seat_unavail.png";
+              document.getElementById("seat" + (i * seats[i].length + j)).alt = "Unavailable seat";
+            }
+          }
+        }
+      }
+
+      function findSeats() {
+        // If seats are already selected, reinitialize all seats to clear them
+        if (selSeat >= 0) {
+          selSeat = -1;
+          initSeats();
+        }
+
+        // Search through all the seats for availability
+        var i = 0, finished = false;
+        while (i < seats.length && !finished) {
+          for (var j = 0; j < seats[i].length; j++) {
+            // See if the current seat plus the next two seats are available
+            if (seats[i][j] && seats[i][j + 1] && seats[i][j + 2]) {
+              // Set the seat selection and update the appearance of the seats
+              selSeat = i * seats[i].length + j;
+              document.getElementById("seat" + (i * seats[i].length + j)).src = "seat_select.png";
+              document.getElementById("seat" + (i * seats[i].length + j)).alt = "Your seat";
+              document.getElementById("seat" + (i * seats[i].length + j + 1)).src = "seat_select.png";
+              document.getElementById("seat" + (i * seats[i].length + j + 1)).alt = "Your seat";
+              document.getElementById("seat" + (i * seats[i].length + j + 2)).src = "seat_select.png";
+              document.getElementById("seat" + (i * seats[i].length + j + 2)).alt = "Your seat";
+
+              // Prompt the user to accept the seats
+              var accept = confirm("Seats " + (j + 1) + " through " + (j + 3) +
+                " in Row " + (i + 1) + " are available. Accept?");
+              if (accept) {
+                // The user accepted the seats, so we're done (break out of the inner loop)
+                finished = true;
+                break;
+              }
+              else {
+                // The user rejected the seats, so clear the seat selection and keep looking
+                selSeat = -1;
+                document.getElementById("seat" + (i * seats[i].length + j)).src = "seat_avail.png";
+                document.getElementById("seat" + (i * seats[i].length + j)).alt = "Available seat";
+                document.getElementById("seat" + (i * seats[i].length + j + 1)).src = "seat_avail.png";
+                document.getElementById("seat" + (i * seats[i].length + j + 1)).alt = "Available seat";
+                document.getElementById("seat" + (i * seats[i].length + j + 2)).src = "seat_avail.png";
+                document.getElementById("seat" + (i * seats[i].length + j + 2)).alt = "Available seat";
+              }
+            }
+          }
+
+          // Increment the outer loop counter
+          i++;
+        }
+      }
+    </script>
+  </head>
+
+  <body onload="initSeats();">
+    <div style="margin-top:25px; text-align:center">
+      <img id="seat0" src="" alt="" />
+      <img id="seat1" src="" alt="" />
+      <img id="seat2" src="" alt="" />
+      <img id="seat3" src="" alt="" />
+      <img id="seat4" src="" alt="" />
+      <img id="seat5" src="" alt="" />
+      <img id="seat6" src="" alt="" />
+      <img id="seat7" src="" alt="" />
+      <img id="seat8" src="" alt="" /><br />
+      <img id="seat9" src="" alt="" />
+      <img id="seat10" src="" alt="" />
+      <img id="seat11" src="" alt="" />
+      <img id="seat12" src="" alt="" />
+      <img id="seat13" src="" alt="" />
+      <img id="seat14" src="" alt="" />
+      <img id="seat15" src="" alt="" />
+      <img id="seat16" src="" alt="" />
+      <img id="seat17" src="" alt="" /><br />
+      <img id="seat18" src="" alt="" />
+      <img id="seat19" src="" alt="" />
+      <img id="seat20" src="" alt="" />
+      <img id="seat21" src="" alt="" />
+      <img id="seat22" src="" alt="" />
+      <img id="seat23" src="" alt="" />
+      <img id="seat24" src="" alt="" />
+      <img id="seat25" src="" alt="" />
+      <img id="seat26" src="" alt="" /><br />
+      <img id="seat27" src="" alt="" />
+      <img id="seat28" src="" alt="" />
+      <img id="seat29" src="" alt="" />
+      <img id="seat30" src="" alt="" />
+      <img id="seat31" src="" alt="" />
+      <img id="seat32" src="" alt="" />
+      <img id="seat33" src="" alt="" />
+      <img id="seat34" src="" alt="" />
+      <img id="seat35" src="" alt="" /><br />
+      <input type="button" id="findseats" value="Find Seats" onclick="findSeats();" />
+    </div>
+  </body>
+</html>

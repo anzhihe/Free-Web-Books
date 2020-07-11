@@ -1,0 +1,17 @@
+body {
+  font:14px arial;
+  text-align:center;
+}
+
+div.heading {
+  margin-bottom:25px;
+}
+
+div.field {
+  margin-bottom:5px;
+  text-align:left;
+}
+span.help {
+  color:#660000;
+  font-style:italic;
+}

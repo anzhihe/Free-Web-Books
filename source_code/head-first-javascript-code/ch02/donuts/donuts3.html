@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <title>Duncan's Just-In-Time Donuts</title>
+
+    <link rel="stylesheet" type="text/css" href="donuts.css" />
+
+    <script type="text/javascript">
+      function updateOrder() {
+        const TAXRATE = 0.0925;
+        const DONUTPRICE = 0.50;
+        var numCakeDonuts = parseInt(document.getElementById("cakedonuts").value);
+        var numGlazedDonuts = parseInt(document.getElementById("glazeddonuts").value);
+        if (isNaN(numCakeDonuts))
+          numCakeDonuts = 0;
+        if (isNaN(numGlazedDonuts))
+          numGlazedDonuts = 0;
+        var subTotal = (numCakeDonuts + numGlazedDonuts) * DONUTPRICE;
+        var tax = subTotal * TAXRATE;
+        var total = subTotal + tax;
+        document.getElementById("subtotal").value = "$" + subTotal.toFixed(2);
+        document.getElementById("tax").value = "$" + tax.toFixed(2);
+        document.getElementById("total").value = "$" + total.toFixed(2);
+      }
+
+      function placeOrder(form) {
+        // Submit the order to the server
+        form.submit();
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="frame">
+      <div class="heading">Duncan's Just-In-Time Donuts</div>
+      <div class="subheading">All donuts 50 cents each, cake or glazed!</div>
+      <div id="left">
+        <img src="donuttime.png" alt="Just-In-Time Donuts" />
+      </div>
+      <form name="orderform" action="donuts.php" method="POST">
+        <div class="field">
+          Name: <input type="text" id="name" name="name" value="" />
+        </div>
+        <div class="field">
+        # of cake donuts: <input type="text" id="cakedonuts" name="cakedonuts" value=""
+          onchange="updateOrder();" />
+        </div>
+        <div class="field">
+        # of glazed donuts: <input type="text" id="glazeddonuts" name="glazeddonuts" value=""
+          onchange="updateOrder();" />
+        </div>
+        <div class="field">
+        Minutes 'til pickup: <input type="text" id="pickupminutes" name="pickupminutes" value="" />
+        </div>
+        <div class="field">
+        Subtotal: <input type="text" id="subtotal" name="subtotal" value="" readonly="readonly" />
+        </div>
+        <div class="field">
+        Tax: <input type="text" id="tax" name="tax" value="" readonly="readonly" />
+        </div>
+        <div class="field">
+        Total: <input type="text" id="total" name="total" value="" readonly="readonly" />
+        </div>
+        <div class="field">
+        <input type="button" value="Place Order" onclick="placeOrder(this.form);" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
