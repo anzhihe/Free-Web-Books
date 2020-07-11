@@ -1,0 +1,173 @@
+<html>
+  <head>
+    <title>YouCube - The Blog for Cube Puzzlers</title>
+
+    <script type="text/javascript" src="ajax.js"> </script>
+    <script type="text/javascript" src="date.js"> </script>
+
+    <script type="text/javascript">
+      // Custom Date function to display a date in MM/DD/YYYY format
+      Date.prototype.shortFormat = function() {
+        return (this.getMonth() + 1) + "/" + this.getDate() + "/" + this.getFullYear();
+      }
+
+      // Blog object constructor
+      function Blog(body, date, image) {
+        // Assign the properties
+        this.body = body;
+        this.date = date;
+        this.image = image;
+      }
+
+      // Return a string representation of the blog entry
+      Blog.prototype.toString = function() {
+        return "[" + this.date.shortFormat() + "] " + this.body;
+      };
+
+      // Return a formatted HTML representation of the blog entry
+      Blog.prototype.toHTML = function(highlight) {
+        // Use a gray background as a highlight, if specified
+        var blogHTML = "";
+        blogHTML += highlight ? "<p style='background-color:#EEEEEE'>" : "<p>";
+
+        // Generate the formatted blog HTML code
+        if (this.image) {
+          blogHTML += "<strong>" + this.date.shortFormat() + "</strong><br /><table><tr><td><img src='" +
+            this.image + "'/></td><td style='vertical-align:top'>" + this.body + "</td></tr></table><em>" +
+            this.signature + "</em></p>";
+        }
+        else {
+          blogHTML += "<strong>" + this.date.shortFormat() + "</strong><br />" + this.body +
+            "<br /><em>" + this.signature + "</em></p>";
+        }
+        return blogHTML;
+      };
+
+      // See if the blog body contains a string of text
+      Blog.prototype.containsText = function(text) {
+        return (this.body.toLowerCase().indexOf(text.toLowerCase()) != -1);
+      };
+
+      // Set the blog-wide signature
+      Blog.prototype.signature = "by Puzzler Ruby";
+
+      // Sort helper to sort blog entries in reverse chronological order (most recent first)
+      Blog.blogSorter = function(blog1, blog2) {
+        return blog2.date - blog1.date;
+      };
+
+      // Global array of blog entries
+      var blog = new Array();
+
+      // Global Ajax request
+      var ajaxReq = new AjaxRequest();
+
+      // Load the blog from an XML doc on the server using Ajax
+      function loadBlog() {
+        document.getElementById("blog").innerHTML = "<img src='wait.gif' alt='Loading...' />";
+        ajaxReq.send("GET", "blog.xml", handleRequest);
+      }
+
+      // Handle the Ajax request
+      function handleRequest() {
+        if (ajaxReq.getReadyState() == 4 && ajaxReq.getStatus() == 200) {
+          // Store the XML response data
+          var xmlData = ajaxReq.getResponseXML().getElementsByTagName("blog")[0];
+
+          // Set the blog-wide signature
+          Blog.prototype.signature = "by " + getText(xmlData.getElementsByTagName("author")[0]);
+
+          // Create the array of Blog entry objects
+          var entries = xmlData.getElementsByTagName("entry");
+          for (var i = 0; i < entries.length; i++) {
+            // Create the blog entry
+            blog.push(new Blog(getText(entries[i].getElementsByTagName("body")[0]),
+              new Date(getText(entries[i].getElementsByTagName("date")[0])),
+              getText(entries[i].getElementsByTagName("image")[0])));
+          }
+
+          // Enable the blog buttons
+          document.getElementById("search").disabled = false;
+          document.getElementById("showall").disabled = false;
+          document.getElementById("viewrandom").disabled = false;
+
+          // Show the blog
+          showBlog(5);
+        }
+      }
+
+      // Show the list of blog entries
+      function showBlog(numEntries) {
+        // First sort the blog
+        blog.sort(Blog.blogSorter);
+
+        // Adjust the number of entries to show the full blog, if necessary
+        if (!numEntries)
+          numEntries = blog.length;
+
+        // Show the blog entries
+        var i = 0, blogListHTML = "";
+        while (i < blog.length && i < numEntries) {
+          blogListHTML += blog[i].toHTML(i % 2 == 0);
+          i++;
+        }
+
+        // Set the blog HTML code on the page
+        document.getElementById("blog").innerHTML = decodeURIComponent(blogListHTML);
+      }
+
+      // Search the list of blog entries for a piece of text
+      function searchBlog() {
+        var searchText = document.getElementById("searchtext").value;
+        for (var i = 0; i < blog.length; i++) {
+          // See if the blog entry contains the search text
+          if (blog[i].containsText(searchText)) {
+            alert(blog[i]);
+            break;
+          }
+        }
+
+        // If the search text wasn't found, display a message
+        if (i == blog.length)
+          alert("Sorry, there are no blog entries containing the search text.");
+      }
+
+      // Display a randomly chosen blog entry
+      function randomBlog() {
+        // Pick a random number between 0 and blog.length - 1
+        var i = Math.floor(Math.random() * blog.length);
+        alert(blog[i]);
+      }
+
+      // Get the text content of an HTML element
+      function getText(elem) {
+        var text = "";
+        if (elem) {
+          if (elem.childNodes) {
+            for (var i = 0; i < elem.childNodes.length; i++) {
+              var child = elem.childNodes[i];
+              if (child.nodeValue)
+                text += child.nodeValue;
+              else {
+                if (child.childNodes[0])
+                  if (child.childNodes[0].nodeValue)
+                    text += child.childNodes[0].nodeValue;
+              }
+            }
+          }
+        }
+        return text;
+      }
+    </script>
+  </head>
+
+  <body onload="loadBlog();">
+    <h3>YouCube - The Blog for Cube Puzzlers</h3>
+    <img src="cube.png" alt="YouCube" />
+    <input type="button" id="search" value="Search the Blog" disabled="disabled" onclick="searchBlog();" />
+    <input type="text" id="searchtext" name="searchtext" value="" />
+    <div id="blog"></div>
+    <input type="button" id="showall" value="Show All Blog Entries" disabled="disabled" onclick="showBlog();" />
+    <input type="button" id="viewrandom" value="View a Random Blog Entry" disabled="disabled" onclick="randomBlog();" />
+  </body>
+</html>

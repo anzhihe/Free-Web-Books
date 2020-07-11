@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>YouCube - Adding to the Blog for Cube Puzzlers</title>
+
+    <script type="text/javascript" src="ajax.js"> </script>
+    <script type="text/javascript" src="date.js"> </script>
+
+    <script type="text/javascript">
+      // Global Ajax request
+      var ajaxReq = new AjaxRequest();
+
+      // Add a new blog entry to an XML doc on the server using Ajax
+      function addBlogEntry() {
+        // Disable the Add button and set the status to busy
+        document.getElementById("add").disabled = true;
+        document.getElementById("status").innerHTML = "Adding...";
+
+        // Send the new blog entry data as an Ajax request
+        ajaxReq.send("POST", "addblogentry.php", handleRequest, "application/x-www-form-urlencoded; charset=UTF-8",
+          "date=" + document.getElementById("date").value + "&body=" + document.getElementById("body").value +
+          "&image=" + document.getElementById("image").value);
+      }
+
+      // Handle the Ajax request
+      function handleRequest() {
+        if (ajaxReq.getReadyState() == 4 && ajaxReq.getStatus() == 200) {
+          // Enable the Add button and clear the status
+          document.getElementById("add").disabled = false;
+          document.getElementById("status").innerHTML = "";
+
+          // Confirm the addition of the blog entry
+          alert("The new blog entry was successfully added.");
+        }
+      }
+
+      // Initialize the blog entry form
+      function initForm() {
+        document.getElementById("date").value = (new Date()).shortFormat();
+        document.getElementById("body").focus();
+      }
+    </script>
+  </head>
+
+  <body onload="initForm();">
+    <h3>YouCube - Adding to the Blog for Cube Puzzlers</h3>
+    Date: <input type="text" id="date" name="date" value="" size="10" /><br />
+    Body: <input type="text" id="body" name="body" value="" size="60" /><br />
+    Image (optional): <input type="text" id="image" name="image" value="" size="20" /><br />
+    <input type="button" id="add" value="Add the New Blog Entry" onclick="addBlogEntry();" /><br />
+    <div id="status"></div>
+  </body>
+</html>

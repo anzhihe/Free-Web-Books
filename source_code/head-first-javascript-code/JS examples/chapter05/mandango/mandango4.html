@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <title>Mandango - The Macho Movie Ticket Finder</title>
+
+    <script type="text/javascript">
+      var seats = [ false, true, false, true, true, true, false, true, false ];
+      var selSeat = -1;
+
+      function initSeats() {
+        // Initialize the appearance of all seats
+        for (var i = 0; i < seats.length; i++) {
+          if (seats[i]) {
+            // Set the seat to red (available)
+            document.getElementById("seat" + i).src = "seat_avail.png";
+            document.getElementById("seat" + i).alt = "Available seat";
+          }
+          else {
+            // Set the seat to gray (unavailable)
+            document.getElementById("seat" + i).src = "seat_unavail.png";
+            document.getElementById("seat" + i).alt = "Unavailable seat";
+          }
+        }
+      }
+
+      function findSeats() {
+        // If seats are already selected, reinitialize all seats to clear them
+        if (selSeat >= 0) {
+          selSeat = -1;
+          initSeats();
+        }
+
+        // Search through all the seats for availability
+        var i = 0, finished = false;
+        while ((i < seats.length) && !finished) {
+          // See if the current seat plus the next two seats are available
+          if (seats[i] && seats[i + 1] && seats[i + 2]) {
+            // Set the seat selection and update the appearance of the seats
+            selSeat = i;
+            document.getElementById("seat" + i).src = "seat_select.png";
+            document.getElementById("seat" + i).alt = "Your seat";
+            document.getElementById("seat" + (i + 1)).src = "seat_select.png";
+            document.getElementById("seat" + (i + 1)).alt = "Your seat";
+            document.getElementById("seat" + (i + 2)).src = "seat_select.png";
+            document.getElementById("seat" + (i + 2)).alt = "Your seat";
+
+            // Prompt the user to accept the seats
+            var accept = confirm("Seats " + (i + 1) + " through " + (i + 3) + " are available. Accept?");
+            if (accept) {
+              // The user accepted the seats, so we're done
+              finished = true;
+            }
+            else {
+              // The user rejected the seats, so clear the seat selection and keep looking
+              selSeat = -1;
+              document.getElementById("seat" + i).src = "seat_avail.png";
+              document.getElementById("seat" + i).alt = "Available seat";
+              document.getElementById("seat" + (i + 1)).src = "seat_avail.png";
+              document.getElementById("seat" + (i + 1)).alt = "Available seat";
+              document.getElementById("seat" + (i + 2)).src = "seat_avail.png";
+              document.getElementById("seat" + (i + 2)).alt = "Available seat";
+            }
+          }
+
+          // Increment the loop counter
+          i++;
+        }
+      }
+    </script>
+  </head>
+
+  <body onload="initSeats();">
+    <div style="margin-top:75px; text-align:center">
+      <img id="seat0" src="" alt="" />
+      <img id="seat1" src="" alt="" />
+      <img id="seat2" src="" alt="" />
+      <img id="seat3" src="" alt="" />
+      <img id="seat4" src="" alt="" />
+      <img id="seat5" src="" alt="" />
+      <img id="seat6" src="" alt="" />
+      <img id="seat7" src="" alt="" />
+      <img id="seat8" src="" alt="" /><br />
+      <input type="button" id="findseats" value="Find Seats" onclick="findSeats();" />
+    </div>
+  </body>
+</html>

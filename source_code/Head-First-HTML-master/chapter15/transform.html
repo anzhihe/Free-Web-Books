@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CSS Transforms and Transitions</title>
+	<style>
+		#box {
+			position: absolute;
+			top: 100px;
+			left: 100px;
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			transition: transform 2s;
+			-webkit-transition: -webkit-transform 2s;
+			-moz-transition: -moz-transform 2s;
+			-o-transition: -o-transform 2s;
+			/* no IE support for transition until possibly IE 10 */
+		}
+		#box:hover {
+			transform: rotate(45deg);
+			-webkit-transform: rotate(45deg); /* Safari, Chrome, mobile Safari, and Android */
+			-moz-transform: rotate(45deg); /* Firefox */
+			-o-transform: rotate(45deg); /* Opera */
+			-ms-transform: rotate(45deg); /* IE 9 */
+		}
+	</style>
+</head>
+<body>
+	<div id="box"> 
+	</div>
+</body>
+</html>

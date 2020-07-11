@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>House Finder</title>
+
+    <style type="text/css">
+      body {
+        font:14px arial;
+        text-align:center;
+      }
+
+      #frame {
+        width:400px;
+      }
+
+      #left {
+        float:left;
+        width:110px;
+      }
+
+      div.heading {
+        font:16px arial;
+        font-weight:bold;
+        margin-bottom:15px;
+      }
+
+      div.field {
+        margin-bottom:10px;
+        text-align:right;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="frame">
+        <div class="heading">Ready to find a new house?</div>
+      <div id="left">
+        <img src="house.png" alt="House" />
+      </div>
+      <form name="orderform">
+        <div class="field">Enter your annual income: <input id="income" type="text" size="12" /></div>
+        <div class="field">Enter the number of bedrooms: <input id="bedrooms" type="text" size="6" /></div>
+        <div class="field">Enter your ZIP code: <input id="zip" type="text" size="10" /></div>
+      </form>
+    </div>
+  </body>
+</html>

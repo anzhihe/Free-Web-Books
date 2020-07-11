@@ -1,0 +1,131 @@
+<html>
+  <head>
+    <title>Mandango - The Macho Movie Ticket Finder</title>
+
+    <script type="text/javascript">
+      var seats = [[ false, true, false, true, true, true, false, true, false ],
+                   [ false, true, false, false, true, false, true, true, true ],
+                   [ true, true, true, true, true, true, false, true, false ],
+                   [ true, true, true, false, true, false, false, true, false ]];
+      var selSeat = -1;
+
+      function initSeats() {
+        // Initialize the appearance of all seats
+        for (var i = 0; i < seats.length; i++) {
+          for (var j = 0; j < seats[i].length; j++) {
+            if (seats[i][j]) {
+              // Set the seat to available
+              setSeat(i * seats[i].length + j, "avail", "Available seat");
+            }
+            else {
+              // Set the seat to unavailable
+              setSeat(i * seats[i].length + j, "unavail", "Unavailable seat");
+            }
+          }
+        }
+      }
+
+      function getSeatStatus(seatNum) {
+        if (selSeat != -1 && (seatNum == selSeat || seatNum == (selSeat + 1) || seatNum == (selSeat + 2)))
+          return "yours";
+        else if (seats[Math.floor(seatNum / seats[0].length)][seatNum % seats[0].length])
+          return "available";
+        else
+          return "unavailable";
+      }
+
+      function showSeatStatus(seatNum) {
+        alert("This seat is " + getSeatStatus(seatNum) + ".");
+      }
+
+      function setSeat(seatNum, status, description) {
+        document.getElementById("seat" + seatNum).src = "seat_" + status + ".png";
+        document.getElementById("seat" + seatNum).alt = description;
+      }
+
+      function findSeats() {
+        // If seats are already selected, reinitialize all seats to clear them
+        if (selSeat >= 0) {
+          selSeat = -1;
+          initSeats();
+        }
+
+        // Search through all the seats for availability
+        var i = 0, finished = false;
+        while (i < seats.length && !finished) {
+          for (var j = 0; j < seats[i].length; j++) {
+            // See if the current seat plus the next two seats are available
+            if (seats[i][j] && seats[i][j + 1] && seats[i][j + 2]) {
+              // Set the seat selection and update the appearance of the seats
+              selSeat = i * seats[i].length + j;
+              setSeat(i * seats[i].length + j, "select", "Your seat");
+              setSeat(i * seats[i].length + j + 1, "select", "Your seat");
+              setSeat(i * seats[i].length + j + 2, "select", "Your seat");
+
+              // Prompt the user to accept the seats
+              var accept = confirm("Seats " + (j + 1) + " through " + (j + 3) +
+                " in Row " + (i + 1) + " are available. Accept?");
+              if (accept) {
+                // The user accepted the seats, so we're done (break out of the inner loop)
+                finished = true;
+                break;
+              }
+              else {
+                // The user rejected the seats, so clear the seat selection and keep looking
+                selSeat = -1;
+                setSeat(i * seats[i].length + j, "avail", "Available seat");
+                setSeat(i * seats[i].length + j + 1, "avail", "Available seat");
+                setSeat(i * seats[i].length + j + 2, "avail", "Available seat");
+              }
+            }
+          }
+
+          // Increment the outer loop counter
+          i++;
+        }
+      }
+    </script>
+  </head>
+
+  <body onload="initSeats();">
+    <div style="margin-top:25px; text-align:center">
+      <img id="seat0" src="" alt="" onclick="showSeatStatus(0);" />
+      <img id="seat1" src="" alt="" onclick="showSeatStatus(1);" />
+      <img id="seat2" src="" alt="" onclick="showSeatStatus(2);" />
+      <img id="seat3" src="" alt="" onclick="showSeatStatus(3);" />
+      <img id="seat4" src="" alt="" onclick="showSeatStatus(4);" />
+      <img id="seat5" src="" alt="" onclick="showSeatStatus(5);" />
+      <img id="seat6" src="" alt="" onclick="showSeatStatus(6);" />
+      <img id="seat7" src="" alt="" onclick="showSeatStatus(7);" />
+      <img id="seat8" src="" alt="" onclick="showSeatStatus(8);" /><br />
+      <img id="seat9" src="" alt="" onclick="showSeatStatus(9);" />
+      <img id="seat10" src="" alt="" onclick="showSeatStatus(10);" />
+      <img id="seat11" src="" alt="" onclick="showSeatStatus(11);" />
+      <img id="seat12" src="" alt="" onclick="showSeatStatus(12);" />
+      <img id="seat13" src="" alt="" onclick="showSeatStatus(13);" />
+      <img id="seat14" src="" alt="" onclick="showSeatStatus(14);" />
+      <img id="seat15" src="" alt="" onclick="showSeatStatus(15);" />
+      <img id="seat16" src="" alt="" onclick="showSeatStatus(16);" />
+      <img id="seat17" src="" alt="" onclick="showSeatStatus(17);" /><br />
+      <img id="seat18" src="" alt="" onclick="showSeatStatus(18);" />
+      <img id="seat19" src="" alt="" onclick="showSeatStatus(19);" />
+      <img id="seat20" src="" alt="" onclick="showSeatStatus(20);" />
+      <img id="seat21" src="" alt="" onclick="showSeatStatus(21);" />
+      <img id="seat22" src="" alt="" onclick="showSeatStatus(22);" />
+      <img id="seat23" src="" alt="" onclick="showSeatStatus(23);" />
+      <img id="seat24" src="" alt="" onclick="showSeatStatus(24);" />
+      <img id="seat25" src="" alt="" onclick="showSeatStatus(25);" />
+      <img id="seat26" src="" alt="" onclick="showSeatStatus(26);" /><br />
+      <img id="seat27" src="" alt="" onclick="showSeatStatus(27);" />
+      <img id="seat28" src="" alt="" onclick="showSeatStatus(28);" />
+      <img id="seat29" src="" alt="" onclick="showSeatStatus(29);" />
+      <img id="seat30" src="" alt="" onclick="showSeatStatus(30);" />
+      <img id="seat31" src="" alt="" onclick="showSeatStatus(31);" />
+      <img id="seat32" src="" alt="" onclick="showSeatStatus(32);" />
+      <img id="seat33" src="" alt="" onclick="showSeatStatus(33);" />
+      <img id="seat34" src="" alt="" onclick="showSeatStatus(34);" />
+      <img id="seat35" src="" alt="" onclick="showSeatStatus(35);" /><br />
+      <input type="button" id="findseats" value="Find Seats" onclick="findSeats();" />
+    </div>
+  </body>
+</html>
