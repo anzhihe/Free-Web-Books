@@ -2,7 +2,7 @@
 
 This is my personal collection of free tcp/ip web http(s) books, feel free to share and read.
 
-Google Drive：https://drive.google.com/drive/folders/1r2GWk5-PmKya6qBw7mzMhGLwDeVw-I-S?usp=sharing
+Google Drive：https://drive.google.com/drive/folders/1r2GWk5-PmKya6qBw7mzMhGLwDeVw-I-S
 
 百度网盘：https://pan.baidu.com/s/1uZcJDbBsz7s2GKRrWw2WTg  密码:dhnr
 
