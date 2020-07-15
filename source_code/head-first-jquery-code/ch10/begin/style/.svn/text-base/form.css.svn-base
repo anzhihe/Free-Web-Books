@@ -1,0 +1,19 @@
+body {
+  background: #000000 top left; 
+  color: #FFFFFF;
+  margin: 20px;
+  font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+  font-size:12px;
+}
+
+
+.form_pad{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.just_display{
+	border:0px;
+	background: transparent;
+	padding-bottom: 15px;
+}

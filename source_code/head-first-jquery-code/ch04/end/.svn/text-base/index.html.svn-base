@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Our Menu</title> 
+		<link type="text/css" href="styles/my_style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="menu_wrapper">
+			<header class="topper">
+				<h2>Our Menu</h2>
+				<nav>
+					<button id="vegOn">Go Vegetarian</button>
+					<button id="restoreMe">Restore Menu</button>
+				</nav>
+			</header>
+			<div class="left_col">
+				<h4>Dinner Entrees</h4>
+				<ul class="menu_entrees">		
+					<li>Poached Salmon
+						<ul class="menu_list">
+							<li class="fish">salmon</li>
+							<li>white wine</li>
+							<li>salt</li>
+							<li>black pepper </li>
+						</ul>
+					</li>
+					<li>Roasted Trout
+						<ul class="menu_list">
+							<li class="fish">grilled trout</li>
+							<li>mint</li>
+							<li>capers</li>
+							<li>olives</li>
+							<li>tomato</li>
+							<li>lemon</li>
+							<li>olive oil</li>
+							<li>potatoes </li>
+						</ul>
+					</li>
+					<li>Thai-style Halibut
+						<ul class="menu_list">
+							<li>coconut milk</li>
+							<li class="fish">pan-fried halibut</li>
+							<li>lemongrass broth</li>
+							<li>early autumn vegetables</li>
+							<li>Thai spices </li>
+						</ul>
+					</li>
+					<li>Braised Delight
+						<ul class="menu_list">
+							<li class="meat">lamb shoulder</li>
+							<li class="veg_leaf">cipolinni onions</li>
+							<li>carrots</li>
+							<li>baby turnip</li>
+							<li>roasted red grapes</li>
+							<li>braising jus</li>
+						</ul>
+					</li>
+					<li>House Grilled Panini
+						<ul class="menu_list">
+							<li class="meat">proscuttio</li>
+							<li>provolone</li>
+							<li>avocado</li>
+							<li>cherry tomatoes</li>
+							<li>sourdough roll</li>
+							<li>shoestring fries </li>
+						</ul>
+					</li>
+					<li>House Slider
+						<ul class="menu_list">
+							<li>marinated eggplant</li>
+							<li>zucchini</li>
+							<li class="hamburger">hamburger</li>
+							<li>balsamic vinaigrette</li>
+							<li>onion</li>
+							<li>carrots</li>
+							<li>Multi-grain roll</li>
+							<li>goat cheese</li>
+						</ul>
+					</li>
+					<li>Southwest Slider
+						<ul class="menu_list">
+							<li>whole chiles</li>
+							<li class="hamburger">hamburger</li>
+							<li>pepperjack cheese</li>
+							<li>onion</li>
+							<li>carrots</li>
+							<li>sliced avocado</li>
+							<li>Multi-grain roll</li>
+						</ul>
+					</li>
+					<li>Frittata
+						<ul class="menu_list">
+							<li class="meat">eggs</li>
+							<li>asiago, provolone, and romano cheeses</li>
+							<li>potatoes </li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+	 
+			<div class="right_col">
+				<h4>Soups and Sides</h4>
+				<ul class="menu_entrees">
+					<li>Coconut Soup
+						<ul class="menu_list">
+							<li>coconut milk</li>
+							<li class="meat">chicken</li>
+							<li>vegetable broth</li>
+						</ul>
+					</li>
+					<li>Soup Du Jour
+						<ul class="menu_list">
+							<li class="meat">grilled steak</li>
+							<li>mushrooms</li>
+							<li>seasonal vegetables</li>
+							<li>vegetable broth </li>
+						</ul>
+					</li>
+					<li>Hot and Sour Soup
+						<ul class="menu_list">
+							<li class="meat">roasted pork</li>
+							<li>carrots</li>
+							<li>Chinese mushrooms</li>
+							<li>chili</li>
+							<li>vegetable Broth </li>
+						</ul>
+					</li>
+					<li>Stuffed Baked Potato
+						<ul class="menu_list">
+							<li>potato</li>
+							<li class="meat">charbroiled or blackened chicken</li>
+							<li>seasonal veggies</li>
+							<li>cheddar &amp; jack cheese</li>
+							<li>creamy alfredo sauce</li>
+						</ul>
+					</li>
+					<li>Avocado Rolls
+						<ul class="menu_list">
+							<li> Avocado</li>
+							<li>Whole chiles</li>
+							<li>Sweet red peppers</li>
+							<li>Ginger dipping sauce</li>
+						</ul>
+					</li>
+					<li>Roasted Artichoke Hearts
+						<ul class="menu_list">
+							<li>Artichoke hearts</li>
+							<li>Balsamic vinegar</li>
+							<li>Steamed garlic</li>
+						</ul>
+					</li>
+					<li>Garlic Broccoli
+						<ul class="menu_list">
+							<li>Stir Fried Broccoli</li>
+							<li>Carrots</li>
+							<li>Onions</li>
+							<li>Garlic Sauce </li>
+						</ul>
+					</li>
+					<li>Stir-Fried Garlic Vegetables
+						<ul class="menu_list">
+							<li>Stir Fried Mixed Vegetables</li>
+							<li>Mushrooms</li>
+							<li>Carrots</li>
+							<li>Onions</li>
+							<li>Garlic </li>
+						</ul>
+					</li>
+					<li>Garlic Green Beans with Mushrooms
+						<ul class="menu_list">
+							<li>Stir Fried Green Beans</li>
+							<li>Carrots</li>
+							<li>Onions</li>
+							<li>Mushrooms </li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<footer class="bottom">
+				<h5>Address</h5>
+			</footer>
+		</div> 
+		<script src="scripts/jquery-1.6.2.min.js"></script>
+		<script src="scripts/my_scripts.js"></script>
+	</body>
+</html>

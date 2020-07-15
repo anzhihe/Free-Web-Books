@@ -1,0 +1,20 @@
+div{
+	float:left;
+	border: solid #000 3px;
+	text-align:left;
+}
+
+.guess_box{
+	height:245px;
+}
+
+#header{
+ 	width:100%;
+ 	border: 0px;
+ 	height:50px;
+}
+
+#main{
+	background-color: gray;
+	height: 500px;
+}

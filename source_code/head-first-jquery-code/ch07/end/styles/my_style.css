@@ -1,0 +1,80 @@
+body{
+	background-color:#000000;
+}
+
+p{
+	color:#33FF66;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+#text_top {
+	position:relative;
+	z-index: 4;
+}
+
+#top {
+	position:absolute;
+	left:191px;
+	top:15px;
+	z-index: 4;
+}
+
+#container{
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index: 0;
+}
+
+.lightning{
+	display:none;
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index: 0;
+}
+
+#frame {
+	position:absolute;
+	left:100px;
+	top:100px;
+	width:545px;
+	height:629px;
+	background-image:url(../images/frame.png);
+	z-index: 3;
+	overflow: hidden;
+}
+
+#pic_box{
+	position:relative; 
+	left:91px; 
+	top:84px; 
+	width:367px; 
+	height:460px; 
+	z-index: 2;
+	overflow: hidden;
+}
+
+.face{
+	position:relative;
+	left:0px;
+	top:0px;	
+	z-index: 1;
+}
+
+#head{
+	height:172px;
+}
+
+#eyes{
+	height:79px; 
+}
+
+#nose{
+	height:86px; 
+}
+
+#mouth{
+	height:117px; 
+}

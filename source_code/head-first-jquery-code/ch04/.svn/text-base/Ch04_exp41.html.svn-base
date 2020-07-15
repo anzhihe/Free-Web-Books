@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Our Menu</title>
+		<link type="text/css" href="end/styles/my_style.css" rel="stylesheet">
+	</head>
+ 
+	<body>
+		<div class="menu_wrapper">
+			<header class="topper">
+   				<h2>Our Menu</h2>
+   				<nav>
+   					<button id="vegOn">Go Vegetarian</button>
+      				<button id="restoreMe">Restore Menu</button>
+   				 </nav>
+ 			</header> 
+			<div class="left_col">
+
+
+				<h4>Dinner Entrees</h4>
+
+				<ul class="menu_entrees">
+
+					<li>Poached Salmon
+						<ul class="menu_list">
+							<li class="fish">salmon</li>
+							<li>white wine</li>
+							<li>salt</li>
+							<li>black pepper </li>
+						</ul>
+					</li>
+
+					<li>Roasted Trout
+						<ul class="menu_list">
+							<li class="fish">grilled trout</li>
+							<li>mint</li>
+							<li>capers</li>
+							<li>olives</li>				
+						</ul>
+					</li>
+
+					<li>Thai-style Halibut
+					
+						<ul class="menu_list">
+							<li>coconut milk</li>
+							<li class="fish">pan-fried halibut</li>
+							<li>lemongrass broth</li>
+							<li>early autumn vegetables</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="menu_entrees organic">
+					<li>Organic Broiled Beef
+						<ul class="menu_list organic">
+							<li class="meat local">beef</li>
+							<li class="local">white wine</li>
+							<li>salt</li>
+							<li>black pepper </li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<footer class="bottom">
+	   			<h5>Address</h5>
+			</footer>
+		</div>
+ 		<script src="end/scripts/jquery-1.6.2.min.js"></script>
+		<script src="end/scripts/my_scripts.js"></script>
+	</body>
+</html>

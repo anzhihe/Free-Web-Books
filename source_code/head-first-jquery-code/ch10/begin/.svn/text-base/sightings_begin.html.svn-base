@@ -1,0 +1,58 @@
+<!DOCTYPE html> 
+<html> 
+  <head>
+    <title>Submit Your Cryptid Sighting</title>
+    <link rel="stylesheet" type="text/css" href="style/form.css" />
+  <link type="text/css" href="jquery-ui-1.8.15.custom/css/sunny/jquery-ui-1.8.15.custom.css" rel="stylesheet" />
+  </head>
+  <body>
+
+	<div class="ui-widget-header ui-corner-top  ui-corner-bottom"> 
+      	<h2>Submit Your Cryptid Sighting</h2>
+  		<h3>Fill out the form below and click "Enter" to Submit</h3>
+	</div>
+
+
+	<form id="form" name="form" method="post" action="sightings.php">
+		
+		<div class="ui-widget-content "> 
+			<h3>CRYPTID SIGHTING DATA</h3>	
+</div>
+		<div class="ui-widget-content ">		
+					<h3>Date of Sighting:</h3>
+						<input  type="text" name="sighting_date" id="datepicker" />
+					
+					<h3>Creature Type:</h3>
+
+						
+					<h3>Distance from Creature (in ft.):</h3>
+						
+	
+					<h3>Creature Weight (in lbs.):</h3>
+						
+					<h3>Creature Height (in ft.)::</h3>
+						
+					<h3>Color of Creature:</h3>
+						
+		</div>
+		<div class="ui-widget-content ">	
+		<h3>CRYPTID LOCATION DATA</h3>
+		</div>
+		<div class="ui-widget-content ">
+				<h3>Latitude of Sighting:</h3>
+						
+
+					<h3>Longitude of Sighting:</h3>
+						
+	
+				</div>
+				
+			<div class="ui-widget-header ui-corner-top  ui-corner-bottom"> 
+				<button type="submit">Submit</button>
+			</div>	
+	</form>
+		<script src="scripts/jquery-1.6.2.min.js"></script>
+		<script src="scripts/my_script.js"></script>
+		<script src="jquery-ui-1.8.14.custom/js/jquery-ui-1.8.14.custom.min.js"></script>
+	</body>
+</html>
