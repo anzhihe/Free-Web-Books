@@ -29,6 +29,7 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 * Head First HTML与CSS中文版 [[Download]](/book/Head%20First%20HTML与CSS中文版.pdf)
 * Head First JavaScript中文版 [[Download]](/book/head%20first%20javascript%20中文版.pdf)
 * Head First Jquery中文版 [[Download]](/book/Head%20First%20Jquery中文版.pdf)
+* Head First Ajax中文版 [[Download]](/book/Head%20First%20Ajax.pdf)
 * Head First Web设计中文版
 * HTML5权威指南 [[Download]](/book/HTML5权威指南.pdf)
 * JavaScript权威指南 6e [[Download]](/book/JavaScript权威指南%206e.pdf)
