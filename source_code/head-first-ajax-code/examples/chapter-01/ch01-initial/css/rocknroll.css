@@ -1,0 +1,54 @@
+body { 
+  background: #333; 
+  font-family: Trebuchet MS, Verdana, Helvetica, Arial, san-serif; 
+  margin: 0; 
+  text-align: center; 
+}
+
+p { font-size: 12px; line-height: 20px; }
+a img { border: 0; }
+
+#wrapper { 
+  background: #750505 url('../images/bgWrapper.png') 8px 0 no-repeat;
+  border: solid #300; 
+  border-width: 0 15px 15px 15px; 
+  height: 700px; 
+  margin: 0 auto; 
+  position: relative; 
+  width: 730px; 
+}
+
+#logotypeLeft { left: -41px; position: absolute; top: 41px; z-index: 100; }
+#logotypeRight { left: 353px; position: absolute; top: 27px; z-index: 100; }
+
+#introPane { 
+  background: #fff; 
+  border: 15px solid #300; 
+  height: 187px; 
+  left: 338px; 
+  padding: 100px 15px 0 15px; 
+  position: absolute; 
+  top: 15px; 
+  text-align: left; 
+  width: 317px; 
+}
+
+#itemGuitar { left: 8px; position: absolute; top: 221px; }
+#itemShades { left: 8px; position: absolute; top: 326px; }
+#itemCowbell { left: 8px; position: absolute; top: 414px; }
+#itemHat { left: 8px; position: absolute; top: 540px; }
+
+#detailsPane { 
+  background: #fff url('../images/bgDetailPane.png') 115px 91px no-repeat;
+  border: 15px solid #300; 
+  height: 208px; 
+  left: 338px; 
+  padding: 100px 15px 0 15px; 
+  position: absolute; 
+  top: 347px; 
+  text-align: left; 
+  width: 317px; 
+}
+
+#itemDetail { left: 0; position: absolute; top: 0px; }
+#description { padding: 40px 0 0 0; }

@@ -1,0 +1,24 @@
+body { background: url('../images/bgBody.png'); font-family: Trebuchet MS, Verdana, Helvetica, Arial, san-serif; margin: 0; text-align: center; }
+
+#wrapper { background: url('../images/bgContent.jpg') 0 -2px; color: #ddd; height: 500px; margin: 0 auto; padding: 130px 180px 0 180px; position: relative; text-align: left; width: 440px; }
+
+h1 { font-size: 28px; }
+a { color: #FFFD25; }
+
+ul { padding: 0; }
+li { font-size: 12px; list-style: none; margin: 0 0 4px 0; }
+
+label { float: left; margin: 4px 6px 0 0; text-align: right; width: 160px; }
+input { border: 2px solid #1E3755; padding: 0 2px; width: 216px; }
+select { border: 2px solid #1E3755; width: 224px; }
+textarea { border: 2px solid #1E3755; padding: 0 2px; width: 216px; }
+#register { width: 100px; }
+
+#username, #password1, #password2 { background: #fff url('../images/status.gif') 202px 0 no-repeat; padding: 0 20px 0 2px; width: 198px; }
+
+#username.thinking, #password1.thinking { background-position: 202px -19px; }
+#username.approved, #password1.approved, #password2.approved { background-position: 202px -35px; }
+#username.denied, #password1.denied, #password2.denied { background-color: #FF8282; background-position: 202px -52px; }
+
+#coverBar { height: 115px; left: 182px; overflow: hidden; position: absolute; top: 490px; width: 440px; }
+#coverBar img { position: absolute; top: 0; }

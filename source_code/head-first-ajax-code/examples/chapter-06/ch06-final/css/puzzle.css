@@ -1,0 +1,10 @@
+body { background: #097c99 url('../images/bg.png'); margin: 0; text-align: center; }
+
+#puzzle { margin: 114px auto 0 auto; width: 595px; }
+#logo { background: url('../images/logotype.png') no-repeat; float: left; height: 0; overflow: hidden; padding: 188px 0 0 0; width: 251px; }
+#puzzleGrid { background: url('../images/bgGrid.png'); float: right; height: 280px; padding: 26px; width: 280px; }
+
+#puzzleGrid.win { background: url('../images/bgGridWin.png'); }
+
+#puzzleGrid table { width: 276px; }
+#puzzleGrid td img { padding: 0; margin: 0; }
