@@ -1,0 +1,17 @@
+#clickMe, #picframe{
+    background: #D8B36E;
+    padding: 20px;
+    font-family: 'Trebuchet MS', Verdana, Helvetica, Arial, sans-serif;
+    color: #000;
+   	border: 2px solid;
+	border-color:  #444 #444 #444 #444;
+    text-align: center;
+    width: 220px;
+    display: block;}
+
+#picframe {
+	border-width: 0px 2px 2px 2px;
+	border-color:  none #444 #444 #444;
+    display: none;}
+    
+    

@@ -1,0 +1,37 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>2010 Race Finishers</title> 
+        <link href="styles/my_style.css" rel="stylesheet"> 
+    </head> 
+    <body> 
+        <header> 
+            <h2>2010 Race Finishers!</h2> 
+        </header> 
+        <div id="main"> 
+            <ul class="idTabs"> 
+                <li><a href="#about">About the Race</a></li> 
+                <li><a href="#finishers">All Finishers</a></li> 
+            </ul> 
+            <div id="about"> 
+                <h4>About the race</h4> 
+                 This race is to raise awareness of something or other!
+            </div> 
+            <div id="finishers"> 
+                <h4>All Finishers</h4>
+				<ul id="finishers_all">
+					<li>Name: Bob Hope. Time: 25:30</li>
+					<li>Name: John Smith. Time: 25:31</li>
+					<li>Name: Jane Smith. Time:  25:44</li>
+				</ul>
+            </div> 
+        </div>
+        <footer>
+			<h4>Congratulations to all our finishers!</h4>		
+			Last Updated: <div id="updatedTime"></div>
+		</footer>
+        <script src="scripts/jquery-1.6.2.min.js"></script> 
+        <script src="scripts/my_scripts.js"></script> 
+        <script src="scripts/jquery.idTabs.min.js"></script> 
+    </body> 
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<title>Head First Black Jack</title> 
+		<link href="styles/my_style.css" rel="stylesheet">
+	</head> 
+	<body>
+		<div id="main">
+			<h1>Click to reveal your cards</h1>
+			<h3 id="hdrTotal"></h3><h3 id="hdrResult"></h3>
+			<div id="my_hand">
+			</div>
+			<div id="result"><img src="images/check.png" id="imgResult"></div>
+			<div id="controls">
+				<div id="btnDeal">
+					<img src="images/deck_small.jpg">
+				</div>
+				<div id="btnHit">
+					<img src="images/deck_small.jpg">
+				</div>
+				<div id="btnStick">
+					<img src="images/stick_small.jpg">
+				</div>
+				<div id="btnRestart">
+					<img src="images/restart_small.jpg">
+				</div>
+			</div>
+		</div>
+
+		<script src="scripts/jquery-1.6.2.min.js"></script>
+		<script src="scripts/my_scripts.js"></script>
+	</body>
+</html>

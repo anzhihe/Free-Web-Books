@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<finishers>
+        <runner>
+			<fname>John</fname>
+			<lname>Smith</lname>
+			<gender>m</gender>
+			<time>25:31</time>
+			<pic> </pic>
+        </runner>
+         
+        <runner>
+			<fname>Mary</fname>
+			<lname>Brown</lname>
+			<gender>f</gender>
+			<time>26:01 </time>
+			<pic> </pic>
+        </runner>
+        
+        <runner>
+			<fname>Frank</fname>
+			<lname>Jones</lname>
+			<gender>m</gender>
+			<time>26:08</time>
+			<pic> </pic>
+        </runner>
+        
+        <runner>
+			<fname>Bob</fname>
+			<lname>Hope</lname>
+			<gender>m</gender>
+			<time>26:38</time>
+			<pic> </pic>
+        </runner>
+        
+        <runner>
+			<fname>Jane</fname>
+			<lname>Smith</lname>
+			<gender>f</gender>
+			<time> 28:04</time>
+			<pic> </pic>
+        </runner>
+        
+        <runner>
+			<fname>Ryan</fname>
+			<lname>Rice</lname>
+			<gender>m</gender>
+			<time>28:24</time>
+			<pic> </pic>
+        </runner>
+        
+        <runner>
+			<fname>Jacob</fname>
+			<lname>Zimmy</lname>
+			<gender>m</gender>
+			<time>29:24</time>
+			<pic> </pic>
+        </runner>
+</finishers>
