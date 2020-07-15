@@ -1,0 +1,81 @@
+body { 
+  background: #1F394D url('../images/bgGradient.png');
+  background-repeat: repeat-x;
+  margin: 0; 
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+#schedulePane { 
+  background: url('../images/wrapperBg-trans.png'); 
+  background-repeat: no-repeat;
+  height: 622px;
+  margin: 0 auto;
+  position: relative;
+  width: 865px; 
+}
+
+#logo {
+  position: absolute;
+  top: 34px;
+  left: 30px;
+  width: 419px; 
+}
+
+#navigation {
+  position: absolute;
+  top: 151px;
+  left: 30px;
+  width: 155px;
+}
+
+#navigation img {
+  padding-bottom: 10px;
+}
+
+#tabs {
+  position: absolute;
+  top: 140px;
+  left: 190px; 
+  width: 650px;
+  height: 50px; 
+}
+
+#tabs a {
+  display: block;
+  float: left;
+  height: 0;
+  overflow: hidden;
+  padding: 140px 0 0 0;
+  width: 155px;
+  z-index: 200;
+}
+
+#content {
+  position: absolute;
+  text-align: center;
+  background-color: #6fb26f; 
+  top: 190px; 
+  left: 198px;
+  width: 615px;
+  height: 380px; 
+  padding: 10px;
+}
+
+table { 
+  border: 6px solid #1f394d; 
+  border-collapse: collapse; 
+  padding: 0 0 20px 0; 
+  width: 95%; 
+}
+
+td, th { 
+  border: 6px solid #1f394d; 
+  padding: 6px; 
+}
+
+form {
+  margin: 20px;
+}

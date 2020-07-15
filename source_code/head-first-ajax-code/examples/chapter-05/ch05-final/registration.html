@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Mike's Movies</title>
+  <link rel="stylesheet" href="css/movies.css" />
+  <script src="scripts/utils.js" type="text/javascript"></script> 
+  <script src="scripts/validation.js" type="text/javascript"></script> 
+</head>
+<body>
+<div id="wrapper">
+  <h1>Please register to access reviews:</h1>
+  <form action="register.php" method="POST">
+    <ul>
+      <li><label for="username">Username:</label><input id="username" type="text" name="username" /></li>
+      <li><label for="password1">Password:</label><input id="password1" type="password" name="password1" /></li>
+      <li><label for="password2">Re-enter Password:</label><input id="password2" type="password" name="password2" /></li>
+      <li class="tip">Passwords must be 6 or more characters and contain a number.</li>
+      <li><label for="firstname">First Name:</label><input id="firstname" type="text" name="firstname" /></li>
+      <li><label for="lastname">Last Name:</label><input id="lastname" type="text" name="lastname" /></li>
+      <li><label for="email">Email:</label><input id="email" type="text" name="email" /></li>
+      <li>
+        <label for="genre">Favorite Genre:</label>
+        <select name="genre" id="genre">
+          <option value="Action">Action</option> 
+          <option value="Comedy">Comedy</option>
+          <option value="Crime">Crime</option>
+          <option value="Documentary">Documentary</option>
+          <option value="Drama">Drama</option>
+          <option value="Horror">Horror</option>
+          <option value="Musical">Musical</option>
+          <option value="Romance">Romance</option>
+          <option value="SciFi">Sci-Fi/Fantasy</option>
+          <option value="Suspense">Suspense</option>
+          <option value="Western">Western</option>
+        </select>
+      </li>
+      <li><label for="favorite">Favorite Movie:</label><input id="favorite" type="text" name="favorite" /></li>
+      <li><label for="tastes">Describe your movie tastes:</label><textarea name="tastes" cols="60" rows="2" id="tastes"></textarea></li>
+      <li><label for="register"></label><input id="register" type="button" value="Register" name="register" /></li>
+    </ul>
+  </form>
+
+  <div id="coverBar">
+    <img src="images/coverMatrix.jpg" width="82" height="115" style="left: 0px;" />
+    <img src="images/coverDeadRingers.jpg" width="82" height="115" style="left: 88px;" />
+    <img src="images/coverDrStrangelove.jpg" width="82" height="115" style="left: 176px;" />
+    <img src="images/coverFuturama.jpg" width="82" height="115" style="left: 264px;" />
+    <img src="images/coverHolyGrail.jpg" width="82" height="115" style="left: 356px;" />
+    <img src="images/coverRaisingArizona.jpg" width="82" height="115" style="left: 444px;" />
+    <img src="images/coverRobotChicken.jpg" width="82" height="115" style="left: 532px;" />
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+body { background: #cdbdae; font-family: Trebuchet MS, Verdana, Helvetica, Arial, san-serif; margin: 0; text-align: center; }
+
+#background { background: url('../images/bgWrapper.png'); height: 565px; margin: 0 auto; position: relative; width: 818px; }
+
+#logotype { background: url('../images/logotype.png') no-repeat; height: 0; left: 59px; margin: 0; overflow: hidden; padding: 73px 0 0 0; position: absolute; top: 40px; width: 461px; }
+
+#letterbox { background: url('../images/bgLetterbox.png') no-repeat; height: 356px; left: 79px; position: absolute; top: 140px; width: 356px; }
+
+/* tile defaults */
+#letterbox a.tile { background: url('../images/tiles.png') 120px 80px no-repeat; height: 80px; position: absolute; width: 80px; }
+
+/* tile positioning */
+#letterbox a.t11 { top: 3px; left: 3px; }
+#letterbox a.t12 { top: 3px; left: 93px; }
+#letterbox a.t13 { top: 3px; left: 183px; }
+#letterbox a.t14 { top: 3px; left: 273px; }
+#letterbox a.t21 { top: 93px; left: 3px; }
+#letterbox a.t22 { top: 93px; left: 93px; }
+#letterbox a.t23 { top: 93px; left: 183px; }
+#letterbox a.t24 { top: 93px; left: 273px; }
+#letterbox a.t31 { top: 183px; left: 3px; }
+#letterbox a.t32 { top: 183px; left: 93px; }
+#letterbox a.t33 { top: 183px; left: 183px; }
+#letterbox a.t34 { top: 183px; left: 273px; }
+#letterbox a.t41 { top: 273px; left: 3px; }
+#letterbox a.t42 { top: 273px; left: 93px; }
+#letterbox a.t43 { top: 273px; left: 183px; }
+#letterbox a.t44 { top: 273px; left: 273px; }
+
+/* tile letters */
+#letterbox a.la { background-position: 0px 0px; }
+#letterbox a.lb { background-position: -80px 0px; }
+#letterbox a.lc { background-position: -160px 0px; }
+#letterbox a.ld { background-position: -240px 0px; }
+#letterbox a.le { background-position: -320px 0px; }
+#letterbox a.lf { background-position: -400px 0px; }
+#letterbox a.lg { background-position: 0px -80px; }
+#letterbox a.lh { background-position: -80px -80px; }
+#letterbox a.li { background-position: -160px -80px; }
+#letterbox a.lj { background-position: -240px -80px; }
+#letterbox a.lk { background-position: -320px -80px; }
+#letterbox a.ll { background-position: -400px -80px; }
+#letterbox a.lm { background-position: 0px -160px; }
+#letterbox a.ln { background-position: -80px -160px; }
+#letterbox a.lo { background-position: -160px -160px; }
+#letterbox a.lp { background-position: -240px -160px; }
+#letterbox a.lq { background-position: -320px -160px; }
+#letterbox a.lr { background-position: -400px -160px; }
+#letterbox a.ls { background-position: 0px -240px; }
+#letterbox a.lt { background-position: -80px -240px; }
+#letterbox a.lu { background-position: -160px -240px; }
+#letterbox a.lv { background-position: -240px -240px; }
+#letterbox a.lw { background-position: -320px -240px; }
+#letterbox a.lx { background-position: -400px -240px; }
+#letterbox a.ly { background-position: 0px -320px; }
+#letterbox a.lz { background-position: -80px -320px; }
+
+#currentWord { 
+  background: url('../images/bgCurrentWord.png') no-repeat; 
+  font-size: 32px; 
+  height: 86px; 
+  left: 439px; 
+  padding: 0;
+  position: absolute; 
+  top: 140px; 
+  width: 315px; 
+}
+
+#submit { background: url('../images/bgScore_Submit.png') no-repeat; font-size: 20px; height: 46px; left: 439px; position: absolute; top: 230px; width: 315px; }
+#submit a { color: #000; display: block; margin: 8px 8px 0 8px; padding: 4px 0 4px 0; text-decoration: none; }
+#submit a:hover { background: #000; color: #fa4b00; }
+#submit a.disabled:hover { background: none; color: #000; }
+
+#wordListBg { background: url('../images/bgWordCollection.png') no-repeat; height: 216px; left: 439px; position: absolute; top: 280px; width: 315px; }
+#wordList { height: 200px; overflow: auto; margin: 8px; padding: 0 12px; text-align: left; width: 299px; }
+#wordList p { font-size: 16px; line-height: 10px; }
+
+#score { background: url('../images/bgScore_Submit.png') no-repeat; font-size: 20px; height: 46px; left: 439px; padding: 10px 0 0 0; position: absolute; top: 500px; width: 315px; }
+
+a.disabled { 
+  cursor: default; 
+/*  filter: alpha(opacity=25); */
+  -moz-opacity: .25; 
+  opacity: .25; 
+}

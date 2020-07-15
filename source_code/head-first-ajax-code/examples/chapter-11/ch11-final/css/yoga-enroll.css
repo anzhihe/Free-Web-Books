@@ -1,0 +1,17 @@
+html { background: #1f394d; }
+body { background: url('../images/bgGradient.png'); font-family: Trebuchet MS, Arial, san-serif; margin: 0; text-align: center; }
+
+#background { background: url('../images/wrapperBg.png'); height: 622px; margin: 0 auto; position: relative; text-align: left; width: 826px; }
+
+h1 { background: url('../images/logo.png') no-repeat; height: 0; left: 32px; overflow: hidden; padding: 135px 0 0 0; position: absolute; top: 11px; width: 419px; }
+h2 { float: left; position: absolute; }
+
+#content { left: 42px; position: absolute; text-align: center; top: 169px; width: 741px; }
+#content fieldset { border: dashed #70b370; border-width: 1px 1px 0 1px; margin: 0 auto 3px auto; padding: 8px 0 8px 0; text-align: left; width: 460px; }
+#content fieldset.nolabel { border-width: 1px 0 0 0; }
+#content label { float: left; margin: 3px 6px 0 0; text-align: right; width: 170px; }
+#content input { width: 250px; }
+#content textarea { width: 250px; }
+#content fieldset.nolabel input { margin: 0 0 0 176px; width: 100px; }
+
+#content fieldset p { color: #900; font-size: 11px; font-style: italic; margin: 6px 0 0 190px; }
