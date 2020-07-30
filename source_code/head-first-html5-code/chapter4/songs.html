@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Song Suggestion</title>
+<meta charset="utf-8">
+<script>
+var songs = [
+    "Don't Stop Bitleaving, by Jourbee",
+    "Material Geek, by Modonna",
+    "Just Code, by Lady LaLa",
+    "We're Not Going to Code It, by Twisted System",
+    "Code on Eileen, by Dexy's Midnight Webbers"
+];
+
+function suggestSong() {
+    var index = Math.floor(Math.random() * songs.length);
+    var suggestion = songs[index];
+    return suggestion;
+}
+
+function searchForSong(word) {
+    var song;
+    for (var i = 0; i < songs.length; i++) {
+        song = songs[i];
+        if (songs[i].indexOf(word) >= 0) {
+            return song;
+        }
+    }
+    return "Song not found";
+}
+
+var song = suggestSong();
+
+var matchedSong = searchForSong("Just");
+
+alert(matchedSong);
+
+</script>
+</head>
+<body>
+</body>
+</html>

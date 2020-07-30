@@ -1,0 +1,132 @@
+/* videobooth.css */
+
+/* main content */
+div#booth {
+	margin: auto;
+	width: 1100px;
+}
+
+div#console {
+	position: relative;
+	background: url(images/videoformfactor.jpg) no-repeat top left;
+	width: 1100px;
+	height: 981px;
+	top: 0px;
+	left: 0px;
+}
+
+/* video */
+div#videoDiv {
+	position: relative;
+	width: 720px;
+	height: 480px;
+	top: 180px;
+	left: 190px;
+}
+video {
+	background-color: black;
+}
+div#videoDiv canvas {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+canvas#buffer {
+	display: none;
+}
+
+/* dashboard */
+div#dashboard {
+	position: absolute;
+	top: 844px;
+	left: 130px;
+}
+
+a.effect, a.control, a.videoSelection {
+	display: block;
+	width: 64px;
+	height: 56px;
+}
+
+div#effects {
+	position: absolute;
+	background: url(images/effectbuttons.png) no-repeat top left;
+	top: 0px;
+	left: 0px;
+	width: 259px;
+	height: 56px;
+}
+a#normal {
+	position: relative;
+	width: 68px;
+	top: 0px;
+}
+a#western {
+	position: absolute;
+	width: 62px;
+	top: 0px;
+	left: 68px;
+}
+a#noir {
+	position: absolute;
+	top: 0px;
+	left: 130px;
+}
+a#scifi {
+	position: absolute;
+	top: 0px;
+	left: 194px;
+}
+
+div#controls {
+	position: absolute;
+	background: url(images/playpausemute.png) no-repeat top left;
+	top: 0px;
+	left: 350px;
+	width: 259px;
+	height: 56px;
+}
+a#play {
+	position: relative;
+	top: 0px;
+}
+a#pause {
+	position: absolute;
+	top: 0px;
+	left: 64px;
+}
+a#loop {
+	position: absolute;
+	top: 0px;
+	left: 128px;
+}
+a#mute {
+	position: absolute;
+	top: 0px;
+	left: 192px;
+}
+
+div#videoSelection {
+	position: absolute;
+	background: url(images/video1video2buttons.png) no-repeat top left;
+	top: 0px;
+	left: 700px;
+	width: 137px;
+	height: 56px;
+}
+a#video1 {
+	position: relative;
+	width: 68px;
+	top: 0px;
+}
+a#video2 {
+	position: absolute;
+	top: 0px;
+	width: 70px;
+	left: 68px;
+}
+
+a:hover {
+	cursor: pointer;
+}
+

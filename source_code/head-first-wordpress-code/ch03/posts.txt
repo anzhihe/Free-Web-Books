@@ -1,0 +1,10 @@
+# The Anatomy of a Qubit
+Here at Acme Bit, we focus primarily on classic bits--the basic unit of computer information. Over the past year we have been experimenting with a different kind of bit, a quantum bit or qubit. Qubits have many of the same characteristics as bits in that they can be in two different states, on or off. However, they have an extra state called a superposition which is special to quantum bits and represents a linear of 0 and 1.
+
+We're still looking at practical applications for our customers, but the future definitely is bright for this quantum worker.
+
+
+# The Duality of the Bit
+No matter what size bit you have, 16, 32 or 64 each comes with only 2 discreet states: on or off. Now you may be thinking, "that's not a lot of options, how is that going to help my business?" Well the truth is, you only really need 2 states. Think of all the information that can be represented that way: on/off, 1/2, hot/cold, up/down, white/black. The possibilities are endless.
+
+So don't get hung up on your lack of options--embrace simplicity and wonderful duality of the bit.

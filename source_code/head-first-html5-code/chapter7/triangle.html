@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Triangle</title>
+<meta charset="utf-8">
+<script>
+window.onload = function() {
+	var canvas = document.getElementById("myCanvas");
+	var context = canvas.getContext("2d");
+
+	drawTriangle(canvas, context);
+}
+
+function drawTriangle(canvas, context) {
+	context.beginPath();
+	context.moveTo(100, 150);
+	context.lineTo(250, 75);
+	context.lineTo(125, 30);
+	context.closePath();
+	context.lineWidth = 5;
+	context.stroke();
+	context.fillStyle = "red";
+	context.fill();
+}
+</script>
+<style>
+body {
+}
+canvas { 
+	border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<canvas width="300" height="300" id="myCanvas">
+	<p>This example requires a browser that supports the
+	<a href="http://www.w3.org/html/wg/html5/">HTML5</a> 
+	&lt;canvas&gt; feature.</p>
+</canvas>
+</body>
+</html>

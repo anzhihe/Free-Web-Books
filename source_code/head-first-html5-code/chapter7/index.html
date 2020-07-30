@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>TweetShirt</title>
+    <meta charset="utf-8" />
+	<style>
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+	<script src="tweetshirt.js"></script>
+</head>
+<body>
+    <canvas width="600" height="200" id="tshirtCanvas">
+		<p>You need canvas to use Tweetshirt!</p>
+		<p>This example requires a browser that supports the
+		<a href="http://www.w3.org/html/wg/html5/">HTML5</a> 
+		&lt;canvas&gt; feature.</p>
+	</canvas>
+	<form>
+	<p>
+		<label for="backgroundColor">Select background color:</label>
+		<select id="backgroundColor">
+			<option value="white" selected="selected">White</option>
+			<option value="black">Black</option>
+		</select>
+	</p>
+	<p>
+		<label for="shape">Circles or squares?</label>
+		<select id="shape">
+			<option value="none" selected="selected">Neither</option>
+			<option value="circles">Circles</option>
+			<option value="squares">Squares</option>
+		</select>
+	</p>
+	<p>
+		<label for="foregroundColor">Select text color:</label>
+		<select id="foregroundColor">
+			<option value="black" selected="selected">Black</option>
+			<option value="white">White</option>
+		</select>
+	</p>
+	<p>
+		<label for="tweets">Pick a tweet:</label>
+		<select id="tweets">
+		</select>
+	</p>
+	<p>
+		<input type="button" id="previewButton" value="Preview">
+	</p>
+</form>
+
+<script src="http://twitter.com/statuses/user_timeline/timoreilly.json?callback=updateTweets">
+</script>
+
+</body>
+</html>
+
+
+
+

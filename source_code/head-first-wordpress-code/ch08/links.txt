@@ -1,0 +1,4 @@
+WP Super Cache: http://wordpress.org/extend/plugins/wp-super-cache/
+WP Optimize: http://wordpress.org/extend/plugins/wp-optimize/
+Y-Slow for Firefox: https://addons.mozilla.org/en-US/firefox/addon/5369/
+Amazon Web Services: http://aws.amazon.com

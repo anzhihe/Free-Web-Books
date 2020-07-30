@@ -1,0 +1,4 @@
+Sequel Pro (Mac): http://sequelpro.com
+HTTP Authentication: http://httpd.apache.org/docs/2.2/howto/auth.html
+Amazon Web Services: http://aws.amazon.com
+WP Backup: http://wordpress.org/extend/plugins/automatic-wordpress-backup/

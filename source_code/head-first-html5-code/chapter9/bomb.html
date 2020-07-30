@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>Fuse</title>
+<meta charset="utf-8">
+<script>
+
+localStorage.setItem("fuse", "-");
+while(true) {
+    var fuse = localStorage.getItem("fuse");
+    try { 
+        localStorage.setItem("fuse", fuse + fuse);
+    } catch(e) {
+        alert("Your browser blew up at " + fuse.length + " with exception: " + e);
+	break;
+    }
+}
+localStorage.removeItem("fuse");
+</script>
+</head>
+<body>
+</body>
+</html>
