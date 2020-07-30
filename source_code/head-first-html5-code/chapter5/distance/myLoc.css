@@ -1,0 +1,12 @@
+/*
+ * myLoc.css
+ *
+*/
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 10px;
+}
+div#location, div#distance {
+	padding: 5px;
+}
