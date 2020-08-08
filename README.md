@@ -49,6 +49,7 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 * How Tomcat Works 中文版 [[Download]](/book/How%20Tomcat%20Works%20中文版.pdf)
 * How Tomcat Works 英文版 [[Download]](/book/How%20Tomcat%20Works%20英文版.pdf)
 * 深入剖析Tomcat [[Download]](/book/深入剖析Tomcat.pdf)
+* 垃圾回收的算法与实现 [[Download]](/book/垃圾回收的算法与实现.pdf)
 * 深入理解Java虚拟机 [[Download]](/book/深入理解Java虚拟机[JVM高级特性与最佳实践](周志明).pdf)
 * Nginx教程从入门到精通 [[Download]](/book/Nginx教程从入门到精通(运维生存时间TTLSA出品).pdf)
 * 实战Nginx [[Download]](/book/实战Nginx.取代Apache的高性能Web服务器.2010.pdf)
