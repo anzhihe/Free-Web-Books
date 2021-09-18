@@ -65,6 +65,5 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 ---
 
 - [Web 開發人員的路線圖](https://github.com/goodjack/developer-roadmap-chinese)
-- [当在浏览器中输入 google.com 并且按下回车之后发生了什么？(整合版) ](https://chegva.com/4694.html)
 - [Gixy: Nginx configuration static analyzer](https://github.com/yandex/gixy)
 - [resources.oreilly.com-examples](https://resources.oreilly.com/examples)
