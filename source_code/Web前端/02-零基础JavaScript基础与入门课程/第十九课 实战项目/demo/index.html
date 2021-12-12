@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十九课 功能实战简易计算器</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        #calculator{
+            width:255px;
+            margin:30px;
+            background: #666;
+            padding:5px 0px 0px 5px;
+        }
+        .calcWrap{
+            width:245px;
+            height:100px;
+            background: #999;
+            color:#fff;
+            font-size: 23px;
+            position: relative;
+        }
+        .calcContent{
+            position: absolute;
+            bottom:5px;
+            right:10px;
+        }
+        .one,.two{
+            width:50px;
+            height:50px;
+            text-align: center;
+            line-height: 50px;
+            margin:5px 10px 5px 0px;
+            background: #f60;
+            display: inline-block;
+            color: #fff;
+            font-size: 23px;
+            cursor: pointer;
+        }
+        .two{
+            width:115px;         
+        }
+        .toolsBtn{
+            background: #06f;
+        }
+    </style>
+</head>  
+<body>
+    <div id="calculator">
+        <div class="calcWrap">
+            <span class="calcContent"></span>
+        </div>
+        <div>
+            <span class="one toolsBtn calcBtn">*</span>
+            <span class="one toolsBtn calcBtn">/</span>
+            <span class="one toolsBtn deleteNum">CE</span>
+            <span class="one toolsBtn reNum">AC</span>
+        </div>
+        <div>
+            <span class="one calcBtn">7</span>
+            <span class="one calcBtn">8</span>
+            <span class="one calcBtn">9</span>
+            <span class="one toolsBtn calcBtn">+</span>
+        </div>
+        <div>
+            <span class="one calcBtn">4</span>
+            <span class="one calcBtn">5</span>
+            <span class="one calcBtn">6</span>
+            <span class="one toolsBtn calcBtn">-</span>            
+        </div>
+        <div>
+            <span class="one calcBtn">1</span>
+            <span class="one calcBtn">2</span>
+            <span class="one calcBtn">3</span>
+            <span class="one toolsBtn calcBtn">.</span>            
+        </div>
+        <div>
+            <span class="two calcBtn">0</span>
+            <span class="two toolsBtn getResultBtn">=</span>
+        </div>                
+    </div>
+    <script>
+
+        var calcBtns = document.getElementsByClassName('calcBtn');
+        var calcContent = document.getElementsByClassName('calcContent')[0];
+        for(var i=0;i<calcBtns.length;i++){
+            calcBtns[i].addEventListener('click',function(){
+                calcContent.innerHTML += this.innerHTML;
+            });
+        }
+        
+        var getResultBtn = document.getElementsByClassName('getResultBtn')[0];
+        getResultBtn.addEventListener('click',function(){
+            var calcText = calcContent.innerHTML;
+            calcContent.innerHTML = eval(calcText);
+        });
+
+        var deleteNum = document.getElementsByClassName('deleteNum')[0];
+        deleteNum.addEventListener('click',function(){
+            var calcText = calcContent.innerHTML;  
+            calcContent.innerHTML = calcText.substring(0,calcText.length -1);          
+        });
+
+        var reNum = document.getElementsByClassName('reNum')[0];
+        reNum.addEventListener('click',function(){
+            calcContent.innerHTML = '';
+        });
+
+        document.onkeyup = function(event){
+            var event = event || window.event;
+            var value = event.key;
+            if(event.keyCode == 116 || event.keyCode == 17){
+                return;
+            }
+            if(event.keyCode ==13){
+                var calcText = calcContent.innerHTML;
+                calcContent.innerHTML = eval(calcText);    
+                return;            
+            }            
+            calcContent.innerHTML += event.key;                        
+        };
+
+    </script>
+</body> 
+</html>

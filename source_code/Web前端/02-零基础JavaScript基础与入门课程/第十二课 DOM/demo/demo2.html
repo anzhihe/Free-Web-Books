@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十二课 DOM（DOM操作）</title>
+</head> 
+<body>
+
+    <div id="div1">星星课堂</div>
+    <div>星星课堂真好</div>
+
+    <div class="div2">xingxingclassroom1</div>
+    <div class="div2">xingxingclassroom2</div>
+
+    <input type="checkbox" name="checkbox1" />
+    <input type="checkbox" name="checkbox1" />
+
+    <div id="div3">
+        <span class="span1">span1</span>
+    </div>
+
+
+    <script>
+        // console.log(document);
+        // var div1 = document.getElementById('div1');
+        // console.log(div1);
+        // var divs = document.getElementsByTagName('div');
+        // console.log(divs);
+        // console.log(divs[0]);
+        // var div2 = document.getElementsByClassName('div2');
+        // console.log(div2);//HTMLCollection(2) [div.div2, div.div2]
+
+        // var checkbox1 = document.getElementsByName('checkbox1');
+        // console.log(checkbox1);//NodeList(2) [input, input]
+        var div3 = document.getElementById('div3');
+        var span1 = div3.getElementsByClassName('span1')[0];
+        console.log(span1);
+
+    </script>
+</body> 
+</html>

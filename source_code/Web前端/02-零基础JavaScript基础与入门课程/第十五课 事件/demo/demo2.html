@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十五课 事件</title>
+    <style>
+        #div1{
+            width:300px;
+            height:300px;
+            margin:50px;
+            background: orange;
+            border:1px solid #ccc;
+        }
+    </style>
+</head> 
+<body>
+    <input type="text" id="input1" value="xingxingclassroom" />
+    <select name="" id="select1">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+    <button id="btn1">按钮</button>
+    <div id="div1">星星课堂</div>
+    <script>
+        // var input1 = document.getElementById('input1');
+        // var select1 = document.getElementById('select1');
+        // var btn1 = document.getElementById('btn1');
+        // input1.onblur = function(){
+        //     console.log('失去焦点');
+        // }
+        // input1.onchange = function(){
+        //     console.log('改变输入内容');
+        // }
+        // select1.onchange = function(){
+        //     console.log('选择不同内容');
+        // }  
+        // btn1.onclick = function(){
+        //     console.log('单击事件');
+        // } 
+        // btn1.ondblclick = function(){
+        //     console.log('双击事件');
+        // }
+        // input1.onfocus = function(){
+        //     console.log('获取焦点');
+        // }
+        // document.onkeydown = function(){
+        //     console.log('这是键盘事件onkeydown');
+        // } 
+        // document.onkeypress = function(){
+        //     console.log('这是键盘事件onkeypress');
+        // }
+        // document.onkeyup = function(){
+        //     console.log('这是键盘事件onkeyup');
+        // }   
+        // window.onload = function(){
+        //     console.log('页面加载完成');
+        // }
+        // document.onmousedown = function(){
+        //     console.log('这是鼠标事件onmousedown');
+        // }
+        // document.onmouseup = function(){
+        //     console.log('这是鼠标事件onmouseup');
+        // }  
+        // document.onmousemove = function(){
+        //     console.log('这是鼠标事件onmousemove');
+        // }
+        // var div1 = document.getElementById('div1');
+        // div1.onmousemove = function(){
+        //     console.log('这是鼠标事件onmousemove只在div1上触发');
+        // }
+        // div1.onmouseout = function(){
+        //     console.log('这是鼠标事件onmouseout，当鼠标离开div1的时候触发');
+        // }
+        // div1.onmouseover = function(){
+        //     console.log('这是鼠标事件onmouseover，当鼠标移动到div1里面的时候触发');
+        // }
+        // window.onresize = function(){
+        //     console.log('这是事件onresize');
+        // } 
+        var div1 = document.getElementById('div1');    
+        var input1 = document.getElementById('input1');    
+        input1.onselect = function(){
+            console.log('文本被选中');
+        }                                                                      
+    </script>
+</body> 
+</html>

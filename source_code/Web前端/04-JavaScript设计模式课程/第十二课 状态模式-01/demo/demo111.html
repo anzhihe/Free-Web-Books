@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function VideoCallMethod(state){
+            this.state = state;
+            this.$button = null;
+        }
+        VideoCallMethod.prototype.init = function(){
+            this.$button = document.createElement('button');
+            this.$button.innerHTML = '准备视频通话';
+            document.body.appendChild(this.$button);
+            this.eventCenter();
+        }
+        VideoCallMethod.prototype.eventCenter = function(){
+            var that = this;
+            this.$button.onclick = function(){
+                that.setFn();
+            }
+        }
+        VideoCallMethod.prototype.setFn = function(){
+            if(this.state == 'ready'){
+                this.$button.innerHTML = '准备视频通话';
+                this.state = 'calling';
+            }else if(this.state == 'calling'){
+                this.$button.innerHTML = '正在视频通话';
+                this.state = 'end';
+            }else if(this.state == 'end'){
+                this.$button.innerHTML = '视频通话结束';  
+                this.state = 'ready';              
+            }
+        }
+        
+        var v1 = new VideoCallMethod('ready');
+        v1.init();
+    </script>
+</body>
+</html>

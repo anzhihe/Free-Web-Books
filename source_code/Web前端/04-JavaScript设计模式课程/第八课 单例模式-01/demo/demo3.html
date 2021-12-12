@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第八课 单例模式</title>
+    <style>
+        .tip{
+            width:300px;
+            height:300px;
+            background: orange;
+            line-height: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="tip">等待框...</div> -->
+    <button class="btn1">按钮1</button>
+    <button class="btn2">按钮2</button>
+    <script>
+
+        var singleFn = function(fn){
+            var result = null;
+            return function(){
+                return result || (result = fn.apply(this,arguments));
+            }
+        }
+
+        var $btn1 = document.getElementsByClassName('btn1')[0];
+        var $btn2 = document.getElementsByClassName('btn2')[0];
+
+        function createModel(){
+            var $div = document.createElement('div');
+            document.body.appendChild($div);
+            $div.className = 'tip';
+            $div.innerHTML = '等待框...';
+            $div.style.display = 'none';
+            return $div;
+        }
+
+        var createSingleFn = singleFn(createModel);
+        var arr = [];
+
+        $btn1.onclick = function(){
+            var divNode = createSingleFn();
+            arr.push(divNode);
+            divNode.style.display = 'block';
+        }        
+
+        $btn2.onclick = function(){
+            console.log(arr);//(2) [div.tip, div.tip]
+            console.log(arr[0] === arr[1]);//true
+        }  
+
+    </script>
+</body>
+
+</html>

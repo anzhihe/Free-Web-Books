@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第七课 代理模式</title>
+</head>
+
+<body>
+    <script>
+        var loadImgFn = (function(){
+            var imgNode = document.createElement('img');
+            document.body.appendChild(imgNode);
+            return {
+                setSrc:function(src){
+                    imgNode.src = src;
+                }
+            }
+        })();
+        // loadImgFn.setSrc('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605951221410&di=c03f2810e656c4375662fe775b4c50c3&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F8%2F57eb31eb0aca9.jpg');
+
+        var proxyImgFn = (function(){
+            var img = new Image();
+            img.onload = function(){
+                loadImgFn.setSrc(img.src);
+            }
+            return {
+                setSrc:function(src){
+                    loadImgFn.setSrc('./loadingIcon.gif');                    
+                    img.src = src;                        
+                }
+            }
+        })();
+        proxyImgFn.setSrc('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605951221410&di=c03f2810e656c4375662fe775b4c50c3&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F8%2F57eb31eb0aca9.jpg');
+
+    </script>
+</body>
+
+</html>

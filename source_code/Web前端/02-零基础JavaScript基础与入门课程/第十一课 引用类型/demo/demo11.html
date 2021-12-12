@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十一课 引用类型（RegExp类型）</title>
+</head> 
+<body>
+    <script>
+        // var rp = new RegExp('xxkt');
+        // console.log(rp.test(undefined));//true
+        // console.log(rp.test('abc'));//false
+        var rp = new RegExp('xxkt','ig');
+        var rp1 = /xxkt/ig;
+        var rp2 = /,/ig;
+        // console.log(rp.test('xxkt123abcXxkT'));//true
+        // console.log(rp.exec('abcxxkt123'));
+        var str = 'xxkt,123,xxkt';
+        // console.log(str.match(rp));// ["xxkt", "xxkt"]
+        // console.log(str.search(rp));//0
+        // console.log(str.replace(rp,'星星课堂'));//星星课堂,123,星星课堂
+        console.log(str.split(','));//["xxkt", "123", "xxkt"]
+        console.log(str.replace('x','星星课堂'));//星星课堂xkt,123,xxkt
+    </script>
+</body> 
+</html>

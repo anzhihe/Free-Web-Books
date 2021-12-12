@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第六课 模板方法模式</title>
+</head>
+
+<body>
+    <script>
+
+        function BaseFn(){
+
+        }
+        BaseFn.prototype.init = function(){
+            this.firstFn();
+            this.secendFn();
+            if(this.needEditThird()){
+                this.thirdFn();
+            }
+        }
+        BaseFn.prototype.firstFn = function(){
+            console.log('基类的第一个方法');
+        }
+        BaseFn.prototype.secendFn = function(){
+            throw new Error('必须由子类改写基类的第二个方法');
+        }
+        BaseFn.prototype.thirdFn = function(){
+            console.log('子类决定是否改写基类的第三个方法');
+        }
+        BaseFn.prototype.needEditThird = function(){
+            return true;
+        }
+
+        function SubFn(){
+            BaseFn.apply(this);
+        }
+        SubFn.prototype = new BaseFn();
+        SubFn.prototype.secendFn = function(){
+           console.log('子类改写了基类的第二个方法'); 
+        }
+        SubFn.prototype.thirdFn = function(){
+            console.log('子类改写了基类的第三个方法');
+        }
+        SubFn.prototype.needEditThird = function(){
+            return true;
+        }
+
+        var s1 = new SubFn();
+        s1.init();
+
+    </script>
+</body>
+
+</html>

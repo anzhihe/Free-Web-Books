@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第三课 高级函数</title>
+</head>
+
+<body>
+    <button id="btn1">按钮1</button>
+    <script>
+        var addEventFn = (function(){
+            if(document.addEventListener){
+                return function(eventType,element,fn){
+                    element.addEventListener(eventType,fn,false);
+                }
+            }else if(document.attachEvent){
+                return function(eventType,element,fn){
+                    element.attachEvent('on' + eventType,fn);
+                }
+            }else{
+                return function(eventType,element,fn){
+                    element['on' + eventType] = fn;
+                }
+            }
+        })();
+        var $btn1 = document.getElementById('btn1');
+        addEventFn('click',$btn1,function(){
+            console.log('xingxingclassroom');
+        });
+    </script>
+</body>
+
+</html>

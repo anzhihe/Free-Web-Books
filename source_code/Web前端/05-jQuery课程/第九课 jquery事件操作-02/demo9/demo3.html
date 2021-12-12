@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第九课 jquery事件操作</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="div1">
+        <span>span1</span>
+        <button class="btn1">按钮1</button>
+    </div>
+    <script>
+        var $btn1 = $('.btn1');
+        $btn1.on('customEvent',function(event,data1,data2){
+            console.log('自定义事件');
+            console.log(data1 + data2);
+        });
+        $btn1.trigger('customEvent',[100,200]);//trigger方法只能由被绑定自定义事件处理函数的元素来触发
+        // $btn1.trigger('customEvent',[100,200]);
+        // $btn1.on('click',function(){
+        //     alert('星星课堂');
+        // });
+        // $btn1.trigger('click');
+    </script>
+</body>
+
+</html>

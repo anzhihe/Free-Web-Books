@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第五课 元素属性与效果</title>
+    <style>
+        .active{
+            background: orange;
+        }
+        .activeText{
+            font-size: 100px;
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- <div id="div1" class="active">星星课堂</div>
+    <button id="btn1">按钮1</button> -->
+    <div id="div1">星星课堂</div>
+    <script>
+        // var $div1 = $('#div1');
+        // var $btn1 = $('#btn1');
+        // var num = 0;
+        // $btn1.on('click',function(){
+        //     num ++;
+        //     $div1.toggleClass('active',num == 2);
+        // });
+        // $div1.addClass('active');
+        // $div1.addClass('active activeText');
+        // $div1.removeClass('active');
+        // $div1.removeClass();
+        // $div1.toggleClass('active');
+        var $div1 = $('#div1');
+        // $div1.html('<h3>xingxingclassroom</h3>');
+        // console.log($div1.html());//星星课堂
+        // console.log($div1.text());//星星课堂
+        $div1.text('<h3>xingxingclassroom</h3>');
+    </script>
+</body>
+
+</html>

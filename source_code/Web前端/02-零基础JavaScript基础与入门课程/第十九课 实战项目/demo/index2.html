@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>图片瀑布流</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        body{
+            text-align: center;
+        }
+        #imgWrap{
+            margin:0 auto;
+            position: relative;
+        }
+        #imgWrap img{
+            width:300px;
+            position: absolute;
+        }        
+    </style>
+</head>
+<body>
+    <div id="imgWrap">
+        <img class="imgColumn" src="./img/timg1.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg2.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg3.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg4.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg5.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg6.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg7.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg8.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg9.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg9.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg9.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg9.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg9.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg9.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg9.jpg" alt="" />
+    </div>
+    <script>
+        window.onload = function(){
+
+            var imgWrap = document.getElementById('imgWrap');
+            var imgColumn = document.getElementsByClassName('imgColumn');
+
+            var imgArr = [
+                './img/timg1.jpg',
+                './img/timg2.jpg',
+                './img/timg3.jpg',
+                './img/timg4.jpg',
+                './img/timg5.jpg',
+                './img/timg6.jpg',
+                './img/timg7.jpg',
+                './img/timg8.jpg',
+                './img/timg9.jpg'
+            ];
+
+            layoutWrap(300,5);
+
+            window.onscroll = function(){
+                var windowH = document.documentElement.clientHeight || document.body.clientHeight;
+                var scrollTop = document.documentElement.scrollTop;
+                var topImgHeight = imgColumn[imgColumn.length - 1].offsetTop;
+                if(windowH + scrollTop >= topImgHeight){
+                    for(var i=0;i<imgArr.length;i++){
+                        var imgColumnItem = document.createElement('img');
+                        imgColumnItem.setAttribute('class','imgColumn');
+                        imgColumnItem.src = imgArr[i];
+                        imgWrap.appendChild(imgColumnItem);
+                    }
+                    layoutWrap(300,5);                     
+                }               
+            }
+
+        }
+
+        function layoutWrap(imgWidth,num){
+            var imgWrap = document.getElementById('imgWrap');
+            var imgColumn = document.getElementsByClassName('imgColumn');
+            var windowW = document.documentElement.clientWidth || document.body.clientWidth;
+            var columnCount = parseInt(windowW / imgWidth);
+            var imgHeightArr = [];
+            imgWrap.style.width = columnCount * (imgWidth + num) + 'px';
+
+            for(var i=0;i<imgColumn.length;i++){
+                if(i < columnCount){
+                    imgColumn[i].style.top = 0 + 'px';
+                    imgColumn[i].style.left = (imgWidth + num) * i + 'px';
+                    imgHeightArr.push(imgColumn[i].offsetHeight);
+                }else{
+                    var minImgHeight = imgHeightArr[0];
+                    var index = imgHeightArr.indexOf(minImgHeight);
+                    for(var k=0;k<imgHeightArr.length;k++){
+                        if(minImgHeight > imgHeightArr[k]){
+                            minImgHeight = imgHeightArr[k];
+                            index = k;
+                        }
+                    }
+
+                    imgColumn[i].style.top = imgHeightArr[index] + num + 'px';
+                    imgColumn[i].style.left = (imgWidth + num) * index + 'px';
+                    imgHeightArr[index] += imgColumn[i].offsetHeight + num;
+
+                }
+            }
+
+        }
+
+    </script>
+</body>
+</html>

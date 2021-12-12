@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+<body>
+    <script>
+        var computedFn = function(num){
+            if(num <= 2){
+                return 1;
+            }else{
+                return arguments.callee(num -1) + arguments.callee(num - 2)
+            }
+        }
+        var proxyFn = function(fn){
+            var cache = {};
+            return function(){
+                var argsStr = Array.prototype.join.call(arguments,',');
+                if(argsStr in cache){
+                    return cache[argsStr];
+                }
+                return cache[argsStr] = fn.apply(this,arguments);
+            }
+        }
+        var proxyNewFn = (fn, cache = {}) => {
+            return new Proxy(fn, {
+                apply:function(target, context, args) {
+                    var argsString = args.join(',');
+                    if (argsString in cache) {
+                        return cache[argsString];
+                    }
+                    return cache[argsString] = fn.apply(this,args);
+                }
+            })
+        }
+        var fn1 = proxyFn(computedFn);
+        var fn2 = proxyNewFn(computedFn);
+        console.log(fn2(40));
+        console.log(fn2(40));
+    </script>
+</body>
+</html>

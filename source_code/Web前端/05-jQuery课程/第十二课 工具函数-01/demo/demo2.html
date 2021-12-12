@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十二课 工具函数</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        var defaults = {flag:false,num:5,title:'星星课堂'};
+        var options = {flag:true,title:'xingxingclassroom'};
+        var settings = $.extend(true,{},defaults,options);
+        console.log(settings);
+        // var obj1 = {
+        //     num:100,
+        //     data:{
+        //         aaa:200,
+        //         bbb:300
+        //     }
+        // };
+        // var obj2 = {
+        //     num:600,
+        //     otherNum:900,
+        //     data:{
+        //         aaa:1000,
+        //         ccc:3000
+        //     }
+        // };
+        // var obj3 = {
+        //     num:6000,
+        //     title:'星星课堂'
+        // }
+        // $.extend(true,obj1,obj2,obj3);
+        /*  
+            当第一个参数不传的时候拷贝对象的引用类型的属性和属性值会完全覆盖之前的目标对象的同名属性和属性值
+            当第一个参数传递为false的时候拷贝不会执行
+            当第一个参数传递为true的时候拷贝对象的引用类型的属性和属性值会与目标对象的同名属性和属性值相互合并
+        */
+        // console.log(obj1);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十八课 ajax</title>
+    <style>
+        #dataWrap{
+            width:500px;
+            height:300px;
+            background: orange;
+            color:#fff;
+        }
+        .pageSizeWrap{
+            display: inline-block;
+            margin:0px 30px;
+        }
+        .deleteDataBtn{
+            background: blue;
+            padding:3px;
+            color:#fff;
+            cursor: pointer;
+        }
+        .editDataBtn{
+            background: green;
+            cursor: pointer;
+        }
+    </style>
+</head> 
+<body>
+    <div>
+        <div id="dataWrap"></div>
+        <button id="searchBtn">查询数据</button>
+        <span>指定第几页：<input type="text" id="pageCount" /></span>
+        <span class="pageSizeWrap">指定一页几条数据：<input type="text" id="pageSize" /></span>
+        <span>老师的id：<input type="text" id="tearcherId" /></span>
+    </div>
+    <hr />
+    <div>
+        老师名称：<input type="text" id="name" />
+        学生数量：<input type="text" id="students" />
+        工作内容：<input type="text" id="job" />
+        <button id="addBtn">新增老师</button>
+    </div>
+    <hr />
+    <div>
+        修改老师名称：<input type="text" id="editName" />
+        修改学生数量：<input type="text" id="editStudents" />
+        修改工作内容：<input type="text" id="editJob" />
+        <button id="editBtn">修改老师</button>
+    </div>    
+    <script>
+        /*查询数据*/
+        var searchBtn = document.getElementById('searchBtn');
+        var dataWrap = document.getElementById('dataWrap');
+        searchBtn.onclick = function(){
+            var pageCount = Number(document.getElementById('pageCount').value);
+            var pageSize = Number(document.getElementById('pageSize').value);
+            var tearcherId = Number(document.getElementById('tearcherId').value);
+            getData(pageCount,pageSize,tearcherId);
+        }
+
+        function getData(pageCount,pageSize,tearcherId){//这是获取数据
+            var pageCount = pageCount || '';
+            var pageSize = pageSize || '';
+            var tearcherId = tearcherId || '';
+
+            var query = '?pageCount='+pageCount+'&pageSize='+pageSize+'';
+            if(pageCount == '' || pageSize == ''){
+                query = '';
+            }
+            var params = '/'+tearcherId+'';
+            if(tearcherId == ''){
+                params = '';
+            }
+
+            var xhr = new XMLHttpRequest();
+            var url = 'http://localhost:3000/tearcher'+params+''+query+'';
+            xhr.open('GET',url,true);
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    if(xhr.status == 200){
+                        createData(xhr.responseText);
+                    }
+                }
+            }
+            xhr.send();
+        }
+
+        function createData(responseText){//这是新建数据dom内容
+            var data = JSON.parse(responseText);
+            var dataInfo = data.dataInfo;            
+            if(!data.dataInfo){
+                dataInfo = data;
+            }
+            var str = '';
+            for(var i=0;i<dataInfo.length;i++){
+                str += '<div id="'+dataInfo[i].id+'"><span>'+dataInfo[i].id+'-'+dataInfo[i].name+'-'+dataInfo[i].students+'-'+dataInfo[i].job+'</span>'
+                str += '<span class="deleteDataBtn">删除数据</span>';
+                str += '<span class="editDataBtn">修改数据</span>';
+            }
+            dataWrap.innerHTML = str;  
+
+        }
+
+        /*新增数据*/
+        var addBtn = document.getElementById('addBtn');
+        addBtn.onclick = function(){
+            var name = document.getElementById('name').value;
+            var students = Number(document.getElementById('students').value);
+            var job = document.getElementById('job').value;
+
+            var option = {
+                name:name,
+                students:students,
+                job:job,
+            };
+
+            var xhr = new XMLHttpRequest();
+            var url = 'http://localhost:3000/tearcher/add';
+            xhr.open('POST',url,true);
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    if(xhr.status == 200){
+                        getData();
+                        alert('新增成功');
+                    }
+                }
+            }
+            xhr.send(JSON.stringify(option));  
+
+        }
+
+        /*删除数据*/
+        dataWrap.onclick = function(event){
+            var event = event || window.event;
+            var deleteDataBtn = event.target;
+            if(deleteDataBtn.className == 'deleteDataBtn'){
+                var id = deleteDataBtn.parentElement.id;               
+                if(id != '' && id != 'dataWrap'){
+                    var xhr = new XMLHttpRequest();
+                    var url = 'http://localhost:3000/tearcher/delete/'+id+'';
+                    xhr.open('DELETE',url,true);
+                    xhr.onreadystatechange = function(){
+                        if(xhr.readyState == 4){
+                            if(xhr.status == 200){
+                                getData();
+                                alert('删除成功');
+                            }
+                        }
+                    }
+                    xhr.send();
+                }
+            }
+
+        }
+
+        /*修改数据*/
+        var editBtn = document.getElementById('editBtn');        
+        dataWrap.addEventListener('click',function(event){
+            var event = event || window.event;
+            var editDataBtn = event.target;
+            var editDataArr = editDataBtn.parentElement.children[0].innerHTML.split('-');
+            editBtn.title = editDataBtn.parentElement.id;
+            if(editDataBtn.className == 'editDataBtn'){
+                var editName = document.getElementById('editName');
+                var editStudents = document.getElementById('editStudents');
+                var editJob = document.getElementById('editJob');
+                editName.value = editDataArr[1];
+                editStudents.value = Number(editDataArr[2]);
+                editJob.value = editDataArr[3];
+            }
+        });       
+
+        editBtn.onclick = function(){
+            var xhr = new XMLHttpRequest();
+            var url = 'http://localhost:3000/tearcher/edit';
+            var id = Number(editBtn.title);
+            var editName = document.getElementById('editName').value;
+            var editStudents = Number(document.getElementById('editStudents').value);
+            var editJob = document.getElementById('editJob').value;     
+            var data = {
+                id:id,
+                name:editName,
+                students:editStudents,
+                job:editJob,
+            };
+            xhr.open('PUT',url,true);
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    if(xhr.status == 200){
+                        getData();
+                        alert('修改成功');
+                    }
+                }
+            }
+            xhr.send(JSON.stringify(data));            
+        }
+
+    </script>        
+</body> 
+</html>

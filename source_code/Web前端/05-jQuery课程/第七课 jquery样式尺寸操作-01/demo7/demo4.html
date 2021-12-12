@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第七课 jquery样式尺寸操作</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        #div1{
+            width:200px;
+            height:200px;
+            background: orange;
+            position: absolute;
+            /* position: relative; */
+            top:100px;
+            left:50px;
+            /* display: none; */
+        }
+        #div2{
+            position:relative;
+            background: blue;
+            width:500px;
+            height:500px;
+            top:100px;
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="div2">
+        <div id="div1">星星课堂</div>
+    </div>
+    <script>
+        var $div1 = $('#div1');
+        console.log($div1.position());
+        console.log($div1.offset());
+        // $div1.offset({top:200});
+        // console.log($div1.offset());
+    </script>
+</body>
+
+</html>

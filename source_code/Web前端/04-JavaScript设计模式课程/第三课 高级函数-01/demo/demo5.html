@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第三课 高级函数</title>
+</head>
+
+<body>
+    <script>
+
+        function sum(a,b,c){
+            return a + b + c;
+        }
+        function curry(fn,args){
+            var args = args || [];
+            return function(){
+                var _args = args.concat(Array.prototype.slice.apply(arguments));
+                if(_args.length < fn.length){
+                    return curry.call(this,fn,_args);
+                }else{
+                    return fn.apply(this,_args);
+                }
+            }
+        }
+        var currySum = curry(sum,[100,200]);
+        console.log(currySum(300));//600
+        console.log(currySum(600));//900
+        // function firstSum(a){
+        //     return function(b){
+        //         return a + b;
+        //     }
+        // }
+        // console.log(sum(100,200));//300
+        // console.log(firstSum(300)(400));//700
+        // var f1 = firstSum(300);
+        // console.log(f1(400));//700
+
+    </script>
+</body>
+
+</html>

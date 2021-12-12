@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十四课 BOM</title>
+</head> 
+<body>
+    <a href="./demo1.html">demo1</a>
+    <a href="./demo2.html">demo2</a>
+    <a href="./demo3.html">demo3</a>
+    <a href="./demo4.html">demo4</a>    
+    <button id="back">back</button>
+    <button id="forward">forward</button>
+    <button id="go">go</button>
+    <script>
+        // console.log(window.history);
+        var back = document.getElementById('back');
+        var forward = document.getElementById('forward');
+        var go = document.getElementById('go');
+
+        back.addEventListener('click',function(){
+            window.history.back();
+        });
+
+        forward.addEventListener('click',function(){
+            window.history.forward();
+        }); 
+
+        go.addEventListener('click',function(){
+            window.history.go(2);
+        }); 
+
+    </script>
+</body> 
+</html>

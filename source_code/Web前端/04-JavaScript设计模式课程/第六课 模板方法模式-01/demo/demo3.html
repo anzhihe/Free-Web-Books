@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第六课 模板方法模式</title>
+    <style>
+        .tip{
+            width:300px;
+            height:300px;
+            background: orange;
+            margin:10px 0px;
+        }
+        .header{
+            border-bottom:1px solid #ccc;
+            height:45px;
+        }
+        .content{
+            height:200px;
+            border-bottom:1px solid #ccc;
+        }
+        .footer{
+            height:55px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- <div class="tip">
+            <div class="header">默认标题</div>
+            <div class="content">默认内容</div>
+            <div class="footer">默认底部</div>
+        </div> -->
+    </div>
+    <script>
+        function Tip(){
+            this.wrap = document.getElementsByClassName('wrap')[0];
+            this.tip = document.createElement('div');
+            this.header = document.createElement('div');
+            this.content = document.createElement('div');
+            this.footer = document.createElement('div');
+            this.settings = {};
+        }
+        Tip.prototype.init = function(option){
+            this.settings = option;
+            this.createFn();
+            this.eventCenter();
+        }
+        Tip.prototype.createFn = function(){
+            this.tip.className = 'tip';
+            this.header.className = 'header';
+            this.content.className = 'content';
+            this.footer.className = 'footer';
+
+            this.header.innerHTML = '默认标题';
+            this.content.innerHTML = this.settings.content;
+            this.footer.innerHTML = '默认底部';
+
+            this.tip.appendChild(this.header);
+            this.tip.appendChild(this.content);
+            this.tip.appendChild(this.footer);
+            this.wrap.appendChild(this.tip);
+
+        }
+        Tip.prototype.eventCenter = function(){
+            var that = this;
+            if(this.footerEvent()){
+                this.footerBtn.onclick = function(){
+                    that.settings.btnClickEvent();
+                }
+            }
+        }
+        Tip.prototype.footerEvent = function(){
+            return false;
+        }
+
+        function TitleTip(){
+            Tip.apply(this);
+            this.title = document.createElement('h3');
+        }
+        TitleTip.prototype = new Tip();
+        TitleTip.prototype.createFn = function(){
+            Tip.prototype.createFn.call(this);
+            this.title.innerHTML = this.settings.title;
+            this.header.innerHTML = '';
+            this.header.appendChild(this.title);
+        }
+
+        function BtnTip(){
+            Tip.apply(this);
+            this.footerBtn = document.createElement('button');
+        }
+        BtnTip.prototype = new Tip();
+        BtnTip.prototype.createFn = function(){
+            Tip.prototype.createFn.call(this);
+            this.footer.innerHTML = '';
+            this.footerBtn.innerHTML = this.settings.footerBtn;
+            this.footer.appendChild(this.footerBtn);
+        }
+        BtnTip.prototype.footerEvent = function(){
+            return true;
+        }
+
+        // var t1 = new Tip();
+        // t1.init();
+
+        var t1 = new TitleTip();
+        var option = {
+            title:'新的标题1',
+            content:'默认内容1'
+        };
+        t1.init(option);
+
+        var b1 = new BtnTip();
+        var option = {
+            content:'默认内容2',
+            footerBtn:'按钮',
+            btnClickEvent:function(){
+                console.log('按钮');
+            }
+        };
+        b1.init(option);
+
+    </script>
+</body>
+
+</html>

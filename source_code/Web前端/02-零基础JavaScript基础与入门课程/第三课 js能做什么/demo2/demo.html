@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第三课 js能做什么2（选项卡）</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        #wrap{
+            position: relative;
+            margin:100px;
+        }
+        #wrap ul{
+            width:300px;
+        }
+        #wrap ul li{
+            display: inline-block;
+            padding:3px 10px;
+            border:1px solid #ccc;
+            cursor: pointer;
+        } 
+        .tabContent{
+            width:300px;
+            height:300px;
+            border:1px solid #ccc;
+            position: absolute;
+            display: none;
+        } 
+        .active{
+            background: orange;
+        }               
+    </style>
+</head> 
+<body>
+    <div id="wrap">
+        <ul>
+            <li class="tab active">選項1</li>
+            <li class="tab">選項2</li>
+            <li class="tab">選項3</li>
+        </ul>
+        <div>
+            <div class="tabContent" style="background: blue;display: block;">內容1</div>
+            <div class="tabContent" style="background: green;">內容2</div>
+            <div class="tabContent" style="background: yellow;">內容3</div>
+        </div>
+    </div>
+    <script>
+        window.onload = function(){
+            var wrap = document.getElementById('wrap');
+            var tabs = wrap.getElementsByClassName('tab');
+            var tabContents = wrap.getElementsByClassName('tabContent');
+            for(var i=0;i<tabs.length;i++){
+                tabs[i].index = i;
+                tabs[i].onclick = function(){
+                    for(var k=0;k<tabs.length;k++){
+                        tabs[k].className = 'tab';
+                        tabContents[k].style.display = 'none';
+                    }
+                    this.className = 'tab active';
+                    tabContents[this.index].style.display = 'block';
+                }
+            }                        
+        }
+    </script>
+</body> 
+</html>

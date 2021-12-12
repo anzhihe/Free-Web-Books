@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十六课 表单验证组件</title>
+    <style>
+        .inputWrap{
+            margin:30px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="formWrap">
+        <div class="inputWrap">
+            <label>用户名：</label>
+            <input type="text" placeholder="请输入用户名" name="username" />
+        </div>
+        <div class="inputWrap">
+            <label>密码：</label>
+            <input type="password" placeholder="请输入密码" name="password" />
+        </div>
+        <div class="inputWrap">
+            <label>手机号码：</label>
+            <input type="text" placeholder="请输入手机号码" name="number" />
+        </div>
+        <div class="inputWrap">
+            <label>昵称：</label>
+            <input type="text" placeholder="请输入昵称" name="nickname" />
+        </div>        
+        <div class="inputWrap">
+            <label>邮箱：</label>
+            <input type="text" placeholder="请输入邮箱" name="email" />
+        </div>        
+        <button type="button" name="submit">提交数据</button>                                
+    </form>
+    <script>
+
+        function FormValidation(){
+            this.formWrap = null;
+            this.formLabel = null;
+            this.rules = null;
+            this.submitData = {};
+            this.submitForm = [];
+        }
+
+        FormValidation.prototype.init = function(){
+            this.formWrap = document.getElementById('formWrap');
+        }
+
+        FormValidation.prototype.bindInput = function(option){//绑定表单验证数据
+            this.submitForm.push(option);       
+            this.eventCenterFn(option);            
+        }
+
+        FormValidation.prototype.eventCenterFn = function(option){//事件中心
+            var that = this;
+            this.formWrap[option.label].onblur = function(){               
+                that.blurFn(this,option);
+            }            
+            this.formWrap['submit'].onclick = function(){
+                that.submitFn();
+            }
+        }
+
+        FormValidation.prototype.submitFn = function(){//提交验证
+            for(var i=0;i<this.submitForm.length;i++){
+                var formElement = this.formWrap[this.submitForm[i].label];
+                this.blurFn(formElement,this.submitForm[i]);
+            }
+            console.log(this.submitData);
+        }
+
+        FormValidation.prototype.blurFn = function(_this,option){//输入验证
+            var label = option.label;
+            var value = _this.value;                            
+            var result = this.rules.formRuleFn(value,option.rules);
+            this.formLabel = _this.parentElement;                            
+            var isError = this.updateError(result,option);
+            if(isError == 0){
+                this.submitData[label] = value;
+            }else{
+                this.submitData[label] = '';
+            }            
+        }
+
+        FormValidation.prototype.createError = function(result,option){//新建错误提示
+            var resultWrap = document.createElement('span');
+            resultWrap.setAttribute('class','resultWrap');
+            resultWrap.innerHTML = result.join(',');
+            this.formLabel.appendChild(resultWrap);
+        }
+
+        FormValidation.prototype.removeError = function(){//删除错误提示
+            var resultWrapClass = this.getFormLabel().getAttribute('class');           
+            if(resultWrapClass == 'resultWrap'){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        FormValidation.prototype.getFormLabel = function(){//获取表单项目
+            var formLabelWrap = this.formLabel.children;
+            var resultWrapLength = formLabelWrap.length;
+            return formLabelWrap[resultWrapLength - 1];           
+        }
+
+        FormValidation.prototype.replaceResultWrap = function(result,option){//替换错误提示
+            var resultWrap = this.getFormLabel();
+            var text = result.join(',') == 'true' ? '' : result.join(',');
+            resultWrap.innerHTML = text;
+        }
+
+        FormValidation.prototype.updateError = function(result,option){//更新错误提示
+            var result = result || [];   
+            if(!this.removeError()){
+                this.createError(result,option);
+            }else{
+                this.replaceResultWrap(result,option);
+            }  
+            return result.length;                                
+        }
+
+        function Rules(){
+            var that = this;
+            this.selectFn = {
+                'required':this.required.bind(that),
+                'minLength':this.minLength.bind(that),                
+                'maxLength':this.maxLength.bind(that),                
+                'checkPassword':this.checkPassword.bind(that),                
+                'checkNumber':this.checkNumber.bind(that),                
+                'checkEmail':this.checkEmail.bind(that),                
+            }
+        }
+
+        Rules.prototype.formRuleFn = function(value,rules){//添加验证规则
+            var result = [];          
+            for(var i=0;i<rules.length;i++){
+                for(var rule in rules[i]){
+                    if(rule != 'errorInfo' && this.selectFn[rule](value,rules[i]) !== true){
+                        result.push(this.selectFn[rule](value,rules[i]));
+                    }
+                }               
+            }        
+            return result;            
+        }
+
+        Rules.prototype.required = function(value,rule){//不能为空
+            return /^\s*$/g.test(value) ? rule.errorInfo : true;
+        }
+
+        Rules.prototype.minLength = function(value,rule){//最小长度
+            return value.length < rule.minLength ? rule.errorInfo : true;
+        }
+
+        Rules.prototype.maxLength = function(value,rule){//最大长度
+            return value.length > rule.maxLength ? rule.errorInfo : true;
+        }
+
+        Rules.prototype.checkPassword = function(value,rule){//验证密码
+            var result = true;
+            if(rule.checkPassword == 1){//密码强度较弱
+                result = !(/^[\w+]/.test(value)) ? rule.errorInfo : true;
+            }else if(rule.checkPassword == 2){//密码强度中等
+                result = !(/(?=.*[0-9])(?=.*[a-zA-Z])./.test(value)) ? rule.errorInfo : true;                
+            }else{//密码强度较强
+                result = !(/(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])/.test(value)) ? rule.errorInfo : true;
+            }
+            return result;
+        }
+
+        Rules.prototype.checkNumber = function(value,rule){//验证手机号码
+            return !(/^1[3456789]\d{9}$/.test(value)) ? rule.errorInfo : true;
+        }
+
+        Rules.prototype.checkEmail = function(value,rule){//验证邮箱
+            return !(/^\w+\@+[a-zA-Z0-9]+\.(com|cn|net)$/.test(value)) ? rule.errorInfo : true;
+        }
+
+        var fv1 = new FormValidation();
+        fv1.init();
+        fv1.bindInput({
+            label:'username',
+            rules:[
+                {required:true,errorInfo:'用户名不能为空'},
+                {minLength:3,errorInfo:'最少3位字符'},
+                {maxLength:9,errorInfo:'最多9位字符'},
+            ],
+        });
+        fv1.bindInput({
+            label:'password',
+            rules:[
+                {required:true,errorInfo:'密码不能为空'},
+                {minLength:6,errorInfo:'最少6位字符'},
+                {maxLength:15,errorInfo:'最多15位字符'},                
+                {checkPassword:1,errorInfo:'请输入正确的密码格式'}
+            ],
+        });        
+        fv1.bindInput({
+            label:'number',
+            rules:[
+                {required:true,errorInfo:'手机号码不能为空'},
+                {minLength:5,errorInfo:'最少5位字符'},                
+                {checkNumber:true,errorInfo:'请输入正确的手机号码'},                
+            ],
+        });
+        fv1.bindInput({
+            label:'nickname',
+            rules:[
+                {required:true,errorInfo:'昵称不能为空'}             
+            ],
+        });        
+        fv1.bindInput({
+            label:'email',
+            rules:[
+                {required:true,errorInfo:'邮箱不能为空'},             
+                {checkEmail:true,errorInfo:'请输入正确的邮箱格式'},             
+            ],
+        });                                
+        fv1.rules = new Rules();        
+
+    </script>
+</body>
+
+</html>

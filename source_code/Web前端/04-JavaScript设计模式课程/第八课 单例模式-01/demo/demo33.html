@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .modelTip{
+            width:300px;
+            height:300px;
+            background: orange;
+            text-align: center;
+            line-height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">需要等待框</button>
+    <button id="btn2">等待框实例对象相等</button>
+    <script>
+        var singleFn = function(fn){
+            var result;
+            return function(){
+                return result || (result = fn.apply(this, arguments));
+            }
+        };
+        function createModel(tip){
+            var lodingModelNode = document.createElement('div');
+            lodingModelNode.className = 'modelTip';
+            lodingModelNode.innerHTML = tip;
+            lodingModelNode.style.display = 'none';
+            document.body.appendChild(lodingModelNode);
+            return lodingModelNode;
+        }
+        var $btn1 = document.getElementById('btn1');
+        var arr = [];
+        var createSingleFn = singleFn(createModel);
+        $btn1.onclick = function(){
+            var loading = createSingleFn('加载中...');       
+            loading.style.display = 'block';
+            arr.push(loading);                 
+        }
+        
+        var $btn2 = document.getElementById('btn2');
+        $btn2.onclick = function(){
+            console.log(arr);//[div.modelTip, div.modelTip]
+            console.log(arr[0] === arr[1]);//true
+        }                    
+    </script>
+</body>
+</html>

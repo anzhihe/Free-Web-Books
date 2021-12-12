@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>图片瀑布流</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        body{
+            text-align: center;
+        }
+        #imgWrap{
+            margin:0 auto;
+            position: relative;
+        }
+        #imgWrap img{
+            width:300px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="imgWrap">
+        <img class="imgColumn" src="./img/timg1.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg2.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg3.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg4.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg5.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg6.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg7.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg8.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg9.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg1.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg2.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg3.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg4.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg5.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg6.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg7.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg8.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg9.jpg" alt="" />
+        <img class="imgColumn" src="./img/timg1.jpg" alt="" />        
+        <img class="imgColumn" src="./img/timg2.jpg" alt="" />        
+        <img class="imgColumn" src="./img/timg3.jpg" alt="" />        
+        <img class="imgColumn" src="./img/timg4.jpg" alt="" />        
+        <img class="imgColumn" src="./img/timg5.jpg" alt="" />        
+        <img class="imgColumn" src="./img/timg6.jpg" alt="" />        
+        <img class="imgColumn" src="./img/timg7.jpg" alt="" />        
+        <img class="imgColumn" src="./img/timg8.jpg" alt="" />        
+        <img class="imgColumn" src="./img/timg9.jpg" alt="" />        
+        <img class="imgColumn" src="./img/timg1.jpg" alt="" />        
+        <img class="imgColumn" src="./img/timg2.jpg" alt="" />        
+        <img class="imgColumn" src="./img/timg3.jpg" alt="" />        
+        <img class="imgColumn" src="./img/timg4.jpg" alt="" />        
+        <img class="imgColumn" src="./img/timg5.jpg" alt="" />        
+        <img class="imgColumn" src="./img/timg6.jpg" alt="" />        
+        <img class="imgColumn" src="./img/timg7.jpg" alt="" />        
+        <img class="imgColumn" src="./img/timg8.jpg" alt="" />        
+        <img class="imgColumn" src="./img/timg9.jpg" alt="" />                       
+    </div>
+    <script>
+
+        window.onload = function(){
+
+            var imgArr = [
+                './img/timg1.jpg',
+                './img/timg2.jpg',
+                './img/timg3.jpg',
+                './img/timg4.jpg',
+                './img/timg5.jpg',
+                './img/timg6.jpg',
+                './img/timg7.jpg',
+                './img/timg8.jpg',
+                './img/timg9.jpg'
+            ];
+            var imgWrap = document.getElementById('imgWrap');
+            var imgColumn = imgWrap.getElementsByClassName('imgColumn');
+
+            layoutWrap(300,5);
+
+            window.onscroll = function(){
+                var windowH = document.documentElement.clientHeight || document.body.clientHeight;
+                var scrollTop = document.documentElement.scrollTop;
+                var topImgHeight = imgColumn[imgColumn.length-1].offsetTop;
+                if(windowH + scrollTop >= topImgHeight){
+                    for(var i=0;i<imgArr.length;i++){
+                        var imgColumnItem = document.createElement('img');
+                        imgColumnItem.setAttribute('class','imgColumn');
+                        imgColumnItem.src = imgArr[i];
+                        imgWrap.appendChild(imgColumnItem);                        
+                    }
+                    layoutWrap(300,5);                    
+                }                                
+            }
+
+        } 
+
+        function layoutWrap(imgWidth,num){
+            var imgWrap = document.getElementById('imgWrap');
+            var imgColumn = imgWrap.getElementsByClassName('imgColumn');            
+            var windowW = document.documentElement.clientWidth || document.body.clientWidth;
+            var columnCount = parseInt(windowW / (imgWidth + num));//排列数量
+            var imgHeightArr = [];
+            
+            imgWrap.style.width = imgWidth * columnCount + num + 'px';
+
+            for(var i=0;i<imgColumn.length;i++){
+                if(i < columnCount){//当i小于排列数量的时候说明排列的是第一行图片
+                    imgColumn[i].style.left = ((imgWidth + num) * i) + 'px';
+                    imgColumn[i].style.top = 0 + 'px';
+                    imgHeightArr.push(imgColumn[i].offsetHeight);
+                }else{
+                    var minImgHeight = imgHeightArr[0] + num;//声明高度最小的那个尺寸
+                    var index = imgHeightArr.indexOf(minImgHeight);
+                    for(var k=0;k<imgHeightArr.length;k++){
+                        if(minImgHeight > imgHeightArr[k]){
+                            minImgHeight = imgHeightArr[k];//找到高度最小的那个尺寸
+                            index = k;//找到高度最小的尺寸下标
+                        }
+                    }
+
+                    imgColumn[i].style.left = (imgWidth + num) * index + 'px';//最小列的下标与图片宽度的乘积就是其他图片的left数值
+                    imgColumn[i].style.top = imgHeightArr[index] + num + 'px';//最小列的高度就是其他图片的top数值
+                    imgHeightArr[index] += imgColumn[i].offsetHeight + num;//更新添加了其他图片之后的列高度                    
+
+                }
+            }
+
+        }  
+    </script>
+</body>
+</html>

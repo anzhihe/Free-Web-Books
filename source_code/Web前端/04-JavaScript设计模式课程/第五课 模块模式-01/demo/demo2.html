@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第五课 模块模式</title>
+</head>
+
+<body>
+    <script>
+        var moduleFn = (function(){
+            var _num = 100;
+            function _fn1(){
+                console.log('fn1');
+            }
+            function _fn2(){
+                console.log(this);
+                console.log('fn2');
+            }
+            return {
+                getNum:function(){
+                    return num;
+                },
+                // outerFn1:function(){
+                //     console.log(this);//这里的this返回的指向是当前的返回对象
+                //     fn2();//当私有方法通过函数进行调用返回的时候，这里的this指向是window
+                // },
+                outerFn2:_fn2//当私用方法直接赋值返回的时候，私有方法中的this指向是当前的返回对象
+            }
+        })();
+        console.log(moduleFn.getNum());
+        // moduleFn.outerFn1();
+        moduleFn.outerFn2();
+        // console.log(num);
+        // fn1();
+    </script>
+</body>
+
+</html>

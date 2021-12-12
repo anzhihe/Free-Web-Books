@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十一课 引用类型（引用类型小结）</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .newsWrap{
+            list-style-type: square;
+            margin:30px;
+        }
+        .newsWrap li{
+            margin:10px 0px;
+            border-bottom:1px solid #ccc;
+            padding-bottom:10px;
+        }        
+        .newsWrap h5{
+            font-size: 19px;
+            color:#333;
+        }
+        .newsWrap h5{
+            font-size: 19px;
+        }
+        .newsWrap h5 a{
+            text-decoration: none;
+            color:#333;            
+        }
+        .newsWrap h5 a:hover{
+            text-decoration: underline;
+            color:rgb(82, 73, 211);            
+        }                          
+        .newsWrap p{
+            font-size: 12px;
+            color:#999;
+        }
+        .newsWrap span{
+            font-size: 11px;
+            color:#666;
+        } 
+        .newsWrap .label{
+            background: rgb(82, 73, 211);
+            color: #fff;
+            padding:2px 3px;
+            margin-left: 10px;
+        }                     
+    </style>
+</head> 
+<body>
+    <ul id="news1" class="newsWrap">
+        <!-- <li>
+            <h5><a href="###">流感季来临流感疫苗打还是不打？疾控专家来解答</a></h5>
+            <p>到底要不要接种流感疫苗？为什么要接种流感疫苗？哪些人群可以免费接种？</p>
+            <div>
+                <span>2016-01-03</span>
+                <span>健康</span>
+            </div>
+        </li>
+        <li>
+            <h5>流感季来临流感疫苗打还是不打？疾控专家来解答</h5>
+            <p>到底要不要接种流感疫苗？为什么要接种流感疫苗？哪些人群可以免费接种？</p>
+            <div>
+                <span>2016-01-03</span>
+                <span>健康</span>
+            </div>
+        </li>         -->
+    </ul>
+    其他内容
+    <ul id="news2" class="newsWrap">
+
+    </ul>
+    <script>
+        let newsList = [
+            {
+                title:'流感季来临流感疫苗打还是不打？疾控专家来解答',
+                descreption:'到底要不要接种流感疫苗？为什么要接种流感疫苗？哪些人群可以免费接种？',
+                time:'2016-01-03',
+                label:'健康'
+            },
+            {
+                title:'这些供暖知识你知道吗?室温保持18度至24度最适宜',
+                descreption:'在我国，集中供暖首要考虑的因素是温度。现行供热标准是：最低气温小于等于5℃且超过90天的地区进行集中供暖',
+                time:'2016-01-03',
+                label:'生活'
+            },
+            {
+                title:'中国又发现一世界级天坑群,拥有世界最丰富天坑资源',
+                descreption:'近日，自然资源部中国地质调查局公布，在广西壮族自治区那坡县发现一个世界级的天坑群',
+                time:'2016-01-03',
+                label:'自然'
+            }                        
+        ]
+
+        function loadNews(newsData,wrapNode){
+            let newsWrap = document.getElementById(wrapNode);
+            for(var i=0;i<newsData.length;i++){
+                let liNode = document.createElement('li');
+                liNode.innerHTML = '<h5><a href="###">'+newsData[i].title+'</a></h5><p>摘要：'+newsData[i].descreption+'</p><div><span>'+newsData[i].time+'</span><span class="label">'+newsData[i].label+'</span></div>';
+                newsWrap.appendChild(liNode);                    
+            }
+        }
+        loadNews(newsList,'news1');
+        loadNews(newsList,'news2');
+
+
+
+    </script>    
+</body> 
+</html>

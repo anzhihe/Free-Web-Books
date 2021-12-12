@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第六课 模板方法模式</title>
+    <style>
+        .tip{
+            width:300px;
+            height:300px;
+            background: orange;
+        }
+        .header{
+            border-bottom:1px solid #ccc;
+            height:45px;
+        }
+        .content{
+            height:200px;
+            border-bottom:1px solid #ccc;
+        }
+        .footer{
+            height:55px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- <div class="tip">
+            <div class="header">标题</div>
+            <div class="content">内容</div>
+            <div class="footer">底部</div>
+        </div> -->
+    </div>
+    <script>
+        //基类
+        function Tip(){
+            this.wrap = document.getElementsByClassName('wrap')[0];
+            this.tip = document.createElement('div');
+            this.header = document.createElement('div');            
+            this.content = document.createElement('div');
+            this.footer = document.createElement('div');                
+            this.settings = {};
+        }
+        Tip.prototype.init = function(obj){
+            this.settings = obj;
+            this.createFn();
+            this.eventCenter();
+        }
+        Tip.prototype.createFn = function(){
+            this.tip.className = 'tip';   
+            this.header.className = 'header';                                 
+            this.content.className = 'content'; 
+            this.footer.className = 'footer';            
+         
+            this.header.innerHTML = '默认标题';
+            this.content.innerHTML = this.settings.content;
+            this.footer.innerHTML = '默认底部';
+
+            this.tip.appendChild(this.header);
+            this.tip.appendChild(this.content);                                                         
+            this.tip.appendChild(this.footer);                                                         
+            this.wrap.appendChild(this.tip);                      
+        }
+        Tip.prototype.eventCenter = function(){
+            var that = this;
+            if(this.footerEvent()){
+                this.footerBtn.onclick = function(){
+                    that.settings.btnClickEvent();
+                }
+            }
+        }
+        Tip.prototype.footerEvent = function(){
+            return false;
+        }
+
+        //标题
+        function TitleTip(){
+            Tip.call(this);
+            this.title = document.createElement('h3');            
+        }
+        TitleTip.prototype = new Tip();
+        TitleTip.prototype.createFn = function(){            
+            Tip.prototype.createFn.call(this);
+            this.header.innerHTML = '';            
+            this.title.innerHTML = this.settings.title;
+            this.header.appendChild(this.title);                 
+        }
+
+        //按钮
+        function BtnTip(){
+            Tip.call(this);       
+            this.footerBtn = document.createElement('button');           
+        }
+        BtnTip.prototype = new Tip();
+        BtnTip.prototype.createFn = function(){
+            Tip.prototype.createFn.call(this);
+            this.footer.innerHTML = '';
+            this.footerBtn.innerHTML = this.settings.footerBtn;
+            this.footer.appendChild(this.footerBtn);                          
+        }
+        BtnTip.prototype.footerEvent = function(){
+            return true;
+        }
+
+        var t1 = new TitleTip();
+        var obj = {
+            title:'标题',
+            content:'内容'
+        };
+        t1.init(obj);
+
+        var b1 = new BtnTip();
+        var obj = {
+            content:'内容',
+            footerBtn:'按钮内容',
+            btnClickEvent:function(){
+                console.log('点击按钮');
+            }
+        };
+        b1.init(obj);
+
+    </script>
+</body>
+
+</html>

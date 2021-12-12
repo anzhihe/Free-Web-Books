@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十一课 引用类型（对象）</title>
+</head> 
+<body>
+    <script>
+        // var news = {
+        //     titel:'新闻标题',
+        //     content:'新闻内容',
+        //     create_time:'2016-01-03',
+        //     img:['img1.png','img2.png'],
+        //     author:'星星课堂'
+        // };
+        var obj1 = new Object();//typeof new操作符的一种，用new是来初始化一个Object类型
+        var obj2 = {//对象字面量的初始化  键就是属性名称，值就是属性值或者方法本身
+            name:'星星课堂',
+            'num':100,
+            5:'数字属性',
+            getSum:function(a,b){
+                return a + b;
+            },
+            'is-number':true
+        };
+        // obj1.name = '周小周';//点表示法
+        // obj1.num = 200;
+        // obj1.getDec = function(a,b){
+        //     return a - b;
+        // }
+        // delete obj1.num;//删除对象属性
+        // console.log(obj1);
+        // console.log(obj2.name);//点表示法访问属性
+        // console.log(obj2.getSum(1,2));//点表示法使用方法
+        // obj1['is-number'] = false;//中括号表示法
+
+        //访问属性和方法
+        var otherNum = 'num';
+        console.log(obj2[5]);
+        console.log(obj2.name);
+        console.log(obj2['is-number']);
+        console.log(obj2[otherNum]);//使用中括号访问属性和属性值的时候，属性名称可以是变量名称
+
+        //增加属性和方法
+        obj1['num'] = 200;
+        obj1['is-number'] = false;
+        obj1['name'] = '周小周';//使用中括号增加对象属性和属性值的时候，属性名称必须要用字符串的形式，可以包含特殊符号
+        console.log(obj1);
+
+    </script>
+</body> 
+</html>

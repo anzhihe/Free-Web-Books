@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+        function SetTextFn(type){
+            this.div = null;
+            this.type = type;
+            this.num = 0;
+        }
+        SetTextFn.prototype.init = function(){
+            this.div = document.createElement('div');
+            this.div.innerHTML = this.type + this.num;
+            document.body.appendChild(this.div);
+        }
+        SetTextFn.prototype.setAttrFn = function(num){
+            this.num = num;
+        }
+
+        var SetTextFactory = (function(){
+            var cache = {};
+            return {
+                created:function(type){
+                    var result = cache[type];
+                    if(!result){
+                        result = new SetTextFn(type);
+                        cache[type] = result;
+                    }
+                    return result;
+                }
+            }
+        })();
+
+        var f1 = SetTextFactory.created('星星课堂');
+        var f2 = SetTextFactory.created('xingxingclassroom');
+        for(var i=0;i<30;i++){
+            f1.setAttrFn(100 + i);
+            f1.init();
+        }
+        for(var i=0;i<50;i++){
+            f2.setAttrFn(300 + i);
+            f2.init();
+        }
+    </script>
+</body>
+</html>

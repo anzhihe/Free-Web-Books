@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+        function SetTextFn(type,num){
+            this.div = null;
+            this.type = type;
+            this.num = num;
+        }
+        SetTextFn.prototype.init = function(){
+            this.div = document.createElement('div');
+            this.div.innerHTML = this.type + this.num;
+            document.body.appendChild(this.div);
+        }
+        for(var i=0;i<30;i++){
+            var s1 = new SetTextFn('星星课堂',100 + i);
+            s1.init();
+        }
+        for(var i=0;i<50;i++){
+            var s1 = new SetTextFn('xingxingclassroom',300 + i);
+            s1.init();
+        }
+    </script>
+</body>
+</html>

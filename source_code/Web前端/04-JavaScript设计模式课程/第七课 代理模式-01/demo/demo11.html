@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var createDiv = (function(){
+            var $div = document.createElement('div');
+            document.body.appendChild($div);
+            return {
+                createFn:function(str){
+                    $div.innerHTML = str;
+                }
+            }
+        })();
+        var proxyStrFn = (function(){
+            var that = this;
+            setTimeout(function(){
+                createDiv.createFn(that.str);
+            },2000);
+            return {
+                createFn:function(str){
+                    createDiv.createFn('请等待文本规则验证');
+                    if(str.indexOf('星星课堂') != -1){
+                        that.str = str;
+                    }else{
+                        that.str = '文本不包含星星课堂';                        
+                    }
+                }
+            }
+        })();
+        proxyStrFn.createFn('星星课堂');
+    </script>
+</body>
+</html>

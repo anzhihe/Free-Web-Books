@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十一课 引用类型（Function类型2）</title>
+</head> 
+<body>
+    <script>
+        // var arr = [1,2,3];
+        // console.log(arr.concat);
+        function fn(a,b,c){
+            // console.log(arguments);
+            // console.log(arguments[0]);
+            // console.log(arguments.length);
+            // console.log(arguments.concat);
+            // console.log(arguments.splice);
+            // console.log(arguments.push);
+            return arguments[0] + arguments[1] + arguments[2];
+            console.log('这里不会执行');
+        }
+        var num = fn(100,200,300,400,500,600);
+        console.log(num);
+        // var num = fn(1,2,3);
+        // console.log(num);
+        // console.log(fn(1,2));
+    </script>
+</body> 
+</html>

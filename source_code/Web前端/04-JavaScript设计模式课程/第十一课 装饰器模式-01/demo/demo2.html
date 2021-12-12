@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十一课 装饰器模式</title>
+</head>
+
+<body>
+    <script>
+        Function.prototype.beforeFn = function(fn){
+            var _fn = this;
+            return function(){
+                fn.apply(this,arguments);
+                console.log(_fn.num);
+                return _fn.apply(this,arguments);
+            }
+        }
+        Function.prototype.afterFn = function(fn){
+            var _fn = this;
+            return function(){
+                var _fnResult = _fn.apply(this,arguments);
+                fn.apply(this,arguments);
+                return _fnResult;
+            }
+        }
+
+        function fn1(){
+            console.log(100);
+        }
+        fn1.num = 500;
+        var f1 = fn1.beforeFn(function(){
+            console.log('星星课堂');
+        }).afterFn(function(){
+            console.log('xingxingclassroom');
+        });
+        f1();
+        console.log(fn1.num);
+        console.log(f1.num);
+        // var f1 = fn1.afterFn(function(){
+        //     console.log('xingxingclassroom');
+        // });
+        // f1();
+        // var f1 = fn1.beforeFn(function(){
+        //     console.log('星星课堂');
+        // });
+        // f1();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十三课 职责链模式</title>
+</head>
+
+<body>
+    <script>
+        function fn1(num){
+            if(num <= 100){
+                console.log('数字小于等于100');
+            }else if(num > 100 && num <= 300){
+                console.log('数字大于100小于等于300');
+            }else if(num > 300 && num <= 600){
+                console.log('数字大于300小于等于600');
+            }else if(typeof num != 'number'){
+                console.log('数字错误');
+            }
+        }
+        // fn1('sdfjkhbsdkjfbhd');
+
+        function f100(num){
+            if(num <= 100){
+                console.log('数字小于等于100');
+            }else{
+                console.log('f100传递请求');
+                return 'next';
+            }
+        }
+
+        function f300(num){
+            if(num > 100 && num <= 300){
+                console.log('数字大于100小于等于300');
+            }else{
+                console.log('f300传递请求');
+                return 'next';
+            }
+        }
+
+        function f600(num){
+            if(num > 300 && num <=600){
+                console.log('数字大于300小于等于600');
+            }else{
+                console.log('f600传递请求');
+                return 'next';
+            }
+        }
+
+        function fError(num){
+            if(typeof num != 'number'){
+                console.log('数字错误');
+            }else{
+                console.log('数字大于600');
+            }
+        }
+
+        Function.prototype.afterFn = function(fn){
+            var _fn = this;
+            return function(){
+                var result = _fn.apply(this,arguments);
+                if(result == 'next'){
+                    return fn.apply(this,arguments);
+                }
+                return result;
+            }
+        }
+        var fn = f100.afterFn(f300).afterFn(f600).afterFn(fError);
+        // fn('sdfgsdfgdsfgdfgfed');
+
+        function LineFn(fn){
+            this.fn = fn;
+            this.next = null;
+        }
+        LineFn.prototype.bindFn = function(next){
+            return this.next = next;
+        }
+        LineFn.prototype.setFn = function(num){
+            var result = this.fn.apply(this,arguments);
+            if(result == 'next'){
+                this.nextFn();
+            }
+            return result;
+        }
+        LineFn.prototype.nextFn = function(){
+            this.next.setFn.apply(this.next,arguments);
+        }
+
+        var f1 = new LineFn(f100);
+        var f3 = new LineFn(f300);
+        var f6 = new LineFn(f600);
+        var fe = new LineFn(fError);
+        f1.bindFn(f3).bindFn(f6).bindFn(fe);
+        f1.setFn('dffgsdfsdsd');
+
+    </script>
+</body>
+
+</html>

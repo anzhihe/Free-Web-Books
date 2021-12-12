@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十二课 工具函数</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="div1">1</div>
+    <div class="div1">2</div>
+    <div class="div1">3</div>
+    <script>
+        var arr = [100,200,300];
+        // var obj = {
+        //     a:100,
+        //     b:200,
+        //     c:300,
+        //     length:3
+        // }
+        var obj = {
+            0:100,
+            1:200,
+            2:300,
+            length:3
+        }        
+        var $div1 = $('.div1');
+        var newArr = $.makeArray(obj);
+        console.log(newArr);
+        // for(var i=0;i<arr.length;i++){
+        //     console.log(i +arr[i]);
+        // }
+        // for(var i in obj){
+        //     console.log(i +obj[i]);
+        // }
+        // $.each($div1,function(i,item){
+        //     console.log(i);
+        //     console.log(item);
+        // });
+        // var arr = [100,200,300];
+        // console.log($.inArray(600,arr));
+        // if($.inArray(600,arr) == -1){
+        //     console.log('当前值不在指定数组中');
+        // }
+    </script>
+</body>
+
+</html>

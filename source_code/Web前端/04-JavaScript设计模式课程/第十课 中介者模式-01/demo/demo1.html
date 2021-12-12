@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十课 中介者模式</title>
+</head>
+
+<body>
+    <script>
+        function Fn1(num){
+            this.num = num;
+        }
+        Fn1.prototype.add = function(){
+            this.num ++;
+            middleFn.addFn(this.num);
+        }
+        Fn1.prototype.less = function(){
+            this.num --;
+            middleFn.lessFn(this.num);
+        }
+
+        var middleFn = {
+            addArr:[],
+            lessArr:[],
+            init:function(){
+                var fn1 = new Fn1(100);
+                return fn1;
+            },
+            addFn:function(num){
+                this.addArr.push(num);
+            },
+            lessFn:function(num){
+                this.lessArr.push(num);
+            },
+            getCount:function(){
+                return {
+                    addNum:this.addArr.length,
+                    lessNum:this.lessArr.length
+                }
+            }
+        };
+
+        var wrapFn = function(){
+            var $div = document.createElement('div');
+            $div.innerHTML = '增加：' + middleFn.getCount().addNum + ' | 减少：' +middleFn.getCount().lessNum;
+            document.body.appendChild($div);
+        }
+
+        var m1 = middleFn.init();
+        m1.add();
+        m1.add();
+        m1.add();
+        m1.less();
+        m1.less();
+        m1.less();
+        wrapFn();
+
+    </script>
+</body>
+
+</html>

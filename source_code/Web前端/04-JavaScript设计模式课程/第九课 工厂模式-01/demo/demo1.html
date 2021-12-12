@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第九课 工厂模式</title>
+</head>
+
+<body>
+    <script>
+        var obj1 = {};
+        var obj2 = new Object();
+        function Fn1(name,num,job){
+            this.name = name;
+            this.num = num;
+            this.job = job;
+        }
+        var f1 = new Fn1('星星课堂1',100,'web前端1');
+        var f2 = new Fn1('星星课堂2',200,'web前端2');
+    </script>
+</body>
+
+</html>

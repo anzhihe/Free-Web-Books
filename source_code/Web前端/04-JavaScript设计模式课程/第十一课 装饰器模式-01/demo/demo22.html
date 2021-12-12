@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Function.prototype.beforeFn = function(fn){
+            var _fn = this;
+            return function(){
+                fn.apply(this,arguments);
+                return _fn.apply(this,arguments);
+            }
+        }
+        Function.prototype.afterFn = function(fn){
+            var _fn = this;
+            return function(){
+                var _fnResult = _fn.apply(this,arguments);
+                fn.apply(this,arguments);
+                return _fnResult;
+            }
+        }
+        function fn1(){
+            console.log('星星课堂1');
+        }
+        fn1 = fn1.beforeFn(function(){
+            console.log('fn1调用之前');
+        }).afterFn(function(){
+            console.log('fn1调用之后');
+        });
+        fn1();
+    </script>
+</body>
+</html>

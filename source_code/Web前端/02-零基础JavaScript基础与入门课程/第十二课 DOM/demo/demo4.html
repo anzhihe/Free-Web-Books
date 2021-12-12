@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十二课 DOM（DOM操作）</title>
+</head> 
+<body>
+    <div id="div3">div3</div>
+    <div id="div1">
+        <h3>标题</h3>
+        <span>星星课堂</span>
+    </div>
+    <div id="div2">div2</div>
+    <script>
+        var div1 = document.getElementById('div1');
+        // console.log(div1.parentNode);
+        // console.log(div1.childNodes); 
+        // console.log(div1.children); 
+        // console.log(div1.firstChild);
+        // console.log(div1.firstElementChild);
+        // console.log(div1.lastChild);
+        // console.log(div1.lastElementChild);
+        // console.log(div1.previousSibling);
+        // console.log(div1.previousElementSibling);
+        // console.log(div1.nextSibling);
+        // console.log(div1.nextElementSibling); 
+        /*通过childNodes、firstChild、lastChild、previousSibling、nextSibling
+        这几种方式获取到的节点是会包含换行空格文本节点的*/  
+        /*通过children、firstElementChild、lastElementChild、previousElementSibling、nextElementSibling
+        这几种方式获取到的节点不会包含换行空格文本节点的*/ 
+        console.log(div1.childElementCount);//这个属性只返回元素节点             
+    </script>    
+</body> 
+</html>

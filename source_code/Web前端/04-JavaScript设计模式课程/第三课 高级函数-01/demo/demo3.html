@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第三课 高级函数</title>
+</head>
+
+<body>
+    <script>
+        var arr = [100,200,300];
+        var newArr = arr.filter(function(item,index,arr){
+            if(item < 200){
+                return true;
+            }
+        });
+        console.log(newArr);
+        // var newArr = arr.map(function(item,index,arr){
+        //     return item + '星星课堂';
+        //     // console.log(this);
+        //     // console.log(item);
+        //     // console.log(index);
+        //     // console.log(arr);
+        // });
+        // console.log(newArr);
+        // for(var i=0;i<arr.length;i++){
+
+        // }
+    </script>
+</body>
+
+</html>

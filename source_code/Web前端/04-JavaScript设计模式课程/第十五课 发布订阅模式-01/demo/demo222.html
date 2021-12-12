@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var blindDateCenter = (function(){
+            var blindDateData = {};
+            var _listenFn = function(type,fn){
+                if(!blindDateData[type]){
+                    blindDateData[type] = [];
+                }
+                blindDateData[type].push(fn);
+            }
+            var _emitFn = function(){
+                var type = Array.prototype.shift.apply(arguments);
+                var fnEvent = blindDateData[type];
+                if(fnEvent && fnEvent.length > 0){
+                    for(var i=0;i<fnEvent.length;i++){
+                        var fn = fnEvent[i];
+                        fn.apply(this,arguments);
+                    }
+                }else{
+                    console.log('没有人订阅'+type+'相亲数据');
+                    return;
+                }
+            }
+            var _removeFn = function(type,fn){
+                var fnEvent = blindDateData[type];
+                if(!fn){
+                    fnEvent = [];
+                    fnEvent.length = 0;
+                    return;
+                }
+                if(!fnEvent){
+                    return;
+                }
+                for(var i=0;i<fnEvent.length;i++){
+                    if(fnEvent[i] == fn){
+                        fnEvent.splice(i,1);
+                    }
+                }
+            }
+            return {
+                listen:_listenFn,
+                emit:_emitFn,
+                remove:_removeFn
+            }
+        })();
+
+        var xiaozhangFn = function(e){//小张订阅瘦小姐姐相亲信息
+            console.log('小张');
+            console.log(e);
+        }
+
+        var xiaoxuFn = function(e){//小徐订阅瘦小姐姐相亲信息
+            console.log('小徐');
+            console.log(e);
+        }
+
+        blindDateCenter.listen('thinGirl',xiaozhangFn);
+        blindDateCenter.listen('thinGirl',xiaoxuFn); 
+        blindDateCenter.remove('thinGirl',xiaozhangFn);       
+
+        var girlData = {
+            name:'小姐姐',
+            age:21,
+            height:'170cm',
+            weight:'45kg',
+            money:20000
+        };
+        blindDateCenter.emit('thinGirl',girlData);//发布瘦小姐姐相亲信息
+   
+    </script>
+</body>
+</html>

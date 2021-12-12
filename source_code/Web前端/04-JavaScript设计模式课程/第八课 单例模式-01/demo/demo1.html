@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第八课 单例模式</title>
+</head>
+
+<body>
+    <script>
+
+        function Fn1(num){
+            var self = this;
+            this.num = num;
+            Fn1 = function(){
+                return self;
+            }
+            Fn1.prototype = this;//这里的 this 是当前实例对象，这一步是让改写之后的构造函数利用原型继承的形式了当前实例对象的原型
+            self = new Fn1();//这里是单例实例对象实例化过程
+            self.constructor = Fn1;//这里是修改单例实例对象的 constructor 属性，保证 Fn1 的指针可以指向这个单例实例对象
+            return self;//这里返回这个单例实例对象，之后继续实例化 Fn1 也只能得到这个 实例对象了，不会新建新的实例对象了
+        }
+        Fn1.prototype.getNum = function(){
+            return this.num;
+        }
+
+        var fn1 = new Fn1(100);//100
+        var fn2 = new Fn1(300);//100
+        console.log(fn1.getNum());
+        console.log(fn2.getNum());
+        console.log(fn1 === fn2);//true
+
+    </script>
+</body>
+
+</html>

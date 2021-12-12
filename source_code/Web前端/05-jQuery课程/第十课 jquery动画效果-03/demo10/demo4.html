@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十课 jquery动画效果</title>
+    <style>
+        #div1{
+            width:300px;
+            height:300px;
+            background: orange;
+            position: relative;
+            display: none;
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <button class="btn1">启动动画</button>    
+    <button class="btn2">停止动画</button>    
+    <div id="div1">星星课堂</div>
+    <script>
+        var $div1 = $('#div1');       
+        var $btn1 = $('.btn1');
+        var $btn2 = $('.btn2');
+        //鬼畜抖动效果
+        $btn1.on('mouseover',function(){
+            $div1.stop(true).slideDown();
+        });
+        $btn1.on('mouseout',function(){
+            $div1.stop(true).slideUp();
+        });
+        // $btn1.on('click',function(){
+        //     $div1.slideDown(3000);//如果在动画调用中停止动画，在点击启动动画，动画会从暂停的那个位置继续执行
+        //     $div1.fadeOut(5000);
+        // });
+        // $btn2.on('click',function(){
+        //     $div1.stop(true,true);
+        // });                              
+    </script>
+</body>
+
+</html>

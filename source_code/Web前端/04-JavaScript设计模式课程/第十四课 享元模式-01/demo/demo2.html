@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十四课 享元模式</title>
+</head>
+
+<body>
+    <script>
+        function SetNumText(type){
+            this.div = null;
+            this.type = type;
+            this.num = 0;
+        }
+        SetNumText.prototype.init = function(){
+            this.div = document.createElement('div');
+            this.div.innerHTML = this.type + this.num;
+            document.body.appendChild(this.div);
+        }
+        SetNumText.prototype.setAttrNum = function(num){
+            this.num = num;
+        }
+
+        var factoryFn = (function(){
+            var cache = {};
+            return {
+                created:function(type){
+                    var result = cache[type];
+                    if(!result){
+                        result = new SetNumText(type);
+                        cache[type] = result;
+                    }
+                    return result;
+                }
+            }
+        })();
+
+        for(var i=0;i<30;i++){
+            var sz = factoryFn.created('星星课堂');            
+            sz.setAttrNum(i + 100);
+            sz.init();
+        }
+
+        for(var i=0;i<50;i++){
+            var sz = factoryFn.created('xingxingclassroom');            
+            sz.setAttrNum(i + 300);
+            sz.init();
+        }
+
+    </script>
+</body>
+
+</html>

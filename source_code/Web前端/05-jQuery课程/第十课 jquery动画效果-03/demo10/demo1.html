@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十课 jquery动画效果</title>
+    <style>
+        #div1{
+            width:300px;
+            height:300px;
+            background: orange;
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <button class="btn1">淡入</button>
+    <button class="btn2">淡出</button>
+    <button class="btn3">淡入淡出</button>
+    <button class="btn4">淡出到指定透明度</button>
+    <script>
+        var $btn1 = $('.btn1');
+        var $btn2 = $('.btn2');
+        var $btn3 = $('.btn3');
+        var $btn4 = $('.btn4');
+        var $div1 = $('#div1');
+        $btn1.on('click',function(){
+            $div1.fadeIn(5000,function(){
+                console.log('淡入成功');
+            });
+        }); 
+        $btn2.on('click',function(){
+            $div1.fadeOut(3000,function(){
+                console.log('淡出成功');
+            });
+        });
+        $btn3.on('click',function(){
+            $div1.fadeToggle();
+        });
+        $btn4.on('click',function(){
+            $div1.fadeTo(3000,0.3);
+        });                         
+    </script>
+</body>
+
+</html>

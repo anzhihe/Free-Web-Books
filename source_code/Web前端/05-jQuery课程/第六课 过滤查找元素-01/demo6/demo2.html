@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第六课 过滤查找元素</title>
+    <style>
+        .active{
+            background: orange;
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- <div class="div1">
+        <h3>
+            <span class="span1">星星课堂1</span>
+            <span class="span1">星星课堂2</span>
+        </h3>
+        <h6>
+            <span class="span1">星星课堂3</span>
+        </h6>
+    </div> -->
+    <!-- <div class="div1">
+        <span>xingxingclassroom</span>
+    </div>
+    <div class="div1">
+        <div class="div2">
+            <h3>123</h3>
+            <h3>
+                <span class="span1">星星课堂</span>
+            </h3>
+        </div>
+    </div> -->
+    <div>
+        <p>星星课堂123</p>
+        <p>1</p>
+        <p class="title">2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+        <div>
+            <h3>星星课堂1</h3>
+            <div class="title">xingxingclassroom</div>             
+            <h6>星星课堂2</h6>           
+        </div>
+    </div>
+    <script>
+
+        var $title = $('.title');
+        $title.on('click',function(){
+            $title.show().siblings().hide();
+        });
+        // console.log($title.siblings());
+        // console.log($title.prevAll());
+        // console.log($title.prev());
+        // console.log($title.next());
+        // console.log($title.nextAll());
+
+        // var $div1 = $('.div1');
+        // console.log($div1.children());
+
+        // var $span1 = $('.span1');
+        // console.log($span1.closest('h3'));
+
+        // var $span1 = $('.span1');
+        //console.log($span1.parents());//parents方法获取的是所有祖先元素
+        // console.log($span1.parent());//parent方法获取的是父元素
+
+        // var $div1 = $('.div1');
+        // console.log($div1.find('.span1'));//find方法不仅能够查找子元素h3，也能够查找子孙元素span
+        // console.log($div1.find());//find方法参数不能为空，为空就查找不到元素了
+        
+        // var $div = $('div');
+        // console.log($div.first());
+        // console.log($div.last());
+        // if($div.hasClass('div2')){
+        //     $div.addClass('active');
+        // }
+        // console.log($div.hasClass('div2'));//true
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第八课 DOM操作</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="div1">
+        <span>星星课堂</span>
+        <div class="div2">xingxingclassroom1</div>
+        <div class="div2">xingxingclassroom2</div>
+        <div class="div3">xingxingclassroom2</div>
+    </div>
+    <script>
+        var $div1 = $('#div1');
+        $div1.empty();
+        // var $div = $('div');
+        // $div.remove('.div2');//谁调用remove方法就是删除谁
+        // $div1.remove('.div2');
+        // $div1.remove();
+        // var $div2 = $('#div2');
+        // var $node = $('<h1>星星课堂</h1>');//append方法可以接收一个jquery形成的jquery对象
+        // $div1.after($node);
+        // $div2.after($node);
+        // $node.insertAfter($div1);
+        // $div1.before($node);
+        // $node.insertBefore($div1);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十二课 状态模式</title>
+</head>
+
+<body>
+    <script>
+
+        var stateObj = {
+            'ready':{
+                setState:function(){
+                    this.$button.innerHTML = '准备视频通话';
+                    this.state = stateObj.calling;
+                    console.log('准备视频通话');
+                }
+            },
+            'calling':{
+                setState:function(){
+                    this.$button.innerHTML = '正在视频通话';
+                    this.state = stateObj.end;
+                    console.log('正在视频通话');
+                }
+            },
+            'end':{
+                setState:function(){
+                    this.$button.innerHTML = '视频通话结束';
+                    this.state = stateObj.ready;
+                    console.log('视频通话结束');
+                }
+            },                        
+        };
+
+        function VideoCallMethod(){
+            this.state = stateObj.ready;
+            this.$button = null;
+        }
+        VideoCallMethod.prototype.init = function(){
+            this.$button = document.createElement('button');
+            this.$button.innerHTML = '按钮';
+            document.body.appendChild(this.$button);
+            this.eventCenter();
+        }
+        VideoCallMethod.prototype.eventCenter = function(){
+            var that = this;
+            this.$button.onclick = function(){
+                that.state.setState.apply(that);
+            }
+        }
+        var v1 = new VideoCallMethod();
+        v1.init();
+    </script>
+</body>
+
+</html>

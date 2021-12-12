@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十九课 功能实战简易计算器</title>
+    <style>
+        #calculator{
+            background: #666;
+            width:240px;
+            padding:5px 0px 0px 5px;
+        }
+        .one,.two{
+            width:50px;
+            height:50px;
+            background: #f60;
+            display: inline-block;
+            text-align: center;
+            line-height: 50px;
+            font-size: 23px;
+            color:#fff;
+            margin:5px 5px 5px 0px;
+            cursor: pointer;
+        }
+        .two{
+            width:110px;
+        }
+        .tools{
+            background: #06f;
+        }
+        .calcWrap{
+            width:230px;
+            height:100px;
+            position: relative;
+            background: #999;
+            color:#fff;
+            font-size: 23px;
+        }
+        .calcContent{
+            position: absolute;
+            bottom:10px;
+            right:10px;
+        }
+    </style>
+</head>  
+<body>
+    <div id="calculator">
+        <div class="calcWrap">
+            <span class="calcContent"></span>
+        </div>
+        <div>
+            <span class="one tools calcBtn">*</span>
+            <span class="one tools calcBtn">/</span>
+            <span class="one tools deleteBtn">CE</span>
+            <span class="one tools reCalc">AC</span>
+        </div>
+        <div>
+            <span class="one calcBtn">7</span>
+            <span class="one calcBtn">8</span>
+            <span class="one calcBtn">9</span>
+            <span class="one tools calcBtn">+</span>
+        </div>  
+        <div>
+            <span class="one calcBtn">4</span>
+            <span class="one calcBtn">5</span>
+            <span class="one calcBtn">6</span>
+            <span class="one tools calcBtn">-</span>
+        </div> 
+        <div>
+            <span class="one calcBtn">1</span>
+            <span class="one calcBtn">2</span>
+            <span class="one calcBtn">3</span>
+            <span class="one tools calcBtn">.</span>
+        </div>
+        <div>
+            <span class="two calcBtn">0</span>
+            <span class="two tools getResultBtn">=</span>
+        </div>                              
+    </div>
+    <script>
+        var calcBtns = document.getElementsByClassName('calcBtn');
+        var calcText = '';
+        var calcContent = document.getElementsByClassName('calcContent')[0];
+        var reCalc = document.getElementsByClassName('reCalc')[0];
+        var deleteBtn = document.getElementsByClassName('deleteBtn')[0]; 
+        var getResultBtn = document.getElementsByClassName('getResultBtn')[0];
+
+        for(var i=0;i<calcBtns.length;i++){
+            calcBtns[i].addEventListener('click',function(){
+                calcText += this.innerHTML;
+                calcContent.innerHTML = calcText;
+            });
+        }
+
+        reCalc.addEventListener('click',function(){
+            calcContent.innerHTML = '';
+            calcText = '';
+        });
+
+        deleteBtn.addEventListener('click',function(){
+            calcText = calcText.substring(0,calcText.length -1);
+            calcContent.innerHTML = calcText;
+        });
+
+        getResultBtn.addEventListener('click',function(){
+            calcText = eval(calcText);
+            calcContent.innerHTML = eval(calcText);            
+        });
+
+        document.onkeyup = function(event){
+            var event = window.event;
+            if(event.keyCode == 116 || event.keyCode == 17){
+                return;
+            }
+            if(event.keyCode == 13){
+                calcText = eval(calcText);
+                calcContent.innerHTML = eval(calcText);
+                return;   
+            }
+            calcText += event.key;
+            calcContent.innerHTML = calcText;
+        }
+
+        // eval('alert(1+2)');
+        // alert(0.1+0.2);
+        // alert(1+2);
+
+    </script>
+</body> 
+</html>
