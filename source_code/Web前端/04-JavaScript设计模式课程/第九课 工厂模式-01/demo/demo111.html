@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function Fn1(num){
+            this.num = num;
+        }
+        Fn1.prototype.getNum = function(){
+            return this.num + 'Fn1';
+        }
+
+        function Fn2(num){
+            this.num = num;
+        }
+        Fn2.prototype.getNum = function(){
+            return this.num + 'Fn2';
+        }
+
+        function Fn3(num){
+            this.num = num;
+        }
+        Fn3.prototype.getNum = function(){
+            return this.num + 'Fn3';
+        }
+
+        var factoryFn = {
+            createObj:function(type){
+                var obj = null;
+                switch (type) {
+                    case 'Fn1':
+                        obj = new Fn1(100);
+                        break;
+                    case 'Fn2':
+                        obj = new Fn2(300);
+                        break;
+                    case 'Fn3':
+                        obj = new Fn3(600);
+                        break;                                         
+                    default:
+                        break;
+                }
+                return obj;
+            }
+        }
+
+        function NumCenter(){}
+        NumCenter.prototype.showNum = function(type){
+            var numObj = factoryFn.createObj(type);
+            return numObj;
+        }
+
+        var center = new NumCenter();
+        var number1 = center.showNum('Fn1');
+        var number2 = center.showNum('Fn2');
+        var number3 = center.showNum('Fn3');
+        console.log(number1.getNum());
+        console.log(number2.getNum());
+        console.log(number3.getNum());
+
+    </script>
+</body>
+</html>

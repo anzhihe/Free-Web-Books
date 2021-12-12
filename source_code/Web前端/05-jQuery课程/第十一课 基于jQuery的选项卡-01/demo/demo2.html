@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十一课 基于jquery的选项卡</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        #wrap{
+            padding:100px;
+        }
+        .tabIndex{
+            border:1px solid orange;
+            cursor: pointer;
+        }
+        .activeTabIndex{
+            background: orange;
+            color:#fff;
+        }
+        .tabContent{
+            width:300px;
+            height:300px;
+            border:1px solid #ccc;
+            position: absolute;
+            display: none;
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="indexWrap">
+            <span class="tabIndex activeTabIndex">按钮1</span>
+            <span class="tabIndex">按钮2</span>
+            <span class="tabIndex">按钮3</span>
+        </div>
+        <div class="indexContent">
+            <div class="tabContent" style="display: block;">内容1</div>
+            <div class="tabContent">内容2</div>
+            <div class="tabContent">内容3</div>
+        </div>
+    </div>
+    <script>
+        function Tab(){
+            this.settings = {
+                wrap:null,
+                index:0,
+                time:2000
+            };
+            this.tabIndex = null;
+            this.tabContent = null;
+            this.timer = null;
+        }
+        Tab.prototype.init = function(option){
+            $.extend(this.settings,option);
+            this.tabIndex = this.settings.wrap.find('.tabIndex');
+            this.tabContent = this.settings.wrap.find('.tabContent');
+            this.tabFn();
+            this.eventFn();
+            if(this.settings.time != 0){
+                this.autoFn();
+            }
+        }
+        Tab.prototype.eventFn = function(){
+            var that = this;
+            this.tabIndex.on('click',function(){
+                that.settings.index = $(this).index();
+                $(that).trigger('customEvent',that.settings.index);
+                that.tabFn();
+            });
+            if(this.settings.time != 0){
+                this.tabIndex.on('mouseover',function(){
+                    clearInterval(that.timer);
+                    that.timer = null;
+                });
+                this.tabIndex.on('mouseout',function(){
+                    that.autoFn();
+                }); 
+                this.tabContent.on('mouseover',function(){
+                    clearInterval(that.timer);
+                    that.timer = null;
+                });
+                this.tabContent.on('mouseout',function(){
+                    that.autoFn();
+                });
+            }       
+        }
+        Tab.prototype.tabFn = function(){
+            this.tabIndex.eq(this.settings.index).addClass('activeTabIndex').siblings().removeClass('activeTabIndex');
+            this.tabContent.eq(this.settings.index).show().siblings().hide();
+        }
+        Tab.prototype.autoFn = function(){
+            var that = this;
+            this.timer = setInterval(function(){
+                that.settings.index ++ ;
+                if(that.settings.index == that.tabIndex.length){
+                    that.settings.index = 0;
+                }
+                that.tabFn();
+            },this.settings.time);
+        }
+
+        var $wrap = $('#wrap');
+        var t1 = new Tab();
+        var option = {
+            wrap:$wrap,
+            index:0,
+            time:0
+        };
+        t1.init(option);
+        $(t1).on('customEvent',function(event,index){
+            console.log(event);
+            console.log(index);
+        });
+
+    </script>
+</body>
+
+</html>

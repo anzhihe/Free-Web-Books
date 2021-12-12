@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十五课 分页组件</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul,li{
+            list-style-type: none;
+        }
+        .wrap{
+            width:100%;
+            text-align: center;
+        }
+        .dataContent{
+            width:400px;
+            padding:100px 0px;
+            text-align: left;
+            display: inline-block;
+        }
+        .pageWrap{
+            width:100%;
+            height:45px;
+            display: inline-block;
+        }
+        .pageWrap li{
+            display: inline-block;
+            height:45px;
+            line-height: 45px;
+            border:1px solid #ccc;
+            padding:0px 16px;
+            cursor: pointer;
+            margin:0px;
+        }
+        .pageWrap li:hover{
+            border:1px solid #06f;
+            background: #06f;
+            color:#fff;
+        }
+        .pageActive{
+            border:1px solid #06f;
+            background: #06f;
+            color:#fff;            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="dataContent">数据内容区域</div>
+        <ul class="pageWrap">
+            <!-- <li>首页</li>
+            <li>上一页</li>
+            <li class="pageActive">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>下一页</li>
+            <li>尾页</li> -->
+        </ul>
+    </div>
+    <script>
+        var data = {
+            total:25,
+            dataArr:[
+                {id:1,title:'标题1',content:'内容1'},
+                {id:2,title:'标题2',content:'内容2'},
+                {id:3,title:'标题3',content:'内容3'},
+                {id:4,title:'标题4',content:'内容4'},
+                {id:5,title:'标题5',content:'内容5'},
+                {id:6,title:'标题6',content:'内容6'},
+                {id:7,title:'标题7',content:'内容7'},
+                {id:8,title:'标题8',content:'内容8'},
+                {id:9,title:'标题9',content:'内容9'},
+                {id:10,title:'标题10',content:'内容10'},
+                {id:11,title:'标题11',content:'内容11'},
+                {id:12,title:'标题12',content:'内容12'},
+                {id:13,title:'标题13',content:'内容13'},
+                {id:14,title:'标题14',content:'内容14'},
+                {id:15,title:'标题15',content:'内容15'},
+                {id:16,title:'标题16',content:'内容16'},
+                {id:17,title:'标题17',content:'内容17'},
+                {id:18,title:'标题18',content:'内容18'},
+                {id:19,title:'标题19',content:'内容19'},
+                {id:20,title:'标题20',content:'内容20'},
+                {id:21,title:'标题21',content:'内容21'},
+                {id:22,title:'标题22',content:'内容22'},
+                {id:23,title:'标题23',content:'内容23'},
+                {id:24,title:'标题24',content:'内容24'},
+                {id:25,title:'标题25',content:'内容25'}
+            ]
+        };
+
+        function copyObj(obj1,obj2){
+            for(var i in obj1){
+                obj2[i] = obj1[i]
+            }
+        }
+
+        function Page(){
+            this.settings = {
+                id:'pageWrap',
+                total:1,
+                pageSize:10,
+                pageActive:1,
+                prevText:'上一页',
+                nextText:'下一页',
+                firstText:'首页',
+                lastText:'尾页'
+            };
+            this.pageWrap = null;
+            this.activePageNum = 1;
+            this.allPageNum = 0;
+        }
+
+        Page.prototype.init = function(option){
+            copyObj(option,this.settings);
+            this.getWrap();
+            this.createPageWrap();
+            this.eventCenterFn();
+        }
+
+        Page.prototype.getWrap = function(){
+            this.pageWrap = document.getElementsByClassName(this.settings.id)[0];
+        }
+
+        Page.prototype.createPageWrap = function(){
+            this.allPageNum = Math.ceil(this.settings.total / this.settings.pageSize);//总的分页数量
+            var str = '';
+            for(var i=0;i<this.allPageNum;i++){
+                if(this.settings.pageActive == (i + 1)){
+                    str += '<li class="pageActive pageItem" data-value="'+(i + 1)+'">'+(i + 1)+'</li>';
+                    continue;
+                }
+                str += '<li class="pageItem" data-value="'+(i + 1)+'">'+(i + 1)+'</li>';
+            }
+            this.pageWrap.innerHTML = '<li data-value="first">'+this.settings.firstText+'</li><li data-value="prev">'+this.settings.prevText+'</li>'+str+'<li data-value="next">'+this.settings.nextText+'</li><li data-value="last">'+this.settings.lastText+'</li>';
+        }
+
+        Page.prototype.eventCenterFn = function(){
+            var that = this;
+            this.pageWrap.addEventListener('click',function(e){
+                var e = e || window.event;
+                var target = e.target;
+                if(target.tagName == 'LI' && target.className == 'pageItem'){
+                    that.selectPageFn(target);
+                }else{
+                    that.selectPrevNext(target);
+                }
+            },false);
+        }
+
+        Page.prototype.selectPageFn = function(target){
+            this.selectActiveFn(target);
+            this.selectPageData(target);
+        }
+
+        Page.prototype.selectActiveFn = function(target){
+            var pageItem = document.getElementsByClassName('pageItem');
+            for(var i=0;i<pageItem.length;i++){
+                pageItem[i].classList.remove('pageActive');
+            }
+            target.classList.add('pageActive');
+        }
+
+        Page.prototype.selectPageData = function(target){
+            var activeNum = Number(target.getAttribute('data-value'));
+            var selectDataEvent = new CustomEvent('selectDataEvent',{
+                detail:{
+                    activeNum:activeNum,
+                    pageSize:this.settings.pageSize
+                }
+            });
+            this.pageWrap.dispatchEvent(selectDataEvent);
+            this.activePageNum = activeNum;
+        }
+
+        Page.prototype.selectPrevNext = function(target){
+            var activeValue = target.getAttribute('data-value');
+            var pageItem = document.getElementsByClassName('pageItem');
+            var activeSelectNum = 1;
+            if(activeValue == 'first'){
+                this.selectPageFn(pageItem[0]);
+            }
+            if(activeValue == 'last'){
+                this.selectPageFn(pageItem[this.allPageNum - 1]);
+            }  
+            if(activeValue == 'prev' && this.activePageNum > 1){
+                activeSelectNum = this.activePageNum - 1;
+                this.selectPageFn(pageItem[activeSelectNum - 1]);                
+            }
+            if(activeValue == 'next' && this.activePageNum < this.allPageNum){
+                activeSelectNum = this.activePageNum + 1;
+                this.selectPageFn(pageItem[activeSelectNum - 1]);                 
+            }                      
+        }
+
+        var p1 = new Page();
+        var option = {
+            id:'pageWrap',
+            total:data.total,
+            pageSize:10,
+            prevText:'prevPage',
+            nextText:'netxPage'
+        };
+        p1.init(option);
+        p1.pageWrap.addEventListener('selectDataEvent',function(e){
+            createData(getMockData(e.detail.activeNum,e.detail.pageSize));
+        });
+
+        createData(getMockData(1,10));
+
+        function getMockData(pageCount,pageSize,arr){
+            var pageCount = pageCount || 1;
+            var pageSize = pageSize || 10;
+            var arr = arr || data.dataArr;
+            var index = (pageCount - 1) * pageSize;
+            var newArr = (index + pageSize >= arr.length) ? arr.slice(index,arr.length) : arr.slice(index,index + pageSize);
+            return newArr;
+        }
+
+        function createData(data){
+            var dataContent = document.getElementsByClassName('dataContent')[0];
+            var str = '';
+            for(var i=0;i<data.length;i++){
+                str += '<div>'+data[i].id+''+data[i].title+''+data[i].content+'</div>';
+            }
+            dataContent.innerHTML = str;
+        }
+
+    </script>
+</body>
+
+</html>

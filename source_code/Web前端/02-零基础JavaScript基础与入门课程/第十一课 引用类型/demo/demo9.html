@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十一课 引用类型（引用类型小结）</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        .newsList{
+            margin:30px;
+            list-style-type: square;
+        }
+        .newsList li{
+            border-bottom:1px solid #ccc;
+            margin:10px 0px;
+            padding-bottom:10px;
+        }
+        .newsList h5{
+            font-size: 19px;
+        } 
+        .newsList h5 a{
+            color:#333;
+            text-decoration: none;
+        } 
+        .newsList h5 a:hover{
+            text-decoration: underline;
+            color:rgb(82, 73, 211);
+        } 
+        .newsList p{
+            font-size: 12px;
+            color:#999;
+        }
+        .newsList span{
+            font-size: 12px;
+            color:#666;
+        }
+        .newsList .label{
+            background: rgb(82, 73, 211);
+            color:#fff;
+            padding:2px 3px;
+        }                                              
+    </style>
+</head> 
+<body>
+    <ul class="newsList" id="news1">
+
+    </ul>
+    ...其他结构
+    <ul class="newsList" id="news2">
+
+    </ul>
+    <script>
+        var newsList1 = [
+            {
+                title:'流感季来临流感疫苗打还是不打？疾控专家来解答111',
+                descreption:'到底要不要接种流感疫苗？为什么要接种流感疫苗？哪些人群可以免费接种？',
+                time:'2016-01-03',
+                label:'健康'
+            },
+            {
+                title:'这些供暖知识你知道吗?室温保持18度至24度最适宜111',
+                descreption:'在我国，集中供暖首要考虑的因素是温度。现行供热标准是：最低气温小于等于5℃且超过90天的地区进行集中供暖',
+                time:'2016-01-03',
+                label:'生活'
+            },
+            {
+                title:'中国又发现一世界级天坑群,拥有世界最丰富天坑资源111',
+                descreption:'近日，自然资源部中国地质调查局公布，在广西壮族自治区那坡县发现一个世界级的天坑群',
+                time:'2016-01-03',
+                label:'自然'
+            }                        
+        ]
+
+        var newsList2 = [
+            {
+                title:'流感季来临流感疫苗打还是不打？疾控专家来解答222',
+                descreption:'到底要不要接种流感疫苗？为什么要接种流感疫苗？哪些人群可以免费接种？',
+                time:'2016-01-03',
+                label:'健康'
+            },
+            {
+                title:'这些供暖知识你知道吗?室温保持18度至24度最适宜222',
+                descreption:'在我国，集中供暖首要考虑的因素是温度。现行供热标准是：最低气温小于等于5℃且超过90天的地区进行集中供暖',
+                time:'2016-01-03',
+                label:'生活'
+            },
+            {
+                title:'中国又发现一世界级天坑群,拥有世界最丰富天坑资源222',
+                descreption:'近日，自然资源部中国地质调查局公布，在广西壮族自治区那坡县发现一个世界级的天坑群',
+                time:'2016-01-03',
+                label:'自然'
+            }                        
+        ]
+
+        function loadNews(nodeWrap,newsList){
+            var nodeWrap = document.getElementById(nodeWrap);
+            for(var i=0;i<newsList.length;i++){
+                var liNode = document.createElement('li');
+                liNode.innerHTML = '<h5><a href="###">'+newsList[i].title+'</a></h5><p>摘要：'+newsList[i].descreption+'</p><div><span>'+newsList[i].time+'</span><span class="label">'+newsList[i].label+'</span></div>';
+                nodeWrap.appendChild(liNode);
+            }
+        }
+        loadNews('news1',newsList1);
+        loadNews('news2',newsList2);
+
+    </script>    
+</body> 
+</html>

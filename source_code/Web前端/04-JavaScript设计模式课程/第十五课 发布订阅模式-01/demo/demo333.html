@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var publishSubscribe = (function(){
+
+            var _data = {};
+
+            var _listen = function(type,fn){
+                if(!_data[type]){
+                    _data[type] = [];
+                }
+                _data[type].push(fn);
+            }
+
+            var _emit = function(){
+                var type = Array.prototype.shift.apply(arguments);
+                var fnEvent = _data[type];
+                if(fnEvent && fnEvent.length > 0){
+                    for(var i=0;i<fnEvent.length;i++){
+                        var fn = fnEvent[i];
+                        fn.apply(this,arguments);
+                    }
+                }else{
+                    console.log('没有订阅者订阅' + type + '的发布事件');
+                    return;
+                }
+            }
+
+            var _remove = function(type,fn){
+                var fnEvent = _data[type];
+                if(!fn){
+                    fnEvent = [];
+                    fnEvent.length = 0;
+                    return;
+                }
+                if(!fnEvent){
+                    return;
+                }
+                for(var i=0;i<fnEvent.length;i++){
+                    if(fnEvent[i] == fn){
+                        fnEvent.splice(i,1);
+                    }
+                }
+            }
+
+            return {
+                listen:_listen,
+                emit:_emit,
+                remove:_remove
+            }
+
+        })();
+
+        var xiaozhangFn = function(e){//小张订阅瘦小姐姐相亲信息
+            console.log('小张');
+            console.log(e);
+        }
+
+        var xiaoxuFn = function(e){//小徐订阅瘦小姐姐相亲信息
+            console.log('小徐');
+            console.log(e);
+        }
+
+        publishSubscribe.listen('thinGirl',xiaozhangFn);
+        publishSubscribe.listen('thinGirl',xiaoxuFn); 
+        publishSubscribe.remove('thinGirl',xiaozhangFn);       
+
+        var girlData = {
+            name:'小姐姐',
+            age:21,
+            height:'170cm',
+            weight:'45kg',
+            money:20000
+        };
+        publishSubscribe.emit('thinGirl',girlData);//发布瘦小姐姐相亲信息
+   
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十六课 拖拽控件实战</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        #div1{
+            width:100px;
+            height:100px;
+            background: orange;
+            position: absolute;
+        }
+    </style>
+</head> 
+<body>
+    <div id="div1"></div>
+    <script>
+        var div1 = document.getElementById('div1');
+        var dx = 0;
+        var dy = 0;
+        div1.onmousedown = function(event){
+            var event = event || window.event;
+            var clientX = event.clientX;
+            var clientY = event.clientY;
+            var offsetLeft = this.offsetLeft;
+            var offsetTop = this.offsetTop;
+
+            dx = clientX - offsetLeft;
+            dy = clientY - offsetTop;
+
+            document.onmousemove = function(ev){
+                var ev = ev || window.event;
+                var x = ev.clientX;
+                var y = ev.clientY;
+
+                var clientWidth = document.documentElement.clientWidth;
+                var clientHeight = document.documentElement.clientHeight;
+
+                var domSize = div1.getBoundingClientRect();
+                var domWidth = domSize.width;
+                var domHeight = domSize.height;
+
+                var posX = 0;
+                var posY = 0;
+
+                posX = x - dx;
+                posY = y - dy;
+
+                if(posY <= 0){
+                    posY = 0;
+                }
+                if(posX <= 0){
+                    posX = 0;
+                }
+
+                if((x - dx) >= (clientWidth - domWidth)){
+                    posX = clientWidth - domWidth;
+                }
+                if((y - dy) >= (clientHeight - domHeight)){
+                    posY = clientHeight - domHeight;
+                }
+
+                div1.style.top = posY + 'px';
+                div1.style.left = posX + 'px';
+            }
+            div1.onmouseup = function(){
+                document.onmousemove = null;
+            }
+        }
+    </script>
+</body> 
+</html>

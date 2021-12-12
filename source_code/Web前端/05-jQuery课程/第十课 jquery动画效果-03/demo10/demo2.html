@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十课 jquery动画效果</title>
+    <style>
+        #div1{
+            width:300px;
+            height:300px;
+            background: orange;
+            display: none;
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <button class="btn1">向下滑动</button>
+    <button class="btn2">向上滑动</button>
+    <button class="btn3">向下滑动向上滑动</button>
+    <script>
+        var $div1 = $('#div1');
+        var $btn1 = $('.btn1');    
+        var $btn2 = $('.btn2');    
+        var $btn3 = $('.btn3');    
+        $btn1.on('click',function(){
+            $div1.slideDown(5000);
+            // $div1.slideDown(function(){
+            //     console.log('滑动成功');
+            // });            
+        });
+        $btn2.on('click',function(){
+            $div1.slideUp(3000);          
+        });
+        $btn3.on('click',function(){
+            $div1.slideToggle(2000);          
+        });                                 
+    </script>
+</body>
+
+</html>

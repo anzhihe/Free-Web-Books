@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十一课 引用类型（Function类型1）</title>
+</head> 
+<body>
+    <script>
+        // var a = 500;
+        // var b = 200;
+
+        // fn2(3,2);
+        // fn1(1,2);
+
+        // var fn1 = function(a,b){//函数表达式的定义必须要在该函数调用之前进行定义
+        //     console.log(a + b);
+        // }
+
+        // function fn2(a,b){//函数声明可以在任意地方定义，任意地方调用，不受顺序限制
+        //     console.log(a * b);
+        // }
+
+        // function fn1(a,b){
+        //     var c = 0;
+        //     if(a >= b){
+        //         c = a - b;
+        //     }else if(a < b){
+        //         c = a + b;
+        //     }
+        //     console.log(c);           
+        // }
+        // function fn1(){
+        //     console.log('这是新的函数');
+        // }
+        // fn1(a,b);
+        // console.log(fn1(a,b));
+        // fn1(a,b);
+        // fn1(a,b);
+        // fn1(a,b);
+        // var c = 0;
+        // if(a >= b){
+        //     c = a - b;
+        // }else if(a < b){
+        //     c = a + b;
+        // }
+        // console.log(c);
+
+        // ...
+
+        // fn1(a,b);
+        // fn1(a,b);
+
+        // var c = 0;
+        // if(a >= b){
+        //     c = a - b;
+        // }else if(a < b){
+        //     c = a + b;
+        // }
+        // console.log(c);        
+
+        var fn = new Function('a','b','return a + b');
+        console.log(fn(1,2));
+
+    </script>
+</body> 
+</html>

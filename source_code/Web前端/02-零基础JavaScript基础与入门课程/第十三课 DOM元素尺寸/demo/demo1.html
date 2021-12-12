@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十三课 DOM元素尺寸</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        #div1{
+            width:300px;
+            height:300px;
+            background: orange;
+            padding:30px;
+            border:10px solid #ccc;
+            margin:30px;
+            overflow-y: auto;
+        }
+    </style>
+</head> 
+<body>
+    <div id="div1">
+        <h1>星星课堂真好</h1>
+        <h1>星星课堂真好</h1>
+        <h1>星星课堂真好</h1>
+        <h1>星星课堂真好</h1>
+        <h1>星星课堂真好</h1>
+        <h1>星星课堂真好</h1>
+        <h1>星星课堂真好</h1>
+        <h1>星星课堂真好</h1>
+        <h1>星星课堂真好</h1>
+        <h1>星星课堂真好</h1>
+        <h1>星星课堂真好</h1>
+        <h1>星星课堂真好</h1>
+        <h1>星星课堂真好</h1>
+        <h1>星星课堂真好</h1>
+        <h1>星星课堂真好</h1>
+    </div>
+    <script>
+        var div1 = document.getElementById('div1');
+        // div1.style.background = 'blue';
+        // console.log(div1.style.width);
+        // console.log(div1.style.height);//通过元素style属性下面的width\height是获取不到元素的真实宽高的
+        // console.log(div1.clientWidth);
+        // console.log(div1.clientHeight);
+        // console.log(div1.offsetWidth);
+        // console.log(div1.offsetHeight);//offsetWidth跟clientWidth相比，多了一个边框的尺寸
+        // console.log(div1.scrollHeight);
+        // console.log(div1.scrollWidth);
+    </script>
+</body> 
+</html>

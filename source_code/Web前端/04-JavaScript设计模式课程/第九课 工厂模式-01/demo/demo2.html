@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第九课 工厂模式</title>
+</head>
+
+<body>
+    <script>
+
+        function Fn1(num){
+            this.num = num;
+        }
+        Fn1.prototype.getNum = function(){
+            return this.num + 'Fn1'
+        }
+
+        function Fn2(num){
+            this.num = num;
+        }
+        Fn2.prototype.getNum = function(){
+            return this.num + 'Fn2'
+        }
+
+        function Fn3(num){
+            this.num = num;
+        }
+        Fn3.prototype.getNum = function(){
+            return this.num + 'Fn3'
+        }         
+
+        var factoryFn = {
+            createObj:function(type,num){
+                var obj = null;
+                switch (type) {
+                    case 'Fn1':
+                        obj = new Fn1(num);
+                        break;
+                    case 'Fn2':
+                        obj = new Fn2(num);
+                        break; 
+                    case 'Fn3':
+                        obj = new Fn3(num);
+                        break;                                       
+                    default:
+                        break;
+                }
+                return obj;
+            }
+        }
+
+        function NumCenter(){}
+        NumCenter.prototype.showNum = function(type,num){
+            var numObj = factoryFn.createObj(type,num);
+            return numObj;
+        }
+
+        var n1 = new NumCenter();
+        var f1 = n1.showNum('Fn1',600);
+        console.log(f1.getNum());
+
+    </script>
+</body>
+
+</html>

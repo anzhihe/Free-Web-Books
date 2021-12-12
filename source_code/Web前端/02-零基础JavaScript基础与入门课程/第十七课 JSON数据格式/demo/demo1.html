@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十七课 JSON数据格式</title>
+</head> 
+<body>
+    <script>
+        var json = '{"data":{"name":"星星课堂","num":100,"job":"web前端","position":{"province":"安徽省","city":"合肥市"}}}';
+        var obj = {
+            a:1,
+            b:2
+        }
+        // console.log(JSON);
+        // console.log(JSON.stringify(obj));//{"a":1,"b":2}
+        console.log(JSON.parse(json));
+    </script>
+</body> 
+</html>

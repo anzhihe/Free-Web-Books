@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第五课 模块模式</title>
+</head>
+
+<body>
+    <script>
+        var moduleFn = (function(){
+            var _arr = [];
+            function _fn1(){
+                console.log('fn1');
+            }
+            return {
+                add:function(num){
+                    _arr.push(num);
+                },
+                outerFn:function(){
+                    _fn1();
+                    console.log('星星课堂');
+                },
+                getCount:function(){
+                    this.outerFn();
+                    return _arr.length;
+                }
+            }
+        })();
+        moduleFn.add(100);
+        moduleFn.add(200);
+        moduleFn.add(300);
+        console.log(moduleFn.getCount());
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十三课 DOM元素尺寸</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        #div1{
+            width:300px;
+            height:300px;
+            background: orange;
+            overflow-y: auto;
+            /* border:10px solid #ccc; */
+            /* position: absolute;
+            top:20px;
+            left:30px; */
+        }
+        /* #div2{
+            position: relative;
+            top:50px;
+            left:100px;
+        } */
+    </style>
+</head> 
+<body>
+    <!-- <div id="div2">
+        <div id="div1"></div>
+    </div> -->
+    <div id="div1">
+        <h1>星星课堂</h1>
+        <h1>星星课堂</h1>
+        <h1>星星课堂</h1>
+        <h1>星星课堂</h1>
+        <h1>星星课堂</h1>
+        <h1>星星课堂</h1>
+        <h1>星星课堂</h1>
+        <h1>星星课堂</h1>
+        <h1>星星课堂</h1>
+        <h1>星星课堂</h1>
+    </div>
+    <script>
+        var div1 = document.getElementById('div1');
+        // console.log(div1.clientTop);
+        // console.log(div1.clientLeft);
+        // console.log(div1.offsetTop);
+        // console.log(div1.offsetLeft);
+        // console.log(div1.scrollTop);
+        div1.scrollTop = 60;
+        div1.scrollLeft = 100;
+        console.log(div1.scrollTop);
+        console.log(div1.scrollLeft);
+    </script>
+</body> 
+</html>

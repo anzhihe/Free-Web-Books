@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第三课 高级函数</title>
+</head>
+
+<body>
+    <script>
+        Function.prototype.testBind = function(context){
+            var fn = this;
+            var args = Array.prototype.slice.call(arguments,1);
+            return function(){
+                var newArgs = args.concat(Array.prototype.slice.call(arguments));
+                return fn.apply(context,newArgs);
+            }
+        }
+        function fn1(a,b,c){
+            // console.log(this);
+            console.log(a + b + c);
+        }
+        var obj = {
+            abc:123
+        };
+        var fn2 = fn1.testBind(obj,100,200);
+        fn2(500,600);
+        // var obj = {
+        //     abc:123
+        // }
+        // var fn2 = fn1.bind(obj,100,200,300);
+        // fn2();
+        // fn1(100,200,300);
+    </script>
+</body>
+
+</html>

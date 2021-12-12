@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十五课 事件</title>
+    <style>
+        #div1{
+            width:300px;
+            height:300px;
+            background:orange;
+        }
+        #span1{
+            display: inline-block;
+            width:200px;
+            height:100px;
+            background: blue;
+        }
+    </style>
+</head> 
+<body>
+    <div id="div1">
+        <span id="span1">
+            <input type="text" id="input1" />
+        </span>
+    </div>
+    <a href="https:/www.baidu.com/" id="a1">超链接</a>
+    <script>
+        // var div1 = document.getElementById('div1');
+        // var span1 = document.getElementById('span1');
+        // var input1 = document.getElementById('input1');
+        var a1 = document.getElementById('a1');
+        a1.addEventListener('click',function(event){
+            console.log('星星课堂');
+            var event = event || window.event;
+            event.preventDefault();
+            event.returnValue = false;
+        });
+        // div1.onclick = function(){
+        //     console.log('div1');
+        // }
+        // span1.onclick = function(){
+        //     console.log('span1');
+        // }
+        // input1.onclick = function(){
+        //     console.log('input1');
+        // } 
+        // document.onclick = function(){
+        //     console.log('document');
+        // } 
+        // input1.addEventListener('click',function(event){
+        //     console.log('input1被触发了');
+        //     event.stopPropagation();
+        // });
+        // input1.addEventListener('click',function(){
+        //     console.log('input1捕获阶段');
+        // },true);     
+        // span1.addEventListener('click',function(){
+        //     console.log('span1捕获阶段');
+        // },true); 
+        // div1.addEventListener('click',function(){
+        //     console.log('div1捕获阶段');
+        // },true); 
+        // document.addEventListener('click',function(){
+        //     console.log('document捕获阶段');
+        // },true); 
+
+        // input1.addEventListener('click',function(){
+        //     console.log('input1冒泡阶段');
+        // },false);     
+        // span1.addEventListener('click',function(){
+        //     console.log('span1冒泡阶段');
+        //     event.stopPropagation();            
+        // }); 
+        // div1.addEventListener('click',function(){
+        //     console.log('div1冒泡阶段');
+        //     event.stopPropagation();             
+        // }); 
+        // document.addEventListener('click',function(){
+        //     console.log('document冒泡阶段');
+        // });  
+        // I/O  input out     
+
+    </script>
+</body> 
+</html>

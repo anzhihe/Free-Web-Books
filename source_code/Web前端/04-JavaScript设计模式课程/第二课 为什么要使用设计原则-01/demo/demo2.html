@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第二课 为什么要使用设计原则</title>
+</head>
+
+<body>
+    <script>
+
+        Function.prototype.setBefore = function(fn){
+            var _this = this;
+            return function(){
+                fn.apply(this,arguments);
+                var primitive = _this.apply(this,arguments);
+                return primitive;
+            }
+        }
+
+        Function.prototype.setAfter = function(fn){
+            var _this = this;
+            return function(){
+                var primitive = _this.apply(this,arguments);
+                fn.apply(this,arguments);                
+                return primitive;
+            }
+        }
+
+        var getFnTime = (function(){
+            var startTime = 0;
+            var _getSecond = function(time){
+                var seconds = (time % (1000 * 60)) / 1000;
+                return (seconds < 10 ? ('0' + seconds) : seconds) + '秒';                                
+            }
+            var _beforeFn = function(){
+                startTime = new Date().getTime(); 
+            }
+            var _afterFn = function(){
+                var endTime = new Date().getTime();
+                return _getSecond(endTime - startTime);
+            }
+            var calculationFn = function(fn){
+                fn.setBefore(function () {
+                    _beforeFn();
+                }).setAfter(function(){
+                    console.log(_afterFn());
+                })(); 
+            }  
+            return {
+                calculationFn:calculationFn
+            };          
+        })();
+
+        function fn1() {        
+            for(var i=0;i<10000;i++){
+                document.body.innerHTML += i;
+            }
+        }
+        function fn2(){
+            for(var i=0;i<1000;i++){
+                document.body.innerHTML += i;
+            }            
+        }
+        getFnTime.calculationFn(fn1);
+        getFnTime.calculationFn(fn2);
+    </script>
+</body>
+
+</html>

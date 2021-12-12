@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第八课 单例模式</title>
+</head>
+
+<body>
+    <script>
+        function Fn1(num){
+            this.num = num;
+        }
+        Fn1.prototype.getNum = function(){
+            return this.num;
+        }
+
+        var SingleFn = (function(){
+            var result = null;
+            return function(num){
+                if(result){
+                    return result;
+                }
+                return result = new Fn1(num);
+            }
+        })();
+
+        var s1 = new SingleFn(100);
+        var s2 = new SingleFn(300);
+        console.log(s1.getNum());//100
+        console.log(s2.getNum());//100
+        console.log(s1 === s2);//true
+
+    </script>
+</body>
+
+</html>

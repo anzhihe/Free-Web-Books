@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十五课 发布订阅模式</title>
+</head>
+
+<body>
+    <script>
+        var blindDateCenter = (function(){
+
+            var blindDateData = {};
+            var _listen = function(type,fn){
+                if(!blindDateData[type]){
+                    blindDateData[type] = [];
+                }
+                blindDateData[type].push(fn);
+            }
+
+            var _emit = function(){
+                var type = Array.prototype.shift.apply(arguments);
+                var fnEvent = blindDateData[type];
+                if(fnEvent && fnEvent.length > 0){
+                    for(var i=0;i<fnEvent.length;i++){
+                        var fn = fnEvent[i];
+                        fn.apply(this,arguments);
+                    }
+                }else{
+                    console.log('还没有人订阅' + type + '消息');
+                }
+            }
+
+            var _remove = function(type,fn){
+                var fnEvent = blindDateData[type];
+                if(!fn){
+                    fnEvent = [];
+                    fnEvent.length = 0;
+                    return;
+                }
+                if(!fnEvent){
+                    return;
+                }
+                for(var i=0;i<fnEvent.length;i++){
+                    if(fnEvent[i] == fn){
+                        fnEvent.splice(i,1);
+                    }
+                }
+            }
+
+            return {
+                listen:_listen,
+                emit:_emit,
+                remove:_remove
+            }
+        })();
+
+        var xiaozhangFn = function(data){
+            console.log('小张订阅了thinGirl对象消息');
+            console.log(data);
+        }
+
+        var xiaoliFn = function(data){
+            console.log('小李订阅了thinGirl对象消息');
+            console.log(data);
+        }
+
+        blindDateCenter.listen('thinGirl',xiaozhangFn);//小张订阅对象消息
+        blindDateCenter.listen('thinGirl',xiaoliFn);//小李订阅对象消息 
+        blindDateCenter.remove('thinGirl',xiaozhangFn);//取消小张订阅对象消息        
+
+        var data = {
+            name:'小姐姐', 
+            age:21, 
+            height:'170cm', 
+            weight:'45kg', 
+            money:20000            
+        };
+        blindDateCenter.emit('thinGirl',data);//婚介中心发布消息
+
+    </script>
+</body>
+
+</html>

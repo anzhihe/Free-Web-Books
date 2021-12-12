@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十一课 引用类型（Date类型）</title>
+</head> 
+<body>
+    <script>
+        // var dateTime = new Date('2019/03/25 11:30:23');
+        // console.log(dateTime);
+        // var dateTime = new Date('2019/03/25 11:30:23');
+        // var date1 = dateTime.getTime();
+        // console.log(date1);
+         // var date = [];
+        // var dateTime = new Date(1479785483000); //2016-03-01 11:30:23 
+        // console.log(dateTime); 
+        // var date1 = new Date(1479785483000);
+        // console.log(date1);    
+        // console.log(date1.getDate());//22    
+        // // console.log(date1.getDay());//2    
+        // console.log(date1.getMonth());//11    
+        // console.log(date1.getFullYear());//2016    
+        // console.log(date1.getHours());//11    
+        // console.log(date1.getMinutes());//31    
+        // console.log(date1.getSeconds());//23
+
+        function getTimeFn(timestamp){
+            var date = new Date(timestamp);
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hours = date.getHours();
+            var min = date.getMinutes();
+            var sec = date.getSeconds();
+            return year+ '-' + month + '-' + day + ' ' + hours + ':' + min + ':' + sec;
+        }
+        console.log(getTimeFn(1479785483000));
+
+    </script>
+</body> 
+</html>

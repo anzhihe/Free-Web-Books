@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第九课 jquery事件操作</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="div1">
+        <span>span1</span>
+        <button class="btn1">按钮1</button>
+    </div>
+    <script>
+        var $btn1 = $('.btn1');
+        $btn1.on({
+            mouseover:function(){
+                console.log(1);
+            },
+            mouseout:function(){
+                console.log(2);
+            },
+            click:function(){
+                console.log(3);
+            }
+        });
+        // $btn1.on('click mouseout',function(){
+        //     console.log('按钮1');
+        // });
+        // var $div1 = $('#div1');
+        // var $node = $('<h1>星星课堂</h1>');
+        // $node.on('click',function(){
+        //     alert('星星课堂');
+        // });
+        // $node.prependTo($div1);
+        // $div1.on('click','.btn1',{num:123},function(e){
+        //     console.log(e.data);
+        // });
+        // var $btn1 = $('.btn1');
+        // $btn1.on('click',function(){
+        //     alert('按钮1');
+        // });
+    </script>
+</body>
+
+</html>

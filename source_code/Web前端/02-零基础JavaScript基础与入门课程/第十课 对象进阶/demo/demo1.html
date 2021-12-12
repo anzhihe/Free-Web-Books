@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十课 对象进阶</title>
+</head> 
+<body>
+    <script>
+        //对象是无所不包的
+        var obj1 = {
+            x:'x1',
+            y:'y1'
+        };
+        var obj2 = new Object();
+
+        var arr1 = new Array();
+        var arr2 = [1,2,3];
+        var arr3 = [9,8,7];
+        console.log(arr1.length);
+        console.log(arr2.length);
+        console.log(arr3.length);
+
+        //上面两种新建的都只是Object类型
+        //arr1和arr2都是Array的实例，arr1实际上就具备了Array这个引用类型赋予他的各种属性和方法。
+    </script>
+</body> 
+</html>

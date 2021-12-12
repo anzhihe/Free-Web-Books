@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第二课 为什么要使用设计原则</title>
+</head>
+
+<body>
+    <span class="span1"></span>
+    <span class="span1"></span>
+    <span class="span1"></span>
+    <div class="wrap"></div>
+    <script>
+        var data1 = [
+            {id:1,title:'数组新闻标题1',content:'数组新闻内容1'},
+            {id:2,title:'数组新闻标题2',content:'数组新闻内容2'},
+            {id:3,title:'数组新闻标题3',content:'数组新闻内容3'}
+        ];
+        var data2 = {
+            a:{id:1,title:'对象新闻标题1',content:'对象新闻内容1'},
+            b:{id:2,title:'对象新闻标题2',content:'对象新闻内容2'},
+            c:{id:3,title:'对象新闻标题3',content:'对象新闻内容3'},
+        };
+        var data3 = document.getElementsByClassName('span1');
+
+        function checkType(data){
+            return Object.prototype.toString.call(data);
+        }
+
+        function loop(data,fn){
+            if(checkType(data) == '[object Array]' || checkType(data) == '[object HTMLCollection]'){
+                for(var i=0;i<data.length;i++){
+                    fn.apply(data[i],[data[i],i]);
+                }
+            }else if(checkType(data) == '[object Object]'){
+                for(var i in data){
+                    fn.apply(data[i],[data[i],i]);                   
+                }
+            }
+            return data;                
+        }
+
+        function createData(data){
+            var wrap = document.getElementsByClassName('wrap')[0];
+            var str = '';          
+            loop(data,function(item,index){
+                str += '<div><h3><span>'+item.id+'</span>'+item.title+'</h3><div>'+item.content+'</div></div>';
+            });
+            wrap.innerHTML = str;
+        }
+        createData(data1);
+
+    </script>
+</body>
+
+</html>

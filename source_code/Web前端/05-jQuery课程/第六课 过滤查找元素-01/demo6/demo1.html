@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第六课 过滤查找元素</title>
+    <style>
+        .active{
+            background: orange;
+        }
+        .div2{
+            display: none;
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div>1</div>
+    <div class="div2">2</div>
+    <div>3</div>
+    <script>
+        // var $div = $('div');
+        // console.log($div.eq(1));
+        // $div.addClass('active');//如果是对多个jquery对象进行操作，就会对他们这个类数组结构中的所有元素都添加了操作。
+        // $div.eq(1).addClass('active');//你也可以对某一个被选中的对象添加操作，但是被选中的对象也是jquey的类数组对象。
+        // console.log($div.get(1));
+        // $div[1];这里获取的是原生js的dom对象，无法使用jquery方法
+        // $div.get(1);这里获取的也是原生js的dom对象，无法使用jquery方法
+        //$div.eq(1);这里获取的是jquery对象，可以直接继续使用jquery方法
+        var $div2 = $('.div2');
+        console.log($div2.show());//jquery对象调用方法之后返回的仍然是对应的jquery对象
+        $div2.show().addClass('active');//这种写法在jquery中被称为连缀写法
+        console.log($div2.show().addClass('active'));//jquery对象调用方法之后返回的仍然是对应的jquery对象
+    </script>
+</body>
+
+</html>

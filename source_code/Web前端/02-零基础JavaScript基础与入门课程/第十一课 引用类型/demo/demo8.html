@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十一课 引用类型（Function类型4）</title>
+</head> 
+<body>
+    <script>
+        // console.log(this);//这里的this代表的是window对象，js中window对象实际指的就是浏览器运行环境下的全局对象
+        // alert(123);
+        // function fn1(a,b){
+        //     console.log(this);
+        //     console.log(a + b);
+        // }
+        // var obj = {
+        //     x:100,
+        //     y:200,
+        //     z:300,
+        //     fn2:function(c,d){
+        //         console.log(this);
+        //         console.log(c * d);
+        //     }
+        // };
+        // obj.fn2(2,3);
+        // fn1.apply(obj,[1,2]);//{x: 100, y: 200, z: 300}
+        // fn1(1,2);//this是winow
+        // function Fn1(a,b){
+        //     console.log(this);
+        //     console.log(a * b);
+        // }
+        // var f1 = new Fn1(2,3);
+
+        // function fn1(a,b){
+        //     console.log(arguments.length);
+        //     console.log(arguments.callee);
+        //     console.log(a + b);
+        // }
+        // fn1(1,2);
+
+        // function fn1(a,b){
+        //     fn1(1,2);
+        //     console.log(a + b);
+        // }
+        // fn1(100,200);
+
+        // function fn1(a){
+        //     if(a <= 1){
+        //         return a;
+        //     }else{
+        //         return a * arguments.callee(a - 1);
+        //     }
+        // }
+        // // 1*2*3
+        // // 1*2*3*4
+        // console.log(fn1(4));
+
+        function fn1(){
+            var a = 100;
+            var b = 200;
+            var c = 300;
+        }
+        console.log(fn1());
+
+    </script>    
+</body> 
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十五课 分页组件</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        .wrap{
+            width:100%;
+            text-align: center;
+        }
+        .dataContent{
+            position: relative;
+            padding:100px 0px;
+            width:400px;
+            text-align: left;
+            display: inline-block;
+        }
+        .pageWrap{
+            width:100%;
+            height:45px;
+            display: inline-block;
+        }
+        .pageWrap li{
+            height:45px;
+            border:1px solid #ccc;
+            list-style-type: none;
+            display: inline-block;
+            text-align: center;
+            line-height: 45px;
+            cursor: pointer;    
+            padding:0px 16px;        
+        }
+        .pageWrap li:hover{
+            border:1px solid #06f;
+            background: #06f;
+            color:#fff;            
+        }
+        .pageActive{
+            border:1px solid #06f;
+            background: #06f;
+            color:#fff;
+        }        
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="dataContent">数据内容区域</div>
+        <ul class="pageWrap">
+            <!-- <li>上一页</li>
+            <li class="pageActive">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>下一页</li> -->
+        </ul>
+    </div>
+    <script>
+        var data = {
+            total:25,
+            dataArr:[
+                {id:1,title:'标题1',content:'内容1'},
+                {id:2,title:'标题2',content:'内容2'},
+                {id:3,title:'标题3',content:'内容3'},
+                {id:4,title:'标题4',content:'内容4'},
+                {id:5,title:'标题5',content:'内容5'},
+                {id:6,title:'标题6',content:'内容6'},
+                {id:7,title:'标题7',content:'内容7'},
+                {id:8,title:'标题8',content:'内容8'},
+                {id:9,title:'标题9',content:'内容9'},
+                {id:10,title:'标题10',content:'内容10'},
+                {id:11,title:'标题11',content:'内容11'},
+                {id:12,title:'标题12',content:'内容12'},
+                {id:13,title:'标题13',content:'内容13'},
+                {id:14,title:'标题14',content:'内容14'},
+                {id:15,title:'标题15',content:'内容15'},
+                {id:16,title:'标题16',content:'内容16'},
+                {id:17,title:'标题17',content:'内容17'},
+                {id:18,title:'标题18',content:'内容18'},
+                {id:19,title:'标题19',content:'内容19'},
+                {id:20,title:'标题20',content:'内容20'},
+                {id:21,title:'标题21',content:'内容21'},
+                {id:22,title:'标题22',content:'内容22'},
+                {id:23,title:'标题23',content:'内容23'},
+                {id:24,title:'标题24',content:'内容24'},
+                {id:25,title:'标题25',content:'内容25'}
+            ]
+        };
+
+        function copyObj(obj1,obj2){
+            for(var i in obj1){
+                obj2[i] = obj1[i]
+            }
+        }
+
+        function Page(){
+            this.settings = {
+                id:'pageWrap',
+                data:[],
+                total:1,
+                pageSize:3,
+                pageActive:1,
+                prevText:'',
+                nextText:'',
+                firstText:'',
+                lastText:''                
+            };
+            this.pageWrap = null;
+            this.activePageNum = 1;
+            this.allPageNum = 1;
+        }
+
+        Page.prototype.init = function(option){
+            copyObj(option,this.settings);
+            this.getWrap();            
+            this.createPageWrap();
+            this.eventCenterFn();
+        }
+
+        Page.prototype.getWrap = function(){
+            this.pageWrap = document.getElementsByClassName(this.settings.id)[0];  
+            console.log(this.pageWrap);           
+        }
+
+        Page.prototype.createPageWrap = function(){
+            var str = '';
+            if(this.settings.data && this.settings.data.length != 0){
+                var data = this.settings.data;
+                this.allPageNum = Math.ceil(this.settings.total / this.settings.pageSize);//总页数
+                for(var i=0;i<this.allPageNum;i++){
+                    if(this.settings.pageActive == (i + 1)){
+                        str += '<li class="pageActive pageItem" data-value="'+(i + 1)+'">'+ (i + 1) +'</li>';
+                        continue;
+                    }
+                    str += '<li class="pageItem" data-value="'+(i + 1)+'">'+ (i + 1) +'</li>';
+                }
+                this.pageWrap.innerHTML = '<li data-value="first">首页</li><li data-value="prev">上一页</li>' + str + '<li data-value="next">下一页</li><li data-value="last">尾页</li>';
+            }
+        }
+
+        Page.prototype.eventCenterFn = function(){
+            var that = this;
+            this.pageWrap.addEventListener('click',function(e){
+                var e = e || window.event;
+                var target = e.target;
+                if(target.tagName == 'LI' && target.className == 'pageItem'){
+                    that.selectPageFn(target);
+                }else{
+                    that.selectPrevNext(target);                    
+                }
+            },false);
+        }
+
+        Page.prototype.selectPageFn = function(target){
+            this.selectActiveFn(target);
+            this.selectPageData(target);
+        }
+
+        Page.prototype.selectActiveFn = function(target){
+            var pageItem = document.getElementsByClassName('pageItem');
+            for(var i=0;i<pageItem.length;i++){
+                pageItem[i].classList.remove('pageActive');
+            }
+            target.classList.add('pageActive');
+        }
+
+        Page.prototype.selectPageData = function(target){
+            var activeNum = Number(target.getAttribute('data-value'));           
+            var selectDataEvent = new CustomEvent('selectDataEvent',{
+                detail:{
+                    activeNum:activeNum,
+                    pageSize:this.settings.pageSize,
+                }
+            });
+            this.pageWrap.dispatchEvent(selectDataEvent);
+            this.activePageNum = activeNum;            
+        }
+
+        Page.prototype.selectPrevNext = function(target){
+            var activeValue = target.getAttribute('data-value');
+            var activeNum = 1;
+            var pageItem = document.getElementsByClassName('pageItem');                        
+            if(activeValue == 'prev' && this.activePageNum > 1){
+                activeNum = this.activePageNum - 1;
+                this.selectPageFn(pageItem[activeNum - 1]);                 
+            }
+            if(activeValue == 'next' && this.activePageNum < this.allPageNum){
+                activeNum = this.activePageNum + 1;
+                this.selectPageFn(pageItem[activeNum - 1]);                 
+            }
+            if(activeValue == 'first'){
+                this.selectPageFn(pageItem[0]);                 
+            }
+            if(activeValue == 'last'){
+                this.selectPageFn(pageItem[this.allPageNum - 1]);                 
+            }                            
+        }
+
+        var p1 = new Page();
+        var option = {
+            id:'pageWrap',
+            data:data.dataArr,
+            total:data.total,
+            pageSize:10
+        }
+        p1.init(option);
+        p1.pageWrap.addEventListener('selectDataEvent',function(e){
+            var num = e.detail.activeNum;
+            var pageSize = e.detail.pageSize;
+            var pageData = getMockData(num,pageSize);
+            createData(pageData);            
+        });
+        var pageData = getMockData(p1.settings.pageActive,p1.settings.pageSize);
+        createData(pageData);
+
+        function getMockData(pageCount,pageSize,arr){//模拟分页
+            var pageCount = pageCount || 1;
+            var pageSize = pageSize || 10;
+            var arr = arr || data.dataArr;
+            var index = (pageCount - 1) * pageSize;
+            var newArr = (index + pageSize >= arr.length) ? arr.slice(index, arr.length) : arr.slice(index, index + pageSize);
+            return newArr;
+        }
+
+        function createData(data){//新建内容区域
+            var str = '';
+            var dataContent = document.getElementsByClassName('dataContent')[0];
+            for(var i=0;i<data.length;i++){
+                str += '<div>'+ data[i].id + data[i].title + data[i].content +'</div>';
+            }
+            dataContent.innerHTML = str;
+        }
+
+    </script>
+</body>
+
+</html>

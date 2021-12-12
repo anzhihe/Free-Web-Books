@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn1(num){
+            if(num <= 100){
+                console.log('数字小于等于100');
+            }else if(num > 100 && num <= 300){
+                console.log('数字大于100小于等于300');
+            }else if(num > 300 && num <= 600){
+                console.log('数字大于300小于等于600');
+            }else if(typeof num != 'number'){
+                console.log('数字错误');
+            }
+        }
+        fn1(100);
+
+        function f100(num){
+            if(num <= 100){
+                console.log('数字小于等于100');                
+            }else{
+                console.log('f100传递数字');
+                return 'next';
+            }
+        }
+
+        function f300(num){
+            if(num > 100 && num <= 300){
+                console.log('数字大于100小于等于300');                
+            }else{
+                console.log('f300传递数字');
+                return 'next';
+            }
+        }
+
+        function f600(num){
+            if(num > 300 && num <= 600){
+                console.log('数字大于300小于等于600');                
+            }else{
+                console.log('f600传递数字');
+                return 'next';
+            }
+        }
+
+        function fError(num){
+            if(typeof num != 'number'){
+                console.log('数字错误');                
+            }else{
+                console.log('数字大于600');  
+            }
+        }
+
+        Function.prototype.afterFn = function(fn){
+            var _fn = this;
+            return function(){
+                var result = _fn.apply(this,arguments);
+                if(result == 'next'){
+                    return fn.apply(this,arguments);
+                }
+                return result;
+            }
+        }
+        var fn = f100.afterFn(f300).afterFn(f600).afterFn(fError);
+        fn('fdgdfgd');
+
+        function LineFn(fn){
+            this.fn = fn;
+            this.next = null;
+        }
+        LineFn.prototype.bindFn = function(next){
+            return this.next = next;
+        }
+        LineFn.prototype.setFn = function(){
+            var result = this.fn.apply(this,arguments);
+            if(result == 'next'){
+                this.nextFn();
+            }
+            return result;
+        }
+        LineFn.prototype.nextFn = function(){
+            return this.next && this.next.setFn.apply(this.next,arguments);
+        }
+        var f1 = new LineFn(f100);
+        var f2 = new LineFn(f300);
+        var f3 = new LineFn(f600);
+        var fe = new LineFn(fError);
+        f1.bindFn(f2);
+        f2.bindFn(f3);
+        f3.bindFn(fe);
+        
+        f1.setFn('dsfsdgfdgfd');
+
+    </script>
+</body>
+</html>

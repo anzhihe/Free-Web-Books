@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十一课 引用类型（RegExp类型）</title>
+</head> 
+<body>
+    <script>
+        // var rp = /[A-z]/;
+        // var str = 'DSFSDFDSffdsfds';
+        // console.log(rp.test(str));
+        // var rp = /(abc|qwe|zxv)/;
+        // var str = 'fgh';
+        // console.log(rp.test(str));
+        // var rp = /a?/;
+        // // var rp1 = /[0-9]/;
+        // // var str = ' ';
+        // var str = 'aabc';
+        // console.log(rp.test(str));
+        // var rp = /(abc)+/;
+        // var str = 'abc';
+        // console.log(rp.test(str));
+        // var rp = /^1/;
+        // var rp = /1$/;
+        // var str = '1sdfsdf3254321';
+        // console.log(rp.test(str));  
+        var rp = /(^[0-9]{15}$)|(^[0-9]{18}$)|(^[0-9]{17}([0-9]|X|x))/;   
+        var num = '34040319850603026x';
+        console.log(rp.test(num));
+    </script>
+</body> 
+</html>

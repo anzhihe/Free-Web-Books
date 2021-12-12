@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第二课 为什么要用jquery</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="div1">
+        <span>
+            工作：<input type="text" name="job" />
+            国企：<input type="radio" name="type" value="1" />
+            公务员：<input type="radio" name="type" value="2" />
+        </span>
+    </div>
+    <button class="btn1">按钮1</button>
+    <script>
+        var div1 = document.getElementById('div1');
+        var btn1 = document.getElementsByClassName('btn1')[0];
+        btn1.onclick = function(){
+            var job = document.getElementsByName('job');
+            var type = document.getElementsByName('type');
+            var typeCheked = '';
+            for(var i=0;i<type.length;i++){
+                if(type[i].checked){
+                    typeCheked = type[i].value;
+                }
+            }
+            div1.style.background = '#06f';
+            console.log('工作' + job[0].value + '工作类型' + typeCheked);
+        }
+
+        var div1 = $('#div1');
+        var btn1 = $('.btn1');
+        btn1.on('click',function(){
+            var job = $('input[name="job"]');            
+            var type = $('input[name="type"]:checked');
+            div1.css('background','#06f');
+            console.log('工作' + job.val() + '工作类型' + type.val());                        
+        });
+
+    </script>
+</body>
+
+</html>

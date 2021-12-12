@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn1(num){
+            this.num = num;
+            console.log(this.num);
+            console.log('星星课堂');
+        }
+        var _fn1 = fn1;
+        fn1 = function(){
+            console.log('web前端培训工作室');
+            _fn1.apply(this,arguments);
+            console.log('xingxingclassroom');
+        }
+        fn1(100);
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第九课 jquery事件操作</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="div1">
+        <span>span1</span>
+        <button class="btn1">按钮1</button>
+    </div>
+    <script>
+        var $div1 = $('#div1');
+        var $btn1 = $('.btn1');
+        // $div1.on('click',function(event){
+        //     console.log(event);
+        // });
+        $div1.click(function(event){
+            console.log(event);
+        });
+        // $btn1.on('click',{num:123},function(event){
+        //     console.log(event);
+        //     return false;
+        // });
+        // $(document).on('keyup',function(event){
+        //     console.log(event);
+        // });
+    </script>
+</body>
+
+</html>

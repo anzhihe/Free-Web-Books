@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第七课 jquery样式尺寸操作</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        #div1{
+            width:200px;
+            height:200px;
+            background: orange;
+            /* padding:30px; */
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="div1">星星课堂</div>
+    <script>
+        var $div1 = $('#div1');
+        $div1.width(300).height(600).css({color:'blue',fontSize:'100px'});
+        // console.log($div1.innerHeight());//260
+        // $div1.innerWidth(60);//如果通过innerWidth方法给元素设置一个数值，那么等于是在设置元素的宽度
+        // console.log($div1.innerWidth());//260
+        // $div1.width(300);
+        // $div1.height(600);
+        // console.log($div1.height());//600
+        // console.log($div1.width());//200
+        // console.log($div1.width());//300
+    </script>
+</body>
+
+</html>

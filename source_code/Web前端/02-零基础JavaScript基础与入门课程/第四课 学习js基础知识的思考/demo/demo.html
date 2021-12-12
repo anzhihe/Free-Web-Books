@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第三课 js能做什么1（计数器）</title>
+    <!-- <style>
+        #num{
+            background: orange;
+        }
+    </style> -->
+</head> 
+<body>
+    <div id="num">0</div>
+    <div>
+        <input type="text" id="custom" />
+    </div>
+    <button id="addition">加</button>        
+    <button id="subtraction">减</button>
+    <script>
+        window.onload = function(){
+            var num = document.getElementById('num');
+            var addition = document.getElementById('addition');
+            var subtraction = document.getElementById('subtraction');
+            var count = 3; 
+
+            var custom = document.getElementById('custom');
+            custom.onblur = function(){
+                var value = Number(custom.value);
+                if(value > 10){
+                    alert('加减的数字不能大于10')
+                }else{
+                    count = value;
+                }
+            }
+
+            addition.onclick = function(){
+                var value = num.innerHTML;
+                num.innerHTML = Number(value) + count;
+            }
+            subtraction.onclick = function(){
+                var value = num.innerHTML;
+                num.innerHTML = Number(value) - count;                
+            }
+        }
+    </script>        
+</body> 
+</html>

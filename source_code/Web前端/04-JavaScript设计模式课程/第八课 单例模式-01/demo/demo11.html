@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>    
+        function Fn1(num){
+            var self = this;
+            this.num = num;
+            
+            // Fn1 = function(){
+            //     return self;
+            // }
+
+            // Fn1.prototype = this;//这里的this是当前实例对象，这一步是让改写之后的构造函数利用原型继承的形式了当前实例对象的原型
+
+            // self = new Fn1();//这里是单例实例对象实例化过程
+
+            // self.constructor = Fn1;//这里是修改单例实例对象的constructor属性，保证Fn1的指针可以指向这个单例实例对象
+
+            // return self;//这里返回这个单例实例对象，之后继续实例化Fn1也只能得到这个实例对象了，不会新建新的实例对象了
+
+        }
+        Fn1.prototype.getNum = function(){
+            return this.num;
+        }
+        getSingle(Fn1);
+        var f1 = new Fn1(100);
+        var f2 = new Fn1(300);
+        console.log(f1.constructor == Fn1);//false 因为改写了Fn1这个构造函数，因此这里的Fn1的指针已经指向新的函数了        
+        console.log(f1 === f2);
+        console.log(f1.getNum());//100
+        console.log(f2.getNum());//100 如果不使用单例模式，这里等于是一个新的实例对象，这里的num就会变成300了
+    </script>
+</body>
+</html>

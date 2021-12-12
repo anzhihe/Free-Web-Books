@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var blindDateCenter = (function(){
+            var blindDateData = {};
+            var _listenFn = function(type,fn){
+                if(!blindDateData[type]){
+                    blindDateData[type] = [];
+                }
+                blindDateData[type].push(fn);
+            }
+            var _emitFn = function(){
+                var type = Array.prototype.shift.apply(arguments);
+                var fnEvent = blindDateData[type];
+                if(fnEvent && fnEvent.length > 0){
+                    for(var i=0;i<fnEvent.length;i++){
+                        var fn = fnEvent[i];
+                        fn.apply(this,arguments);
+                    }
+                }else{
+                    console.log('没有人订阅'+type+'相亲数据');
+                    return;
+                }
+            }
+            return {
+                listen:_listenFn,
+                emit:_emitFn
+            }
+        })();
+
+        blindDateCenter.listen('thinGirl',function(e){//小张订阅瘦小姐姐相亲信息
+            console.log(e);
+        });
+        blindDateCenter.listen('fatGirl',function(e){//小程订阅胖小姐姐相亲信息
+            console.log(e);
+        });
+
+        var girlData = {
+            name:'小姐姐',
+            age:21,
+            height:'170cm',
+            weight:'45kg',
+            money:20000
+        };
+        blindDateCenter.emit('thinGirl',girlData);//发布瘦小姐姐相亲信息
+
+        var girlData = {
+            name:'小姐姐',
+            age:21,
+            height:'170cm',
+            weight:'80kg',
+            money:20000
+        };
+        blindDateCenter.emit('fatGirl',girlData);//发布胖小姐姐相亲信息        
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Fn1(num){
+            this.num = num;
+        }
+        Fn1.prototype.add = function(){
+            this.num ++ ;
+            middleFn.addFn(this.num);
+        }
+        Fn1.prototype.less = function(){
+            this.num -- ;
+            middleFn.lessFn(this.num);
+        }
+
+        var middleFn = {
+            addArr:[],
+            lessArr:[],
+            init:function(num){
+                var fn1 = new Fn1(num);
+                return fn1;
+            },
+            addFn:function(num){
+                this.addArr.push(num);
+            },
+            lessFn:function(num){
+                this.lessArr.push(num);
+            },
+            getCount:function(){
+                return {
+                    addNum:this.addArr.length,
+                    lessNum:this.lessArr.length
+                }
+            }
+        }
+
+        var wrapFn = function(){
+            var $div = document.createElement('div');
+            $div.innerHTML = '增加：' + middleFn.getCount().addNum + '减少：' + middleFn.getCount().lessNum;
+            document.body.appendChild($div);
+        }
+
+        var f1 = middleFn.init(100);
+        f1.add();
+        f1.add();
+        f1.less();
+        wrapFn();
+
+    </script>
+</body>
+</html>

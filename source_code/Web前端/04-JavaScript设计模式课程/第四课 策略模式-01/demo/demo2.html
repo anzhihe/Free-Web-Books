@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第四课 策略模式</title>
+</head>
+
+<body>
+    <script>
+        var levelObj = {
+            'A+':function(money){
+                return money * 3;
+            },
+            'A':function(money){
+                return money * 2;
+            },
+            'B':function(money){
+                return money * 1.5;
+            },
+            'C':function(money){
+                return money * 1;
+            },
+            'D':function(money){
+                return money * 0.8;
+            }                                                
+        };
+        var calcWrapFn = function(level,money){
+            return levelObj[level](money);
+        }
+        console.log(calcWrapFn('B',10000));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十二课 DOM（DOM操作）</title>
+</head> 
+<body>
+    <div id="div1">
+        <span>xingxingclassroom</span>
+    </div>
+    <script>
+        // document.write('<div id="div1">星星课堂1</div>');
+        // document.write('<div id="div2">星星课堂2</div>');
+        var div1 = document.getElementById('div1');
+        var span1 = div1.getElementsByTagName('span')[0];
+
+        // var div2 = document.createElement('div');
+        // div2.innerHTML = '星星课堂';
+        // div2.setAttribute('id','div2');
+
+        // div1.appendChild(div2);//这个方法由父级元素调用，参数是待添加的新元素节点
+        // div1.insertBefore(div2,span1);//这个方法由父级元素调用，第一个参数是新元素节点，第二个参数是新元素要添加到哪一个元素的前面
+        // div1.replaceChild(div2,span1);//这个方法由父级元素调用，第一个参数是新元素节点，第二个参数是新元素要替换哪一个元素
+        // console.log(span1);
+        var span2 = span1.cloneNode();
+        span2.innerHTML = '星星课堂真好';
+        span2.setAttribute('id','span2');    
+        div1.appendChild(span2);
+
+        div1.removeChild(span1);
+
+    </script>
+</body> 
+</html>

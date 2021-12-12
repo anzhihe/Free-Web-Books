@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十一课 基于jquery的选项卡</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        #wrap{
+            padding: 100px;
+        }
+        .tabIndex{
+            cursor: pointer;
+        }
+        .activeTabIndex{
+            background: orange;
+            color:#fff;
+        }
+        .tabContent{
+            width:300px;
+            height:300px;
+            border:1px solid #ccc;
+            position: absolute;
+            display: none;
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="wrap">
+        <div>
+            <span class="tabIndex activeTabIndex">选项一</span>
+            <span class="tabIndex">选项二</span>
+            <span class="tabIndex">选项三</span>
+        </div>
+        <div>
+            <div class="tabContent" style="display: block;">内容一</div>
+            <div class="tabContent">内容二</div>
+            <div class="tabContent">内容三</div>
+        </div>
+    </div>
+    <script>
+        $(function($){
+
+            var $wrap = $('#wrap');
+            var $tabIndex = $('.tabIndex');
+            var $tabContent = $('.tabContent');
+            var index = 0;
+            var timer = null;
+
+            var tabFn = function(){
+                $tabIndex.eq(index).addClass('activeTabIndex').siblings().removeClass('activeTabIndex');
+                $tabContent.eq(index).fadeIn().siblings().hide();
+            }
+            var autoFn = function(){
+                timer = setInterval(function(){
+                    index ++;
+                    if(index == $tabIndex.length){
+                        index = 0;
+                    }
+                    tabFn();
+                },2000);
+            }
+
+            $tabIndex.on('click',function(){
+                index = $(this).index();  
+                tabFn();
+            });
+            $tabIndex.on('mouseover',function(){
+                clearInterval(timer);
+                timer = null;
+            });
+            $tabIndex.on('mouseout',function(){
+                autoFn();
+            });
+            $tabContent.on('mouseover',function(){
+                clearInterval(timer);
+                timer = null;
+            });
+            $tabContent.on('mouseout',function(){
+                autoFn();
+            });                        
+            autoFn();
+
+        });
+    </script>
+</body>
+
+</html>

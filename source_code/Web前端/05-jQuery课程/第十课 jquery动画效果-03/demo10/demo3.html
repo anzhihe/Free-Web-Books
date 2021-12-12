@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十课 jquery动画效果</title>
+    <style>
+        #div1{
+            width:300px;
+            height:300px;
+            background: orange;
+            position: relative;
+            display: none;
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <button class="btn1">启动动画</button>    
+    <div id="div1">星星课堂</div>
+    <script>
+        var $div1 = $('#div1');       
+        var $btn1 = $('.btn1');
+        $btn1.on('click',function(){
+            $div1.fadeIn(2000).delay(2000).animate({width:'350px',height:'350px'});
+            // $div1.animate({left:'100px'});
+            // $div1.animate({left:'300px'});
+            // $div1.animate({left:'600px'});
+            // $div1.animate({
+            //     left:'100px',
+            //     width:'500px',
+            //     fontSize:'60px'
+            //     // background:'blue',//jquery的核心库中没有颜色的动画效果，如果要使用颜色动画，必须安装颜色动画库的插件jquery-ui
+            //     // color:'blue'//jquery的核心库中没有颜色的动画效果，如果要使用颜色动画，必须安装颜色动画库的插件jquery-ui
+            // },3000);
+        });                        
+    </script>
+</body>
+
+</html>

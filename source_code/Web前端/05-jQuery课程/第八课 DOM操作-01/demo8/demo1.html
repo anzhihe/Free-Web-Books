@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第八课 DOM操作</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="div1">
+        <div id="div2">xingxingclassroom</div>
+    </div>
+    <script>
+        var $div1 = $('#div1');
+        var $div2 = $('#div2');
+        var $node = $('<h1>星星课堂</h1>');//append方法可以接收一个jquery形成的jquery对象
+        $div2.append($node);
+        // $div2.prepend($node);
+        // $node.prependTo($div1);
+        // $div1.prepend($node);
+        // $node.appendTo($div1);
+        // console.log($node);
+        // $div1.append($node);
+        // var str = '<h5>星星课堂</h5>';//append方法可以接收含有html标签的字符串
+        // $div1.append(str);
+        // $div1.append('<h3>星星课堂</h3>');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第七课 代理模式</title>
+</head>
+
+<body>
+    <script>
+        var computedFn = function(num){
+            if(num <= 2){
+                return 1;
+            }else{
+                return arguments.callee(num - 1) + arguments.callee(num - 2);
+            }
+        }
+
+        var proxyFn = function(fn){
+            var cache = {};
+            return function(){
+                var argStr = Array.prototype.join.call(arguments,',');//得到缓存对象key参数
+                if(argStr in cache){
+                    return cache[argStr];
+                }
+                return cache[argStr] = fn.apply(this,arguments);
+            }
+        }
+
+        var fn1 = proxyFn(computedFn);
+        console.log(fn1(40));
+        console.log(fn1(40));
+        // console.log(computedFn(40));
+        // console.log(computedFn(40));
+    </script>
+</body>
+
+</html>

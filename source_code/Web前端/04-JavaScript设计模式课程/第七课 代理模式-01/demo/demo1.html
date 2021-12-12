@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第七课 代理模式</title>
+</head>
+
+<body>
+    <script>
+        var createDiv = (function(){
+            var $div = document.createElement('div');
+            document.body.appendChild($div);
+            return {
+                createFn:function(str){
+                    $div.innerHTML = str;
+                }
+            }
+        })();
+
+        var proxyStrFn = (function(){
+            var that = this;
+            return {
+                createFn:function(str){
+                    createDiv.createFn('请等待文本规则验证');
+
+                    if(str.indexOf('星星课堂') != -1){
+                        that.str = str;
+                    }else{
+                        that.str = '文本不包含星星课堂';
+                    }
+
+                    setTimeout(function(){
+                        createDiv.createFn(that.str);
+                    },2000);   
+                                    
+                }
+            }
+        })();
+        proxyStrFn.createFn('星星课堂');
+        // createDiv.createFn('星星课堂');
+    </script>
+</body>
+
+</html>

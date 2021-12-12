@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十五课 发布订阅模式</title>
+</head>
+
+<body>
+    <script>
+        var publishSubscribe = (function(){
+
+            var _data = {};
+            var _listen = function(type,fn){
+                if(!_data[type]){
+                    _data[type] = [];
+                }
+                _data[type].push(fn);
+            }
+
+            var _emit = function(){
+                var type = Array.prototype.shift.apply(arguments);
+                var fnEvent = _data[type];
+                if(fnEvent && fnEvent.length > 0){
+                    for(var i=0;i<fnEvent.length;i++){
+                        var fn = fnEvent[i];
+                        fn.apply(this,arguments);
+                    }
+                }else{
+                    console.log('还没有人订阅' + type + '消息');
+                }
+            }
+
+            var _remove = function(type,fn){
+                var fnEvent = _data[type];
+                if(!fn){
+                    fnEvent = [];
+                    fnEvent.length = 0;
+                    return;
+                }
+                if(!fnEvent){
+                    return;
+                }
+                for(var i=0;i<fnEvent.length;i++){
+                    if(fnEvent[i] == fn){
+                        fnEvent.splice(i,1);
+                    }
+                }
+            }
+
+            return {
+                listen:_listen,
+                emit:_emit,
+                remove:_remove
+            }
+        })();
+
+        var fn1 = function(data){
+            console.log(data);
+        }
+        var fn2 = function(data){
+            console.log(data.a + data.b + data.c);
+        }
+        publishSubscribe.listen('abcEvent',fn1);
+        publishSubscribe.listen('abcEvent',fn2);
+
+        publishSubscribe.emit('abcEvent',{a:100,b:200,c:300});
+
+    </script>
+</body>
+
+</html>

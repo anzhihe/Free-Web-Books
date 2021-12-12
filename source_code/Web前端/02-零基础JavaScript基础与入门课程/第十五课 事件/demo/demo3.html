@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十五课 事件</title>
+</head> 
+<body>
+    <script>
+        // document.onclick = function(event){
+        //     var event = event || window.event;
+        //     console.log(event);
+        // }
+        // document.onclick = function(){
+        //     console.log(arguments[0]);
+        // } 
+        // document.onclick = function(event){
+        //     // console.log(event.clientX);//距离可视区左边的位置 X 坐标 354
+        //     // console.log(event.clientY);//距离可视区上边的位置 y 坐标 84
+        //     console.log(event.screenX);//距离屏幕左边的位置 x 坐标 455
+        //     console.log(event.screenY);//距离屏幕上边的位置 y 坐标 108
+        // }
+        // document.onclick = function(event){
+        //     console.log(event.ctrlKey);
+        //     console.log(event.shiftKey);
+        //     console.log(event.altKey);
+        // }
+        document.onmousedown = function(event){
+            console.log(event.button);
+        }                               
+    </script>
+</body> 
+</html>

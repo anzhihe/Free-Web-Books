@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*A类*/
+        function FnA1(num){
+            this.num = num;
+        }
+        FnA1.prototype.getNum = function(){
+            return this.num + 'FnA1';
+        }
+
+        function FnA2(num){
+            this.num = num;
+        }
+        FnA2.prototype.getNum = function(){
+            return this.num + 'FnA2';
+        }
+
+        function FnA3(num){
+            this.num = num;
+        }
+        FnA3.prototype.getNum = function(){
+            return this.num + 'FnA3';
+        }
+
+        /*B类*/
+        function FnB1(num){
+            this.num = num;
+        }
+        FnB1.prototype.getNum = function(){
+            return this.num + 'FnB1';
+        }
+        
+        function FnB2(num){
+            this.num = num;
+        }
+        FnB2.prototype.getNum = function(){
+            return this.num + 'FnB2';
+        }
+
+        function FnB3(num){
+            this.num = num;
+        }
+        FnB3.prototype.getNum = function(){
+            return this.num + 'FnB3';
+        }
+
+        function NumCenter(){}
+        NumCenter.prototype.showNum = function(){
+            var numObj = this.createNum();
+            return numObj;
+        }
+        NumCenter.prototype.createNum = function(){
+            throw new Error('子类决定如何显示数字');
+        }
+
+        function NumSubA(){
+            NumCenter.apply(this);
+        }
+        NumSubA.prototype = new NumCenter();
+        NumSubA.prototype.createNum = function(type,num){
+            var obj = null;
+            switch (type) {
+                case 'FnA1': obj = new FnA1(num);break;
+                case 'FnA2': obj = new FnA2(num);break;
+                case 'FnA3': obj = new FnA3(num);break;
+                default:
+                    break;
+            }
+            return obj;
+        }
+        var na1 = new NumSubA();
+        var fa1 = na1.createNum('FnA1',100);
+        var fa2 = na1.createNum('FnA3',500);
+        console.log(fa1.getNum());
+        console.log(fa2.getNum());
+
+        function NumSubB(){
+            NumCenter.apply(this);
+        }
+        NumSubB.prototype = new NumCenter();
+        NumSubB.prototype.createNum = function(type,num){
+            var obj = null;
+            switch (type) {
+                case 'FnB1': obj = new FnB1(num);break;
+                case 'FnB2': obj = new FnB2(num);break;
+                case 'FnB3': obj = new FnB3(num);break;
+                default:
+                    break;
+            }
+            return obj;            
+        }
+        var nb1 = new NumSubB();
+        var fb1 = nb1.createNum('FnB1',200);
+        var fb2 = nb1.createNum('FnB3',900);
+        console.log(fb1.getNum());
+        console.log(fb2.getNum());
+
+    </script>    
+</body>
+</html>

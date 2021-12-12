@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十二课 工具函数</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="div1">123</div>
+    <div class="div1">123</div>
+    <div class="div1">123</div>
+    <script>
+        var arr = [
+            {num:1,title:'标题1',obj:[100,200,300]},
+            {num:2,title:'标题2',obj:[400,500,600]},
+            {num:3,title:'标题3',obj:[700,800,900]}
+        ];
+        var obj1 = {
+            a:100,
+            b:200
+        }
+        var $div1 = $('.div1');
+        $div1.attr('obj',1);//attr只能存储简单的字符串和数值
+        $div1.data('obj',obj);
+
+        var newData = $div1.data('obj');
+        console.log(newData);
+        // var params = {pageCount:1,pageSize:10,arr:[1,2,3]};
+        // console.log($.param(params));
+        // console.log($.param(params,true));
+        // var url = 'http://192.168.1.106:3083/data?pageCount=1&pageSize=10';        
+        // var url = 'http://192.168.1.106:3083/data?'+$.param(params)+'';        
+        // console.log(params);
+        // console.log($.param(params));
+        // console.log(url);
+        // var str = ' 星星课堂  xingxingclassroom   ';
+        // console.log(str);
+        // console.log($.trim(str));
+    </script>
+</body>
+
+</html>

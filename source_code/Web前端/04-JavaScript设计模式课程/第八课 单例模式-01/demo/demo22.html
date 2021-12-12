@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let SingleFn = (function(){
+            let result = null;
+            return function(num){
+                if(result){
+                    return result;
+                }
+                return result = new Fn1(num);
+            }
+        })();
+
+        function Fn1(num){
+            this.num = num;
+        }
+        Fn1.prototype.getNum = function(){
+            return this.num;
+        }
+        var f1 = new SingleFn(100);
+        var f2 = new SingleFn(300);
+        console.log(f1 === f2);//true
+        console.log(f1.getNum());//100
+        console.log(f2.getNum());//100
+
+    </script>
+</body>
+</html>

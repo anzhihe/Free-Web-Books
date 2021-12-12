@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function Ready(){}
+        Ready.prototype.setState = function(){
+            this.$button.innerHTML = '准备视频通话';
+            this.state = this.callingState;      
+            console.log('准备视频通话');              
+        }
+
+        function Calling(){}
+        Calling.prototype.setState = function(){
+            this.$button.innerHTML = '正在视频通话';
+            this.state = this.endState; 
+            console.log('正在视频通话');            
+        }       
+
+        function End(){}
+        End.prototype.setState = function(){
+            this.$button.innerHTML = '视频通话结束';  
+            this.state = this.readyState;
+            console.log('视频通话结束');            
+        } 
+
+        function VideoCallMethod(){
+            this.readyState = new Ready();
+            this.callingState = new Calling();
+            this.endState = new End();
+            this.state = this.readyState;
+            this.$button = null;
+        }
+        VideoCallMethod.prototype.init = function(){
+            this.$button = document.createElement('button');
+            this.$button.innerHTML = '准备视频通话';
+            document.body.appendChild(this.$button);
+            this.eventCenter();
+        }
+        VideoCallMethod.prototype.eventCenter = function(){
+            var that = this;
+            this.$button.onclick = function(){
+                that.state.setState.call(that);
+            }
+        }
+
+        var v1 = new VideoCallMethod();
+        v1.init();
+        
+    </script>
+</body>
+</html>

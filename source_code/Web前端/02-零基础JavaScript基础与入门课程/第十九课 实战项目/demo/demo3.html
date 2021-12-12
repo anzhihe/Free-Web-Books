@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>动画效果</title>
+    <style>
+        #div1{
+            width:100px;
+            height:100px;
+            background: orange;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+        window.onload = function(){
+
+            var div1 = document.getElementById('div1');
+            var stop = false;
+
+            var animation = {
+                moving: function (ut, sp, ep, ud) {//ut是动画已消耗的时间、sp元素原始位置、ep元素目标位置、ud动画持续的总时间
+                    return ep * ut / ud + sp;
+                },
+                fade: function (ut, so, eo, ud) {//ut是动画已消耗的时间、so元素原始透明度、eo元素目标透明度、ud动画持续的总时间
+                    return eo * ( ut /= ud ) * ut + so;
+                }
+            };
+
+            var init = function(type,startValue,endValue,time){
+                var startTime = +new Date();//当前开始动画的时间
+                start(type,startTime,startValue,endValue,time);                
+            }
+
+            var sport = function(type,startTime,startValue,endValue,time){
+                var nd = +new Date();//动画过程实时当前时间
+                if(nd > startTime + time){
+                    stop = true;
+                }else{
+                    if(type == 'moving'){
+                        var pos = animation.moving(nd-startTime,startValue,endValue - startValue,time);
+                        div1.style.left = pos + 'px';                                              
+                    }else if(type == 'fade'){
+                        var opy = animation.fade(nd-startTime,startValue,endValue - startValue,time);
+                        div1.style.opacity = opy / 100;
+                    }
+                }
+            }
+
+            var start = function(type,startTime,startValue,endValue,time){
+                var timer = setInterval(function(){
+                    if(stop){
+                        clearInterval(timer);
+                    }
+                    sport(type,startTime,startValue,endValue,time);
+                },30);
+            }
+
+            div1.onclick = function(){               
+                init('moving',this.offsetLeft,100,2000);
+                init('fade',100,0,2000);
+            }
+        }
+    </script>
+</body>
+</html>

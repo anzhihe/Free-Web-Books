@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>第十五课 事件</title>
+</head> 
+<body>
+    <!-- <button onclick="fn1()">按钮</button>  -->
+    <button id="btn1">按钮</button> 
+    <script>
+        function fn1(){
+            alert('内联事件');
+        }
+        var btn1 = document.getElementById('btn1');
+        // btn1.onclick = fn1;
+        // btn1.onclick = function(){
+        //     alert('星星课堂');
+        // }
+        btn1.addEventListener('click',fn1);
+        btn1.removeEventListener('click',fn1);
+        btn1.addEventListener('click',function(){
+            alert('xingxingclassroom');
+        });
+    </script>
+</body> 
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十二课 工具函数</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="div1">100</div>
+    <div class="div1 select">200</div>
+    <div class="div1">300</div>
+    <script>
+        var $div1 = $('.div1');
+        $div1.each(function(i,item){
+            console.log($(item).html());
+        });
+        // console.log($div1.index(document.getElementsByClassName('select')[0]));//1
+        // $div1.on('click',function(){
+        //     console.log($(this).index());
+        // });
+    </script>
+</body>
+
+</html>
