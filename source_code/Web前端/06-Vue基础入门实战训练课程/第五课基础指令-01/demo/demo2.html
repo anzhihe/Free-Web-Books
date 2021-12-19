@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第五课 基础指令</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-if="showFlag">v-if</div>
+        <div v-else-if>v-else-if</div>
+        <div v-else>v-else</div>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                showFlag:false
+            }
+        })
+    </script>
+</body>
+</html>

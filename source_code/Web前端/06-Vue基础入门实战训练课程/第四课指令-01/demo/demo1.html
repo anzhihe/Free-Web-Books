@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第四课 指令</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-bind:title="flag">{{message}}</div>
+        <div @click="edit">123</div>
+    </div>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                flag:false ? 123 : 321,
+                message:'星星课堂'
+            },
+            methods: {
+                edit(){
+                    this.flag = 'xingxingclassroom';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

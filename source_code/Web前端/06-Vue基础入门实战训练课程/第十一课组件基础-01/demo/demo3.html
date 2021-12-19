@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>{{sum}}</div>
+        <custom-num :first="num1" :secend="num2" @add="showSumFn"></custom-num>
+    </div>
+    <script>
+
+        Vue.component('custom-num',{
+            props:['first','secend'],
+            data:function(){
+                return {
+                    third:1000
+                }
+            },
+            template:`<div>
+                <div>{{first}}</div>
+                <div>{{secend}}</div>
+                <button @click="fn1">按钮</button>
+            </div>`,
+            methods:{
+                fn1(){
+                    let newSum = this.first + this.secend + this.third;
+                    this.$emit('add',newSum);
+                }
+            }
+        })
+
+        new Vue({
+            el:'#app',
+            data:{
+                num1:100,
+                num2:500,
+                sum:0
+            },
+            methods:{
+                showSumFn(value){
+                    console.log(value);
+                    this.sum = value;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

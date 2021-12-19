@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        button{
+            padding:10px 15px;
+        }
+        #app{
+            width:100%;
+            text-align: center;
+        }
+        .wrap{
+            display: inline-block;
+            width:600px;
+            background: orange;
+            text-align: left;
+        }
+        .inputPlanWrap{
+            padding:30px 0px;
+            border:1px solid #ccc;
+            text-align: center;
+        }
+        .inputPlanWrap input{
+            width:200px;
+            height:40px;
+            text-indent: 10px;
+        }
+        .studyPlan{
+            text-align: right;
+            padding:15px;
+        }
+        .planItem{
+            display: flex;
+            justify-content: space-around;
+            border-bottom:1px solid #ccc;
+            padding:10px 0px;
+            align-items: center;
+        }
+        .deleteBtn{
+            width:30px;
+            height:30px;
+        }
+        .submitBtnWrap{
+            padding:10px 0px;
+            border-bottom:1px solid #ccc;
+        }
+        .totalWrap{
+            padding:10px 0px;
+        }
+        .completedActive{
+            background: #fff;
+            color:orange;
+        }
+    </style>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="wrap">
+            <div class="inputPlanWrap">
+                <input type="text" placeholder="请输入您的学习计划" v-model="planValue" />
+                <button @click="submitPlanFn">提交</button>
+            </div>
+            <div class="studyPlan">
+                <plan-item v-for="(item,index) in planListArr" :key="item.id" :id="item.id" :plan="item.plan" :status="item.status" @delete="deleteFn"></plan-item>
+                <div class="submitBtnWrap">
+                    <button @click="submitCompleteFn">确定完成</button>
+                </div>
+                <div class="totalWrap">
+                    <span>学习计划的总数量：{{planListArr.length}}</span>
+                    <span>学习计划的完成数量：{{completedArr.length}}</span>
+                    <span>学习计划的剩余数量：{{planListArr.length - completedArr.length}}</span>
+                </div>                
+            </div>
+        </div>
+    </div>
+    <script>
+
+        Vue.component('planItem',{
+            props: ['id','plan','status'],
+            data:function(){
+                return {
+                    checkedArr:[],
+                }
+            },
+            computed:{
+                formatStatus(){
+                    return function(status){
+                        return status == false ? '未完成' : '已完成';
+                    }
+                }
+            },            
+            template:`<div class="planItem">
+                    <span>id:{{id}}</span>
+                    <span>学习计划：{{plan}}</span>
+                    <span>完成状态：{{formatStatus(status)}}</span>
+                    <input type="checkbox" name="" id="" :value="id" v-model="checkedArr" v-if="!status" />
+                    <img src="./deleteIcon.png" class="deleteBtn" alt="" v-if="status" @click="deleteItemFn(id)" />
+                </div>`,
+            methods:{
+                deleteItemFn(id){
+                    this.$emit('delete',id);
+                }
+            }
+        })
+
+        new Vue({
+            el:'#app',
+            data:{
+                planListArr:[],
+                planValue:'',
+                completedArr:[]
+            },
+            created(){
+                this.planListArr = this.getDataFn('planListArr');
+                this.updateCountFn();
+            },
+            methods:{
+                updateCountFn(){
+                    this.planListArr.map((item,index) => {
+                        if(item.status){
+                            this.completedArr.push(item.id);
+                        }
+                    });
+                },
+                setDataFn(key,value){
+                    localStorage.setItem(key,JSON.stringify(value));
+                },
+                getDataFn(key){
+                    return JSON.parse(localStorage.getItem(key));
+                },
+                submitPlanFn(){
+                    if(this.planValue == ''){
+                        alert('学习计划不能为空');
+                        return;
+                    }
+                    let obj = {
+                        id:Math.random() * 100 + new Date().getDate(),
+                        plan:this.planValue,
+                        status:false
+                    };
+                    this.planListArr.push(obj);
+                    this.planValue = '';
+                    this.setDataFn('planListArr',this.planListArr);
+                },
+                submitCompleteFn(){
+                    if(this.checkedArr.length == 0){
+                        alert('你还没有选择要完成的学习计划');
+                        return;
+                    }
+                    this.planListArr.map((item,index) => {
+                        this.checkedArr.map((checkedItem,checkedIndex) => {
+                            if(item.id == checkedItem){
+                                item.status = true;
+                                this.completedArr.push(item.id);
+                            }
+                        });
+                    });
+                    this.checkedArr = [];
+                    this.setDataFn('planListArr',this.planListArr);                    
+                },
+                deleteFn(id){
+                    let completedIndex = this.completedArr.findIndex((item) => item.id == id);
+                    this.completedArr.splice(completedIndex,1);
+                    this.planListArr = this.planListArr.filter((item,index) => {                       
+                        return item.id != id;
+                    });
+                    this.checkedArr = [];
+                    this.setDataFn('planListArr',this.planListArr);                            
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第二课 vue与传统js编程的区别</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="wrap"></div>
+    <div id="app">
+        <div v-for="(item,index) in arr" :key="index">
+            <span>{{item.id}}</span>
+            <span>{{item.title}}</span>
+            <span>{{item.content}}</span>
+        </div>
+    </div>
+    <script>
+
+        var data = [
+            {id:1,title:'标题1',content:'内容1'},
+            {id:2,title:'标题2',content:'内容2'},
+            {id:3,title:'标题3',content:'内容3'}
+        ];
+
+        var $wrap = document.getElementById('wrap');
+        var str = '';
+        for(var i=0;i<data.length;i++){
+            str += '<div><span>'+data[i].id+'</span><span>'+data[i].title+'</span><span>'+data[i].content+'</span></div>';            
+        }
+        $wrap.innerHTML = str;
+
+        var app = new Vue({
+            el:'#app',
+            data:{
+                arr:data
+            }
+        });
+
+    </script>
+</body>
+</html>

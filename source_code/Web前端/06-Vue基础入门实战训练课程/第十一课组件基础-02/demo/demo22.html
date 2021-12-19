@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件基础</title>
+    <style>
+        .div1{
+            background: orange;
+        }
+        .div2{
+            background: blue;
+        }
+    </style>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <custom-num>
+            <div slot="slot1">xingxingclassroom</div>
+            <div class="div1" slot="slot2">{{num}}</div>
+        </custom-num>
+        <!-- <custom-num>
+            <div slot="slot1">星星课堂</div>
+            <div class="div2" slot="slot2">500</div>
+        </custom-num> -->
+    </div>
+    <script>
+
+        Vue.component('custom-num',{
+            data(){
+                return {
+                    num:500
+                }
+            },
+            template:`
+                <div>
+                    <slot name="slot1"></slot>
+                    <h3>数字内容{{num}}</h3>
+                    <slot name="slot2"></slot>
+                </div>
+            `
+        });
+
+        new Vue({
+            el:'#app',
+            data:{
+                num:100
+            }
+        });
+    </script>
+</body>
+</html>

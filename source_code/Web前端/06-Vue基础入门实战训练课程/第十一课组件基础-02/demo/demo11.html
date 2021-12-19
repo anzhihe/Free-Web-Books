@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件基础</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <custom-component :aaa="count" :bbb="num" @clicknumevent="getNumFn"></custom-component>
+    </div>
+    <script>
+        Vue.component('custom-component',{
+                props:['aaa','bbb'],
+                data:function(){
+                    return {
+                        num:100
+                    }
+                },
+                created:function(){
+                    console.log('这是custom-component的created生命周期钩子函数');
+                },
+                methods:{
+                    clickNumFn(){
+                        var str = this.num + '星星课堂';
+                        this.$emit('clicknumevent',str);
+                    }
+                },
+                template:`<div>
+                        <h3>
+                            <span @click="clickNumFn">{{num}}</span>
+                            <span>{{aaa}}</span>
+                            <span>{{bbb}}</span>
+                        </h3>
+                    </div>`                
+            }
+        );
+
+        new Vue({
+            el:'#app',
+            data:{
+                num:500,
+                count:600
+            },
+            methods:{
+                getNumFn(value){
+                    console.log(value);
+                }
+            },
+            created:function(){
+                console.log('这是app的created生命周期钩子函数');
+            }
+        });
+
+    </script>
+</body>
+</html>

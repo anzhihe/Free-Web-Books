@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第六课 计算属性与方法</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div @click="fn2">{{num}}</div>
+        <div>{{fn5()}}</div>
+    </div>
+    <script>
+
+        function fn1(){
+            console.log(123);
+        }
+
+        var app = new Vue({
+            el:'#app',
+            data:{
+                num:100
+            },
+            methods:{
+                fn2:function(){
+                    fn1();
+                    this.fn3();
+                    console.log('星星课堂');
+                },
+                fn3:function(){
+                    console.log(this.num);
+                    console.log('xingxingclassroom');
+                },
+                fn5:function(){
+                    return this.num;
+                }
+            }
+        });
+
+        function fn4(){
+            app.fn3();
+        }
+        fn4();
+
+    </script>
+</body>
+
+</html>

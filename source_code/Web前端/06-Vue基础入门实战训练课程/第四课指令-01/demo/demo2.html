@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第四课 指令</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-bind:[name]="str">xingxingclassroom</div>
+        <div :[name]="str">xingxingclassroom</div>
+        <a v-on:click.prevent="navFn" href="jsbfjksdbk">星星课堂</a>
+        <a @click.prevent="navFn" href="jsbfjksdbk">星星课堂</a>
+    </div>
+    <script>
+        var app = new Vue({
+            el:'#app',//作用范围
+            data:{//数据
+                abc:'title',
+                str:'星星课堂'
+            },
+            computed:{//计算属性
+                name(){
+                    return 'title';
+                }
+            },
+            methods: {//方法
+                navFn(){
+                    console.log(123);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
