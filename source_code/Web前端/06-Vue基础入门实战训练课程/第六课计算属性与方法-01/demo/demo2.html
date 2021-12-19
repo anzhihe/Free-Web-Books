@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第六课 计算属性与方法</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{sum}}</div>
+    </div>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                firstNum:100,
+                secendNum:300
+            },
+            computed:{
+                sum:{
+                    get:function(){
+                        return this.firstNum + this.secendNum;
+                    },
+                    set:function(num){
+                        this.firstNum = num + this.firstNum;
+                        this.secendNum = num + this.secendNum;
+                    }
+                }
+            }
+        });
+        app.sum = 100;
+    </script>
+</body>
+
+</html>

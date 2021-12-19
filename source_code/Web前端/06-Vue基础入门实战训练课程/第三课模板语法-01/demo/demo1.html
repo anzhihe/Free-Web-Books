@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第三课 模板语法</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <div>{{message}}</div>
+        <div>{{num}}</div>
+        <div>{{flag}}</div>
+        <div>{{arr}}</div>
+        <div>{{obj}}</div>
+        <div>{{htmlStr}}</div> -->
+        <div>{{num + 200}}</div>
+        <div>{{flag ? 'orange' : 'blue'}}</div>
+        <div>{{arr.join(',')}}</div>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                num:100,
+                flag:false,
+                arr:['a','b','c']
+                // message:'星星课堂1',
+                // num:100,
+                // flag:true,
+                // arr:[1,2,3],
+                // obj:{a:100,b:300},
+                // htmlStr:'<span>xingxingclassroom</span>'
+            }
+        });
+    </script>
+</body>
+</html>

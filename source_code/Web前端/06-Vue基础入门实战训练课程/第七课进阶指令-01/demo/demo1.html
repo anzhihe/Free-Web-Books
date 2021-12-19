@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第七课 进阶指令</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div @click="handleFn($event,100)">{{str}}</div>
+        <a href="http://www.baidu.com" @click="baiDuFn($event)">baidu</a>
+        <div style="background: orange;">
+            <div>123</div>
+            <div>
+                <div>321</div>
+                <div @click.self="twoFn" style="background: blue;">
+                    <div style="width:100px;background:red;">abc</div>
+                    <div>cba</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                str:'星星课堂'
+            },
+            methods:{
+                handleFn(event,num){
+                    console.log(event);
+                    console.log(num);
+                    console.log(this.str);
+                },
+                baiDuFn(event){
+                    event.preventDefault
+                    console.log('baidu');
+                },
+                onceFn(){
+                    console.log('once');
+                },
+                twoFn(){
+                    console.log('two');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

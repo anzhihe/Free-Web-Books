@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第五课 基础指令</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-for="(item,index) in arr" :key="item.id">
+            <span>{{item.id}}</span>
+            <span>{{item.title}}</span>
+            <span>{{item.content}}</span>
+        </div>
+
+        <div>
+            <span>
+                <span>
+                    <span></span>
+                    <h3></h3>
+                </span>
+            </span>
+        </div>
+
+        <div>
+            <div>
+                <h3></h3>
+                <span></span>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                arr:[
+                    {id:100,title:'标题1',content:'内容1'},                    
+                    {id:200,title:'标题2',content:'内容2'},                    
+                    {id:300,title:'标题3',content:'内容3'}                   
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

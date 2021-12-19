@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第二课 vue与传统js编程的区别</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+
+    <div>
+        <div id="div1">星星课堂</div>
+        <button id="btn1">传统js显示隐藏</button>
+    </div>
+
+    <div id="app">
+        <div v-show="showFlag">{{message}}</div>
+        <button @click="showFn">vue显示隐藏</button>
+    </div>
+
+    <script>
+
+        var $div1 = document.getElementById('div1');
+        var $btn1 = document.getElementById('btn1');
+        var flag = false;
+        $btn1.onclick = function(){
+            if(flag){
+                $div1.style.display = 'block';
+                flag = false;
+            }else{
+                $div1.style.display = 'none';
+                flag = true;
+            }
+        }
+
+        var app = new Vue({
+            el:'#app',
+            data:{
+                message:'xingxingclassroom',
+                showFlag:true
+            },
+            methods:{
+                showFn(){
+                    this.showFlag = !this.showFlag;
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

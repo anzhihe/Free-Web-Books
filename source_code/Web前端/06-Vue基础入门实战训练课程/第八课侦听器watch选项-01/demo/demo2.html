@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第八课 侦听器watch选项</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>{{num}}</div>
+        <button @click="showNumFn">按钮</button>
+    </div>
+    <script>   
+        new Vue({
+            el:'#app',
+            data:{
+                num:100
+            },
+            watch:{
+                num:{
+                    handler(newVal,oldVal){
+                        console.log(newVal);
+                        console.log(oldVal);
+                    },
+                    immediate:true
+                }
+            },
+            methods: {
+                showNumFn(){
+                    this.num = 500;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

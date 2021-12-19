@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第八课 侦听器watch选项</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>{{num}}</div>
+        <div>{{obj}}</div>
+        <button @click="showNumFn">按钮</button>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                num:100,
+                obj:{
+                    a:100,
+                    b:200,
+                    c:300
+                },
+                arr:[1,2,3]
+            },
+            watch:{
+                num:function(newVal,oldVal){
+                    console.log(newVal);
+                    console.log(oldVal);
+                },
+                arr:{//监听数组的整体变化，那么新的值会更新，旧的值还是以前的值，监听数组里面的单个元素增加或者变化，以前的数据和现在更新之后的数组都会被更新了
+                    handler(newVal,oldVal){
+                        console.log(newVal);
+                        console.log(oldVal);
+                    },
+                    deep:true
+                },
+                obj:{//监听对象的整体变化，那么新的值会更新，旧的值还是以前的值，监听对象下面某个属性值的变化，以前的对象和现在更新之后的对象都会被更新了
+                    handler(newVal,oldVal){
+                        console.log(newVal);
+                        console.log(oldVal);
+                    },
+                    deep:true                    
+                }
+            },
+            methods: {
+                showNumFn(){
+                    this.arr.push(100);
+                    // this.num = 500;
+                    // this.obj.b = 2000;
+                    // console.log(this.arr);
+                    // this.arr = [100,200,300];
+                    // console.log(this.arr);
+                    // this.arr[1] = 2000;
+                    // this.arr = [100,200,300];
+                    // this.obj.b = 2000;
+                    // this.obj = {a:1000,b:2000,c:3000};
+                }
+            }
+        });
+    </script>
+</body>
+</html>
