@@ -34,6 +34,7 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 * Head First HTML5 Programming（中文版)[[Download]](/book/Head%20First%20HTML5%20Programming（中文版）.pdf)
 * HTML5权威指南 [[Download]](/book/HTML5权威指南.pdf)
 * JavaScript权威指南 6e [[Download]](/book/JavaScript权威指南%206e.pdf)
+* 悟透JavaScript [[Download]](/book/悟透JavaScript.pdf)
 * HTML5与CSS3权威指南 [[Download]](/book/HTML5与CSS3权威指南.pdf)
 * jQuery权威指南（第2版） [[Download]](/book/jQuery权威指南（第2版）.pdf)
 * 深入理解PHP：高级技巧、面向对象与核心技术（原书第3版)
