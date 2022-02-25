@@ -13892,6 +13892,7 @@ Prism.languages.yang = {
 !(function () {
   function u(t, e) {
     var fullscreen = false;
+    // 点击打开全屏
     t.addEventListener("click", function (t) {
       var c = t.currentTarget.parentNode.parentNode.parentNode;
       if (fullscreen) {
@@ -13915,6 +13916,7 @@ Prism.languages.yang = {
       }
       fullscreen = !fullscreen;
     });
+    // 按ESC键退出全屏
     t.addEventListener("keydown", function (t) {
       var c = t.currentTarget.parentNode.parentNode.parentNode;
       // div添加keydown事件监听
