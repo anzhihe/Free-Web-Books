@@ -13917,21 +13917,24 @@ Prism.languages.yang = {
     });
     t.addEventListener("keydown", function (t) {
       var c = t.currentTarget.parentNode.parentNode.parentNode;
-      // var event = event || window.event; // 标准化事件对象
-      switch (
-        t.keyCode // 获取当前按下键盘键的编码
-      ) {
-        case 27: // 按下ESC键，退出代码全屏
-          console.log("esc");
-          console.log(c);
-          console.log(c.getAttribute("class"));
-          var classVal = c.getAttribute("class");
-          classVal = classVal.replace("code-fullscreen", "code-toolbar");
-          console.log(classVal);
-          c.setAttribute("class", classVal);
-          break;
-      }
-      fullscreen = false;
+      // div添加keydown事件监听
+      c.setAttribute("tabindex",0);
+      c.onkeydown= function(){
+          switch (
+            t.keyCode // 获取当前按下键盘键的编码
+          ) {
+            case 27: // 按下ESC键，退出代码全屏
+              console.log("esc");
+              console.log(c);
+              console.log(c.getAttribute("class"));
+              var classVal = c.getAttribute("class");
+              classVal = classVal.replace("code-fullscreen", "code-toolbar");
+              console.log(classVal);
+              c.setAttribute("class", classVal);
+              break;
+          }
+          fullscreen = false;
+        };
     });
   }
   "undefined" != typeof Prism &&
