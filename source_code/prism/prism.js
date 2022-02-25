@@ -13893,42 +13893,42 @@ Prism.languages.yang = {
   function u(t, e) {
     var fullscreen = false;
     t.addEventListener("click", function (t) {
-      var currentCodeBlock = t.currentTarget.parentNode.parentNode.parentNode;
+      var c = t.currentTarget.parentNode.parentNode.parentNode;
       if (fullscreen) {
         console.log("缩放");
-        console.log(currentCodeBlock);
-        console.log(currentCodeBlock.getAttribute("class"));
+        console.log(c);
+        console.log(c.getAttribute("class"));
         // 替换样式: code-fullscreen → code-toolbar
-        var classVal = currentCodeBlock.getAttribute("class");
+        var classVal = c.getAttribute("class");
         classVal = classVal.replace("code-fullscreen", "code-toolbar");
         console.log(classVal);
-        currentCodeBlock.setAttribute("class", classVal);
+        c.setAttribute("class", classVal);
       } else {
         console.log("全屏");
-        console.log(currentCodeBlock);
-        console.log(currentCodeBlock.getAttribute("class"));
+        console.log(c);
+        console.log(c.getAttribute("class"));
         // 替换样式: code-toolbar → code-fullscreen
-        var classVal = currentCodeBlock.getAttribute("class");
+        var classVal = c.getAttribute("class");
         classVal = classVal.replace("code-toolbar", "code-fullscreen");
         console.log(classVal);
-        currentCodeBlock.setAttribute("class", classVal);
+        c.setAttribute("class", classVal);
       }
       fullscreen = !fullscreen;
     });
     t.addEventListener("keydown", function (t) {
-      var currentCodeBlock = t.currentTarget.parentNode.parentNode.parentNode;
-      var event = event || window.event; // 标准化事件对象
+      var c = t.currentTarget.parentNode.parentNode.parentNode;
+      // var event = event || window.event; // 标准化事件对象
       switch (
-        event.keyCode // 获取当前按下键盘键的编码
+        t.keyCode // 获取当前按下键盘键的编码
       ) {
         case 27: // 按下ESC键，退出代码全屏
           console.log("esc");
-          console.log(currentCodeBlock);
-          console.log(currentCodeBlock.getAttribute("class"));
-          var classVal = currentCodeBlock.getAttribute("class");
+          console.log(c);
+          console.log(c.getAttribute("class"));
+          var classVal = c.getAttribute("class");
           classVal = classVal.replace("code-fullscreen", "code-toolbar");
           console.log(classVal);
-          currentCodeBlock.setAttribute("class", classVal);
+          c.setAttribute("class", classVal);
           break;
       }
       fullscreen = false;
