@@ -69,6 +69,10 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 ---
 
 - [Web 開發人員的路線圖](https://github.com/goodjack/developer-roadmap-chinese)
+- [JavaScript 教程](https://wangdoc.com/javascript/index.html)
+- [ES6 教程](https://wangdoc.com/es6/index.html)
+- [现代 JavaScript 教程](https://zh.javascript.info/)
+- [前端进阶积累](http://obkoro1.com/web_accumulate/)
 - [Gixy: Nginx configuration static analyzer](https://github.com/yandex/gixy)
 - [resources.oreilly.com-examples](https://resources.oreilly.com/examples)
 - [nginx config file formatter/beautifier written in Python with no additional dependencies.](https://github.com/slomkowski/nginx-config-formatter)
