@@ -250,12 +250,9 @@ div.code-toolbar > .toolbar > .toolbar-item > span:focus {
 	right: 0;
 	top: 0;
 	bottom: 0;
-    border: none
-}
-
-.code-fullscreen pre {
 	margin-top: 0 !important;
-	margin-bottom: 0 !important
+	margin-bottom: 0 !important;
+    border: none
 }
 
 /*
