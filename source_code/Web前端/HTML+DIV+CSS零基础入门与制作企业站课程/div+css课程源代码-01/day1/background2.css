@@ -1,0 +1,10 @@
+body {
+	height:3000px;
+	/*background-image:url( "./img/2.jpg" );
+	background-repeat:no-repeat;
+	background-position:center 0px;*/
+	/*background-attachment:fixed;*/
+	/*background-attachment:scroll;*/
+
+	background: url("./img/2.jpg") center top no-repeat scroll;
+}

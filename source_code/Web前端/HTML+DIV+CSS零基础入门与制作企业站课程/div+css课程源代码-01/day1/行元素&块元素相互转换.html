@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>行元素&块元素的转换</title>
+	<style>
+	div {
+		width:200px;
+		height:200px;
+		border: 1px solid #ff8800;
+		/*display:inline;*/
+	}
+	span {
+		border:1px solid #ff8800;
+		width:200px;
+		height:200px;
+		/*display:block;*/
+		/*inline-block:转成行元素,具有块元素的特点*/
+		display:inline-block;
+	}
+	</style>
+</head>
+<body>
+	<div>div标签</div>	
+	<div>div标签</div>	
+	<span>span标签</span>
+	<span>span标签</span>
+	<span>span标签</span>
+</body>
+</html>

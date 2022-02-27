@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS精灵</title>
+	<style>
+	.layout {
+		width: 980px;
+		margin:100px auto;
+	}
+	a {
+		display:inline-block;
+		width:72px;
+		height:72px;
+		position:relative;
+	}
+	.new {
+		background: url("./img/bg.png") -346px -431px no-repeat;
+		display:inline-block;
+		width:38px;
+		height:38px;
+		position:absolute;		
+	}
+	</style>
+</head>
+<body>
+	<div class="layout">
+		<a href="">
+			<span class="new"></span>
+			<img src="./img/1.jpg" alt="" />
+		</a>
+	</div>	
+</body>
+</html>

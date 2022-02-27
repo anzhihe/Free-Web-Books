@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	/*行内优先级高于后代*/
+	/*!important优先级最高*/
+	#p1 a{
+		background: red !important;
+	}
+	</style>
+</head>
+<body>
+	<p id="p1"><a href="http://www.baidu.com" style="background:green;">百度</a></p>
+</body>
+</html>
