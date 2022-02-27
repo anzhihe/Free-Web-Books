@@ -1,0 +1,80 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+body {
+	font-family: "宋体";
+	font-size: 12px;
+}
+a {
+	text-decoration: none;
+	color:#666;
+}
+.clear {
+	clear: both;
+}
+.wrap {
+	background: url( "../images/bg.jpg" ) center 0 no-repeat;
+	width: 100%;
+	height: 547px;	
+}
+.max {
+	width: 1002px;
+	margin:0px auto;
+	position: relative;
+	top:20px;
+}
+.mid {
+	width: 988px;
+	margin:0px auto;	
+}
+.logo {
+	padding:20px 0px;
+	float: left;
+}
+.fav {
+	float: right;
+	margin:40px 20px 0px 0px;
+}
+.nav {
+	width: 1002px;
+	margin:0px auto;
+	background: url( "../images/nav.png" ) 0 0 no-repeat;
+	height: 41px;
+}
+.nav li {
+	float: left;
+	padding:9px 0px 8px 0px;
+}
+.nav li a {	
+	color:white;
+	border-right:1px solid #333;
+	padding:0px 20px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.nav ul {
+	position: relative;
+	top:8px;
+}
+.nav li.cur {
+	background: #119c60;
+}
+
+.son {
+	width: 988px;
+	margin:10px auto;
+	padding-left:50px;
+}
+.son ul li {
+	float: left;
+}
+.son ul li a {
+	padding:0px 10px;
+	border-right:1px solid #666;
+}
+.banner {
+	width: 968px;
+	margin:40px auto 0px;
+}

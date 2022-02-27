@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>z-index</title>
+	<style>
+	div {
+		width:200px;
+		height: 200px;
+	}
+	.div1 {
+		position: absolute;
+		left:50px;
+		top:50px;
+		background: red;
+		z-index:1;
+	}
+	.div2 {
+		position: absolute;
+		left:100px;
+		top:100px;
+		background: green;
+		z-index:2;
+	}
+	.div3 {
+		position: absolute;
+		left:150px;
+		top:150px;
+		background: blue;
+		z-index:3;
+	}
+	</style>
+</head>
+<body>
+	<div class="div1"></div>
+	<div class="div2"></div>
+	<div class="div3"></div>
+</body>
+</html>

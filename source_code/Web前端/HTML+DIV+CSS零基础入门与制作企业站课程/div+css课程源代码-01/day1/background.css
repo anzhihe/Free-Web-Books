@@ -1,0 +1,31 @@
+div {
+	
+	width: 400px;
+	height: 400px;
+	background-color:#ccc;
+	
+	/*默认状态下:背景平铺*/
+	background-image: url( "./img/1.jpg" );
+
+	/*background-repeat: no-repeat;*/
+	/*background-repeat: repeat-x;*/
+	/*background-repeat: repeat-y;*/
+	/*background-repeat: repeat;*/
+	
+	/*
+	position: x y:
+			像素:100px 100px
+			百分比:10% 20%:  (容器宽度-图片宽度)*10%
+			left center right, top center bottom;
+			-100px,0px
+	 */
+	background-repeat: no-repeat;
+	/*background-position: 100px 50px;*/
+	/*background-position:left top;*/
+	/*background-position:center center;*/
+	/*background-position: right bottom;*/
+	/*background-position:-100px 0px;*/
+	/*background-position:10% 20%;*/
+
+	/*background-position: center 0px;*/
+}
