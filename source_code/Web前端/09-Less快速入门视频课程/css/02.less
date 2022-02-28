@@ -1,0 +1,67 @@
+//简单变量
+@width:100px;
+@height:100px;
+div{
+	width: @width;
+	height: @height;
+	border: 1px solid #ccc;
+}
+p{
+	width:@width;
+	height:@height;
+}
+
+//选择器变量
+@sel1:d1;
+@sel2:#d2;
+#@{sel1}{
+	color:red;
+}
+.@{sel1}{
+	color:yellow;
+}
+@{sel2}{
+	background-color: #666;
+}
+
+//URL变量
+@imgPath:"../images";
+.itany{
+	background-image: url('@{imgPath}/p1.jpg');
+}
+
+//属性变量
+@prop:color;
+.c1{
+	@{prop}:blue;
+}
+.c2{
+	background-@{prop}:green;
+}
+
+//变量的嵌套
+@aaa:30px;
+@bbb:aaa;
+@ccc:@aaa;
+.c3{
+	// font-size: @@bbb;
+	font-size: @ccc;
+}
+
+//延迟加载，变量支持延迟加载，即可以在定义变量之前使用
+.c4{
+	text-decoration: @ddd;
+	@ddd:line-through; //重新为变量赋值
+}
+@ddd:underline;
+
+/*
+	总结：
+	1.除了简单变量之后，其他变量在调用时都需要加{}
+	2.建议先声明变量再使用，同时将变量声明放在代码最前面
+*/
+
+
+
+
+

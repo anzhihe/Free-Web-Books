@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基本用法</title>
+	<!-- 传统CSS -->
+	<style type="text/css">
+		/* #itany{
+			width: 200px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		#hello{
+			width: 100px;
+			height: 100px;
+			border: 1px dashed red;
+		} */
+	</style>
+
+	<!-- 方式1：直接使用LESS -->
+	<style type="text/less">
+		/* 内部 */
+		/* @color:blue;
+		#itany{
+			width: 200px;
+			height: 200px;
+			border: 1px solid @color;
+		}
+		#hello{
+			width: 100px;
+			height: 100px;
+			border: 1px dashed @color;
+		} */
+	</style>
+	<!-- 外部 -->
+	<!-- <link rel="stylesheet/less" href="css/01.less"> -->
+
+	<!-- <script src="js/less.min.js"></script> -->
+
+	<!-- 方式2：使用编译后的CSS -->
+	<link rel="stylesheet" href="css/01.css">
+
+</head>
+<body>
+	<div id="itany"></div>
+	<br>
+	<div id="hello"></div>
+</body>
+</html>

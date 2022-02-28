@@ -1,0 +1,86 @@
+
+//示例1：普通混合，没有参数
+.wbs{
+	font-weight: bold;
+	text-align: center;
+}
+
+#d1{
+	text-decoration: underline;
+	.wbs; //引用另一个class
+}
+#d2{
+	text-decoration: line-through;
+	.wbs;
+}
+
+//示例2：带参混合，一个参数
+.itany(@color){ //@color相当于是形参，自定义名称
+	color:@color;
+}
+#d1{
+	.itany(#f00);
+}
+#d2{
+	.itany(#00f);
+}
+
+//示例3：mixin名称也可以以#开头
+#hello(@size){
+	font-size: @size;
+}
+.c1{
+	#hello(30px);
+}
+
+//示例4：多个参数
+.setColumns(@columns:100px 2,@column-fill:auto,@column-gap:10px,@column-rule:2px dashed blue){
+	 -webkit-columns: @columns;
+    -moz-columns: @columns;
+    -o-columns: @columns;
+    columns: @columns;
+    -webkit-column-fill: @column-fill;
+    -moz-column-fill: @column-fill;
+    -o-column-fill: @column-fill;
+    column-fill: @column-fill;
+    -webkit-column-gap: @column-gap;
+    -moz-column-gap: @column-gap;
+    -o-column-gap: @column-gap;
+    column-gap: @column-gap;
+    -webkit-column-rule: @column-rule;
+    -moz-column-rule: @column-rule;
+    -o-column-rule: @column-rule;
+    column-rule: @column-rule;
+}
+
+#d3{
+	width:400px;
+	// .setColumns(100px 3,balance,5px,1px solid red);
+	.setColumns;
+}
+
+
+//示例5：导引表达式，即使用when进行判断
+.hello(@font-size) when(@font-size<20){
+	font-size:unit(@font-size,px);
+	color:red;
+}
+.hello(@font-size) when(@font-size>=20){
+	font-size:30px;
+	color:blue;
+}
+.hello(@font-size){ //总是会匹配
+	background-color: #ccc;
+}
+.c3{
+	// .hello(13);
+	.hello(50);
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+//replace()函数
+#d1:after{
+	// content:replace("welcome to itany.","o","O");
+	// content:replace("welcome to itany.","o","O",g);
+	// content:replace("welcome to itany.","(itany)\.$","'$1'"); //$1是占位符，表示第1个匹配值
+	content:replace("welcome to nanjing.","(nanjing)\.$","'$1'");
+}
+
+//length()函数
+// @names:"tom","jack","alice";
+@names:"tom" "jack" "alice" "mike";
+@num:length(@names);
+@str:"aabbcc";
+@num2:length(@str);
+#d1{
+	// font-size:unit(@num,rem);
+	font-size:unit(@num2,rem);
+}
+
+//extract()函数
+@myBorder:2px solid red;
+#d2{
+	border: @myBorder;
+	color:extract(@myBorder,3); //提取第3个字段
+	font-size: unit(extract(@myBorder,1),rem);
+}
+
+//数学函数
+#d2{
+	// width: unit(ceil(200.5),px);
+	// width: unit(round(300.2),px);
+	// width:percentage(0.5);
+	// width:unit(pi(),px);
+	width:unit(mod(5,2),px);
+
+}

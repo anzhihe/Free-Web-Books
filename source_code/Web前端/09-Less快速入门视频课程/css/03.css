@@ -1,0 +1,54 @@
+.wbs {
+    font-weight: 700;
+    text-align: center
+}
+
+#d1 {
+    text-decoration: underline;
+    font-weight: 700;
+    text-align: center
+}
+
+#d2 {
+    text-decoration: line-through;
+    font-weight: 700;
+    text-align: center
+}
+
+#d1 {
+    color: red
+}
+
+#d2 {
+    color: #00f
+}
+
+.c1 {
+    font-size: 30px
+}
+
+#d3 {
+    width: 400px;
+    -webkit-columns: 100px 2;
+    -moz-columns: 100px 2;
+    -o-columns: 100px 2;
+    columns: 100px 2;
+    -webkit-column-fill: auto;
+    -moz-column-fill: auto;
+    -o-column-fill: auto;
+    column-fill: auto;
+    -webkit-column-gap: 10px;
+    -moz-column-gap: 10px;
+    -o-column-gap: 10px;
+    column-gap: 10px;
+    -webkit-column-rule: 2px dashed #00f;
+    -moz-column-rule: 2px dashed #00f;
+    -o-column-rule: 2px dashed #00f;
+    column-rule: 2px dashed #00f
+}
+
+.c3 {
+    font-size: 30px;
+    color: #00f;
+    background-color: #ccc
+}
