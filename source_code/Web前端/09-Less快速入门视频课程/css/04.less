@@ -1,0 +1,14 @@
+@num1:20;
+@num2:@num1+4;
+@num3:@num1+@num2;
+@num4:(@num1+3)*2;
+@color:#666/2;
+@bgColor:@color+#222;
+
+#d1{
+	// font-size: unit(@num2,px);
+	font-size: unit(@num4,px);
+	color:@color;
+	border:unit(@num1/2+3,px) dashed red; 
+	background-color: @bgColor;
+}

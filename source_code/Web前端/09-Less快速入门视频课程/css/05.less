@@ -1,0 +1,68 @@
+//unit()函数
+.c1{
+	// font-size:unit(20,px);
+	// font-size: unit(20px,rem);
+	font-size: unit(20px);
+}
+
+//convert()函数
+.c2{
+	animation-delay: convert(3000ms,s);
+	// animation-delay: convert(2s,ms); //无效
+	width: convert(20mm,px);
+	transform: rotate(convert(0.5rad,deg));
+
+	height: convert(30deg,px); //无法转换，返回原始数据
+}
+
+//color()函数
+.c3{
+	// color:blue;
+	color:color("blue");
+	// color:color("red");
+}
+
+//darken()、lignten()、min()
+.c4{
+	// background-color: darken(red,20%);
+	// background-color: lighten(red,20%);
+	background-color: mix(red,blue,70%);
+}
+
+//data-uri()函数
+.a1{
+	// background-image: url('../images/baidu.jpg');
+	background-image: data-uri('../images/baidu.jpg'); //转换成字节数据后即使将图片删除也仍然可以访问
+	// background-image: data-uri('../images/p1.jpg'); //图片大小不能超过32k
+}
+
+//default()函数
+.itany(1){
+	font-size: 1rem;
+}
+.itany(2){
+	font-size: 2rem;
+}
+// .itany(@size) when(default()){ //如果传入值不是1或2，则认为是自定义的默认值，执行{}中的操作
+// 	font-size: unit(@size,px);
+// }
+// .a2{
+// 	// .itany(2);
+// 	.itany(6);
+// }
+
+//not()函数
+.itany(@size) when not(default()){
+	font-size: unit(@size,px);
+}
+.a2{
+	// .itany(2);
+	.itany(7);
+	width:500px;
+}
+
+
+
+
+
+

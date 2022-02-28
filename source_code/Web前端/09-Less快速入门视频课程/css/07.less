@@ -1,0 +1,74 @@
+//嵌套规则
+#d1{
+	color:red;
+	// .c1{
+	> .c1{
+		background-color: yellow;
+	}
+}
+
+//以嵌套方式编写样式，代码更简洁
+#d1{
+	h1{
+		font-size: 30px;
+		font-weight: bold;
+	}
+	p{
+		font-size: 15px;
+		a{
+			text-decoration: none;
+			&:hover{ //此处&类似于this
+				text-decoration: underline;
+				color:#ff7300;
+			}
+		}
+	}
+}
+
+//继承extend
+nav ul{
+	&:extend(.inline);
+	// :extend(.inline); //报错，继承时不能省略&
+	background-color: blue;
+}
+h1:extend(.inline){
+	font-weight: bold;
+}
+.inline{
+	color:red;
+	font-size: 12px;
+}
+
+//多继承
+.hello{
+	color:red;
+}
+.world{
+	background-color: yellow;
+}
+#p1{
+	font-size: 30px;
+	&:extend(.hello,.world); //以逗号隔开
+}
+
+//继承所有extend all0
+.a{
+	color:red;
+}
+.b .a{
+	background-color: yellow;
+}
+.a #c{
+	font-weight: bold;
+}
+#p2{
+	&:extend(.a all); //只要是包含.a的选择器都继承
+}
+
+
+
+
+
+
+
+
