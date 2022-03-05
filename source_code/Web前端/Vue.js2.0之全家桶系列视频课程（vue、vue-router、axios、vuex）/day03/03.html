@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>引用模板</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="itany">
+		<my-hello></my-hello>
+		<my-hello></my-hello>
+	</div>
+
+	<template id="wbs">
+		<!-- <template>必须有且只有一个根元素 -->
+		<div>
+			<h3>{{msg}}</h3>
+			<ul>
+				<li v-for="value in arr">{{value}}</li>
+			</ul>
+		</div>
+	</template>
+
+	<script>
+		var vm=new Vue({
+			el:'#itany',
+			components:{
+				'my-hello':{
+					name:'wbs17022',  //指定组件的名称，默认为标签名，可以不设置
+					template:'#wbs',
+					data(){
+						return {
+							msg:'欢迎来到南京网博',
+							arr:['tom','jack','mike']
+						}
+					}
+				}
+				
+			}
+		});	
+	</script>
+</body>
+</html>

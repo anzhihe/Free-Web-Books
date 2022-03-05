@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件简写和事件对象$event</title>
+	<script src="js/vue.js"></script>
+	<script>
+		window.onload=function(){
+			let vm=new Vue({
+				el:'#itany',
+				methods:{ 
+					show(){
+						console.log(111);
+					},
+					print(e){
+						// console.log(e);
+						console.log(e.target.innerHTML); //DOM对象
+						console.log(this);
+					}
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<div id="itany">
+		<button v-on:click="show">点我</button>
+		<button @click="show">点我</button>
+		<hr>
+
+		<button @click="print($event)">Click Me</button>
+	</div>
+</body>
+</html>

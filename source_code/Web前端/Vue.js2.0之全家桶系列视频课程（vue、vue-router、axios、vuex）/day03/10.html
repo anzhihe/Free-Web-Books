@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>路由嵌套和参数传递</title>
+	<link rel="stylesheet" href="css/animate.css">
+	<style>
+		.active{
+			font-size:20px;
+			color:#ff7300;
+			text-decoration:none;
+		}
+	</style>
+	<script src="js/vue.js"></script>
+	<script src="js/vue-router.js"></script>
+</head>
+<body>
+	<div id="itany">
+		<div>
+			<router-link to="/home">主页</router-link>
+			<router-link to="/user">用户</router-link>
+		</div>
+		<div>
+			<transition enter-active-class="animated bounceInLeft" leave-active-class="animated bounceOutRight">
+				<router-view></router-view>
+			</transition>
+		</div>
+
+		<hr>
+		<button @click="push">添加路由</button>
+		<button @click="replace">替换路由</button>
+	</div>
+
+	<template id="user">
+		<div>
+			<h3>用户信息</h3>
+			<ul>
+				<router-link to="/user/login?name=tom&pwd=123" tag="li">用户登陆</router-link>
+				<router-link to="/user/regist/alice/456" tag="li">用户注册</router-link>
+			</ul>
+			<router-view></router-view>
+		</div>
+	</template>
+
+	<script>
+		var Home={
+			template:'<h3>我是主页</h3>'
+		}
+		var User={
+			template:'#user'
+		}
+		var Login={
+			template:'<h4>用户登陆。。。获取参数：{{$route.query}},{{$route.path}}</h4>'
+		}
+		var Regist={
+			template:'<h4>用户注册。。。获取参数：{{$route.params}},{{$route.path}}</h4>'
+		}
+
+		const routes=[
+			{
+				path:'/home',
+				component:Home
+			},
+			{
+				path:'/user',
+				component:User,
+				children:[
+					{
+						path:'login',
+						component:Login
+					},
+					{
+						path:'regist/:username/:password',
+						component:Regist
+					}
+				]
+			},
+			{
+				path:'*',
+				redirect:'/home'
+			}
+		]
+
+		const router=new VueRouter({
+			routes, //简写，相当于routes:routes
+			linkActiveClass:'active' //更新活动链接的class类名
+		});
+
+		new Vue({
+			el:'#itany',
+			router, //注入路由
+			methods:{
+				push(){
+					router.push({path:'home'}); //添加路由，切换路由
+				},
+				replace(){
+					router.replace({path:'user'}); //替换路由，没有历史记录
+				}
+			}
+		});
+	</script>
+</body>
+</html>

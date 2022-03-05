@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>键盘事件</title>
+	<script src="js/vue.js"></script>
+	<script>
+		/**
+		 * 自定义键位别名
+		 */
+		Vue.config.keyCodes={
+			a:65,
+			f1:112
+		}
+
+		window.onload=function(){
+			let vm=new Vue({
+				el:'#itany',
+				methods:{ 
+					show(e){
+						console.log(e.keyCode);
+						if(e.keyCode==13){
+							console.log('您按了回车');
+						}
+					},
+					print(){
+						// console.log('您按了回车');
+						// console.log('您按了方向键上');
+						console.log('11111');
+					}
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<div id="itany">
+		<!-- 键盘事件：@keydown、@keypress、@keyup -->
+		<!-- 用户名：<input type="text" @keydown="show($event)"> -->
+		
+		<!-- 简化按键的判断 -->
+		<!-- 用户名：<input type="text" @keydown="show($event)"> -->
+		<!-- 用户名：<input type="text" @keydown.13="print"> -->
+		<!-- 用户名：<input type="text" @keydown.enter="print"> -->
+		<!-- 用户名：<input type="text" @keydown.up="print"> -->
+		用户名：<input type="text" @keydown.f1="print">
+		
+		<!-- 事件修饰符 -->
+		<button @click.once="print">只触发一次</button>
+	</div>
+</body>
+</html>

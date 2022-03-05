@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>常用指令：v-show</title>
+	<script src="js/vue.js"></script>
+	<script>
+		window.onload=function(){
+			let vm=new Vue({
+				el:'#itany',
+				data:{ 
+					flag:true
+				},
+				methods:{ 
+					change(){
+						this.flag=!this.flag;
+					}
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<div id="itany">
+		<!-- <button v-on:click="change">隐藏</button> -->
+		<button v-on:click="flag=!flag">隐藏</button>
+
+		<hr>
+		<div style="width: 100px;height: 100px; background-color: red" v-if="flag">欢迎来到南京网博</div>
+	</div>
+</body>
+</html>

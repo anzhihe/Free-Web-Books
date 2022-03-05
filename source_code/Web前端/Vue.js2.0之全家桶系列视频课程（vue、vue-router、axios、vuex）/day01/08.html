@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件冒泡和默认行为</title>
+	<script src="js/vue.js"></script>
+	<script>
+		window.onload=function(){
+			let vm=new Vue({
+				el:'#itany',
+				methods:{ 
+					show(){
+						console.log(111);
+						// e.stopPropagation();
+					},
+					print(){
+						console.log(222);
+					},
+					write(){
+						console.log(333);
+					},
+					study(){
+						console.log(444);
+						// e.preventDefault();
+					}
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<div id="itany">
+		<div @click="write">
+			<p @click="print">
+				<!-- <button @click="show($event)">点我</button> -->
+				<button @click.stop="show">点我</button>
+			</p>
+		</div>
+		<hr>
+
+		<!-- <a href="#" @click="study($event)">俺是链接</a> -->
+		<a href="#" @click.prevent="study">俺是链接</a>
+	</div>
+</body>
+</html>
