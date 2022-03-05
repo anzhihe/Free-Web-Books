@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>常用指令：v-model</title>
+	<script src="js/vue.js"></script>
+	<script>
+		window.onload=function(){
+			new Vue({
+				// el:'.itany',
+				el:'div', //vue2.0中不允许将vue实例挂载到<html>或<body>元素，在vue1.0中是可以的
+				data:{
+					name:'', //即使没有值，也不能省略，报错
+					age:21,
+					flag:true,
+					nums:[12,4,23,5],
+					user:{id:9527,name:'唐伯虎'}
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<!-- <div id="itany"> -->
+	<!-- <div class="itany"> -->
+	<div>
+		用户名：<input type="text" v-model="name">
+		<br>
+
+		{{name}} <br>
+		{{age}} <br>
+		{{flag}} <br>
+		{{nums}} <br>
+		{{user}}
+	</div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>发送AJAX请求</title>
+	<script src="js/vue.js"></script>
+	<script src="js/axios.min.js"></script>
+	<script src="js/vue-resource.min.js"></script>
+	<script>
+		window.onload=function(){
+			new Vue({
+				el:'#itany',
+				data:{
+					user:{
+						// name:'alice',
+						// age:19
+					},
+					uid:''
+				},
+				methods:{
+					send(){
+						axios({
+							method:'get',
+							url:'user.jsonaaa'
+						}).then(function(resp){
+							console.log(resp.data);
+						}).catch(resp => {
+							// console.log(resp);
+							console.log('请求失败：'+resp.status+','+resp.statusText);
+						});
+					},
+					sendGet(){
+						// axios.get('server.php?name=tom&age=23')
+						axios.get('server.php',{
+							params:{
+								name:'alice',
+								age:19
+							}
+						})
+						.then(resp => {
+							console.log(resp.data);
+						}).catch(err => {
+							console.log('请求失败：'+err.status+','+err.statusText);
+						});
+					},
+					sendPost(){
+						// axios.post('server.php',{
+						// 		name:'alice',
+						// 		age:19
+						// })
+						// axios.post('server.php','name=alice&age=20&') //方式1
+						axios.post('server.php',this.user,{
+							transformRequest:[
+								function(data){
+									let params='';
+									for(let index in data){
+										params+=index+'='+data[index]+'&';
+									}
+									return params;
+								}
+							]
+						})
+						.then(resp => {
+							console.log(resp.data);
+						}).catch(err => {
+							console.log('请求失败：'+err.status+','+err.statusText);
+						});
+					},
+					getUserById(uid){
+						axios.get(`https://api.github.com/users/${uid}`)
+						.then(resp => {
+							// console.log(resp.data);
+							this.user=resp.data;
+						});
+					},
+					sendJSONP(){
+						//https://sug.so.360.cn/suggest?callback=suggest_so&encodein=utf-8&encodeout=utf-8&format=json&fields=word&word=a
+						this.$http.jsonp('https://sug.so.360.cn/suggest',{
+							params:{
+								word:'a'
+							}
+						}).then(resp => {
+							console.log(resp.data.s);
+						});
+					},
+					sendJSONP2(){
+						//https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=a&json=1&p=3&sid=1420_21118_17001_21931_23632_22072&req=2&csor=1&cb=jQuery110208075694879886905_1498805938134&_=1498805938138
+						this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
+							params:{
+								wd:'a'
+							},
+							jsonp:'cb' //百度使用的jsonp参数名为cb，所以需要修改
+						}).then(resp => {
+							console.log(resp.data.s);
+						});
+					}
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<div id="itany">
+		<button @click="send">发送AJAX请求</button>
+
+		<button @click="sendGet">GET方式发送AJAX请求</button>
+
+		<button @click="sendPost">POST方式发送AJAX请求</button>
+		<hr>
+		<br>
+
+		GitHub ID： <input type="text" v-model="uid">
+		<button @click="getUserById(uid)">获取指定GitHub账户信息并显示</button>
+		<br>
+		姓名：{{user.name}} <br>
+		头像：<img :src="user.avatar_url" alt="">
+		
+		<hr>
+
+		<button @click="sendJSONP">向360搜索发送JSONP请求</button>
+
+		<button @click="sendJSONP2">向百度搜索发送JSONP请求</button>
+
+	</div>
+</body>
+</html>

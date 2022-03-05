@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>class和style属性</title>
+	<script src="js/vue.js"></script>
+	<script>
+		window.onload=function(){
+			let vm=new Vue({
+				el:'#itany',
+				data:{
+					bb:'aa',
+					dd:'cc',
+					flag:true,
+					num:-2,
+					hello:{aa:true,cc:true},
+					xx:{color:'blue',fontSize:'30px'},
+					yy:{backgroundColor:'#ff7300'}
+				}
+			});
+		}
+	</script>
+	<style>
+		.aa{
+			color:red;
+			font-size:20px;
+		}
+		.cc{
+			background-color:#ccc;
+		}
+	</style>
+</head>
+<body>
+	<div id="itany">
+		<!-- 
+			class属性
+		 -->
+		<!-- <p class="aa">南京网博</p> -->  <!-- 可以访问，普通css方式 -->
+
+		<!-- <p :class="aa">南京网博</p> --> <!-- 不可以，Vue的属性绑定时不能直接css样式 -->
+
+		<!-- 方式1:变量形式 -->
+		<!-- <p :class="bb">南京网博</p> -->
+
+		<!-- 方式2：数组形式，同时引用多个 -->
+		<!-- <p :class="[bb,dd]">南京网博</p> -->
+
+		<!-- 方式3：json形式，常用！！！ -->
+		<!-- <p :class="{aa:true,cc:flag}">南京网博</p> -->
+		<!-- <p :class="{aa:num>0}">南京网博</p> -->
+
+		<!-- 方式4：变量引用json形式 -->
+		<!-- <p :class="hello">南京网博</p> -->
+		
+		<!-- 
+			style属性
+		 -->
+		 <p :style="[xx,yy]">itany</p>
+
+	</div>
+</body>
+</html>

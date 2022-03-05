@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>父子组件及组件间数据传递</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="itany">
+		<my-hello></my-hello>
+	</div>
+	
+	<template id="hello">
+		<div>
+			<h3>我是hello父组件</h3>
+			<h3>访问自己的数据：{{msg}},{{name}},{{age}},{{user.username}}</h3>
+			<h3>访问子组件的数据：{{sex}},{{height}}</h3>
+			<hr>
+
+			<my-world :message="msg" :name="name" :age="age" @e-world="getData"></my-world>
+		</div>
+	</template>
+
+	<template id="world">
+		<div>
+			<h4>我是world子组件</h4>
+			<h4>访问父组件中的数据：{{message}},{{name}},{{age}},{{user.username}}</h4>
+			<h4>访问自己的数据：{{sex}},{{height}}</h4>
+			<button @click="send">将子组件的数据向上传递给父组件</button>
+		</div>
+	</template>
+
+	<script>
+		var vm=new Vue({ //根组件
+			el:'#itany',
+			components:{
+				'my-hello':{  //父组件
+					methods:{
+						getData(sex,height){
+							this.sex=sex;
+							this.height=height;
+						}
+					},
+					data(){
+						return {
+							msg:'网博',
+							name:'tom',
+							age:23,
+							user:{id:9527,username:'唐伯虎'},
+							sex:'',
+							height:''
+						}
+					},
+					template:'#hello',
+					components:{
+						'my-world':{ //子组件
+							data(){
+								return {
+									sex:'male',
+									height:180.5
+								}
+							},
+							template:'#world',
+							// props:['message','name','age','user'] //简单的字符串数组
+							props:{ //也可以是对象，允许配置高级设置，如类型判断、数据校验、设置默认值
+								message:String,
+								name:{
+									type:String,
+									required:true
+								},
+								age:{
+									type:Number,
+									default:18,
+									validator:function(value){
+										return value>=0;
+									}
+								},
+								user:{
+									type:Object,
+									default:function(){ //对象或数组的默认值必须使用函数的形式来返回
+										return {id:3306,username:'秋香'};
+									}
+								}
+							},
+							methods:{
+								send(){
+									// console.log(this);  //此处的this表示当前子组件实例
+									this.$emit('e-world',this.sex,this.height); //使用$emit()触发一个事件，发送数据
+								}
+							}
+						}
+					}
+				}
+			}
+		});	
+	</script>
+</body>
+</html>

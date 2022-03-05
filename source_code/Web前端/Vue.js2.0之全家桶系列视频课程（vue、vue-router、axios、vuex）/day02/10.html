@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画</title>
+	<script src="js/vue.js"></script>
+	<style>
+		p{
+			width: 300px;
+			height: 300px;
+			background-color:red;
+		}
+		.fade-enter-active,.fade-leave-active{
+			transition:all 3s ease;
+		}
+		.fade-enter-active{
+			opacity:1;
+			width:300px;
+			height:300px;
+		}
+		.fade-leave-active{
+			opacity:0;
+			width:50px;
+			height:50px;
+		}
+		/* .fade-enter需要放在.fade-enter-active的后面 */
+		.fade-enter{
+			opacity:0;
+			width: 100px;
+			height: 100px;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="itany">
+		<button @click="flag=!flag">点我</button>
+		
+		<transition name="fade" 
+			@before-enter="beforeEnter"
+			@enter="enter"
+			@after-enter="afterEnter"
+			@before-leave="beforeLeave"
+			@leave="leave"
+			@after-leave="afterLeave"
+		>
+			<p v-show="flag">网博</p>
+		</transition>
+	</div>
+
+	<script>
+		var vm=new Vue({
+			el:'#itany',
+			data:{
+				flag:false
+			},
+			methods:{
+				beforeEnter(el){
+					// alert('动画进入之前');
+				},
+				enter(){
+					// alert('动画进入');
+				},
+				afterEnter(el){
+					// alert('动画进入之后');
+					el.style.background='blue';
+				},
+				beforeLeave(){
+					// alert('动画即将之前');
+				},
+				leave(){
+					// alert('动画离开');
+				},
+				afterLeave(el){
+					// alert('动画离开之后');
+					el.style.background='red';
+				}
+			}
+		});
+	</script>
+	
+</body>
+</html>

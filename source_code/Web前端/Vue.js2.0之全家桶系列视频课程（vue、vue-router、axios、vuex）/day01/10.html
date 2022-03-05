@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性绑定和属性的简写</title>
+	<script src="js/vue.js"></script>
+	<script>
+		window.onload=function(){
+			let vm=new Vue({
+				el:'#itany',
+				data:{
+					url:'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png',
+					w:'200px',
+					h:'100px'
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<div id="itany">
+		<!-- <img src="{{url}}"> -->
+
+		<!-- 可以直接访问vue中的数据，不需要使用{{}} -->
+		<!-- <img v-bind:src="url"> -->
+
+		<img :src="url" :width="w" :height="h">
+	</div>
+</body>
+</html>

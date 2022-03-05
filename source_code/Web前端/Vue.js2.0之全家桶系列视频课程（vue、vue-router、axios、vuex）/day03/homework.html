@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业：购物车</title>
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+</head>
+<body>
+    <div id="app" class="container">
+        <h2 class="text-center">购物车</h2>
+        <table class="table table-bordered table-hover table-condensed" >
+            <thead>
+                <tr>
+                    <th class="text-center">商品编号</th>
+                    <th class="text-center">商品名称</th>
+                    <th class="text-center">购买数量</th>
+                    <th class="text-center">商品单价</th>
+                    <th class="text-center">商品总价</th>
+                    <th class="text-center">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item,index) in commodities" class="text-center">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>
+                        <button class="btn btn-primary" @click="subtract(index)">-</button>
+                        <input type="text" v-model="item.quantity">
+                        <button class="btn btn-primary" @click="add(index)">+</button>
+                    </td>
+                    <td>{{item.price | filterMoney}}</td>
+                    <td>{{item.price*item.quantity | filterMoney}}</td>
+                    <td>
+                        <button class="btn btn-danger" @click="remove(index)">移除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">总数量：{{totalNum}}</td>
+                    <td colspan="2">总金额：{{totalMoney | filterMoney}}</td>
+                    <td colspan="2">
+                        <button class="btn btn-danger" @click="empty()">清空购物车</button>
+                    </td>
+                </tr>
+                <tr v-show="commodities.length===0">
+                    <td colspan="6" class="text-center text-muted">
+                        <p>您的购物车空空如也....</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://unpkg.com/tween.js@16.3.4"></script>
+    <script src="js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                commodities: [
+                    {id: 1001,name: 'iphone5s',quantity: 3,price: 4000}, 
+                    {id: 1005,name: 'iphone6',quantity: 9,price: 5000}, 
+                    {id: 2001,name: 'imac',quantity: 4,price: 7000}, 
+                    {id: 2004,name: 'ipad',quantity: 5,price: 2000}
+                ]
+            },
+            computed: {
+                totalNum:function(){
+                    var sum=0;
+                    this.commodities.forEach(function(item){ //ES5新增方法forEach()
+                        sum+=item.quantity;
+                    });
+                    return sum;
+                },
+                totalMoney: function() {
+                   /* var sum=0;
+                    this.commodities.forEach(function(item){ //ES5新增方法forEach()
+                        sum+=item.price*item.quantity;
+                    });
+                    return sum;*/
+                    return this.commodities.reduce(function(prev,cur,index,array) { //ES5新增方法reduce()
+                        return prev+cur.price*cur.quantity;
+                    },0);
+                }
+            },
+            filters: {
+                filterMoney: function(value) {
+                    return '￥' + value;
+                }
+            },
+            methods: {
+                add: function(index) {
+                    this.commodities[index].quantity++;
+                },
+                subtract: function(index) {
+                    var item=this.commodities[index];
+                    if (item.quantity == 1) {
+                        if (confirm(`确定要删除商品：${item.name} 吗？`)) {
+                            this.commodities.splice(index, 1);
+                        }
+                        return;
+                    }
+                    item.quantity--;
+                },
+                remove: function(index) {
+                    if (confirm(`确定要删除商品：${this.commodities[index].name} 吗？`)) {
+                        this.commodities.splice(index, 1)
+                    }
+                },
+                empty: function() {
+                    // this.commodities.splice(0, this.commodities.length);
+                    this.commodities=[];
+                }
+            }
+        });
+    </script>
+</body>
+</html>

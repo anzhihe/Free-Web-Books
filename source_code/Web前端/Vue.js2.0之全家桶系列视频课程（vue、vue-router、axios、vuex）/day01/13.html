@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义过滤器</title>
+	<script src="js/vue.js"></script>
+	<script>
+		/**
+		 * 自定义全局过滤器
+		 */
+		Vue.filter('addZero',function(data){
+			// console.log(data);
+			return data<10?'0'+data:data;
+		});
+		/*Vue.filter('number',(data,n) => {
+			// console.log(data,n);
+			return data.toFixed(n);
+		});*/
+		Vue.filter('date',data => {
+			let d=new Date(data);
+			return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()+' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
+		});
+		
+
+		window.onload=function(){
+			let vm=new Vue({
+				el:'#itany',
+				data:{
+					currentTime:Date.now()
+				},
+				filters:{ //局部过滤器
+					number:(data,n) => {
+						return data.toFixed(n);
+					}
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<div id="itany">
+		<!-- <h3>{{3 | addZero}}</h3> -->
+		
+		<!-- 课后作业：自己实现toFiexed()四舍五入的功能 -->
+		<h3>{{12.345678 | number(2)}}</h3>
+		<!-- <h3>{{12.045 | number(2)}}</h3> -->
+
+		<h3>{{currentTime | date}}</h3>
+	
+	</div>
+</body>
+</html>

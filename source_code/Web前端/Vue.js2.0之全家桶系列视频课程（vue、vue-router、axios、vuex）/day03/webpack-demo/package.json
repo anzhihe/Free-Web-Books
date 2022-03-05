@@ -1,0 +1,28 @@
+{
+  "name": "webpack-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev":"webpack-dev-server --open --hot --port 8800"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.3.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.5.2",
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.2",
+    "vue-html-loader": "^1.2.4",
+    "vue-loader": "^13.0.0",
+    "vue-style-loader": "^3.0.1",
+    "vue-template-compiler": "^2.3.4",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
+  }
+}
