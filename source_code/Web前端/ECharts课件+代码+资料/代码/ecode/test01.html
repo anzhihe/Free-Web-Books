@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1.引入 ECharts 文件 -->
+    <script src="js/echarts.min.js"></script>
+</head>
+<body>
+    <!-- 2.为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div id="main" style="width: 700px;height:500px;"></div>
+
+    <script>
+        // 3.基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'),'dark'); // 使用dark主题
+
+        // 4.指定图表的配置项和数据
+        var option = {
+            title: { // 标题
+                text: 'ECharts 入门示例',
+                link: 'https://echarts.apache.org/',
+                textStyle:{
+                    color:'#f00',
+                    fontWeight:'normal',
+                    fontSize:20
+                },
+                subtext:'副标题', 
+                // left:'right', 
+                left:30,
+                top: 10 
+            },
+            tooltip: { // 提示框
+                show:true
+            },
+            legend: { // 图例
+                data:['销量','成本']
+            },
+            xAxis: { // x轴
+                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子","裙子"]
+            },
+            yAxis: {}, // y轴
+            series: [ // 系列列表
+                { 
+                    name: '销量', // 系列名称
+                    type: 'bar', // 图表类型
+                    data: [5, 20, 36, 10, 10, 20, 77] // 数据内容
+                },
+                { 
+                    name: '成本', // 系列名称
+                    type: 'bar', // 图表类型
+                    data: [2, 10, 6, 7, 1, 8, 17] // 数据内容
+                }
+            ]
+        };
+
+        // 5.使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
