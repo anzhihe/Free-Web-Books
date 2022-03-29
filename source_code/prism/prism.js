@@ -1,5 +1,5 @@
 /* PrismJS 1.24.1
-https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript+abap+abnf+actionscript+ada+agda+al+antlr4+apacheconf+apex+apl+applescript+aql+arduino+arff+asciidoc+aspnet+asm6502+autohotkey+autoit+bash+basic+batch+bbcode+bicep+birb+bison+bnf+brainfuck+brightscript+bro+bsl+c+csharp+cpp+cfscript+chaiscript+cil+clojure+cmake+cobol+coffeescript+concurnas+csp+coq+crystal+css-extras+csv+cypher+d+dart+dataweave+dax+dhall+diff+django+dns-zone-file+docker+dot+ebnf+editorconfig+eiffel+ejs+elixir+elm+etlua+erb+erlang+excel-formula+fsharp+factor+false+firestore-security-rules+flow+fortran+ftl+gml+gcode+gdscript+gedcom+gherkin+git+glsl+go+graphql+groovy+haml+handlebars+haskell+haxe+hcl+hlsl+hoon+http+hpkp+hsts+ichigojam+icon+icu-message-format+idris+ignore+inform7+ini+io+j+java+javadoc+javadoclike+javastacktrace+jexl+jolie+jq+jsdoc+js-extras+json+json5+jsonp+jsstacktrace+js-templates+julia+keyman+kotlin+kumir+latex+latte+less+lilypond+liquid+lisp+livescript+llvm+log+lolcode+lua+makefile+markdown+markup-templating+matlab+mel+mizar+mongodb+monkey+moonscript+n1ql+n4js+nand2tetris-hdl+naniscript+nasm+neon+nevod+nginx+nim+nix+nsis+objectivec+ocaml+opencl+openqasm+oz+parigp+parser+pascal+pascaligo+psl+pcaxis+peoplecode+perl+php+phpdoc+php-extras+plsql+powerquery+powershell+processing+prolog+promql+properties+protobuf+pug+puppet+pure+purebasic+purescript+python+qsharp+q+qml+qore+r+racket+jsx+tsx+reason+regex+rego+renpy+rest+rip+roboconf+robotframework+ruby+rust+sas+sass+scss+scala+scheme+shell-session+smali+smalltalk+smarty+sml+solidity+solution-file+soy+sparql+splunk-spl+sqf+sql+squirrel+stan+iecst+stylus+swift+t4-templating+t4-cs+t4-vb+tap+tcl+tt2+textile+toml+turtle+twig+typescript+typoscript+unrealscript+uri+v+vala+vbnet+velocity+verilog+vhdl+vim+visual-basic+warpscript+wasm+wiki+wolfram+xeora+xml-doc+xojo+xquery+yaml+yang+zig&plugins=line-numbers+autolinker+show-language+toolbar+copy-to-clipboard+code-fullscreen+download-button */
+https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript+abap+abnf+actionscript+ada+agda+al+antlr4+apacheconf+apex+apl+applescript+aql+arduino+arff+asciidoc+aspnet+asm6502+autohotkey+autoit+bash+basic+batch+bbcode+bicep+birb+bison+bnf+brainfuck+brightscript+bro+bsl+c+csharp+cpp+cfscript+chaiscript+cil+clojure+cmake+cobol+coffeescript+concurnas+csp+coq+crystal+css-extras+csv+cypher+d+dart+dataweave+dax+dhall+diff+django+dns-zone-file+docker+dot+ebnf+editorconfig+eiffel+ejs+elixir+elm+etlua+erb+erlang+excel-formula+fsharp+factor+false+firestore-security-rules+flow+fortran+ftl+gml+gcode+gdscript+gedcom+gherkin+git+glsl+go+graphql+groovy+haml+handlebars+haskell+haxe+hcl+hlsl+hoon+http+hpkp+hsts+ichigojam+icon+icu-message-format+idris+ignore+inform7+ini+io+j+java+javadoc+javadoclike+javastacktrace+jexl+jolie+jq+jsdoc+js-extras+json+json5+jsonp+jsstacktrace+js-templates+julia+keyman+kotlin+kumir+latex+latte+less+lilypond+liquid+lisp+livescript+llvm+log+lolcode+lua+makefile+markdown+markup-templating+matlab+mel+mizar+mongodb+monkey+moonscript+n1ql+n4js+nand2tetris-hdl+naniscript+nasm+neon+nevod+nginx+nim+nix+nsis+objectivec+ocaml+opencl+openqasm+oz+parigp+parser+pascal+pascaligo+psl+pcaxis+peoplecode+perl+php+phpdoc+php-extras+plsql+powerquery+powershell+processing+prolog+promql+properties+protobuf+pug+puppet+pure+purebasic+purescript+python+qsharp+q+qml+qore+r+racket+jsx+tsx+reason+regex+rego+renpy+rest+rip+roboconf+robotframework+ruby+rust+sas+sass+scss+scala+scheme+shell-session+smali+smalltalk+smarty+sml+solidity+solution-file+soy+sparql+splunk-spl+sqf+sql+squirrel+stan+iecst+stylus+swift+t4-templating+t4-cs+t4-vb+tap+tcl+tt2+textile+toml+turtle+twig+typescript+typoscript+unrealscript+uri+v+vala+vbnet+velocity+verilog+vhdl+vim+visual-basic+warpscript+wasm+wiki+wolfram+xeora+xml-doc+xojo+xquery+yaml+yang+zig&plugins=line-numbers+autolinker+show-language+toolbar+copy-to-clipboard+code-fullscreen+code-collapsed+download-button */
 var _self =
     "undefined" != typeof window
       ? window
@@ -13891,52 +13891,43 @@ Prism.languages.yang = {
 })();
 !(function () {
   function u(t, e) {
+    // 全屏/缩放
     var fullscreen = false;
-    // 点击打开全屏
     t.addEventListener("click", function (t) {
       var c = t.currentTarget.parentNode.parentNode.parentNode;
+      var s = t.currentTarget.firstChild;
       if (fullscreen) {
-        console.log("缩放");
-        console.log(c);
-        console.log(c.getAttribute("class"));
         // 替换样式: code-fullscreen → code-toolbar
         var classVal = c.getAttribute("class");
         classVal = classVal.replace("code-fullscreen", "code-toolbar");
-        console.log(classVal);
         c.setAttribute("class", classVal);
+        s.firstChild.textContent = "全屏";
       } else {
-        console.log("全屏");
-        console.log(c);
-        console.log(c.getAttribute("class"));
         // 替换样式: code-toolbar → code-fullscreen
         var classVal = c.getAttribute("class");
         classVal = classVal.replace("code-toolbar", "code-fullscreen");
-        console.log(classVal);
         c.setAttribute("class", classVal);
+        s.firstChild.textContent = "缩放";
       }
       fullscreen = !fullscreen;
     });
-    // 按ESC键退出全屏
     t.addEventListener("keydown", function (t) {
       var c = t.currentTarget.parentNode.parentNode.parentNode;
-      // div添加keydown事件监听
-      c.setAttribute("tabindex",0);
-      c.onkeydown= function(){
-          switch (
-            t.keyCode // 获取当前按下键盘键的编码
-          ) {
-            case 27: // 按下ESC键，退出代码全屏
-              console.log("esc");
-              console.log(c);
-              console.log(c.getAttribute("class"));
-              var classVal = c.getAttribute("class");
-              classVal = classVal.replace("code-fullscreen", "code-toolbar");
-              console.log(classVal);
-              c.setAttribute("class", classVal);
-              break;
-          }
-          fullscreen = false;
-        };
+      var s = t.currentTarget.firstChild;
+      c.setAttribute("tabindex", 0);
+      c.onkeydown = function () {
+        switch (
+          t.keyCode // 获取当前按下键盘键的编码
+        ) {
+          case 27: // 按下ESC键，退出代码全屏
+            var classVal = c.getAttribute("class");
+            classVal = classVal.replace("code-fullscreen", "code-toolbar");
+            c.setAttribute("class", classVal);
+            s.firstChild.textContent = "全屏";
+            break;
+        }
+        fullscreen = false;
+      };
     });
   }
   "undefined" != typeof Prism &&
@@ -13946,16 +13937,12 @@ Prism.languages.yang = {
           var e = t.element,
             o = (function (t) {
               var e = {
-                fullscreen: "全屏",
-                "fullscreen-error": "Press to fullscreen",
-                "fullscreen-success": "缩放",
-                "fullscreen-timeout": 5e3
+                fullscreen: "全屏"
               };
               for (var o in e) {
                 for (
                   var n = "data-prismjs-" + o, c = t;
                   c && !c.hasAttribute(n);
-
                 )
                   c = c.parentElement;
                 c && (e[o] = c.getAttribute(n));
@@ -13966,32 +13953,62 @@ Prism.languages.yang = {
           (n.className = "code-fullscreen-button"),
             n.setAttribute("type", "button");
           var c = document.createElement("span");
-          return (
-            n.appendChild(c),
-            i("fullscreen"),
-            u(n, {
-              success: function () {
-                i("fullscreen-success"), r();
-              },
-              error: function () {
-                i("fullscreen-error"),
-                  setTimeout(function () {
-                    !(function (t) {
-                      window.getSelection().selectAllChildren(t);
-                    })(e);
-                  }, 1),
-                  r();
-              }
-            }),
-            n
-          );
+          return n.appendChild(c), i("fullscreen"), u(n), n;
           function i(t) {
-            (c.textContent = o[t]), n.setAttribute("data-full-state", t);
+            (c.textContent = o[t]), n.setAttribute("data-fullscreen-state", t);
           }
         })
       : console.warn(
           "Code to Fullscreen plugin loaded before Toolbar plugin."
         ));
+})();
+!(function () {
+  function u(t, e) {
+    // 收起/展开
+    var collapsed = false;
+    t.addEventListener("click", function (t) {
+      var c = t.currentTarget.parentNode.parentNode.previousSibling.firstChild;
+      var s = t.currentTarget.firstChild;
+      if (collapsed) {
+        c.setAttribute("style", "display:block");
+        s.firstChild.textContent = "收起";
+      } else {
+        c.setAttribute("style", "display:none");
+        s.setAttribute("data-collapsed-state", "collapsed");
+        s.firstChild.textContent = "展开";
+      }
+      collapsed = !collapsed;
+    });
+  }
+  "undefined" != typeof Prism &&
+    "undefined" != typeof document &&
+    (Prism.plugins.toolbar
+      ? Prism.plugins.toolbar.registerButton("code-collapsed", function (t) {
+          var e = t.element,
+            o = (function (t) {
+              var e = {
+                collapsed: "收起"
+              };
+              for (var o in e) {
+                for (
+                  var n = "data-prismjs-" + o, c = t;
+                  c && !c.hasAttribute(n);
+                )
+                  c = c.parentElement;
+                c && (e[o] = c.getAttribute(n));
+              }
+              return e;
+            })(e),
+            n = document.createElement("button");
+          (n.className = "code-collapsed-button"),
+            n.setAttribute("type", "button");
+          var c = document.createElement("span");
+          return n.appendChild(c), i("collapsed"), u(n), n;
+          function i(t) {
+            (c.textContent = o[t]), n.setAttribute("data-collapsed-state", t);
+          }
+        })
+      : console.warn("Code to collapsed plugin loaded before Toolbar plugin."));
 })();
 "undefined" != typeof Prism &&
   "undefined" != typeof document &&
@@ -14014,4 +14031,4 @@ Prism.languages.yang = {
         a
       );
     }
-  });
+});
