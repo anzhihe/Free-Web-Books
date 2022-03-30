@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		span{
+			border: 2px solid red;
+			/* outline-width:4px;
+			outline-color:blue;
+			outline-style:dashed; */
+			outline:4px green dashed;
+		}
+		.username{
+			border:1px solid red;
+			outline:none; /* 不设置轮廓 */
+			padding-left:3px;
+			width:80px;
+		}
+		.email{
+			border:0;
+			outline:0;
+			border-bottom:1px solid #000;
+		}
+		.btnSubmit{
+			border:0;
+			padding:5px;
+			width:100px;
+		}
+		.mydiv{
+			width: 100px;
+			background:#ccc;
+			border:2px solid red;
+			/* outline:2px solid red; */
+		}
+	</style>
+</head>
+<body>
+	<span>welcome to css</span>
+	<hr>
+
+	用户名：<input type="text" class="username">
+	<a href="#">CSS</a>
+	<hr>
+
+	邮箱：<input type="text" class="email">
+	<input type="submit" value="提交" class="btnSubmit">
+	<hr>
+
+	<div class="mydiv">div</div>
+</body>
+</html>

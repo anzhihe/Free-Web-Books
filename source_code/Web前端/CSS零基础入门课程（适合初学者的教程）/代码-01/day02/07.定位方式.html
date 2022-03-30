@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#container{
+			width:800px;
+			border:1px solid #000;
+			position:relative;
+		}
+		.div1,.div2,.div3,.div4{
+			width:100px;
+			height:50px;
+		}
+		.div1{
+			background:red;
+			position:relative; /* 相对定位 */
+			top:20px;
+			left:50px;
+			z-index:-5;
+		}
+		.div2{
+			background:blue;
+			position:absolute;  /* 绝对定位 */
+			left:100px;
+			bottom:50px;
+			z-index:-8;
+		}
+		.div3{
+			background:green;
+			position:fixed;
+			bottom:50px;
+			left:100px;
+		}
+		.div4{
+			background:cyan;
+			/* z-index:8; */
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div class="div1">div1</div>
+		<div class="div2">div2</div>
+		<div class="div3">div3</div>
+		<div class="div4">div4</div>
+	</div>
+</body>
+</html>

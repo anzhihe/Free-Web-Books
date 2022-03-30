@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/* li{
+			list-style-type:decimal;
+		} */
+		.first{
+			list-style-type:decimal;
+		}
+		.second{
+			list-style-image:url('images/male.gif');
+		}
+		.third{
+			list-style-type:circle;
+			list-style-position:inside;
+		}
+		.fourth{
+			/* list-style:circle url(images/female.gif) inside; */
+			list-style:none;
+		}
+
+		.nav li{
+			list-style:none;
+			float:left; /* 左浮动 */
+			width:100px;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class="first">hello1</li>
+		<li class="second">hello2</li>
+		<li class="third">hello3</li>
+		<li class="fourth">hello4</li>
+	</ul>
+
+	<nav>
+		<ul class="nav">
+			<li>新闻</li>
+			<li>地图</li>
+			<li>视频</li>
+			<li>贴吧</li>
+		</ul>
+	</nav>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/* 复合选择器 */
+		h1.aaa{
+			color:red;
+		}
+		p#bbb{
+			color:blue;
+		}
+		/* 组合选择器（集体声明） */
+		h1,p,div,.ccc{
+			font-size:30px;
+		}
+		div{
+			background:#cccccc;
+		}
+		.ccc{
+			font-weight:bold;
+		}
+		/* 嵌套选择器（层次关系） */
+		/* div p{
+			color:green;
+			text-decoration:underline;
+		} */
+		/* 必须是父子关系才行，CSS3中新增 */
+		div > p{
+			color:green;
+			text-decoration:underline;
+		}
+
+		div h3.ddd{
+			color:pink;
+		}
+	</style>
+</head>
+<body>
+	<h1 class="aaa">welcome</h1>
+	<h4 class="aaa">css</h4>
+	<h1>hello</h1>
+	<p id="bbb">world</p>
+	<p>html</p>
+	<div>web开发</div>
+	<span class="ccc">java开发</span>
+
+	<div>
+		<h3 class="ddd">div内部的h3</h3>
+		<p>div内部的p</p>
+		<p class="ddd"></p>
+	</div>
+	<div>
+		<h2>
+			<p>div内部的h2内部的p</p>
+		</h2>
+	</div>
+	<h3 class="ddd">h3h3h3</h3>
+</body>
+</html>
