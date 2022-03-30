@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+body{
+	margin:0;
+	padding:0;
+}
+
+#container{
+	width:980px;
+	border:1px solid red;
+	margin:0 auto;
+}
+
+#container .header{
+	width:100%;
+	height:80px;
+	background:red;
+}
+
+#container .wrapper{
+	width:100%;
+	height:600px;
+	background:blue;
+	margin:10px 0;
+}
+
+#container .wrapper aside{
+	background:pink;
+	width:200px;
+	height:400px;
+	float:left;
+}
+
+#container .wrapper .main{
+	background:cyan;
+	width:770px;
+	height:600px;
+	float:left;
+	/* margin:0 10px; */
+	margin-right:10px;
+}
+
+#container .footer{
+	width:100%;
+	height:120px;
+	background:green;
+}

@@ -2,6 +2,8 @@
 
 - [星星课堂的网络课堂，星星课堂 JavaScript 大讲堂](https://edu.51cto.com/lecturer/11857712.html)
 
+- [CSS零基础入门视频课程（适合初学者的教程）](https://edu.51cto.com/course/16092.html)
+
 - [HTML+DIV+CSS零基础入门与制作企业站视频课程](https://edu.51cto.com/course/6849.html)
 
 - [Vue.js 2.0之全家桶系列视频课程（vue、vue-router、axios、vuex）](https://edu.51cto.com/course/10543.html)

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.div1{
+			width: 100px;
+			height: 100px;
+			background:blue;
+			/* display:none; */
+			display:inline;
+		}
+		span{
+			width:100px;
+			height: 100px;
+			background:yellow;
+			/* display:block;
+			float:left; */
+			display:inline-block;
+		}
+		i{
+			display:inline-block;
+			width: 100px;
+			height: 100px;
+			background:red;
+		}
+		p{
+			width: 50px;
+			height: 50px;
+			background:red;
+		}
+		.p1{
+			/* display:none; */
+			visibility:hidden;
+		}
+		#login{
+			display:inline-block;
+			width: 120px;
+			text-decoration:none;
+			background:rgba(255, 0, 0, 0.7);
+			color:#fff;
+			padding:8px;
+			text-align: center;
+			border-radius:10px; /* CSS3新增属性 */
+		}
+		#login:hover{
+			background:rgba(255, 0, 0, 0.5);;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">div1</div>
+	<span>span1</span>
+	<i>呵呵</i>
+	<hr>
+
+	<p class="p1">hello</p>
+	<p class="p2">world</p>
+	<hr>
+
+	<a href="javascript:alert(666)" id="login">登&nbsp;&nbsp;&nbsp;&nbsp;陆</a>
+</body>
+</html>
