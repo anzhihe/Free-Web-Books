@@ -69,6 +69,8 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 ---
 
 - [Web 開發人員的路線圖](https://github.com/goodjack/developer-roadmap-chinese)
+- [前端自学学习路线](https://juejin.cn/post/6979778540044550152)
+- [SimbaJS的个人空间_哔哩哔哩](https://space.bilibili.com/425325651)
 - [JavaScript 教程](https://wangdoc.com/javascript/index.html)
 - [ES6 教程](https://wangdoc.com/es6/index.html)
 - [现代 JavaScript 教程](https://zh.javascript.info/)
