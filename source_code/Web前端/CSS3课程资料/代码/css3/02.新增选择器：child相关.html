@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* li:first-child{
+            background: red;
+        }
+        li:last-child{
+            background: blue;
+        } */
+
+        /* 元素顺序从1开始 */
+        /* li:nth-child(3){
+            background: red;
+        }
+        li:nth-last-child(2){
+            background: blue;
+        } */
+
+        /* n为从0开始的自动增长值 */
+        /* li:nth-child(3n+1){ */
+        /* li:nth-child(n+4){
+            background: red;
+        } */
+
+        /* odd表示奇数，even表示偶数 */
+        /* li:nth-child(even){
+            background: red;
+        } */
+
+        /* span必须是父元素中唯一的子元素 */
+        span:only-child{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>li1</li>
+        <li>li2</li>
+        <li>li3</li>
+        <li>li4</li>
+        <li>li5</li>
+        <li>li6</li>
+        <li>li7</li>
+        <li>li8</li>
+    </ul>
+    
+    <p>
+        <span>hello</span>
+        <!-- <a href="">百度</a> -->
+    </p>
+    <span>
+        world
+    </span>
+</body>
+</html>

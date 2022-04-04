@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p[title]{
+            color: red;
+        }
+        /* 必须同时包含id和class属性 */
+        p[id][class]{
+            color: blue;
+        }
+        p[title="t2"]{
+            background: #ccc;
+        }
+        p[title^="t"]{
+            font-size: 20px;
+        }
+        p[title$="22"]{
+            text-decoration: underline;
+        }
+        p[title*="2"]{
+            text-indent: 20px;
+        }
+    </style>
+</head>
+<body>
+    <p title="t1">p1</p>
+    <p title="t2t">p2</p>
+    <p class="c1" id="welcome">p3</p>
+    <p title="a4">p4</p>
+    <p id="hello">p5</p>
+    <p title="t122">p6</p>
+    <p id="world">p7</p>
+    <p title="2a">p8</p>
+</body>
+</html>

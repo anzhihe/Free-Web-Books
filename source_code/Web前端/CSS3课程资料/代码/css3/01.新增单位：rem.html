@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            /* font-size: 16px; */
+
+            /* 为了便于计算，可以将根元素大小设为 62.5% * 16 = 10px */
+            font-size: 62.5%;
+            /* 不建议直接设置为10px，因为桌面浏览器的默认字体大小是16px，而其他类型的设备的默认字体大小不一定是16px，所以建议使用百分比 */
+            /* font-size: 10px; */
+        }
+        div{
+            border: 1px solid #ccc;
+            /* Chrome浏览器不支持12px以下字体 */
+            font-size: 1rem;
+            /* 解决：使用css3中的transform属性进行缩放 */
+            transform: scale(0.84);
+            -webkit-transform-origin-x: 0;
+            -webkit-transform-origin-y: 0;
+        }
+        .d1{
+            /* width: 500px;
+            height: 500px; */
+            width: 60rem;
+            height: 60rem;
+        }
+        .d2{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">外层div
+        <div class="d2">内层div</div>
+    </div>
+</body>
+</html>

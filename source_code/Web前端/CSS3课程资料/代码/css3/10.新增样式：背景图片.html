@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 设置背景图片的大小 */
+        .d1{
+            width: 300px;
+            height: 200px;
+            border: 1px solid red;
+
+            background: url(images/apple.jpg) no-repeat;
+            /* background-size: 200px 100px; */
+            /* background-size: 200px; */
+            /* background-size: 100% 100%; */
+            /* background-size: cover; */
+            background-size: contain;
+        }
+        /* 多背景图片：为一个元素同时设置多个背景图片 */
+        .d2{
+            width: 300px;
+            height: 200px;
+            border: 1px solid green;
+
+            background: url(images/google.png) top left repeat-y,
+                        url(images/nota.png) bottom repeat-x,
+                        url(images/as.png) top right repeat-y;
+            background-size: 50px 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1"></div>
+    <hr>
+    <div class="d2"></div>
+</body>
+</html>

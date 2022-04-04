@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 线性渐变 */
+        .d1{
+            width: 500px;
+            height: 200px;
+            border: 1px solid #ccc;
+
+            /* 背景色从左到右开始渐变，由红到黄，再到蓝，平均分布各个颜色 */
+            /* background-image: linear-gradient(to right,red,yellow,blue); */
+
+            /* 
+                指定过渡在哪个方向结束，角度值按顺时针方向，上边为0deg
+                    90deg表示右边，表示从左边开始，到右边结束，等价于 to right
+             */
+            /* background-image: linear-gradient(90deg,red,yellow,blue); */
+
+            /* 
+                默认情况下浏览器会平均分布每个颜色
+                    1.可以在颜色后面添加一个数值，用于指定颜色的位置，一般使用百分比
+                    2.第一个颜色和最后一个颜色无需指定位置，因为浏览器会将第一个颜色从0%位置开始，最后一个颜色在100%位置结束
+             */
+            /* 背景色从左到右开始渐变，最左边是红色，在元素宽度40%的位置变成黄色，60%的位置变成蓝色，最后是绿色 */
+            /* background-image: linear-gradient(to right,red,yellow 40%,blue 60%,green);  */
+            /* 从0%到30%的位置都是纯红色，从30%的位置开始由红色变成黄色，直到40%的位置变成纯黄色 */
+            background-image: linear-gradient(to right,red 30%,yellow 40%,blue 60%,green);
+
+        }
+        /* 放射性渐变 */
+        .d2{
+            width: 500px;
+            height: 200px;
+            border: 1px solid #ccc;
+
+            /* background-image: radial-gradient(circle,red,blue); */
+            background-image: radial-gradient(circle farthest-corner at 50px 50px,red,blue,green);
+        }
+        /* 重复性渐变 */
+        .d3{
+            width: 500px;
+            height: 500px;
+            border: 1px solid #ccc;
+
+            /* 最左边是红色，此后直到30px的位置过渡到黄色，然后直到40px的位置过渡到蓝色，然后浏览器会重复平铺图像，直接铺满整个容器 */
+            /* background-image: repeating-linear-gradient(to right,red,yellow 30px,blue 40px); */
+            /* 最左边是红色，此后直到20px的位置都是纯红色，然后直到30px的位置都是纯白色，这种写法可以形成很清晰的条纹效果 */
+            /* background-image: repeating-linear-gradient(45deg,red, red 20px, white 20px,white 30px); */
+
+            background-image: repeating-radial-gradient(circle at 100px 100px,red, red 20px, white 20px,white 30px);
+        }
+    </style>
+</head>
+<body>
+    <div class="d1"></div>
+    <div class="d2"></div>
+    <div class="d3"></div>
+</body>
+</html>

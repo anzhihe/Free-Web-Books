@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .d1{
+            width: 200px;
+            height: 200px;
+            background: red;
+
+            /* 指定圆角的半径 */
+            /* border-top-left-radius: 20px;
+            border-bottom-right-radius: 50px; */
+            /* border-radius: 20px 40px 60px 80px; */
+            /* border-radius: 20px; */
+            /* border-radius: 20px 60px; */
+            /* border-radius: 20px 40px 60px; */
+
+            /* 圆形：设置半径为宽高的一半 */
+            /* border-radius: 100px; */
+            border-radius: 50%;
+        }
+
+        /* 左半圆 */
+        .d2{
+            width: 100px;
+            height: 200px;
+            background: blue;
+            border-radius: 100px 0 0 100px;
+        }
+        /* 上半圆 */
+        .d3{
+            width: 200px;
+            height: 100px;
+            background: green;
+            border-radius: 100px 100px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1"></div>
+    <div class="d2"></div>
+    <div class="d3"></div>
+</body>
+</html>

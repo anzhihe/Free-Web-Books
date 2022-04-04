@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 300px;
+            height: 200px;
+            border: 1px solid #ccc;
+
+            /* 尺寸调节 */
+            resize: vertical;
+            overflow: auto;
+
+            /* 盒子阴影 */
+            box-shadow: 10px 10px 5px 3px #ccc inset;
+        }
+        .container div{
+            width: 100px;
+            height: 200px;
+            float: left;
+
+            border: 1px solid blue;
+
+            /* 此时盒子的width和height会包含border和padding */
+            box-sizing: border-box;
+            padding: 10px;
+            /* 不包含margin */
+            /* margin: 5px; */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>div1</div>
+        <div>div2</div>
+        <div>div3</div>
+    </div>
+
+</body>
+</html>

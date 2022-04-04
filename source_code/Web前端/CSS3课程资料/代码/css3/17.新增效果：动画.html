@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .d1{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+
+            /* animation-name: change;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-delay: 0s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate; */
+            /* 简写 */
+            animation: change 3s ease 0s infinite alternate;
+        }
+
+        @keyframes change{
+            0%{
+                width: 100px;
+                height: 100px;
+            }
+            50%{
+                width: 200px;
+                height: 200px;
+            }
+            100%{
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        .d2{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ccc;
+            position: absolute;
+
+            animation: go 5s linear 0s infinite alternate;
+        }
+
+        @keyframes go{
+            0%{
+                background: red;
+                left: 0;
+                top: 0;
+            }
+            25%{
+                background: yellow;
+                left: 500px;
+                top: 0;
+            }
+            50%{
+                background: blue;
+                left: 500px;
+                top: 500px;
+            }
+            75%{
+                background: green;
+                left:0;
+                top: 500px;
+            }
+            100%{
+                background: red;
+                left: 0;
+                top: 0;
+                transform: rotate(720deg);
+            }
+        }
+
+        img{
+            width: 100px;
+            height: 100px;
+            animation: imgRotate 2s linear 0s infinite alternate;
+        }
+
+        @keyframes imgRotate{
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="d1"></div> -->
+
+    <div class="d2"></div>
+
+    <img src="images/bg.jpg" alt="">
+</body>
+</html>
