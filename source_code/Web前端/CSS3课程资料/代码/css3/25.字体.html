@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <style>
+        /* 定义字体，其实就是加载外部的字体文件 */
+        @font-face{
+            /* 定义字体的名称 */
+            font-family: myfont;
+            /* 定义外部字体文件的路径，SourceHanSansCN表示思源字体，HYShangWeiShouShuW表示汉仪尚巍手书字体 */
+            /* src: url('font/SourceHanSansCN-Bold.otf'); */
+            /* 可以指定同一字体的不同类型文件，兼容不同的浏览器，以逗号隔开 */
+            src: url('font/HYShangWeiShouShuW.ttf'),
+                 url('font/HYShangWeiShouShuW.eot'),
+                 url('font/HYShangWeiShouShuW.otf');
+        }
+
+        div{
+            font-size: 30px;
+            font-family: myfont;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        跟汤哥学开发
+    </div>
+
+    <!-- 阿里矢量图标库 -->
+    <span class="iconfont icon-home" style="color: red; font-size: 30px;"></span>
+    <i class="iconfont icon-star" style="color: green; font-size: 20px;"></i>
+
+</body>
+</html>

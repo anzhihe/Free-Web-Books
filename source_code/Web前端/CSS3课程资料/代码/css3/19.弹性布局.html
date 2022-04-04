@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 700px;
+            height: 200px;
+            border: 1px solid #333;
+
+            /* 设置为弹性布局 */
+            display: flex;
+
+            /* 排列方向 */
+            /* flex-direction: row;      */
+            /* 是否换行 */
+            /* flex-wrap: wrap; */
+            /* 简写 */
+            /* flex-flow: row nowrap; */
+
+            /* 水平对齐方式 */
+            /* justify-content: center; */
+            /* 项目与项目之间的间隔相等，项目与容器之间没有间隔 */
+            /* justify-content: space-between; */
+            /* 每个项目两侧的间隔相等，所以项目之间的间隔比项目与容器边框的间隔大一倍 */
+            /* justify-content: space-around; */
+            /* 项目与项目的间隔相等，项目与容器边框之间的间隔也相等 */
+            /* justify-content: space-evenly; */
+
+            /* 垂直对齐方式 */
+            /* align-items:center; */
+
+            /* 换行后的多行对齐方式 */
+            /* align-content: space-evenly; */
+
+        }
+        .container > div{
+            width: 200px;
+        }
+        .d1{
+            background: red;
+            /* 伸缩比例，1代表占父容器宽度的1份 */
+            flex: 1;
+            order: 2;
+        }
+        .d2{
+            background: green;
+            /* flex: 1; */
+            order: 3;
+        }
+        .d3{
+            background: blue;
+            flex: 1;
+            order: 1;
+        }
+        .d4{
+            background: yellow;
+        }
+        .d5{
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="d1">div1</div>
+        <div class="d2">div2</div>
+        <div class="d3">div3</div>
+        <!-- <div class="d4">div4</div>
+        <div class="d5">div5</div> -->
+    </div>
+</body>
+</html>

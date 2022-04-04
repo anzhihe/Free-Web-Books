@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 将表单元素默认的轮廓样式清除 */
+        input{
+            outline: 0;
+        }
+
+        /* input:enabled{
+            border: 2px solid red;
+        }
+        input:disabled{
+            border: 2px solid blue;
+        } */
+        /* input:read-only{
+            border: 2px solid green;
+        } */
+        /* input:focus{
+            border: 2px solid red;
+        } */
+        /* input:checked{
+            margin-right: 20px;
+        } */
+        /* 选中input中的文本 */
+        input::selection{
+            /* 并非所有css样式都支持，如color支持、font-size不支持 */
+            color: red; 
+            font-size: 20px;
+        }
+        /* 选中div中的文本 */
+        div::selection{
+            color: blue;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    姓名：<input type="text"> <br>
+    年龄：<input type="text" value="18" readonly> <br>
+    邮箱：<input type="text" value="tom@sina.com"> <br>
+    性别：<input type="radio" name="sex" id="male"> <label for="male">男</label>
+          <input type="radio" name="sex" id="female"> <label for="female">女</label> <br>
+
+    <div>
+        跟汤老师学开发
+    </div>      
+</body>
+</html>

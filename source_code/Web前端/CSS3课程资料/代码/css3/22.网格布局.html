@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 800px;
+            height: 500px;
+            border: 1px solid #ccc;
+
+            /* 设置为网格布局 */
+            display: grid;
+
+            /* 网格的列宽 */
+            /* grid-template-columns: 100px 100px 100px; */
+            /* grid-template-columns: 20% 30% 50%; */
+            /* auto关键字：表示自动 */
+            /* grid-template-columns: 100px auto 100px; */
+            /* fr关键字：表示比例关系 */
+            /* grid-template-columns: 1fr 1fr 1fr; */
+            /* repeat()函数：包含多个重复的值时使用，接收两个参数，第一个参数表示重复的次数，第二个参数表示重复的模式 */
+            grid-template-columns: repeat(4,100px);
+            /* auto-fill关键字：表示自动填充，直到容器不能放置更多的列 */
+            /* grid-template-columns: repeat(auto-fill,100px); */
+
+            /* 网格的行高 */
+            /* grid-template-rows: 100px 200px 100px; */
+            /* grid-template-rows: 1fr 1fr 1fr; */
+            grid-template-rows: repeat(2,100px) 100px;
+
+            /* 列间距 */
+            /* grid-column-gap: 5px; */
+
+            /* 行间距 */
+            /* grid-row-gap: 5px; */
+
+            /* 单元格内容的水平对齐 */
+            /* justify-items: start; */
+
+            /* 单元格内容的垂直对齐 */
+            /* align-items: start; */
+
+            /* 整个网格在容器中的水平对齐 */
+            /* justify-content: start; */
+
+            /* 整个网格在容器中的垂直对齐 */
+            /* align-content: start; */
+
+            /* 自动放置元素的顺序：row先行后列，column先列后行 */
+            /* grid-auto-flow: column; */
+
+        }
+        .container > div{
+            border: 1px solid red;
+        }
+        .d1{
+            /* 列的开始和结束 */
+            grid-column-start: 1;
+            grid-column-end: 3;
+
+            /* 行的开始和结束 */
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+        .d2{
+            grid-column: 3/5;   
+            grid-row: 2/3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item d1">01</div>
+        <div class="item d2">02</div>
+        <div class="item">03</div>
+        <div class="item">04</div>
+        <div class="item">05</div>
+        <div class="item">06</div>
+        <div class="item">07</div>
+        <div class="item">08</div>
+        <div class="item">09</div>
+    </div>
+</body>
+</html>

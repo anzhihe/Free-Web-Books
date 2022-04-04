@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            /* background: #ccc; */
+            border-top: 100px solid red;
+            border-right: 100px solid green;
+            border-bottom: 100px solid blue;
+            border-left: 100px solid yellow;
+            border-radius: 200px;
+
+            animation: scroll 2s linear 0s infinite;
+        }
+
+        @keyframes scroll{
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

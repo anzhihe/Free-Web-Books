@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .d1{
+            width: 300px;
+            height: 200px;
+            border: 1px solid red;
+
+            /* 
+                过渡效果的速度曲线
+                    ease     由快到慢，逐渐变慢（默认值）
+                    linear   匀速
+                    ease-in  加速
+                    ease-out 减速
+                    ease-in-out 先加速，再减速
+             */
+            /* transition-property: width;
+            transition-duration: 3s;
+            transition-timing-function: ease-in-out;
+            transition-delay: 2s; */
+            transition: width 5s linear 0s;
+       }
+       .d1:hover{
+           width: 600px;
+       }
+       .d2{
+           width: 200px;
+           height: 200px;
+       }
+       .d2 img{
+           width: 100%;
+           height: 100%;
+           transition: transform 5s linear;
+       }
+       .d2 img:hover{
+           transform: rotate(1000deg);
+       }
+
+       body{
+           background: #000;
+       }
+    </style>
+</head>
+<body>
+    <div class="d1"></div>
+
+    <div class="d2">
+        <img src="images/bg.jpg" alt="">
+    </div>
+</body>
+</html>

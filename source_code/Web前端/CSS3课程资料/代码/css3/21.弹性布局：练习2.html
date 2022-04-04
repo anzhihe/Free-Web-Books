@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: #000;
+        }
+        .container{
+            /* border: 1px solid red; */
+            display: flex;
+            justify-content: space-around;
+            margin-top: 400px;
+        }
+        .container > div{
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border-radius: 50px;
+            position: relative;
+        }
+        .ball1{
+            animation: move 2s ease-in 0s infinite alternate;
+        }
+        .ball2{
+            animation: move 1s ease-out 1s infinite alternate;
+        }
+        .ball3{
+            animation: move 2s ease 2s infinite alternate;
+        }
+        .ball4{
+            animation: move 1s linear 0s infinite alternate;
+        }
+
+
+        @keyframes move {
+            0%{
+                top:0px;
+                background: yellowgreen;
+            }
+            25%{
+                top: -75px;
+                background: red;
+            }
+            50%{
+                top: -150px;
+                background: pink;
+            }
+            75%{
+                top:-225px;
+                background: blue;
+            }
+            100%{
+                top: -300px;
+                background: green;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ball1"></div>
+        <div class="ball2"></div>
+        <div class="ball4"></div>
+        <div class="ball1"></div>
+        <div class="ball3"></div>
+        <div class="ball2"></div>
+        <div class="ball3"></div>
+        <div class="ball1"></div>
+        <div class="ball4"></div>
+        <div class="ball2"></div>
+        <div class="ball3"></div>
+        <div class="ball1"></div>
+        <div class="ball4"></div>
+        <div class="ball2"></div>
+        <div class="ball3"></div>
+        <div class="ball2"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            :empty 空元素
+         */
+        h3:empty{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+
+        /* 
+            :not 取反
+         */
+        /* 排除包含title属性的span */
+        /* span:not([title]){
+            color: red;
+        }  */
+
+        /* 排除div以外的所有元素 */
+        /* :not(div){
+            color: blue;
+        } */
+
+        /* body内部，排除div以外的所有元素 */
+        /* body :not(div){
+            color: blue;
+        } */
+
+        /* 排除同类型第一个以外的div */
+        /* div:not(:first-of-type){
+            color: red;
+        } */
+
+        /* 
+            层次选择器
+                1. 空格表示查找后代元素
+                2. >表示查找子级元素
+                3. +表示前面紧邻有兄弟的元素
+                4. ~表示查找前面有兄弟的元素
+         */
+        /* div span{
+            color: red;
+        } */
+        /* div > span{
+            color: red;
+        } */
+        /* span + p{
+            color: red;
+        } */
+        /* span ~ p{
+            color: red;
+        } */
+
+        /* 
+            :root 根元素
+         */
+        /* html{ */
+        :root{
+            background: #ccc;
+            font-size: 25px;
+        } 
+
+        /* 
+            :target 点击锚链接后，目标锚点会应用样式
+         */
+        :target{
+            color: red;
+        } 
+    </style>
+</head>
+<body>
+    <!-- <a name="top"></a> -->
+    <div id="top">我是顶部</div>
+
+    <h3>welcome</h3>
+    <h3></h3>
+    <hr>
+
+    <span>span1</span>
+    <span title="t1">span2</span>
+    <span>span3</span>
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+    <hr>
+
+    <span>aaa</span>
+    <div>
+        <!-- <span>bbb</span> -->
+        <p>
+            <span>ccc</span>
+        </p>
+    </div>
+    <!-- <p>ddd</p> -->
+    <hr>
+
+    <p>p1</p>
+    <p>p2</p>
+    <p>p3</p>
+    <p>p4</p>
+    <p>p5</p>
+    <p>p6</p>
+    <p>p7</p>
+    <p>p8</p>
+    <p>p9</p>
+    <p>p10</p>
+    <p>p11</p>
+    <p>p12</p>
+    <p>p13</p>
+    <p>p14</p>
+    <p>p15</p>
+    <p>p16</p>
+    <p>p17</p>
+    <p>p18</p>
+    <p>p19</p>
+    <p>p20</p>
+    <a href="#top">返回顶部</a>
+</body>
+</html>

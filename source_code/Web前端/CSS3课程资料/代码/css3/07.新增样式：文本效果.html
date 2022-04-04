@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            font-size: 25px;
+        }
+        /* 文本阴影 */
+        span:first-child{
+            text-shadow: 10px 10px 5px red,
+                        -10px -10px 2px green,
+                        3px 5px 3px blue;
+        }
+        span:nth-of-type(2){
+            text-shadow: 0 -5px 5px yellow,
+                        5px 0 5px yellow,
+                        0 5px 5px yellow,
+                        -5px 0 5px yellow;
+        }
+        /* 文本裁剪 */
+        .d1{
+            width: 300px;
+            height: 100px;
+            border: 1px solid red;
+
+            /* 要先设置不自动换行和超出隐藏 */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* text-overflow: "未完待续"; */
+        }
+        /* 单词换行 */
+        .d2{
+            width: 400px;
+            height: 100px;
+            border: 1px solid green;
+
+            /* 默认情况下，当单词太长时，浏览器会把这个单词放到下一行去 */
+            word-wrap: break-word;
+            /* word-break: break-all; */
+        }
+    </style>
+</head>
+<body>
+    <span>HELLO</span>
+    <span>WORLD</span>
+    <hr>
+
+    <div class="d1">
+        跟汤哥学开发，走上人生巅峰
+    </div>
+    <hr>
+
+    <div class="d2">
+        welcome to css3 
+        <!-- hello worldaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
+        https://www.w3school.com.cn/css/css_syntax.asp
+    </div>
+</body>
+</html>

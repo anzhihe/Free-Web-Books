@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 80%;
+            margin: 0 auto;
+            border: 1px solid red;
+        }
+
+        /* 当屏幕尺寸大于等于700px时 */
+        @media screen and (min-width: 700px){
+            .container{
+                font-size: 50px;
+            }
+        }
+
+        /* 当屏幕尺寸小于等于400px时 */
+        @media screen and (max-width: 400px){
+            .container{
+                font-size: 20px;
+            }
+        }
+
+        /* 当屏幕尺寸大于等于401px时，并且小于等于699px时 */
+        @media screen and (min-width: 401px) and (max-width: 699px) {
+            .container{
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        跟汤哥学开发
+    </div>
+</body>
+</html>
