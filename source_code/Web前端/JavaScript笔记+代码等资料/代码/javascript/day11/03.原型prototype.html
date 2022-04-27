@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 定义一个构造函数Student
+        function Student(name,age){
+            this.name=name; // 实例属性，每个实例都具有一个独立的该属性
+            this.age=age;
+            this.show=function(){ // 实例方法，每个实例都具有一个独立的该方法
+                console.log('我叫'+this.name+'，年龄：'+this.age);
+            }
+            // this.sayHello=function(){
+            //     console.log('您好！');
+            // }
+            // this.sayGoodbye=function(){
+            //     console.log('再见！');
+            // }
+        }
+
+        // 构造函数中存在一个名为prototype的属性
+        // console.log(Student.prototype);
+
+        // 通过为构造函数的prototype添加属性和方法，从而让所有该构造函数创建的对象都能共享这些属性和方法
+        Student.prototype.sayHello=function(){ // 原型方法
+            console.log('您好！');
+        }
+        Student.prototype.sayGoodbye=function(){
+            console.log('再见！');
+        }
+        Student.prototype.class='三年二班'; // 原型属性，为所有对象所共享
+
+
+        // 创建对象
+        var stu1=new Student('tom',25);
+        stu1.class='三年一班'; // 为stu1添加一个实例属性class
+        console.log(stu1.name,stu1.age,stu1.class);
+        stu1.show();
+        stu1.sayHello();
+        stu1.sayGoodbye();
+        console.log('--------------------------------');
+
+        var stu2=new Student('alice',22);
+        console.log(stu2.name,stu2.age,stu2.class);
+        stu2.show();
+        stu2.sayHello();
+        stu2.sayGoodbye();
+
+        /**
+         *  stu1.sayHello、sayGoodbye和stu2.sayHello、sayGoodbye分别使用不同的内存空间，都要占用资源
+         *  但其内容是完全相同的，为了节省内存空间，希望能够共用
+         */
+        console.log(stu1===stu2);
+        console.log(stu1.name===stu2.name);
+        console.log(stu1.show===stu2.show);
+        console.log(stu1.sayHello===stu2.sayHello);
+        console.log(stu1.sayGoodbye===stu2.sayGoodbye);
+
+        
+        /**
+         *  扩展Array
+         */
+        var names=new Array('tom','jack','alice','mike','alex'); 
+        // names.sort();
+        // names.reverse();
+        // var str=names.join('-');
+
+        // 为Array类型添加新的功能（属性或方法）
+        Array.prototype.sortReverseJoin=function(){
+            console.log(this); // this表示当前对象，即将来要操作的数组
+            this.sort();
+            this.reverse();
+            var str=this.join('-');
+            // console.log(str);
+            return str;
+        }
+        console.log(Array.prototype);
+
+
+        var hobbies=['eat','sleep','doudou','hello','world'];
+
+        console.log(names.sortReverseJoin());
+        console.log(hobbies.sortReverseJoin());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

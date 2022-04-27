@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  条件运算符，也称为三目运算符
+         *  语法： 条件 ? 表达式1 : 表达式2
+         */
+        var a = Number(prompt('请输入a的值：'));
+        var b = Number(prompt('请输入b的值：'));
+        // var c = a>b ? a : b; // 将a、b中较大的值赋给c
+        // console.log(c); 
+
+        // a>b ? console.log('yes') : console.log('no');
+
+        // 比较三个数字，并输出最大值
+        var c = Number(prompt('请输入c的值：'));
+
+        var max = (a>b?a:b)>c ? (a>b?a:b) : c;
+        console.log(max);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

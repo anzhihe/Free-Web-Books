@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  简单的JSON对象 
+         */
+        /* var stu={
+            "name":"汪倩倩",
+            "age":18,
+            "height":163.5,
+            "flag":true,
+            "run":function(){ // 在JSON对象中一般不定义方法 
+                console.log('正在跑步。。。。');
+            }
+        }; 
+        console.log(stu.name);
+        console.log(stu["age"]);
+        stu.run(); */
+
+
+        /**
+         *  复合属性，属性的值为JSON对象
+         */
+        /* var user={
+            "name":{
+                "firstName":"何",
+                "lastName":"晶晶"
+            },
+            "age":20,
+            "address":{
+                "province":"江苏",
+                "city":"南京",
+                "district":"秦淮区"
+            }
+        }
+        console.log(user.name.firstName);
+        console.log(user.address.city); */
+
+        
+        /**
+         *  JSON对象的集合
+         */
+        var stus=[
+            {
+                "id":1001,
+                "name":"唐伯虎",
+                "age":25
+            },
+            {
+                "id":1002,
+                "name":"秋香",
+                "age":18
+            },
+            {
+                "id":1003,
+                "name":"石榴姐",
+                "age":22
+            },
+        ]
+        // 循环
+        for(var i=0;i<stus.length;i++){
+            // console.log(stus[i]);
+            for(var key in stus[i]){
+                console.log(key+'='+stus[i][key]);
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

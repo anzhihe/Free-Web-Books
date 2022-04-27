@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function doQuery(){
+            /**
+             *  1.根据id获取，返回单个对象
+             */
+            // var objDiv = document.getElementById('d1');
+            // console.log(objDiv);
+            // console.log(typeof objDiv); // object，DOM对象，表示页面中对应的元素
+
+
+            /**
+             *  2.根据name获取，返回集合
+             */
+            // var objs=document.getElementsByName('hobby');
+            // console.log(objs);
+
+            /**
+             *  3.根据标签名获取，返回集合 
+             */
+            // var objs=document.getElementsByTagName('div'); 
+            // console.log(objs[1]); // 通过索引获取集合中的元素
+
+            /**
+             *  4.根据class获取，返回集合
+             */
+            /* var objs=document.getElementsByClassName('hello'); 
+            // console.log(objs);
+            for(var obj of objs){
+                console.log(obj);
+            } */
+
+            /**
+             *  5.根据css选择器获取，返回单个对象
+             */
+            // var obj=document.querySelector('div.hello'); 
+            // var obj=document.querySelector('div'); // 返回匹配的第一个元素
+            // var obj=document.querySelector('div span[title=world]'); 
+            // console.log(obj);
+
+            /**
+             *  6.根据css选择器获取，返回集合
+             */
+            // var objs=document.querySelectorAll('div');
+            // console.log(objs);
+
+
+
+            /**
+             *  根据已有节点来获取其他节点
+             */
+            // 在当前节点的内部，根据标签名获取
+            // var ul=document.getElementById('myul');
+            // var lis=ul.getElementsByTagName('li');
+            // console.log(lis);
+
+            var li3=document.getElementById('third');
+            console.log('父节点：',li3.parentNode); 
+            console.log('父节点的父节点：',li3.parentNode.parentNode);
+            console.log('所有子节点：',li3.parentNode.children);
+            console.log('第一个子节点：',li3.parentNode.firstElementChild);
+            console.log('最后一个子节点：',li3.parentNode.lastElementChild);
+            console.log('前一个兄弟节点：',li3.previousElementSibling);
+            console.log('后一个兄弟节点：',li3.nextElementSibling);
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick="doQuery()">查询获取页面中的元素</button>
+    <hr>
+
+
+    <div id="d1">div1</div>
+    <div class="hello">div2</div>
+    <div>div3
+        <span title="world">嘿嘿</span>
+        <span>哈哈</span>
+    </div>
+    <p class="hello">welcome</p>
+    <span class="hello">你好</span> <br>
+    爱好：<input type="checkbox" name="hobby" value="eat"> 吃饭
+         <input type="checkbox" name="hobby" value="sleep"> 睡觉
+         <input type="checkbox" name="hobby" value="doudou"> 打豆豆
+    <hr>
+
+    <ul id="myul">
+        <li>li1</li>
+        <li>li2</li>
+        <li id="third">li3</li>
+        <li>li4</li>
+        <li>li5</li>
+        <li>li6</li>
+        <li>li7</li>
+        <li>li8</li>
+    </ul>
+</body>
+</html>

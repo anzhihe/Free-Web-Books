@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  情况一：函数中的this，表示函数的调用者
+         */
+        var a=8;
+        function f1(){
+            var a=5; 
+            console.log(this); // 此处的this表示window，因为是由window调用该函数
+            // 解决局部变量和全局变量同名的问题
+            console.log('局部变量：',a);
+            console.log('全局变量：',window.a);
+            console.log('全局变量：',this.a);
+        }
+
+        // f1(); // 省略了window，实际的函数调用者就是window对象
+        // window.f1();
+
+
+        /**
+         *  情况二：事件绑定的匿名回调函数中的this，表示事件源
+         */
+        window.onload=function(){
+            document.querySelector('#btn').onclick=function(){
+                console.log(this); // 此处的this表示事件源，即触发事件的目标元素
+            }
+        }
+
+
+        /**
+         *  情况三：构造函数中的this，表示将来new出来的当前对象
+         */
+        var name='唐伯虎';
+        function Student(name,age){
+            this.name='汤姆'; // 此处的this表示当前对象，即将来创建的对象
+            this.age=age;
+            // console.log(this);
+            console.log('局部变量（形参）：',name); // tom
+            console.log('对象的属性：',this.name); // 汤姆
+            console.log('全局变量：',window.name); // 唐伯虎
+        }
+
+        var stu1=new Student('tom',18);
+        console.log(stu1);
+
+        // var stu2=new Student('alice',22);
+        // console.log(stu2);
+
+
+    </script>
+</head>
+<body>
+    <button id="btn">点我</button>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  写入Cookie
+         */
+        function writeCookie(){
+            document.cookie='name=tom'; 
+            document.cookie='sex=male'; 
+
+            // 指定失效的时间
+            var date=new Date();
+            date.setDate(date.getDate()+7);
+            document.cookie='age=18;expires='+date.toUTCString(); // 也可以使用toGMTString()，作用相同 
+        } 
+
+        /**
+         *  读取Cookie
+         */
+        function readCookie(){
+            var data=document.cookie;
+            // console.log(data);
+
+            var array=data.split('; ');
+            for(var item of array){
+                var arr=item.split('=');
+                console.log(arr[0],arr[1]);
+            }
+        } 
+    </script>
+</head>
+<body>
+    <button onclick="writeCookie()">写入Cookie</button>
+    <button onclick="readCookie()">读取Cookie</button>
+</body>
+</html>

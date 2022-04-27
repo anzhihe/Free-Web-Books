@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  定义正则表达式
+         */
+        // 1.使用字面量 
+        // var reg=/a/i;  // 包含字母a，忽略大小写
+        // 2.使用构造函数
+        // var reg=new RegExp('a','ig');
+
+        /**
+         *  正则表达式的方法
+         */
+        // 1.test() 测试方法，测试一个字符串是否匹配正则表达式的规则，返回true或fase
+        // console.log(reg.test('heAllo'));  
+        // 2.exec() 搜索方法，用于在字符串中查找符合正则表达式对象所指定的模式的子字符串，返回找到的结果，若找不到则返回null
+        // console.log(reg.exec('heallAo'));
+        // console.log(reg.exec('heallAo'));
+
+
+        /**
+         *  匹配规则
+         */
+        // var reg=/\d/; // 包含一个数字
+        // var reg=/^\d$/; // 必须为一个数字
+        // var reg=/\w/; // 包含一个数字、字母或下划线
+        // var reg=/^\d{2}$/; // 必须为2个数字
+        // var reg=/^\d{2,5}$/; // 必须为2-5位的数字
+        // var reg=/^a\d*$/; // 以a开头，后面只能出现数字，也可以没有数字
+        // var reg=/^a\d+$/;
+        // var reg=/^a\d?$/;
+        // var reg=/^[abc]$/i;
+        // var reg=/^(abc){2}$/;
+        // var reg=/^a|b$/;
+        // var reg=/^[^abc]$/;
+        var reg=/^a\d[\u4E00-\u9FA5]{2,}$/;
+
+        console.log(reg.test('a8好孩子')); 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

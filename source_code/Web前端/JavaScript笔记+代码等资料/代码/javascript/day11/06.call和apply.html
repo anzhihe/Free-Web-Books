@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=constructor, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 定义一个对象
+        var stu={
+            name:'tom',
+            age:18,
+            study:function(){
+                console.log('我叫'+this.name+'，年龄：'+this.age);
+            },
+        }
+        // stu.study(); // 调用对象的方法
+
+        // 定义一个函数
+        function run(){
+            console.log('正在跑步。。。。',this);
+        }
+        // window.run(); // 直接调用函数
+
+
+        /**
+         *  如果stu想调用run()函数，怎么办？
+         */
+        // 方式1：为stu添加run方法，永久添加
+        // stu.run=run; // 为stu添加run属性，指向run()函数
+        // stu.run();
+
+        // 方式2：只想临时调用
+        // run.call(stu); // 以stu对象的身份来调用run()函数
+        // run.apply(stu);
+
+
+        /**
+         *  this的转变
+         */
+        // window.run(); // 直接调用，此时的this表示window
+        // run.call(stu); // 对象临时调用，此时的this表示调用的对象，即stu，称为对象冒充
+        // run.apply(stu);
+
+
+
+        /**
+         *  call和apply的区别
+         */
+        /* function calc(a,b,c){
+            console.log(a+b+c);
+        } 
+
+        calc.call(stu,1,2,3); // 逐个传参
+        calc.apply(stu,[1,2,3]); // 数组形式传参 */
+
+
+
+        /**
+         *  应用场景
+         */
+        // stu.sex='male';
+        // Array.prototype.push.call(stu,'male');
+        // Array.prototype.push.call(stu,'game');
+        // var arr=Array.prototype.slice.call(stu,0);
+        // console.log(arr);
+        // console.log(stu);
+
+        // Object.prototype.toString()方法，用来判断值的类型
+        // console.log(Object.prototype);
+        var a=12;
+
+        // console.log(typeof a);
+        console.log(Object.prototype.toString.call(a));
+        console.log(Object.prototype.toString.call('hello'));
+        console.log(Object.prototype.toString.call(true));
+        console.log(Object.prototype.toString.call(undefined));
+        console.log(Object.prototype.toString.call(null));
+        console.log(Object.prototype.toString.call(new Array()));
+        console.log(Object.prototype.toString.call(new Date()));
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

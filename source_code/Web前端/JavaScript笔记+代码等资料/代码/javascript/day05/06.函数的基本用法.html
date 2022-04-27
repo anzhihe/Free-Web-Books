@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  函数的基本用法
+         */
+        // 1.定义无参的函数
+        function f1(){
+            var sum=0;
+            for(var i=1;i<=100;i++){
+                sum+=i;
+            }
+            console.log('从1到100的和为：'+sum);
+        }
+
+        // 2.调用函数
+        // f1();
+        // f1(); // 可以多次调用函数，实现对应的功能
+
+
+        /**
+         *  定义带一个参数的函数
+         */
+        function f2(num){ // 形参：形式上的参数，只是用来占位置
+            var sum=0;
+            for(var i=1;i<=num;i++){
+                sum+=i;
+            }
+            console.log('从1到'+num+'的和为：'+sum);
+        }
+
+        // f2(100); // 实参：实际上参与计算的参数
+        // f2(50);
+        // f2(77);
+
+
+        /**
+         *  定义带多个参数的函数
+         */
+        function f3(start,end){ // 多个参数之间以逗号隔开
+            var sum=0;
+            for(var i=start;i<=end;i++){
+                sum+=i;
+            }
+            console.log('从'+start+'到'+end+'的和为：'+sum);
+        } 
+
+        f3(1,10);
+        f3(250,520);
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

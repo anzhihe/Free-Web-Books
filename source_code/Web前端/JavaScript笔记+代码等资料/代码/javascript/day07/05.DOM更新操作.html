@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function doUpdate(){
+            // 1.创建元素节点
+            var li=document.createElement('li');
+            // 2.设置文本内容
+            li.innerText='li4';
+            // var txt=document.createTextNode('li4');
+            // li.appendChild(txt);
+            // 3.设置属性
+            li.id='fourth';
+            li.setAttribute('title','第四个li');
+            // 4.添加到节点中
+            var myul=document.getElementById('myul');
+
+            // 添加到末尾
+            // myul.appendChild(li);
+
+            // 添加到指定节点的前面
+            // myul.insertBefore(li,document.getElementById('second'));
+
+            // 替换指定的节点
+            // myul.replaceChild(li,document.getElementById('second'));
+
+            // 删除内部的某个子节点
+            // myul.removeChild(document.getElementById('second'));
+            
+            // 删除当前节点
+            document.getElementById('second').remove();
+
+        }
+    </script>
+</head>
+<body>
+    <button onclick="doUpdate()">更新节点</button>
+    <hr>
+
+    <ul id="myul">
+        <li id="first">li1</li>
+        <li id="second">li2</li>
+        <li>li3</li>
+    </ul>
+</body>
+</html>

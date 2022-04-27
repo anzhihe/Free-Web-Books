@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 显示时间
+        function showTime(){
+            var today=new Date(); 
+            var year=today.getFullYear();
+            var month=checkNum(today.getMonth()+1); // 对数字做补0判断
+            var date=checkNum(today.getDate());
+            var hour=today.getHours();
+            var minute=checkNum(today.getMinutes());
+            var second=checkNum(today.getSeconds());
+            var day=today.getDay();
+            var weekday=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+
+            var tip='上午';
+            if(hour>12){
+                hour-=12;
+                tip='下午';
+            }
+            var time=year+'年'+month+'月'+date+'日 '+weekday[day]+' '+tip+hour+':'+minute+':'+second;
+            document.getElementById('time').innerHTML=time;
+        }
+
+        // 检查时间，为个数位补0
+        function checkNum(num){
+            if(num<10){
+                return '0'+num;
+            }
+            return num;
+        }
+
+        window.onload=function(){
+            setInterval(showTime,1000);
+        }
+    </script>
+</head>
+<body>
+    <div id="time">
+
+    </div>
+
+</body>
+</html>

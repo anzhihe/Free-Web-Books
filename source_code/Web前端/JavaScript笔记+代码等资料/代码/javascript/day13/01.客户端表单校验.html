@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            line-height: 30px;
+        }
+        .error{
+            font-size: 12px;
+            color: red;
+        }
+        .success{
+            color: green;
+        }
+    </style>
+    <script>
+        // 用户名由数字、字母、下划线、点号、横线、中文字符组成，但只能以字母或数字开头，且长度为3-14位
+        function checkUsername(){
+            var reg=/^[\da-z][\u4E00-\u9FA5\w.-]{2,13}$/i;
+            var username=$('username').value.trim();
+            if(!reg.test(username)){
+                $('usernameInfo').innerHTML='用户名由数字、字母、下划线、点号、横线、中文字符组成，但只能以字母或数字开头，且长度为3-14位'
+                $('usernameInfo').className='error';
+                // $('username').select(); // 选中文本框的内容
+                // $('username').focus(); // 设置焦点
+                return false;
+            }
+            $('usernameInfo').innerHTML='ok';
+            $('usernameInfo').className='success';
+            return true;
+        }
+
+        // 密码只能由数字和字母组成，长度为6-10位
+        function checkPwd(){
+            var reg=/^[\da-z]{6,10}$/;
+            var pwd=$('pwd').value;
+            if(!reg.test(pwd)){
+                $('pwdInfo').innerHTML='密码只能由数字和字母组成，长度为6-10位';
+                $('pwdInfo').className='error';
+                return false;
+            }
+            $('pwdInfo').innerHTML='ok';
+            $('pwdInfo').className='success';
+            return true;
+        }
+
+        // 两次输入的密码必须相同
+        function checkRepwd(){
+            if($('repwd').value!=$('pwd').value){
+                $('repwdInfo').innerHTML='两次输入的密码不一致';
+                $('repwdInfo').className='error';
+                return false;
+            }
+            $('repwdInfo').innerHTML='ok';
+            $('repwdInfo').className='success';
+            return true;
+        }
+
+        // 手机号，11位，以1开头
+        function checkPhone(){
+            var reg=/^1[3-9]\d{9}$/;
+            var phone=$('phone').value;
+            if(!reg.test(phone)){
+                $('phoneInfo').innerHTML='手机号格式不正确';
+                $('phoneInfo').className='error';
+                return false;
+            }
+            $('phoneInfo').innerHTML='ok';
+            $('phoneInfo').className='success';
+            return true;
+        }
+
+        // tom@sina.com.cn
+        function checkEmail(){
+            var reg=/^\w+@\w+(\.[\da-z]{2,4}){1,2}$/i; // 因为.号具有特殊含义，需要使用\.进行转义
+            var email=$('email').value;
+            if(!reg.test(email)){
+                $('emailInfo').innerHTML='邮箱格式不正确';
+                $('emailInfo').className='error';
+                return false;
+            }
+            $('emailInfo').innerHTML='ok';
+            $('emailInfo').className='success';
+            return true;
+        }
+        
+
+        function checkAll(){
+            // 如果所有数据都符合要求，则返回true，否则返回false
+            return checkUsername() && checkPwd() && checkRepwd() && checkPhone() && checkEmail();
+        }
+        
+        function $(id){
+            return document.getElementById(id);
+        }
+    </script>
+</head>
+<body>
+    <h2>用户注册</h2>
+    <!-- 为表单form绑定onsubmit事件时，必须使用return返回 -->
+    <form action="success.html" onsubmit="return checkAll()">
+        用户名：<input type="text" id="username" onblur="checkUsername()"> <span id="usernameInfo"></span><br>
+        密码：<input type="password" id="pwd" onblur="checkPwd()"><span id="pwdInfo"></span> <br>
+        确认密码：<input type="password" id="repwd" onblur="checkRepwd()"><span id="repwdInfo"></span> <br>
+        手机号：<input type="text" id="phone" onblur="checkPhone()"><span id="phoneInfo"></span> <br>
+        电子邮箱：<input type="text" id="email" onblur="checkEmail()"><span id="emailInfo"></span> <br>
+        <input type="submit" value="注    册">
+        <input type="reset" value="重    置">
+    </form>
+</body>
+</html>

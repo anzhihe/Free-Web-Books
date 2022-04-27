@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  闭包
+         */
+        // 作用1：在函数的外部，可以读取到函数内部的变量
+        /* function f1(){
+            var n=13; // 局部变量
+            function f2(){ // 这里的f2就是闭包
+                // console.log(n); // 在内部函数f2中可以访问到外部函数f1中的局部变量n
+                return n;
+            }
+            return f2; // 返回函数f2
+        }
+
+        var fn=f1();
+        var n=fn(); // 此时可以读取到函数f1内部的变量
+        console.log(n); */
+
+
+        // 作用2：让变量的值始终保存在内存中（不会被垃圾回收器回收） 
+        function f1(){
+            var n=99;
+            function f2(){
+                console.log(n++);
+            }
+            return f2;
+        }
+
+        var fn=f1();
+        fn();
+        fn(); 
+        fn();
+        fn();
+        fn(); // 函数执行多次都输出了连续的结果，说明f1函数中的局部变量n一直保存在内存中
+
+        
+        /**
+         *  由于闭包会使函数中的变量都被保存在内存中，内存消耗会比较大
+         */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

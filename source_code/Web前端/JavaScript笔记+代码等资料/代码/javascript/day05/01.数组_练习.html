@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  现有如下的数组：
+         *  1.循环输出数组中的元素，并累加求和
+         *  2.将数组中的最大值交换到最前面，最小值交换到最后面（）
+         */
+        var nums = [8,4,2,1,23,344,12]; 
+
+        // 1.循环输出数组中的元素，并累加求和
+        /* var sum=0;
+        for(var num of nums){
+            console.log(num);
+            sum+=num;
+        }
+        console.log('总和为：'+sum); */
+
+
+        // 2.将数组中的最大值交换到最前面，最小值交换到最后面
+        // 第1步：先找出最大值和最小值的索引位置
+        var maxIndex=0; // 假设最大值和最小值的索引都为0
+        var minIndex=0;
+        for(var i=0;i<nums.length;i++){
+            if(nums[i]>nums[maxIndex]){
+                maxIndex=i;
+            }
+            if(nums[i]<nums[minIndex]){
+                minIndex=i;
+            }
+        }
+        // console.log(maxIndex,minIndex);
+        // 第2步：交换位置nums[maxIndex]、nums[0]
+        var temp=nums[0]; // 将第一个元素放到临时变量中 
+        nums[0]=nums[maxIndex]; // 将最大值放到第一个元素的位置 
+        nums[maxIndex]=temp; // 将临时变量放到原来最大值的位置
+
+        // 交换位置nums[minIndex]、nums[nums.length-1]
+        temp=nums[nums.length-1];
+        nums[nums.length-1]=nums[minIndex];
+        nums[minIndex]=temp;
+
+        console.log(nums);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		/**
+		 * 练习1：
+		 * 将100以内所有的质数保存到数组nums中（质数是指在大于1的自然数中，除了1和它本身以外不再有其他因数的自然数）
+		 */  
+		/* var nums=[];
+		for(var i=2;i<=100;i++){
+			var flag=true; // 标识是否为质数，true表示是质数，false表示不是质数
+			for(var j=2;j<i;j++){
+				if(i%j==0){
+					flag=false;
+					break;
+				}
+			}
+			if(flag){
+				nums.push(i);
+			}
+		} 
+		console.log(nums); */
+		
+
+		/**
+		 * 练习2：
+		 * 某次程序设计大赛，共有十位评委进行打分，去掉一个最高分，去掉一个最低分，剩下分数的平均值就是选手的得分，请计算并输出选手得分
+		 */
+		/* var scores=[100,98,10,78,65,13,98,88,90,67]; 
+		scores.sort(function(a,b){
+			return a-b;
+		});
+		console.log(scores);
+		var sum=0;
+		for(var i=1;i<scores.length-1;i++){
+			sum+=scores[i];
+		}
+		console.log('选手得分：'+sum/8); */
+
+
+		/**
+		 * 练习3：
+		 * 定义一个函数，接收圆的半径作为参数，计算并输出圆的周长和面积
+		 */ 
+		// function calc(r){
+		// 	var length=(2*Math.PI*r).toFixed(2);
+		// 	var area=(Math.PI*Math.pow(r,2)).toFixed(2);
+		// 	console.log('圆的周长：'+length);
+		// 	console.log('圆的面积：'+area);
+		// }
+		// calc(7);
+
+
+		/**
+		 * 练习4：
+		 * 定义一个函数，接收一个数组作为参数，求数组中的最大值
+		 */ 
+		/* function max(array){
+			for(var i=0;i<array.length-1;i++){
+				for(var j=0;j<array.length-i+1;j++){
+					if(array[j]<array[j+1]){
+						var temp=array[j];
+						array[j]=array[j+1];
+						array[j+1]=temp;
+					}
+				}
+			}
+			console.log('最大值：'+array[0]);
+		}
+
+		var nums=[2, 12, 4, 2, 12, 56, 4, 200, 4, 12, 8];
+		max(nums); */
+
+
+		/**
+		 * 练习5：
+		 * 数组去重：将数组中相同的元素去掉（至少2种方法）
+		 */
+		var nums = [2, 12, 4, 2, 12, 56, 4, 200, 4, 12, 8, 23];
+
+		// 方法1
+		/* for(var i=0;i<nums.length;i++){
+			for(var j=i+1;j<nums.length;j++){
+				if(nums[j]==nums[i]){
+					// 如果后面的j元素和前面的i一样，此时删除后面的j元素
+					nums.splice(j,1);
+					// 由于删除了一个元素，所以减少一次循环
+					j--;
+				}
+			}
+		}
+		console.log(nums); */
+
+		// 方法2
+		var nums2=[];
+		for(var num of nums){
+			// 当nums2中不存在对应的元素时再添加进去
+			if(nums2.indexOf(num)==-1){
+				nums2.push(num);
+			}
+		}
+		console.log(nums2);
+
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  作为事件绑定的函数
+         */
+        function f1(){
+            console.log('我们都是好学生');
+        }
+
+        // f1(); // 立即调用函数
+
+        // 当点击窗口时执行函数f1
+        // window.onclick=f1; // 此时f1为回调函数，即回头再调用此函数，不能加小括号
+        // window.onclick=f1(); // 立即执行f1函数
+
+
+        /**
+         *  作为另一个函数的参数
+         */
+        function f2(args){
+            if(typeof(args)!='function'){
+                console.log(args);
+            }else{
+                args(); // 调用传入的函数
+            }
+        } 
+
+        // var a=123;
+        // var a='hello';
+        // var a=function(){
+        //     console.log('嘿嘿');
+        // };
+
+        // f2(a);
+        // f2(f1);
+
+        
+        /**
+         *  回顾
+         */
+        var nums = [12,4,324,6,56];
+
+        function compare(a,b){
+            return a-b;
+        }
+
+        nums.sort(compare); // 将函数compare作为参数，传给sort()
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

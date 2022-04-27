@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  二维数组可以看作是特殊的一维数组
+         *   即一维数组中的每个元素又是一个一维数组
+         */
+        /* var names = new Array();
+        names[0] = new Array();
+        names[0][0] = 'aa';
+        names[0][1] = 'bb';
+        names[0][2] = 'cc';
+        names[1] = new Array();
+        names[1][0] = '11';
+        names[1][1] = '22';
+        names[1][2] = '33';
+        names[1][3] = '44';
+        names[2] = new Array();
+        names[2][0] = 'a1';
+        names[2][1] = 'a2'; */
+
+        var names = [
+            ['aa','bb','cc'],
+            ['11','22','33','44'],
+            ['a1','a2']
+        ];
+
+        // console.log(names[0][1]);
+        // console.log(names[1][2]);
+
+        // 使用二重循环遍历输出
+        /* for(var i=0;i<names.length;i++){
+            for(var j=0;j<names[i].length;j++){
+                document.write(names[i][j]+'&nbsp;&nbsp;&nbsp;&nbsp;');
+            }
+            document.write('<br>');
+        } */
+
+
+        /**
+         *  循环生成二维数组
+         */
+        var array = [];
+        // 循环生成四行
+        for(var i=0;i<4;i++){
+            array[i]=[];
+            // 循环生成四列，并为每列生成一个随机数
+            for(var j=0;j<4;j++){
+                array[i][j]=parseInt(Math.random()*99+1);
+            }
+        }
+
+        console.log(array);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

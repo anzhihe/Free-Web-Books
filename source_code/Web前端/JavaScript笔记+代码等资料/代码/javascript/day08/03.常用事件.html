@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #username,#email{
+            outline: 0;
+        }
+        .border{
+            border: 1px solid red;
+        }
+        #img{
+            width: 120px;
+            height: 120px;
+        }
+        #head{
+            display: none;
+        }
+        /* #email::selection{
+            color: red;
+        } */
+    </style>
+    <script>
+        window.onload=function(){
+            
+            /**
+             *  鼠标事件
+             */        
+            // var btn=document.getElementById('btn');
+            // btn.onclick=function(){
+            // btn.ondblclick=function(){
+            // btn.onmouseover=function(){
+            // btn.onmousedown=function(){
+            //     console.log(111);
+            // }
+
+            // btn.onmouseup=function(){
+            // btn.onmousemove=function(){
+            // btn.oncontextmenu=function(){
+            //     console.log(222);
+            // }
+
+
+            /**
+             *  键盘事件
+             */
+            /* var username=document.getElementById('username'); 
+            username.onkeydown=function(e){
+                // console.log(e);
+                // console.log(e.keyCode); // 按键码
+                if(e.keyCode==13){
+                   console.log(111);
+                }
+            } */
+
+            // username.onkeypress=function(){
+            //     console.log(222);
+            // }
+
+            // username.onkeyup=function(){
+            //     console.log(333);
+            // }
+
+
+            /**
+             *  表单事件
+             */    
+            /* var username=document.getElementById('username'); 
+            username.onfocus=function(){
+                // console.log(111);
+                // username.className='border';
+                // username.classList.add('border');
+                this.classList.add('border');
+            } 
+
+            username.onblur=function(){
+                username.classList.remove('border');
+            } */
+            
+            /* document.getElementById('username').onfocus=function(e){
+                // this.classList.add('border');
+                e.target.classList.add('border');
+            } */
+
+            /* document.getElementById('programming').onchange=function(){
+            // document.getElementById('programming').onclick=function(){ // 不建议使用onclick
+                console.log(this.checked);
+            } */
+
+            /* document.getElementById('head').onchange=function(){
+                // console.log(this.files[0]); // 获取选择的文件数据
+                document.getElementById('img').src=window.URL.createObjectURL(this.files[0]);
+            } */
+
+            /* document.getElementById('email').onselect=function(){
+                this.classList.add('border');
+            } */
+
+            document.getElementById('frm').onsubmit=function(){
+                // 判断表单内容是否符合要求
+                var email=document.getElementById('email').value;
+                if(email==''){
+                    return false; // 返回false，阻止表单提交
+                }
+                return true;
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <form action="" id="frm">
+        <button id="btn">点我</button> <br>
+        用户名：<input type="text" id="username"> <br>
+        爱好：<input type="checkbox" name="hobby" id="programming" value="programming"> 
+             <label for="programming">编程</label> <br>
+        头像：<input type="file" id="head"> 
+            <label for="head">
+                <img src="images/default.jpg" id="img">
+            </label> <br>
+        邮箱：<input type="text" id="email" value="tom@sina.com.cn" name="email"> <br>    
+            <input type="submit" value="提  交">
+    </form>
+    <br>     
+</body>
+</html>

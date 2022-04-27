@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  + 加法
+         */
+        var a = 12;
+        var b = 5;
+        var c = '8';
+        // console.log(a+b); // 17
+        // console.log(a+c); // 128
+        // console.log(a+b+c); // 178
+        // console.log(c+b+a); // 8512
+        // console.log(c+(b+a)); // 使用()小括号改变运算的优先级
+        // console.log(typeof(c+(b+a))); // string
+
+        /**
+         *  - 减法
+         */
+        var d = 'hello'; 
+        var e;
+        // console.log(a-b); 
+        // console.log(a-c); // 会自动将字符串c转换为数值 
+        // console.log(a-d); // NaN
+        // console.log(a-e); // NaN
+        // console.log(typeof(a-d)); // NaN表示非数字，其自身是number类型，表示数值的不正常状态
+        // // 使用idNaN()判断参数是否为非数字，返回true或false
+        // console.log(isNaN('abc')); // true
+        // console.log(isNaN(66)); // false
+        // console.log(isNaN(a-e)); // true
+
+        /**
+         *  * 乘法
+         */
+        var x = 2;
+        var y = 6;
+        // console.log(x * y);
+        // console.log(a + b*x + y*a); // 12 + 5*2 + 6*12  先乘除后加减
+
+        /**
+         *  / 除法
+         */
+        var z = 0; 
+        // console.log(a/b);
+        // console.log(y/x);
+        // console.log(x/z); // 除数不能为0，此时返回Infinity(无穷、无限)
+
+        /**
+         *  % 取余、求模
+         */
+        // console.log(a%b); 
+        // console.log(y%x);
+        // console.log(6%2); // 能被2整除的数为偶数，不能被2整除的数为奇数
+
+        /**
+         *  ** 次方
+         */
+        console.log(y**x); // 求幂
+
+    </script> 
+</head>
+<body>
+    
+</body>
+</html>

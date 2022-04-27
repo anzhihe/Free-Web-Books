@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		/**
+		 * 练习1：
+		 * 将数组中的元素用-短横线拼接在一起
+		 */ 
+		var array=["tom","jack","mike","alice"];
+		// var str='';
+		// 方式1
+		/* for(var i=0;i<array.length-1;i++){
+			str+=array[i]+'-';
+		}
+		str+=array[array.length-1]; */
+		// 方式2
+		/* for(var i=0;i<array.length;i++){
+			if(i==array.length-1){
+				str+=array[i];
+				break;
+			}
+			str+=array[i]+'-';
+		} */
+
+		// console.log(str);
+
+
+		/**
+		 * 练习2：
+		 * 找出数组中的非0元素，将其存入一个新数组中
+		 */
+		var nums=[2,4,0,23,58,0,120,3,22,9,0,65];
+		/* var nums2=[];
+		for(var num of nums){
+			if(num!=0){
+				nums2[nums2.length]=num;
+			}
+		}
+		console.log(nums2); */
+
+
+		/**
+		 * 练习3：
+		 * 将数组中的元素反转后存入另一个新数组中
+		 */ 
+		var array=[13,25,38,6,11,250,8];
+		/* var	array2=[];
+		for(var i=array.length-1;i>=0;i--){
+			array2[array2.length]=array[i];
+		} 
+		console.log(array2); */
+
+
+		/**
+		 * 练习4：
+		 * 猜字游戏：随机产生一个[1,99]之间的随机整数，提示用户输入要猜的数字，并提示猜大了或猜小了，最多有5次机会
+		 *		　　如果猜中，恭喜用户并显示中奖数字及猜的次数
+		 *		　　如果5次仍未猜中，则提示游戏结束
+		 */
+		/* var x=parseInt(Math.random()*99+1); // [1,99]
+		console.log(x);
+		for(var i=1;i<=5;i++){
+			var guess=Number(prompt('请输入您要猜的数字：'));
+			if(guess>x){
+				alert('猜大了');
+			}else if(guess<x){
+				alert('猜小了');
+			}else{
+				alert('恭喜您，猜中了，您共猜了'+i+'次，中奖数字为：'+x);
+				break;
+			}
+		} 
+		if(i>5){
+			alert('您太衰了，游戏结束，请重新开始！');
+		} */
+
+
+		/**
+		 * 练习5：
+		 * 提示输入班级人数，然后循环获取每位学员的考试成绩，并输出前三名（不允许使用数组）
+		 */ 
+		var first=0,second=0,third=0;
+		var num=Number(prompt('请输入班级人数：')); 
+		for(var i=1;i<=num;i++){
+			var score=Number(prompt('请输入第'+i+'个学员的成绩：'));
+			if(score>first){
+				third=second;
+				second=first;
+				first=score;
+			}else if(score>second){
+				third=second;
+				second=score;
+			}else if(score>third){
+				third=score;
+			}
+		}
+		console.log(first,second,third);
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

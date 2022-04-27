@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .d1{
+            width: 524px;
+            height: 190px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+        .d2{
+            position: absolute;
+            bottom: 15px;
+            right: 50px;
+        }
+        .d2 span{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            text-align: center;
+            line-height: 20px;
+            font-size: 13px;
+            border: 1px solid #ccc;
+        }
+        .active{
+            background: #333!important;
+            color: #fff;
+        }
+    </style>
+    <script>
+        var imgs=['images/ad-01.jpg','images/ad-02.jpg','images/ad-03.jpg','images/ad-04.jpg'];
+        var i=0;
+        var timer;
+
+        function show(index){
+            // 判断是否手动切换
+            if(index){
+                i=index-1;
+                clearTimeout(timer);
+            }
+
+            // 显示图片
+            document.querySelector('#img').src=imgs[i];
+
+            // 设置当前激活的样式
+            document.querySelectorAll('span').forEach(function(item){
+                item.classList.remove('active');
+            });
+            document.querySelector('.d2 span:nth-child('+(i+1)+')').classList.add('active');
+
+
+            // 自增
+            i++;
+            if(i>3){
+                i=0;
+            }
+
+            // 开启计时器
+            timer=setTimeout(show,2000);
+        }
+
+        window.onload=function(){
+            show();
+        }
+
+    </script>
+</head>
+<body>
+    <div class="d1">
+        <img src="images/ad-01.jpg" id="img">
+        <div class="d2">
+            <span onmouseover="show(1)" class="active">1</span>
+            <span onmouseover="show(2)">2</span>
+            <span onmouseover="show(3)">3</span>
+            <span onmouseover="show(4)">4</span>
+        </div>
+    </div>
+</body>
+</html>

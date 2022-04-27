@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  基本数据类型
+         *      五种：string、number、boolean、undefined、null
+         */
+        /* var a=5;
+        var b=a; // 将a的值复制一份给b，称为按值传递
+        b=8;
+        console.log(a);
+        console.log(b); */
+
+
+        /**
+         *  引用数据类型
+         *      Object、Array、Student......
+         */
+        var stu1={
+            name:'tom',
+            age:18,
+            sex:'male'
+        }
+        var stu2=stu1; // 将stu1的地址赋给stu2，即让stu2和stu1指向同一个内存地址空间，称为按引用传递
+        // stu2.name='jack';
+        stu1.name='alice';
+        console.log(stu1.name);
+        console.log(stu2.name);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

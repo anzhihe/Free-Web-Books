@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         * 练习1：
+         * 使用原型为数组增加一个方法，实现如下功能：查找并删除数组中重复的元素，返回一个没有重复元素的新数组
+         */ 
+        /* Array.prototype.distinct=function(){
+            var array=[];
+            for(var value of this){
+                if(array.indexOf(value)==-1){
+                    array.push(value);
+                }
+            }
+            return array;
+        } 
+
+        var nums=[12,4,34,6,34,12,77,34,12,77];
+        console.log(nums.distinct()); */
+        
+        
+		/**
+         * 练习2：
+		 * 接受用户输入的[50,100]间的正整数，在控制台上输出该数字的所有乘积表达式，如用户输入70，则输出如下：
+		 *		1*70=70
+		 *		2*35=70
+		 *		5*14=70
+		 *		7*10=70
+		 * 要求：判断用户的输入是否符合要求，如果不是则提示用户后继续输入，直至输入符合要求；不输出交换律，即如果输出了2*35=70，则不再输出35*2=70。
+		 */
+        /* var num=Number(prompt('请输入一个[50,100]之间的正整数：'));
+        while(isNaN(num)||num<50||num>100||parseInt(num)!=num){
+            num=Number(prompt('输入无效，请重新输入一个[50,100]之间的正整数：'))
+        }
+        for(var i=1;i<=num;i++){
+            if(num%i==0&&i<num/i){
+                console.log(i+'*'+num/i+'='+num);
+            }
+        } */
+
+        
+        /**
+         * 练习3：
+         * 接受用户输入的正奇数，在页面上输出"米"字形（以接受用户输入的数是9为例）
+		 * 要求：判断用户的输入是否为正奇数，如果不是则提示用户后继续输入；如果是则打印输出
+         */ 
+        var num=Number(prompt('请输入一个正奇数：')); 
+        while(isNaN(num)||num%2==0){
+            num=Number(prompt('输入无效，请重新输入一个正奇数：'));
+        }
+
+        // 外层循环控制打印的行数
+        for(var i=1;i<=num;i++){
+            // 内层循环控制每行打印的个数
+            for(var j=1;j<=num;j++){
+                // 判断打印的条件：1.同行同列 2.倒数同行同列 3.中间行 4.中间列
+                var c=(num+1)/2;
+                if(i==j || num-i+1==j || i==c || j==c){
+                    document.write('*');
+                }else{
+                    document.write('&nbsp;');
+                }
+            }
+            document.write('<br>');
+        }
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

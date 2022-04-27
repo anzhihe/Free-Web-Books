@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  使用return关键字返回函数执行后的结果
+         */
+        function f1(){
+            var sum=0;
+            for(var i=1;i<=100;i++){
+                sum+=i;
+            }
+            return sum; // 返回函数执行后的结果
+        }
+
+        // var result=f1(); // 将函数的返回值存储到变量中
+        // console.log(result);
+        // console.log(result/2);
+        // console.log(result*2+5);
+        // f1(); // 可以不接收返回的返回值
+
+
+        /**
+         *  如果函数没有使用return返回结果，则默认返回undefined
+         */
+        // function f2(){
+        //     console.log(111);
+        // }
+
+        // var result=f2();
+        // console.log(result);
+
+
+        /**
+         *  return的作用
+         */
+        // 案例：计算两个偶数之和，如果传入的不是偶数，即立即停止
+        /* function f3(a,b){
+            // 判断参数是否为偶数
+            if(a%2!=0||b%2!=0){
+                console.log('参数必须为偶数！');
+                return; // 停止函数的执行
+            }
+
+            var sum=a+b;
+            console.log(sum);
+        } */
+        // f3(2,7);
+
+
+        // 案例：计算从1到指定数字之和，最多只统计到数字7的总和
+        /* function f4(num){
+            var sum=0;
+            for(var i=1;i<=num;i++){
+                if(i>7){
+                    return sum;
+                }
+                sum+=i;
+            }
+            return sum;
+        } */
+
+        // var result=f4(5);
+        // console.log(result);
+        // console.log(f4(29));
+
+        
+        // 案例：如果参数大于7，则返回yes，否则返回no
+        function f5(num){
+            // 方式1
+            // if(num>7){
+            //     return 'yes';
+            // }else{
+            //     return 'no';
+            // }
+            // 方式2
+            // var result;
+            // if(num>7){
+            //     result='yes';
+            // }else{
+            //     result='no';
+            // }
+            // return result;
+            // 方式3
+            if(num>7){
+                return 'yes';
+            }
+            return 'no';
+        }
+
+        console.log(f5());
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

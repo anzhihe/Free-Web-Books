@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var today = Number(prompt('今天星期几（1-7）：'));
+
+        // 使用if结构
+        // if(today==1){
+        //     console.log('今天吃包子');
+        // }else if(today==2){
+        //     console.log('今天吃油条');
+        // }else if(today==3||today==4||today==5){
+        //     console.log('今天吃煎饼');
+        // }else{
+        //     console.log('今天吃毛线，睡到自然醒');
+        // }
+
+        // 使用switch结构
+        switch(today){
+            case 1:
+                console.log('今天吃包子');  
+                // break; // 如果不写break，则一旦匹配后就会一直往下执行，直到遇到break为止 
+            case 2:
+                console.log('今天吃油条');  
+                // break;
+            case 3: 
+            case 4: 
+            case 5: 
+                console.log('今天吃煎饼');
+                break; 
+            default: // 如果前面的case都不匹配，才会执行default
+                console.log('今天吃毛线，睡到自然醒'); 
+                break;    
+        }
+
+
+        /**
+         *  总结：switch只适应于等值的判断，更直观
+         */
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 数值数组
+        var nums=[12,6,45,41];
+        
+        // 字符串数组
+        var hobbies=['eat','sleep','doudou'];
+
+        // 定义多个对象
+        /* var stu1={
+            id:1001,
+            name:'tom',
+            age:18,
+            sex:'male',
+            height:180.5
+        }
+        var stu2={
+            id:1002,
+            name:'jack',
+            age:18,
+            sex:'male',
+            height:180.5
+        }
+        var stu3={
+            id:1003,
+            name:'alice',
+            age:18,
+            sex:'male',
+            height:180.5
+        } */
+        
+
+        /**
+         *  对象数组，每个元素都是一个对象
+         */
+        // var stus=[stu1,stu2,stu3];
+        var stus=[
+            {
+                id:1001,
+                name:'tom',
+                age:18,
+                sex:'male',
+                height:180.5
+            },
+            {
+                id:1002,
+                name:'jack',
+                age:18,
+                sex:'male',
+                height:180.5
+            },
+            {
+                id:1003,
+                name:'alice',
+                age:18,
+                sex:'male',
+                height:180.5
+            }
+        ];
+
+
+        /**
+         *  循环对象数组
+         */
+        // 对数组进行循环
+        /* for(var stu of stus){
+            // 对数组中的每个对象进行循环
+            for(var key in stu){
+                // console.log(key); // key表示对象的属性
+                // console.log(stu.key); // 不能通过stu.key来获取，会认为要获取名称为key的属性
+                console.log(stu[key]); // 必须通过中括号的方式来获取属性
+            }
+        } */
+
+
+        
+        /**
+         *  定义一个客户对象Customer
+         */
+        var customer={
+            name:'tom', // 字符串属性
+            age:29, // 数值属性
+            phone:'13888888888',
+            address:{ // 对象属性
+                province:'江苏省',
+                city:'南京',
+                district:'秦淮区',
+                street:'龙蟠中路458号'
+            }
+        }
+
+        console.log(customer.address.city);
+        console.log(customer.address.street);
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

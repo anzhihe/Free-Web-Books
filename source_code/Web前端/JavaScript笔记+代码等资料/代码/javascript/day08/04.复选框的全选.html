@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tbl{
+            width: 500px;
+            height: 200px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        td,th{
+            border: 1px solid #ccc;
+        }
+        tbody tr{
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            // 实现全选和取消全选的效果
+            var all=document.getElementById('all');
+            all.onchange=function(){
+                var items=document.getElementsByName('item');
+                for(var item of items){
+                    item.checked=this.checked;
+                }
+            }
+
+            // 实现当选中下面所有复选框时自动选中全选
+            var items=document.getElementsByName('item');
+            for(var item of items){
+                item.onchange=function(){
+                    // 先勾选全选
+                    all.checked=true;
+                    // 判断只要有一个没选中，则不勾选全选
+                    for(var element of items){
+                        if(!element.checked){
+                            all.checked=false;
+                            break;
+                        }
+                    }
+
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <table id="tbl">
+        <thead>
+            <tr>
+                <th>全选 <input type="checkbox" id="all"></th>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>爱好</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" name="item"></td>
+                <td>1</td>
+                <td>tom</td>
+                <td>age</td>
+                <td>male</td>
+                <td>eat</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="item"></td>
+                <td>2</td>
+                <td>jack</td>
+                <td>age</td>
+                <td>male</td>
+                <td>eat</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="item"></td>
+                <td>3</td>
+                <td>alice</td>
+                <td>age</td>
+                <td>male</td>
+                <td>eat</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="item"></td>
+                <td>4</td>
+                <td>mike</td>
+                <td>age</td>
+                <td>male</td>
+                <td>eat</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

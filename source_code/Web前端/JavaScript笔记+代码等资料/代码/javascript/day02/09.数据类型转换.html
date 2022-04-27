@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  强制转换为number
+         */
+        // 方式1：使用Number()
+        var a = '12';
+        // console.log(a,typeof a);
+
+        // 1)如果内容可以转换成数字，则返回对应的数字（整数或小数）
+        // a = Number(a);
+        // a = Number('12.5');
+        // 2)如果内容不可以转换成数字，则返回NaN
+        // a = Number('hello');
+        // 3)如果内容为空字符串或null，则返回0
+        // a = Number('');
+        // a = Number(null);
+        // 4)在内存中boolean类型以数字来存储，true对应的1，false对应的是0
+        // a = Number(false);
+        // console.log(a,typeof a);
+
+        // 方式2：使用parseInt()
+        // console.log(parseInt('12'));
+        // console.log(parseInt('12.5')); // 返回整数，不会四舍五入
+        // console.log(parseInt('hello')); // NaN
+        // console.log(parseInt('hello123')); // NaN
+        // console.log(parseInt('123hello456')); // 123，按字符逐个解析
+        // console.log(Number('123hello456')); // NaN
+
+        // 方式3：使用parseFloat()
+        // console.log(parseFloat('12.5')); // 返回小数
+        // console.log(parseInt('hello123'));
+        // console.log(parseInt('123hello456'));
+
+
+        /**
+         *  强制转换为string
+         */
+        // 方式1：拼接空字符串
+        var b = true;
+        // b = '' + b;
+
+        // 方式2：使用String()
+        // b = String(b);
+
+        // 方式3：使用toString()
+        // b = b.toString();
+
+        // console.log(b,typeof b);
+
+
+        /**
+         *  强制转换为boolean
+         */
+        // 方式1：使用Boolean()
+        var c =  'hello';
+        // c = Boolean(c);
+
+        // 方式2：使用!!
+        // c = !!c;
+
+        // console.log(c,typeof c);
+
+
+        /**
+         *  自动转换为number
+         */
+        // 方式1：在参与-、*、/、%等运算时会自动转换为number
+        var d = '5';
+        // var d = prompt('请输入一个数字：')*1; // 发生自动类型转换
+
+        // 方式2：直接在要转换的内容前添加+
+        // d = +d;
+        // console.log(d,typeof d);
+        console.log(+d+2);
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

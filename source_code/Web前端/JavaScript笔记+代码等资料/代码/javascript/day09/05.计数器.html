@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var r=0,l=0;
+        var timer;
+
+        function doStart(){
+            $('start').disabled=true;
+            $('stop').disabled=false;
+
+            timer=setInterval(function(){
+                r++;
+                if(r>9){
+                    r=0;
+                    l++;
+                }
+                if(l>9){
+                    r=0;
+                    l=0;
+                }
+                $('imgr').src='images/'+r+'.bmp';
+                $('imgl').src='images/'+l+'.bmp';
+            },100);
+        }
+
+        function doStop(){
+            $('start').disabled=false;
+            $('stop').disabled=true;
+            clearInterval(timer);
+        }
+
+        function $(id){
+            return document.getElementById(id);
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><img src="images/0.bmp" id="imgl"></td>
+            <td><img src="images/0.bmp" id="imgr"></td>
+        </tr>
+        <tr>
+            <td><button onclick="doStart()" id="start">开始</button></td>
+            <td><button onclick="doStop()" id="stop" disabled>停止</button></td>
+        </tr>
+    </table>
+</body>
+</html>

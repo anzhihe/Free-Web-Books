@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  变量的基本用法
+         */
+        // 1.定义变量
+        var name = "tom"; // 定义变量的同时为变量赋值
+        name = "jack"; // 为变量重新赋值
+        var age = 18;
+        var sex; // 定义（声明）变量
+        sex = "男"; // 为变量赋值
+
+        // var num1;
+        // var num2;
+        // var num3;
+        var num1,num2=5,num3=2; // 同时声明多个变量
+
+        height = 180.5; // 在JavaScript中，变量可以不声明，直接赋值，但强烈不建议这么做
+
+        var a=b=c=5;
+        // var a=5; // 等价于如下代码
+        // b=5;
+        // c=5;
+
+        // 2.调用变量
+        console.log("姓名："+name); // 使用+进行拼接
+        console.log("年龄："+age);
+        console.log(sex);
+        console.log(num2);
+        console.log(num1); // 调用未赋值的变量时，值为undefined
+        console.log(height);
+        console.log(a,b,c); // console.log可以同时输出多个值，写法上以逗号隔开，输出时是以空格隔开
+
+
+        /**
+         *  变量的命名规范
+         */
+        var a2bDEF_$c = "hello";
+        // var new;
+        var 爱好="吃饭"; // 变量名可以为中文，但强烈不建议这么做
+        var Name = 'alice';
+        var productName;
+        var productAveragePrice; // 驼峰命名法
+
+
+        // console.log(name);
+        // console.log(ab2DEF_$c);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

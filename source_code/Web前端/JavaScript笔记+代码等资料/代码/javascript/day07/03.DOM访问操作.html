@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .d1{
+            width: 300px;
+            height: 300px;
+            background: pink;
+        }
+        .hello{
+            color: red;
+            width: 400px;
+            font-size: 30px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+        }
+        .world{
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        /**-
+         *  访问属性
+         */
+        function doProperty(){
+            // let obj=document.getElementById('baidu'); // DOM对象
+            // let obj=document.querySelector('#username');
+            let obj=document.querySelector('#male');
+            // console.log(obj);
+
+            // 获取属性的值
+            // console.log(obj.href);
+            // console.log(obj.target);
+            // console.log(obj.id);
+            // console.log(obj.getAttribute('href'));
+            // console.log(obj.value);
+            // console.log(obj.checked); // checked是一个boolean属性，取值为：true、false
+
+            // 设置属性的值
+            // obj.href='https://www.sina.com.cn';
+            // obj.target='_self';
+            // obj.setAttribute('href','https://www.qq.com');
+            // obj.value='alice';
+            obj.checked=true;
+        }
+    
+        /**
+         *  访问内容
+         */
+        function doContent(){
+            var obj=document.getElementById('mydiv');
+
+            // 获取内容
+            // console.log(obj.innerHTML);
+            // console.log(obj.innerText);
+            // console.log(obj.textContent);
+
+            // 设置内容
+            // obj.innerHTML='<h1>嘿嘿</h1>';
+            // obj.innerText='嘿\n嘿';
+            obj.textContent='嘿\n嘿';
+        } 
+    
+        /**
+         *  访问样式
+         */
+        function doStyle(){
+            var obj=document.getElementById('mydiv');
+
+            /**
+             *  使用style属性
+             */
+            // 获取样式
+            // console.log(obj.style.width);
+            // console.log(obj.style.height);
+            // console.log(obj.style.background);
+            // 设置样式
+            // obj.style.color='red';
+            // obj.style.width='400px'; // 必须添加单位，否则不生效
+            // obj.style.fontSize='30px';
+            // obj.style.borderTopRightRadius='20px';
+
+            /**
+             *  使用className属性
+             */
+            // obj.className='hello'; 
+            // console.log(obj.className);
+
+            /**
+             *  使用classList属性
+             */
+            // 添加类样式
+            obj.classList.add('hello'); 
+            obj.classList.add('world');
+            // 删除类样式
+            obj.classList.remove('d1');
+            // 获取当前DOM对象上的所有类样式
+            console.log(obj.classList); 
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick="doProperty()">访问属性</button>
+    <button onclick="doContent()">访问内容</button>
+    <button onclick="doStyle()">访问样式</button>
+    <hr>
+
+    <a href="https://www.baidu.com" target="_blank" id="baidu">点我</a> <br>
+    用户名：<input type="text" id="username" value="tom"> <br>
+    性别：<input type="radio" name="sex" id="male" value="male" checked> 男
+         <input type="radio" name="sex" id="female" value="female"> 女 <br>
+    <hr>
+    
+    <!-- <div id="mydiv" style="width: 300px; height: 300px; background:pink;"> -->
+    <div id="mydiv" class="d1">
+        <h2>hello world</h2>
+    </div>
+    
+</body>
+</html>

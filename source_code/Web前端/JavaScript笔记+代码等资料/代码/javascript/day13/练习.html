@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		/**
+		 * 练习1：
+		 * 使用原型为字符串类增加方法vowelCount，用于返回字符串中英文元音字母（a、e、i、o、u）的数量
+		 */ 
+		// String.prototype.vowelCount=function(){
+		// 	var reg=/[aeiou]/ig;
+		// 	var result=this.match(reg);
+		// 	return result.length;
+		// } 
+		// console.log('hello123world'.vowelCount());
+
+
+		/**
+		 * 练习2：
+		 * 使用原型为日期类增加方法toChineseString，用于返回中文格式的日期字符串
+		 * 格式为XXXX年XX月XX日XX时XX分XX秒，如：2016年06月15日12时08分45秒
+		 */ 
+		// Date.prototype.toChineseString=function(){
+		// 	var year=this.getFullYear();
+		// 	var month=checkNum(this.getMonth()+1);
+		// 	var date=checkNum(this.getDate());
+		// 	var hour=checkNum(this.getHours());
+		// 	var minute=checkNum(this.getMinutes());
+		// 	var second=checkNum(this.getSeconds());
+
+		// 	function checkNum(num){
+		// 		if(num<10){
+		// 			return '0'+num;
+		// 		}
+		// 		return num;
+		// 	}
+		// 	return year+'年'+month+'月'+date+'日'+hour+'时'+minute+'分'+second+'秒';
+		// } 
+		// var today=new Date();
+		// console.log(today.toChineseString()); 
+
+
+		/**
+		 * 练习3：
+		 * 提示用户输入一个大于50的正整数，在控制台上输出该数字的所有求和表达式，如：用户输入90，则输出如下：
+		 *		1+89=90
+		 *		2+88=90
+		 *		4+86=90
+		 *		...
+		 *		8+82=90
+		 *		10+80=90
+		 *		...		
+		 *	要求：
+		 *		1.判断用户的输入是否符合要求，如果不符合则提示用户并重新输入，直到输入符合为止
+		 *		2.如果第一个加数中包含3或9，则不输出
+		 *		3.不输出交换值，即如果输出2+88=90，则不输出88+2=90，但87+3=90需要输出
+		 */
+		var num=Number(prompt('请输入一个大于50的正整数：')); 
+		while(isNaN(num) || num<=50 || parseInt(num)!=num){
+			num=Number(prompt('输入无效，请重新输入一个大于50的正整数：')); 
+		}
+		var reg=/[39]/;
+		for(var i=1;i<num;i++){
+			if(i<=num/2){
+				if(!reg.test(i)){
+					console.log(i+'+'+(num-i)+'='+num);
+				}
+			}else{
+				if(!reg.test(i) && reg.test(num-i)){
+					console.log(i+'+'+(num-i)+'='+num);
+				}
+			}
+		}
+
+
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

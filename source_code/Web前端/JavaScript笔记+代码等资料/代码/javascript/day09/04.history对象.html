@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function f1(){
+            history.back();
+        }
+
+        function f2(){
+            history.forward()
+        }
+
+        function f3(){
+            // history.go(1); // 等价于history.forward()
+            // history.go(-1); // 等价于history.back()
+            // history.go(0); // 等价于location.reload()
+            history.go(2);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="f1()">后退</button>
+    <button onclick="f2()">前进</button>
+    <button onclick="f3()">切换历史</button>
+    <hr>
+
+    <a href="https://www.baidu.com">百度</a>
+</body>
+</html>

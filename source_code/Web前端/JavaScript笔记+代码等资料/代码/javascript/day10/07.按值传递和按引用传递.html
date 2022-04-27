@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  将基本数据类型作为参数，传递的是值
+         */
+        /* function f1(args){
+            args=8; // 在函数内部修改参数的值，不会影响外部变量
+        }
+
+        var a=5;
+        f1(a); // 按值传递
+
+        console.log(a); */
+
+
+        /**
+         *  将引用数据类型作为参数，传递的是地址
+         */
+        /* function f2(args){
+            args.name='alice'; // 在函数内部修改参数的值，会影响外部变量
+        }
+
+        var stu1={
+            name:'tom',
+            age:18,
+            sex:'male'
+        }
+        f2(stu1); // 按引用（地址）传递
+
+        console.log(stu1); */
+
+
+        /**
+         *  将数组作为参数
+         */
+        function f3(array){
+            array[0]=666;
+        }
+
+        var nums=[12,5,23,7];
+        f3(nums); // 按引用传递
+        console.log(nums);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

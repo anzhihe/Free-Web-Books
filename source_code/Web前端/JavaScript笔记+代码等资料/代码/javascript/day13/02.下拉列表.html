@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function doSelect(){
+            var degree=document.getElementById('degree');
+
+            /**
+             *  length属性：设置或返回下拉列表中选项的数量
+             */
+            // console.log(degree.length);
+            // degree.length=0; // 清空下拉列表
+
+            /**
+             *  selectedIndex属性：设置或返回下拉列表中被选中项的索引
+             */
+            // console.log(degree.selectedIndex); 
+            // degree.selectedIndex=3;
+
+            /**
+             *  value属性：返回下拉列表中被选中项的值
+             */
+            // console.log(degree.value); 
+            // degree.value='gaozhong';
+
+            /**
+             *  options属性：返回下拉列表中所有的选项，值为Option对象数组
+             */
+            // var options=degree.options;
+            // console.log(options);
+            // for(var option of options){
+            //     console.log(option.text,option.value);
+            // }
+
+            // console.log(options[1]);    
+            // options[1].text='中专';
+            // options[1].value='zhongzhuan';
+
+
+            /**
+             *  添加选项
+             */    
+            // var option=document.createElement('option'); 
+            // option.innerText='博士';
+            // option.value='boshi';
+            // degree.appendChild(option);
+
+            // var option=new Option('博士','boshi');
+            // degree.add(option); // 向末尾添加一个选项
+
+            // var option=new Option('中专','zhongzhuan');
+            // degree.add(option,degree.children[1]); // 向指定选项的前面添加一个选项
+        }
+
+        function doChange(degree){
+            // var degree=document.getElementById('degree');
+            console.log(degree.value);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="doSelect()">操作下拉列表</button>
+    <hr>
+
+    学历：
+    <select id="degree" onchange="doChange(this)">
+        <option value="0">--请选择学历--</option>
+        <option value="gaozhong">高中</option>
+        <option value="dazhuang">大专</option>
+        <option value="benke">本科</option>
+        <option value="yanjiusheng">研究生</option>
+    </select>
+</body>
+</html>

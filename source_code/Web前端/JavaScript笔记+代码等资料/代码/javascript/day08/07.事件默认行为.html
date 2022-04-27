@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function print(e){
+            console.log(111);
+            // e.preventDefault(); // 阻止事件的默认行为
+        }
+    </script>
+</head>
+<body>
+    <button oncontextmenu="print(event)">右键点击</button>
+    <br>
+
+    <!-- <a href="https://www.baidu.com" onclick="print(event)">百度</a> -->
+    <a href="javascript:print()">百度</a>
+
+</body>
+</html>

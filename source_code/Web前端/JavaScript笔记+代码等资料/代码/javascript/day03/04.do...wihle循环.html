@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  基本用法
+         */
+        // 循环输出10次：好好学习，天天向上
+        /* var i=1;
+        do{
+            console.log('好好学习，天天向上'+i);
+            i++;
+        }while(i<=10); */
+
+        // 案例1：计算1到50之间6的倍数之和
+        /* var sum=0;
+        var i=1;
+        do{
+            if(i%6==0){
+                sum+=i;
+            }
+            i++;
+        }while(i<=50);
+        console.log('1到50之间6的倍数之和：'+sum); */
+
+        // 案例2：循环提示用户输入整数，直接按q为止，然后输出其中的最大值和最小值
+        // 先提示用户输入一次，然后将该数字作为最大值和最小值
+        var num=Number(prompt('请输入一个整数(按q结束)：'));
+        var max=num;
+        var min=num;
+
+        var flag=true; // 用来标识是否继续循环
+        do{
+            var num=prompt('请输入一个整数(按q结束)：');
+            // 判断用户是否输入q
+            if(num=='q'){
+                flag=false; // 如果输入q，则将flag改为false，表示停止循环
+            }else{
+                num=Number(num);
+                if(num>max){
+                    max=num;
+                }
+                if(num<min){
+                    min=num;
+                }
+            }
+        }while(flag);
+        console.log('最大值：'+max);
+        console.log('最小值：'+min);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  基本用法
+         */
+        // 1.定义数组
+        var array = new Array(); // 其实数组也是一个变量，只不过可以存储多个数据
+        // 2.向数组中添加元素 
+        array[0] = 'tom';
+        array[1] = 'jack';
+        array[2] = '倩倩';
+        array[3] = 12; // 可以添加任意类型的数据
+        array[4] = 180.5;
+        array[5] = true;
+        // 3.获取数组元素
+        // console.log(array[0]);
+        // console.log(array[2]);
+        // console.log(array[3]);
+        // console.log(array[4]);
+        // console.log(array[5]);
+        // console.log(array[8]); // 获取不存在的元素时返回undefined
+        // 直接输出数组
+        console.log(array); // 所有元素以逗号分隔，包含为中括号里
+
+
+        /**
+         *  length属性，用法：数组名.length
+         */
+        // 获取数组的长度，即数组中元素的个数 
+        // console.log(array.length); 
+        // array[6] = '汤小洋';
+        // console.log(array.length);  // 当数组中元素数量发生变化时，length属性的值也会变化
+        // 修改数组的长度，即只保留指定数量的元素
+        // array.length = 2;
+        // array.length = 0; // 清空数组
+        // console.log(array);
+
+
+        /**
+         *  循环数组
+         */
+        /* for(var i=0;i<array.length;i++){
+            console.log(i,array[i]);
+        } */ 
+
+        /* for(var index in array){
+            console.log(index,array[index]);
+        } */
+
+        /* for(var item of array){
+            console.log(item);
+        } */
+
+
+        /**
+         *  案例
+         */
+        // 案例1：循环获取10名学生的姓名，保存到数组中，然后输出
+        /* var names = new Array();
+        for(var i=0;i<10;i++){
+            names[i] = prompt('请输入第'+(i+1)+'个学生的姓名：');
+        }
+        console.log('学生信息如下：');
+        for(var name of names){
+            console.log(name);
+        } */
+
+        // 案例2：将1到100之间能被3整除的所有整数，存放到数组nums中，然后输出并统计个数
+        var nums = new Array();
+        for(var i=1;i<=100;i++){
+            if(i%3==0){
+                nums[nums.length] = i; // 当数组中元素数量发生变化时，length属性的值也会变化
+            }
+        }
+        console.log(nums);
+        console.log('总个数：'+nums.length);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            border: 1px solid #ccc;
+        }
+        li{
+            background: pink;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            /* var lis=document.querySelectorAll('li');
+            for(var li of lis){
+                li.onclick=function(){
+                    // console.log(this); // 事件源
+                    console.log(this.innerText);
+                }
+            } */
+            document.querySelector('ul').onclick=function(e){
+                console.log(e.target.innerText);
+                // console.log(e.target); // li 触发事件的原始目标对象，即子元素li，而非父元素ul
+                // console.log(this); // ul
+                // console.log(this===e.target); // false，如果是事件流导致的触发，两者不同
+            }
+        }
+
+        function add(){
+            var li=document.createElement('li');
+            li.innerText='li6';
+            // li.onclick=function(){
+            //     console.log(this.innerText);
+            // }
+            document.querySelector('ul').appendChild(li);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="add()">添加li</button>
+    <ul>
+        <li>li1</li>
+        <li>li2</li>
+        <li>li3</li>
+        <li>li4</li>
+        <li>li5</li>
+    </ul>
+</body>
+</html>

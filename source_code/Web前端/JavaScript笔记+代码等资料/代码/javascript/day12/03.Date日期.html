@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  定义日期
+         */
+        // var date=new Date();
+        // var date=new Date(2020,1,14); // 月份为[0,11]，0表示1月，以此类推
+        // var date=new Date(2020,1,14,12,30,28); 
+        // var date=new Date(2234567498584); // 距离1970-01-01相差的毫秒数
+        // console.log(date); 
+
+        /**
+         *  常用方法
+         */
+        // var today=new Date(); 
+        // var year=today.getFullYear();
+        // var month=today.getMonth()+1;
+        // var date=today.getDate();
+        // var hour=today.getHours();
+        // var minute=today.getMinutes();
+        // var second=today.getSeconds();
+        // var milliSecond=today.getMilliseconds();
+        // var day=today.getDay();
+        // var weekday=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+        // var time=today.getTime(); // 返回从1970-01-01 00:00:00至今的毫秒数
+
+        // console.log(year+'年'+month+'月'+date+'日 '+hour+':'+minute+':'+second+' '+milliSecond+' '+weekday[day]); 
+        // console.log(time);
+        // console.log(today.toUTCString());
+        // console.log(today.toLocaleString());
+        
+
+        /**
+         *  设置时间
+         */
+        // today.setMonth(9);
+        // today.setMonth(today.getMonth()+2);
+        // today.setDate(8);
+
+        // console.log(today);
+
+
+        /**
+         *  Date可以自动调整至正确时间
+         */
+        // var date=new Date(2020,4,32); 
+        // var date=new Date(2020,4,0); 
+        // var date=new Date(2020,2,0); // 闰年，2月份有29天，两种情况：1.能被4整除，但不能被100整除  2.能被400整除
+        // var date=new Date(2000,2,0); 
+        // var date=new Date(2021,2,0); // 平年，2月份有28天 
+        // console.log(date);
+
+        
+        // 计算某年某月有多少天？
+        var year=prompt('请输入年份：')*1; // 2020
+        var month=prompt('请输入月份：')*1; // 5
+        var date=new Date(year,month,0);
+        console.log(date.getDate()+'天');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  使用Object
+         */
+        // 1.创建对象
+        var stu=new Object();
+        // 2.为对象添加属性（特征）
+        stu.name='tom';
+        stu.age=27;
+        stu['exam-score']=99; // 对于特殊的属性名，需要使用中括号[]方式来定义
+        stu[9527]='唐伯虎';
+        // 3.为对象添加方法（行为）
+        stu.study=function(){
+            console.log('正在学习。。。。');
+        }
+        stu.run=function(){
+            console.log('正在跑步。。。。');
+        }
+        stu.show=function(){
+            console.log('我叫'+stu.name+'，年龄：'+this.age);
+        }
+        // 4.调用对象的属性和方法
+        console.log(stu.name,stu['name']); // 调用属性
+        console.log(stu.age,stu['age']);
+        console.log(stu['exam-score']);
+        console.log(stu[9527]);
+
+        stu.study(); // 调用方法
+        stu.run();
+        stu.show();
+
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

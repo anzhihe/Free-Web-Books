@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  window的属性
+         */
+        // console.log(window.document);
+        // console.log(document); // 省略了window前缀
+        // console.log(window.location);
+        // console.log(window.history);
+
+
+        /**
+         *  window的方法
+         */
+        // 1.alert()
+        // alert(111);
+        // window.alert(111);
+
+        // 2.prompt()
+        // var name=prompt('请输入用户名：')
+        // console.log(name);
+
+        // 3.confirm()
+        // var flag=confirm('确定要删除吗？');
+        // console.log(flag);
+
+        // 4.open()
+        // function f1(){
+        //     open('01.用户信息管理.html','user','width=500px,height=500px,resizable=no');
+        // }
+
+        // 5.setTimeout()
+        var timer;
+        /* function f2(){
+            // 两秒后执行
+            timer=setTimeout(function(){
+                console.log('BOOM.....炸');
+            },5000); // 单位为毫秒
+            // setTimeout(f1,2000); // f1后面不能添加小括号
+        } */
+
+        // 6.setInterval()
+        function f3(){
+            // 每隔两秒执行一次
+            timer=setInterval(function(){
+                console.log('BOOM.....炸');
+            },1000);
+        }
+
+        // 7.clearTimeout()
+        /* function f4(){
+            clearTimeout(timer);
+        } */
+
+        // 8.clearInterval()
+        function f5(){
+            clearInterval(timer);
+        }
+
+        // 9.scrollTo()和scrollBy()
+        /* function f6(){
+            // scrollTo(0,200); // 向下移动到200px的位置 
+            // scrollBy(0,200); // 向下再移动200px
+
+            setInterval(function(){
+                scrollBy(0,10);
+            },10);
+        } */
+
+
+        /**
+         *  window的事件
+         */
+        window.onclick=function(){
+            console.log(111);
+        }
+
+        window.onload=function(){
+            console.log(222);
+        }
+
+        window.onscroll=function(){
+            console.log(333);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="f1()">打开一个新窗口</button>
+    <button onclick="f2()">一次性计时器</button>
+    <button onclick="f3()">周期性计时器</button>
+    <button onclick="f4()">关闭一次性计时器</button>
+    <button onclick="f5()">关闭周期性计时器</button>
+    <button onclick="f6()">移动滚动条</button>
+    <hr>
+
+    <p>p1</p>
+    <p>p2</p>
+    <p>p3</p>
+    <p>p4</p>
+    <p>p5</p>
+    <p>p6</p>
+    <p>p7</p>
+    <p>p8</p>
+    <p>p9</p>
+    <p>p10</p>
+    <p>p11</p>
+    <p>p12</p>
+    <p>p13</p>
+    <p>p14</p>
+    <p>p15</p>
+    <p>p16</p>
+    <p>p17</p>
+    <p>p18</p>
+    <p>p19</p>
+    <p>p20</p>
+    <p>p21</p>
+    <p>p22</p>
+    <p>p23</p>
+    <p>p24</p>
+    <p>p25</p>
+    <p>p26</p>
+    <p>p27</p>
+    <p>p28</p>
+    <p>p29</p>
+    <p>p30</p>
+    <p>p31</p>
+    <p>p32</p>
+    <p>p33</p>
+    <p>p34</p>
+    <p>p35</p>
+    <p>p36</p>
+    <p>p37</p>
+    <p>p38</p>
+    <p>p39</p>
+    <p>p40</p>
+    <p>p41</p>
+    <p>p42</p>
+    <p>p43</p>
+    <p>p44</p>
+    <p>p45</p>
+    <p>p46</p>
+    <p>p47</p>
+    <p>p48</p>
+    <p>p49</p>
+    <p>p50</p>
+    <p>p51</p>
+    <p>p52</p>
+    <p>p53</p>
+    <p>p54</p>
+    <p>p55</p>
+    <p>p56</p>
+    <p>p57</p>
+    <p>p58</p>
+    <p>p59</p>
+    <p>p60</p>
+    <p>p61</p>
+    <p>p62</p>
+    <p>p63</p>
+    <p>p64</p>
+    <p>p65</p>
+    <p>p66</p>
+    <p>p67</p>
+    <p>p68</p>
+    <p>p69</p>
+    <p>p70</p>
+    <p>p71</p>
+    <p>p72</p>
+    <p>p73</p>
+    <p>p74</p>
+    <p>p75</p>
+    <p>p76</p>
+    <p>p77</p>
+    <p>p78</p>
+    <p>p79</p>
+    <p>p80</p>
+    <p>p81</p>
+    <p>p82</p>
+    <p>p83</p>
+    <p>p84</p>
+    <p>p85</p>
+    <p>p86</p>
+    <p>p87</p>
+    <p>p88</p>
+    <p>p89</p>
+    <p>p90</p>
+    <p>p91</p>
+    <p>p92</p>
+    <p>p93</p>
+    <p>p94</p>
+    <p>p95</p>
+    <p>p96</p>
+    <p>p97</p>
+    <p>p98</p>
+    <p>p99</p>
+    <p>p100</p>
+</body>
+</html>
