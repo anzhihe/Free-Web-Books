@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Student(name){
+            this.name=name;
+            this.show=function(){
+                console.log('我叫'+this.name);
+            }
+        }
+
+        Student.prototype.sayHello=function(){
+            console.log('你好');
+        }
+
+        // 构造函数的prototype属性
+        // console.log(Student.prototype);
+
+
+        // stu会自动链接到其构造函数的prototype属性上
+        var stu=new Student('tom');
+        // stu.sayHello();
+        console.log(stu);
+        console.log(stu.__proto__); // __proto__是对象的属性，是站在对象的角度，来讨论其原型对象
+        console.log(Student.prototype); // prototype是构造函数的属性，是站在构造函数的角度，来讨论其原型属性
+        console.log(stu.__proto__===Student.prototype); // 本质上是同一个东西
+
+        // 由于__proto__是非标准属性（私有），因此一般不建议使用
+        // stu.__proto__.sayHello();
+        stu.sayHello();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

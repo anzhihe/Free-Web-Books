@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title></title>
+	<script type="text/javascript">
+		/**
+		 *　练习1：
+		 *  定义变量存储以下信息，然后按如下格式在页面上输出
+		 *  	姓名：张三
+		 *  	年龄：21
+		 *  	性别：男
+		 *  	职业：学生
+		 *  	住址：江苏南京
+		 *  	电话：1234567
+		 */
+		// var name = '张三';
+		// var age = 18;
+		// var sex = '男';
+		// var job = '学生';
+		// var address = '江苏南京';
+		// var phone = '1234567';
+		// document.write('姓名：' + name + '<br>');
+		// document.write('年龄：' + age + '<br>');
+		// document.write('性别：' + sex + '<br>');
+		// document.write('职业：' + job + '<br>');
+		// document.write('住址：' + address + '<br>');
+		// document.write('电话：' + phone + '<br>');
+
+
+		/*
+		 * 练习2：
+		 * 提示两名学生分别输入：姓名、HTML成绩、CSS成绩、JavaScript成绩，然后按如下格式在控制台输出一份成绩单
+		 * 		姓名      HTML       CSS     JavaScript
+		 * 		唐伯虎     90        78       70
+		 * 		秋香       96        98       82
+		 */
+		// var name = prompt('请输入姓名：');
+		// var html = prompt('请输入HTML成绩：');
+		// var css = prompt('请输入CSS成绩：');
+		// var javascript = prompt('请输入JavaScript成绩：');
+
+		// var name2 = prompt('请输入姓名：');
+		// var html2 = prompt('请输入HTML成绩：');
+		// var css2 = prompt('请输入CSS成绩：');
+		// var javascript2 = prompt('请输入JavaScript成绩：');
+
+		// console.log('姓名\t\tHTML\t\tCSS\t\tJavaScript');
+		// console.log(name+'\t\t'+html+'\t\t'+css+'\t\t'+javascript);
+		// console.log(name2+'\t\t'+html2+'\t\t'+css2+'\t\t'+javascript2);
+
+
+		/**
+		 * 练习3：
+		 * 交换两个变量的值，定义两个变量num1和num2，并分别赋值为任意整数，请问如何交换num1和num2的值（至少两种方式）
+		 */ 
+		// var num1 = 3;
+		// var num2 = 8;
+		// console.log('交换前的值：',num1,num2); 
+
+		// 方法1：使用临时变量进行交换
+		// var temp = num1; // 3
+		// num1 = num2; // 8
+		// num2 = temp; // 3
+
+		// 方法2：使用加减运算
+		// num1 = num1 + num2; // 11
+		// num2 = num1 - num2; // 3
+		// num1 = num1 - num2; // 8
+
+		// 方法3：数组的解构赋值
+		// [num1,num2] = [num2,num1];
+
+		// console.log('交换后的值：',num1,num2); 
+
+
+		/**
+		 * 练习4：
+		 * 提示用户输入姓名和成绩，已经隔壁老王的成绩比他高5分，请分别输出当前用户和老王的信息
+		 */ 
+		var name = prompt('请输入您的姓名：');
+		var score = prompt('请输入您的成绩：');
+		var score2 = Number(score) + 5;
+		console.log('姓名：'+name+'\t成绩：'+score);
+		console.log('老王的成绩：'+score2);
+
+
+		 
+	</script>
+</head>
+<body>
+
+</body>
+</html>	

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		/**
+		 * 练习1：
+		 * 提示用户输入一个大于50的正整数，然后判断用户的输入是否符合要求，并进行提示
+		 */
+		// var num = Number(prompt('请输入一个大于50的正整数：'));	
+		// isNaN(num) || Math.ceil(num)!=num || num<=50 ? console.log('输入无效') : console.log('输入有效');
+		// var result = isNaN(num) || Math.ceil(num)!=num || num<=50 ? '输入无效' : '输入有效';
+		// console.log(result);
+
+
+		/**
+		 * 练习2：
+		 * 提示用户输入矩形的长和宽，计算矩形的周长和面积
+		 */  
+		// var length = parseFloat(prompt('请输入矩形的长：'));
+		// var width = parseFloat(prompt('请输入矩形的宽：'));
+		// console.log('矩形的周长：'+(length+width)*2);
+		// console.log('矩形的面积：'+length*width);
+
+
+		/**
+		 * 练习3：
+		 * 接收用户输入的正整数，判断是否是5的倍数，并输出相应的结果
+		 */ 
+		// var num = Number(prompt('请输入一个正整数：')); 
+		// var result = num%5==0 ? num+'是5的倍数' : num+'不是5的倍数';
+		// console.log(result);
+
+
+		/**
+		 * 练习4：
+		 * 接收两名学生的成绩，并输出分数差
+		 */ 
+		// var score1 = Number(prompt('请输入第一个学生的成绩：'))
+		// var score2 = Number(prompt('请输入第二个学生的成绩：'))
+		// console.log('分数差：'+Math.abs(score1-score2));
+
+
+		/**
+		 * 练习5：
+		 * 提示用户输入一个3位数，如：729，将其倒序输出927
+		 */ 
+		var num = Number(prompt('请输入一个三位数：')); 
+		var a = num%10; // 9
+		var b = parseInt(num/10)%10; // 2
+		var c = parseInt(num/100); // 7
+		console.log(''+a+b+c); // 927
+		
+
+		 
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

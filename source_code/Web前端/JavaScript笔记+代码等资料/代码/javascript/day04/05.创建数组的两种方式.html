@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  方式1：使用new Array()
+         */
+        // var nums = new Array(); // 创建一个空数组
+        // var nums = new Array(3); // 创建一个长度为3的数组
+        // var nums = new Array(5,12,7,34,20,88); // 创建一个具有初始值的数组
+
+        // console.log(nums.length); 
+
+        // nums[0] = 13;
+        // nums[1] = 25;
+        // nums[2] = 38;
+        // nums[3] = 250; // 数组长度会自动扩展
+
+        // nums[nums.length] = 666; // 向数组的末尾添加元素
+        // nums[0] = 111; // 修改元素的值
+
+        // console.log(nums[0]);
+        // console.log(nums);
+
+
+        /**
+         *  方式2：使用数组字面量[]
+         */
+        // var scores = [];
+        // scores[0] = 100;
+        // scores[1] = 99;
+        // scores[2] = 95;
+
+        var scores = [100,99,95]; 
+        scores[scores.length] = 88;
+        scores[1] = 66;
+        scores[8] = 222; 
+
+        // console.log(scores); 
+
+        // 使用while循环数组
+        var i=0;
+        while(i<scores.length){
+            console.log(scores[i]);
+            i++;
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

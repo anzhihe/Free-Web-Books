@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  break 跳出整个循环，中止循环的执行
+         */
+        // 将1-20之间的整数相加，当累加值大于50时停止相加，输出当前整数和累加值 
+        /* var sum=0;
+        for(var i=1;i<=20;i++){
+            sum+=i;
+            if(sum>50){
+                console.log('当前整数：'+i+'，累加值：'+sum);
+                break; // 停止循环的执行
+            }
+        } */
+
+
+        /**
+         *  continue 跳出本次循环，执行下一次循环，本次循环尚未执行完的代码不再执行
+         */
+        // 计算1-10之间所有偶数和
+        /* var sum=0;
+        for(var i=1;i<=10;i++){
+            if(i%2!=0){
+                continue; // 如果i是奇数，则跳过本次循环，不累加，执行下一次循环
+            }
+            sum+=i;
+        } 
+        console.log(sum); */
+
+
+        // 案例：循环输入8位学生的考试成绩，统计分数大于等于80分的学生的比例
+        var count=0;
+        for(var i=1;i<=8;i++){
+            var score=Number(prompt('请输入第'+i+'个学生的考试成绩：'));
+            // 不统计分数小于80分的学生
+            if(score<80){
+                continue;
+            }
+            count++;
+        }
+        console.log('分数大于等于80分的学生的比例：'+(count/8)*100+'%');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

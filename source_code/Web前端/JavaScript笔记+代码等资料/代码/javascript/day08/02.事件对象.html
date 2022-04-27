@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var btn=document.getElementById('btn');
+            btn.onclick=function(event){ // 事件触发时会自动为回调函数传入一个参数，表示event事件对象
+                // console.log(111);
+                console.log(event);
+                // console.log(typeof event);
+                console.log(event.target);
+                console.log(event.type);
+
+                console.log(this==event.target); // this表示事件源
+            }
+        }
+
+        function f1(e,btn){
+            // console.log(111);
+            console.log(e);
+            console.log(btn);
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">点我</button>
+
+    <!-- 静态绑定事件时，可以在绑定事件回调函数时，接收event和this作为参数，名称必须为event和this -->
+    <button onclick="f1(event,this)">Click Me</button>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <script>
+        /**
+         *  出现了问题
+         */
+        /* function add(){
+            for(var i=1;i<=5;i++){
+                var li=document.createElement('li');
+                li.innerText='li'+i;
+                li.onclick=function(){ 
+                    // 当点击li时才执行该回调函数中的代码，此时循环已经执行完
+                    console.log('点击了第'+i+'个li');
+                }
+                document.getElementById('myul').appendChild(li);
+            }
+        } */
+
+
+        /**
+         *  方式一：不在函数内部定义函数，将函数定义在外面，在函数内部调用
+         */
+        /* function add(){
+            for(var i=1;i<=5;i++){
+                var li=createLi(i);
+                document.getElementById('myul').appendChild(li);
+            }
+        }
+
+        function createLi(num){
+            var li=document.createElement('li');
+            li.innerText='li'+num;
+            li.onclick=function(){ 
+                console.log('点击了第'+num+'个li');
+            }
+            return li;
+        } */
+
+
+        /**
+         *  方式二：为元素附加属性，用来存储变量
+         */
+        /* function add(){
+            for(var i=1;i<=5;i++){
+                var li=document.createElement('li');
+                li.innerText='li'+i;
+                li.num=i; // 存储数据
+                li.onclick=function(){ 
+                    console.log('点击了第'+this.num+'个li');
+                }
+                document.getElementById('myul').appendChild(li);
+            }
+        } */
+
+
+        /**
+         *  方式三：使用let来定义变量
+         */
+        function add(){
+            // 使用let声明变量，支持块级作用域，它所声明的变量所在的区域不会受外部影响，称为暂时性死区
+            for(let i=1;i<=5;i++){
+                var li=document.createElement('li');
+                li.innerText='li'+i;
+                li.onclick=function(){ 
+                    // 当点击li时才执行该回调函数中的代码，此时循环已经执行完
+                    console.log('点击了第'+i+'个li');
+                }
+                document.getElementById('myul').appendChild(li);
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick="add()">添加元素</button>
+
+    <ul id="myul">
+        
+    </ul>
+</body>
+</html>

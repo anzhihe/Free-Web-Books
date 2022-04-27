@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  一般用于回调
+         */
+        // function f1(){
+        //     console.log('嘿嘿');
+        // }
+
+        // window.onclick=f1;
+        // window.onclick=function(){ // 匿名函数/回调函数，用于回调
+        //     console.log('哈哈');
+        // }
+
+        
+        /**
+         *  自执行函数，只会执行一次
+         */
+        // function f2(){
+        //     console.log('嘻嘻');
+        // } 
+        // f2();
+
+        // (function(a,b){
+        //     console.log('嘻嘻',a,b);
+        // })(5,2);
+
+
+        /**
+         *  将匿名函数作为另一个函数的参数
+         */    
+        var nums = [12,4,324,6,56];
+
+        // nums.sort(function(a,b){
+        //     return a-b;
+        // });
+
+        nums.forEach(function(value,index){
+            console.log(index+'='+value);
+        });
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

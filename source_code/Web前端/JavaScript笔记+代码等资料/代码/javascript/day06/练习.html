@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		/**
+		 * 练习1：
+		 * 阅读以下代码，并写出结果
+		 */  
+		/* var a=100;
+		function f1(){
+			alert(a);
+			var a=10;
+			alert(a);
+		}
+		f1(); */
+
+		/* var a;
+		function f1(){
+			var a;
+
+			alert(a); // undefined
+			a=10;
+			alert(a); // 10
+		}
+
+		a=100;
+		f1(); */
+
+		
+		/**
+		 * 练习2：
+		 * 自定义函数，求两个数中的最大值，并返回最大值，带两个参数
+		 */
+		/* function f1(a,b){
+			// if(a>b){
+			// 	return a;
+			// }else{
+			// 	return b;
+			// }
+			return a>b?a:b;
+		} 
+		console.log(f1(3,8)); */
+
+
+		/**
+		 * 练习3：
+		 * 自定义函数，求三个数中的最大值，并返回最大值，带三个参数
+		 */ 
+		/* function f2(a,b,c){
+			// return (a>b?a:b)>c?(a>b?a:b):c;
+			var max=a>b?a:b;
+			return max>c?max:c;
+		}
+		console.log(f2(2,8,5)); */
+		 
+
+		/**
+		 * 练习4：
+		 * 自定义函数，实现交换数组中两个元素的功能，带三个参数（数组、索引1、索引2）
+		 */ 
+		/* function f3(array,index1,index2){
+			// var temp=array[index1];
+			// array[index1]=array[index2];
+			// array[index2]=temp;
+			[array[index1],array[index2]]=[array[index2],array[index1]];
+			return array;
+		} 
+		var nums=[12,4,34,7,45,77,520];
+		console.log(f3(nums,2,5));; */
+
+
+		/**
+		 * 练习5：
+		 * 自定义函数，实现复制数组的功能，带两个参数（源数组、目标数组）
+		 */ 
+		/* function f4(src,dest){
+			for(var item of src){
+				dest.push(item);
+			}
+		}
+		var names=['tom','jack','alice'];
+		var names2=[];
+		f4(names,names2);
+		console.log(names2); */
+
+
+		/**
+		 * 练习6：
+		 * 自定义函数，将数组中的最大值和最小值去掉，并返回这个数组，带一个参数
+		 */  
+		function f5(arr){
+			// 查找最大值和最小值的位置
+			var maxIndex=0,minIndex=0;
+			for(var index in arr){
+				if(arr[index]>arr[maxIndex]){
+					maxIndex=index;
+				}
+				if(arr[index]<arr[minIndex]){
+					minIndex=index;
+				}
+			}
+			// 删除最大值和最小值
+			if(minIndex>maxIndex){
+				arr.splice(minIndex,1);
+				arr.splice(maxIndex,1);
+			}else{
+				arr.splice(minIndex,1);
+				arr.splice(maxIndex-1,1);
+			}
+			return arr;
+		} 
+		var nums=[12,34,7,45,520,77,4];
+		console.log(f5(nums));
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

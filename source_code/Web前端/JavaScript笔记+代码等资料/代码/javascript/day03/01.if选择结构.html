@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  单分支结构，if
+         */
+        var age = 25;
+        // if(age>=18){
+        //     console.log('您已成年');
+        //     console.log('您今年'+age+'岁');
+        // } 
+
+        // 如果大括号中只有一条语句，此时可以省略大括号，但强烈不建议这样写
+        // if(age>=18)
+        //     console.log('您已成年');
+
+        // console.log('if结构之后的代码。。。。');
+
+        // 案例：如果有任意两门课程的成绩大于95分，则奖励一个iPhone手机    
+        // var html = 90,css = 100,js = 96;
+        // if(html>=95&&css>=95 || html>=95&&js>=95 || css>=95&&js>=95){
+        //     console.log('奖励一个iPhone手机');
+        // }
+
+
+        /**
+         *  二分支结构，if...else
+         */
+        // if(age>=18){
+        //     console.log('您已成年');
+        // }else{
+        //     console.log('您尚未成年');
+        // } 
+
+        // 案例：提示用户输入两个整数a、b，如果a能被b整除 或 a加b大于100，则输出a的值，否则输出b的值
+        // var a = Number(prompt('请输入第一个整数：'));    
+        // var b = Number(prompt('请输入第二个整数：'));    
+        // if(a%b==0 || a+b>100){
+        //     console.log(a);
+        // }else{
+        //     console.log(b);
+        // }
+
+
+        /**
+         *  多分支结构，if...else if...else if...else
+         */
+        // if(age>=60){ // 将严格的条件放在最前面
+        //     console.log('老年');
+        // }else if(age>=40){
+        //     console.log('中年');
+        // }else if(age>=18){
+        //     console.log('青年');
+        // }else{
+        //     console.log('童年');
+        // }
+
+        
+        /**
+         *  嵌套if结构
+         */
+        var day = '周三';
+        var weather = '雨';
+        if(day=='周末'){
+            if(weather=='晴'){
+                console.log('今天出去浪里个浪！');
+            }else{
+                console.log('今天挺尸!');
+            }
+        }else{
+            console.log('今天要上课，心情很沉重！');
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

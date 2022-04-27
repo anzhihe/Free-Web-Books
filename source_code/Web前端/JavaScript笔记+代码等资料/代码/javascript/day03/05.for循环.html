@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  基本用法
+         */
+        // 循环输出10次：好好学习，天天向上
+        /* for(var i=1;i<=10;i++){
+            console.log('好好学习，天天向上'+i);
+        } */
+
+        // 小括号中的三个部分都可以省略，但分号不能省略
+        /* for(;;){
+            console.log('好好学习，天天向上');
+        } */
+
+        // 案例1：循环输入五门课程的成绩，并计算平均分
+        // var sum=0;
+        // for(var i=1;i<=5;i++){
+        //     var score=Number(prompt('请输入第'+i+'门课程的成绩:'));
+        //     sum+=score;
+        // }
+        // var avg=sum/5;
+        // console.log('五门课程的平均分为：'+avg);
+
+        // 案例2：输出[1,100]之间不能被3整除的数字之和
+        /* var sum=0;
+        for(var i=1;i<=100;i++){
+            if(i%3!=0){
+                sum+=i;
+            }
+        }
+        console.log('不能被3整除的数字之和：'+sum); */
+        
+        // 案例3：任意输入一个整数，然后根据这个值输出加法表，如输入6，输出0+6=6  1+5=6 2+4=6 ..... 6+0=6
+        var num=Number(prompt('请输入一个整数：'));
+        for(var i=0;i<=num;i++){
+            console.log(i+'+'+(num-i)+'='+num);
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

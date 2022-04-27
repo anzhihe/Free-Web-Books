@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  prompt()用法：
+         *      1.如果用户点击取消，则返回null
+         *      2.如果用户输入数据，则获取到的是string类型的数据
+         */
+        // 提示用户输入信息，然后将输入的数据保存到变量中
+        // var name = prompt('请输入您的姓名：','您的名字');
+        var age = prompt('请输入您的年龄：');
+
+        // console.log(name);
+        console.log(age,typeof age); // string
+        // console.log(age+1); // 拼接操作
+
+        
+        // 将字符串转换为数值，语法：Number(字符串)
+        age = Number(age); // 将转换后的数值，重新赋值变量age
+
+        // console.log(age,typeof age);
+        console.log(age+1); // 加法运算
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,17 @@
+#container{
+    text-align: center;
+}
+#mytbl{
+    width: 500px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+}
+td,th{
+    border: 1px solid #ccc;
+}
+.btn-right{
+    text-align: right;
+}
+#myform{
+    line-height: 30px;
+}

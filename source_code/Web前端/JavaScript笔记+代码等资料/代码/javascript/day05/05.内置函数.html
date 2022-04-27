@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  eval() 计算字符串表达式的值，并执行其中的JavaScript代码
+         */
+        // var a=4,b=6;
+        // var str='2+5';
+        // var str='a+b';
+        // var str='if(a>b){a*a}else{b*b}';
+        // var str='var c=8;alert(c);'
+
+        // console.log(eval(str));
+
+
+        /**
+         *  encodeURI()和decodeURI()
+         * https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=%E6%B1%A4%E5%B0%8F%E6%B4%8B&fenlei=256&rsv_pq=b6a79e950015a43c&rsv_t=8417o3ZTv414rVEhJ5A0m3WcL3oY%2BeHl52PstFsp7GpnEo8RbCdjR%2Fo9fCQ&rqlang=cn&rsv_enter=1&rsv_dl=tb&rsv_sug3=17&rsv_sug1=1&rsv_sug7=100&rsv_sug2=0&rsv_btype=i&inputT=4448&rsv_sug4=8493
+         * http://127.0.0.1:5500/day05/05.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html
+         */
+        var str='汤小洋';
+        /* // 使用ISO8859-1编码
+        var encodeStr=encodeURI(str);
+        console.log(encodeStr);
+        // 使用ISO8859-1解码
+        var decodeStr=decodeURI(encodeStr);
+        console.log(decodeStr); */
+
+
+        /**
+         *  escape()和unescape()
+         */
+        // 使用Unicode编码
+        var escapeStr=escape(str); 
+        console.log(escapeStr);
+        // 使用Unicode解码
+        var unescapeStr=unescape(escapeStr);
+        console.log(unescapeStr);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

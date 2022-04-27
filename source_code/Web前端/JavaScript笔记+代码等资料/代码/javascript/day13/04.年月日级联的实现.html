@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            // 初始化数据
+            addOption($('year'),1990,2030);
+            addOption($('month'),1,12);
+            addOption($('date'),1,31);
+
+            // 默认显示当前日期
+            var now=new Date();
+            changeDate(now.getFullYear(),now.getMonth()+1,now.getDate());
+
+            // 为下拉列表绑定事件
+            $('year').onchange=function(){
+                changeDate($('year').value,1,1);
+            }
+
+            $('month').onchange=function(){
+                changeDate($('year').value,$('month').value,1);
+            }
+
+        }
+
+        /**
+         *  实现添加Option的功能
+         */
+        function addOption(select,start,end){
+            for(var i=start;i<=end;i++){
+                select.add(new Option(i,i));
+            }
+        } 
+
+        /**
+         *  实现修改日期的功能
+         */
+        function changeDate(year,month,date){
+            // 计算某年某月的天数
+            var days=new Date(year,month,0).getDate();
+            // 清空并重新添加天数
+            $('date').length=0;
+            addOption($('date'),1,days); 
+
+            $('year').value=year;
+            $('month').value=month;
+            $('date').value=date;
+        } 
+
+
+        function $(id){
+            return document.getElementById(id);
+        }
+    </script>
+</head>
+<body>
+    <select id="year"></select>年 
+    <select id="month"></select>月 
+    <select id="date"></select>日 
+</body>
+</html>

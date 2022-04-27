@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  字面量
+         */
+        var str='hello world'; // 字符串字面量
+        var array=[12,4,23,67]; // 数组字面量
+        var fn=function(){ // 函数字面量
+            console.log(111);
+        }
+
+        /**
+         *  对象字面量
+         */
+        var stu={
+            name:'tom',
+            age:18,
+            'exam-score':99, // 特殊名称必须使用引号引起来
+            study:function(){
+                console.log('正在学习。。。。');
+            },
+            run:function(){
+                console.log('正在跑步');
+            },
+            show:function(){
+                console.log('我叫'+this.name+',年龄：'+this.age);
+            }
+        }
+
+        console.log(stu.name,stu.age,stu['exam-score']);
+        stu.study();
+        stu.show();
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

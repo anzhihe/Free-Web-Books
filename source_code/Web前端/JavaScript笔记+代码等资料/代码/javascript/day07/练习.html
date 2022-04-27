@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            width: 77px;
+            height: 25px;
+        }
+    </style>
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }
+
+        function calc(flag){
+            var num1=Number($('num1').value);
+            var num2=Number($('num2').value);
+
+            var result;
+            switch(flag){
+                case '+': 
+                    result=num1+num2;
+                    break;
+                case '-': 
+                    result=num1-num2;
+                    break;
+                case '*': 
+                    result=num1*num2;
+                    break;
+                case '/': 
+                    result=num1/num2;
+                    break;
+            }
+            $('result').value=result;
+
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h2>简易计算器</h2>
+        <p>
+            第一个数：<input type="text" id="num1">
+        </p>
+        <p>
+            第二个数：<input type="text" id="num2">
+        </p>
+        <p>
+            <button onclick="calc('+')">+</button>
+            <button onclick="calc('-')">-</button>
+            <button onclick="calc('*')">*</button>
+            <button onclick="calc('/')">/</button>
+        </p>
+        <p>
+            结果：<input type="text" id="result" disabled>
+        </p>
+    </div>
+</body>
+</html>

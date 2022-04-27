@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		/**
+         * 练习1：
+		 * 将字符串welcome to javascript中的所有单词首字母变成大写
+         */
+		/* var str='welcome to javascript';
+		var arr=str.split(' ');	
+		for(var i=0;i<arr.length;i++){
+			var c=arr[i].charAt(0);
+			arr[i]=arr[i].replace(c,c.toUpperCase());
+		}
+		str=arr.join(' ');
+		console.log(str); */
+
+
+        /**
+         * 练习2：
+		 * 将字符串aBC Def World Hello通过操作将其改为HELLO-WORLD-DEF-ABC
+         */
+		/* var str='aBC Def World Hello';
+		str=str.toUpperCase().split(' ').reverse().join('-');
+		console.log(str); */
+
+
+		/**
+         * 练习3：
+		 * 假设有一个字符串get-element-by-id，将其转化成驼峰形式getElementById
+         */ 
+		/* var str='get-element-by-id';
+		var arr=str.split('-');
+		for(var i=1;i<arr.length;i++){
+			var c=arr[i].charAt(0);
+			arr[i]=arr[i].replace(c,c.toUpperCase());
+		}
+		str=arr.join('');
+		console.log(str); */
+
+
+		/**
+		 * 练习4：
+		 * 通过原型为String添加新的方法getNumberCount()，返回字符串中数字的个数
+		 */ 
+		/* String.prototype.getNumberCount=function(){
+			var result=this.match(/\d/g);
+			return result.length;
+		}
+		var str='he$$llo520wor555ldwelcome577to6$#_9a' 
+		console.log(str.getNumberCount()); */
+
+
+		/**
+		 * 练习5：
+		 * 实现倒计时的功能，如：距离情人节还有：20天05小时18分20秒 
+		 */
+		function checkNum(num){
+			if(num<10){
+				return '0'+num;
+			}
+			return num;
+		}
+
+		var timer;
+		function showTime(){
+			var now=new Date();
+			var valentine=new Date(2020,7,25);
+			var seconds=Math.floor((valentine.getTime()-now.getTime())/1000); // 相隔总秒数
+			console.log(seconds);
+			if(seconds<0){
+				document.getElementById('time').innerHTML='情人节已经来啦，嘿嘿';
+				return;
+			}
+
+			var day=checkNum(Math.floor(seconds/(24*60*60))); // 天数
+			var hour=checkNum(Math.floor(seconds/(60*60)%24)); // 小时
+			var minute=checkNum(Math.floor(seconds/60%60)); // 分钟
+			var second=checkNum(seconds%60); // 秒数
+
+			var time='距离情人节还有：'+day+'天'+hour+'小时'+minute+'分'+second+'秒';
+			document.getElementById('time').innerHTML=time;
+
+			timer=setTimeout(showTime,1000);
+		}
+
+		window.onload=function(){
+			showTime();
+		} 
+	</script>
+</head>
+<body>
+	<div id="time"></div>
+</body>
+</html>

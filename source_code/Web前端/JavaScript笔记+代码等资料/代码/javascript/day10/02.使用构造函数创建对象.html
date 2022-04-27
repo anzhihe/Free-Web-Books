@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  使用构造函数，也称为构造器
+         */
+        // 1.定义一个构造函数，用来创建对象
+        /* function Student(){  // 为了区别于普通函数，构造函数名建议首字母大写
+            // 对象的属性
+            this.name='tom'; // this表示当前这个对象，将来创建的对象
+            this.age=18;
+            // 对象的方法
+            this.study=function(){
+                console.log('正在学习。。。。');
+            }
+            this.run=function(){
+                console.log('正在跑步。。。。');
+            }
+        }
+
+        // 2.调用构造函数，来创建对象
+        var stu=new Student(); // 通过new的方式来调用构造函数
+        console.log(stu.name,stu.age);
+        stu.study();
+
+        var stu2=new Student();
+        console.log(stu2.name,stu.age);
+        stu2.study(); */
+
+
+        /**
+         *  定义一个带参的构造函数
+         */
+         function Student(name,age){ 
+            this.name=name; 
+            this.age=age;
+            this.study=function(){
+                console.log('正在学习。。。。');
+            }
+            this.run=function(){
+                console.log('正在跑步。。。。');
+            }
+            this.show=function(){
+                console.log('我叫'+this.name+'，年龄：'+this.age);
+            }
+        }
+
+        // var stu1=new Student('tom',18);
+        // console.log(stu1.name,stu1.age);
+        // stu1.show();
+        
+        // var stu2=new Student('alice',27);
+        // console.log(stu2.name,stu2.age);
+        // stu2.show();
+
+
+        // 不要使用普通函数的调用方式，没意义
+        // Student('tom',18);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

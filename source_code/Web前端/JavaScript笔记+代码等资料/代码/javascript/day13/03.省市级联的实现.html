@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var provinces=[
+            {
+                id:1001,
+                name:'江苏省',
+                cities:[
+                    {
+                        id:1,
+                        name:'南京市'
+                    },
+                    {
+                        id:2,
+                        name:'无锡市'
+                    },
+                    {
+                        id:3,
+                        name:'苏州市'
+                    },
+                    {
+                        id:4,
+                        name:'扬州市'
+                    }
+                ]
+            },
+            {
+                id:1002,
+                name:'山东省',
+                cities:[
+                    {
+                        id:1,
+                        name:'济南市'
+                    },
+                    {
+                        id:2,
+                        name:'威海市'
+                    },
+                    {
+                        id:3,
+                        name:'日照市'
+                    },
+                    {
+                        id:4,
+                        name:'青岛市'
+                    }
+                ]
+            },
+            {
+                id:1003,
+                name:'广东省',
+                cities:[
+                    {
+                        id:1,
+                        name:'广州市'
+                    },
+                    {
+                        id:2,
+                        name:'佛山市'
+                    },
+                    {
+                        id:3,
+                        name:'东莞市'
+                    },
+                    {
+                        id:4,
+                        name:'珠海市'
+                    }
+                ]
+            }
+        ];
+
+        window.onload=function(){
+            // 初始化省份信息
+            for(var p of provinces){
+                var option=new Option(p.name,p.id);
+                $('province').add(option);
+            }
+        }
+
+        function changeCity(pid){
+            // 清空城市选项列表
+            $('city').length=0;
+
+            // 判断是否未选择省份
+            if(pid==0){
+                $('city').add(new Option('--选择城市--',0));
+                return;
+            }
+
+            // 判断查找选中省份所对应的城市
+            for(var p of provinces){
+                if(p.id==pid){
+                    for(var c of p.cities){
+                        var option=new Option(c.name,c.id);
+                        $('city').add(option);
+                    }
+                    break;
+                }
+            }
+        }
+
+        function $(id){
+            return document.getElementById(id);
+        }
+    </script>
+</head>
+<body>
+    <select id="province" onchange="changeCity(this.value)">
+        <option value="0">--选择省份--</option>
+    </select>
+    <select id="city">
+        <option value="0">--选择城市--</option>
+    </select>
+</body>
+</html>

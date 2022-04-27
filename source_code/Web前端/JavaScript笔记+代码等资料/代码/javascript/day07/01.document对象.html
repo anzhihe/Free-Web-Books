@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  document对象，表示整个文档
+         */
+        // console.log(document);  
+
+        /**
+         *  document.bgColor属性
+         */
+        function doBgColor(){
+            document.bgColor='red';
+            console.log(document.bgColor);
+        }
+
+        /**
+         *  document.title属性
+         */
+        function doTitle(){
+            document.title='DOM';
+            console.log(document.title);
+        } 
+
+        /**
+         *  document.body属性
+         */
+        function doBody(){
+            // document.body.appendChild(document.createTextNode('嘿嘿')); // 向body内部添加一个文本节点
+            document.body.innerText='哈哈';
+            console.log(document.body);
+        } 
+
+    </script>
+</head>
+<body>
+    <button onclick="doBgColor()">操作页面背景</button>
+    <button onclick="doTitle()">操作页面标题</button>
+    <button onclick="doBody()">操作页面主体</button>
+
+    <h2>跟汤老师开发</h2>
+
+    
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  1.search() 根据正则表达式来搜索匹配的子串，返回匹配子串的索引位置
+         */
+        var str='hello world welcome,to,js-happy-everyday';
+        // console.log(str.search(/\d{3}/)); // 如果找不到，则返回-1
+
+        /**
+         *  2.match() 根据正则表达式来搜索匹配的子串，返回匹配的子串结果
+         */
+        // console.log(str.match(/\d{2}/g));
+
+        /**
+         *  3.replace() 根据正则表达式来搜索匹配的子串，并进行替换
+         */
+        // console.log(str.replace(/\d{2}/g,'xx')); 
+        // console.log(str);
+
+        /**
+         *  4.split() 根据正则表达式进行匹配，并拆分
+         */
+        console.log(str.split(/[ ,-]/)); 
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  nums对象的原型链结构
+         *    nums——>Array.prototype——>Object.prototype——>null
+         *           nums.__proto__
+         */
+        // var nums=new Array(12,43,5,3,8);
+        // nums.push(77);
+        // nums.reverse();
+        // console.log(nums);
+
+
+        /**
+         *  stu对象的原型链结构
+         *     stu——>Student.prototype——>Object.prototype——>null
+         *           stu.__proto__
+         */
+        /* function Student(name){
+            this.name=name;
+        }
+        Student.prototype.sex='male';
+
+        var stu=new Student('tom');
+        console.log(stu); */
+
+
+        /**
+         *  Object的原型链结构
+         */
+        var o1=new Object();
+        console.log(o1);  // 创建的对象
+        console.log(Object.prototype); // 对象的原型，站在构造函数的角度
+        console.log(o1.__proto__); // 对象的原型，站在对象的角度
+        console.log(Object.prototype.constructor); // 构造函数
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

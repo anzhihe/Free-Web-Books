@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  将JSON对象转换为字符串
+         */
+        /* var stu={
+            "id":1001,
+            "name":"tom",
+            "age":18
+        }
+        console.log(typeof stu,stu);
+
+        var str=JSON.stringify(stu);
+        console.log(typeof str,str); */
+
+
+        /**
+         *  将字符串转换为JSON对象
+         */
+        /* var str='{"id":1001,"name":"tom","age":18}'; 
+        console.log(typeof str,str);
+
+        var obj=JSON.parse(str);
+        // var obj=eval('('+str+')'); // 不推荐
+
+        console.log(typeof obj,obj);
+        console.log(obj.name); */
+
+        var str='[{"id":1,"username":"admin","password":"123"},{"id":2,"username":"tom","password":"456"}]';
+
+        var array=JSON.parse(str);
+        console.log(array);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

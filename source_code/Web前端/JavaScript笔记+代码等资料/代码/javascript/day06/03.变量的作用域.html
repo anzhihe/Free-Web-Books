@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  全局作用域
+         */
+        var name='tom'; // 全局变量，在任何位置都可以访问，当关闭页面时会自动销毁
+
+        /**
+         *  局部作用域
+         */
+        function f1(hobby){ // 函数参数也是局部变量，只能在当前函数中访问
+            var age=18; // 局部变量，只能在当前函数中访问，当函数执行结束后会自动销毁
+            sex='female'; // 全局变量，未定义而直接赋值的变量
+
+            console.log('f1:',name);
+            console.log('f1:',age);
+            console.log('f1:',sex);
+            console.log('f1:',hobby);
+        }
+
+        function f2(){
+            var height=162;
+
+            console.log('f2:',name);
+            // console.log('f2:',age); // 无法访问局部变量age
+            console.log('f2:',sex);
+            // console.log('f2:',hobby);
+        }
+        // f1('健身');
+        // f2();
+        
+        // console.log(name);
+        // console.log(age); // 无法访问局部变量age
+        // console.log(sex);
+
+
+        /**
+         *  块级作用域
+         *     在JavaScript新版本规范ES6中，提供了let关键字用来定义变量，作用与var类似
+         */
+        if(true){
+            var a=5; // 全局变量
+            let b=8; // 块级变量，属于块级作用域，只能在当前代码块{}中使用
+
+            // console.log(a); 
+            // console.log(b); 
+        }
+
+        // 代码块
+        {
+            var c=12;
+            let d=77;
+        }
+
+        for(let i=1;i<=10;i++){
+
+        }
+        // console.log(i); // 无法访问块级作用域变量i
+
+        // console.log(a); 
+        // console.log(b); // 无法访问块级作用域变量b
+        // console.log(c); 
+        // console.log(d);  // 无法访问块级作用域变量d
+
+
+        /**
+         *  如果局部变量和全局变量同名，默认访问的是局部变量
+         */
+        var x=5;
+
+        function f3(){
+            var x=8;
+
+            console.log('局部变量：',x); 
+            console.log('全局变量：',window.x); 
+            console.log('全局变量：',this.x);  // 此处的this表示当前函数的调用者
+        } 
+
+        // f3();
+        window.f3();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

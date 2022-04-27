@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  不同类型的数据
+         */
+        var name = "汤小洋"; // string
+        var age = 18; // number
+        var height = 180.5; // number
+        var isMarried = false; // boolean，取值只能为true或false
+        var sex; // undefined
+        var hobby = null; // null
+        var array = new Array(13,25,38); // 定义一个数组（后面会讲解）
+        var date = new Date();
+
+        // 使用typeof判断数据的类型
+        console.log(name,typeof(name),typeof name);
+        console.log(age,typeof age);
+        console.log(height,typeof height);
+        console.log(isMarried,typeof isMarried);
+        console.log(sex,typeof sex);
+        console.log(hobby,typeof hobby); // 如果数据是null、数组、对象等，typeof都会返回object
+        console.log(array,typeof array);
+        console.log(date,typeof date);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

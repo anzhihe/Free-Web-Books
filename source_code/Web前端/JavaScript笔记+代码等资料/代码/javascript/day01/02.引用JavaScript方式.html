@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=defined, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 方式1：内联方式 -->
+    <script>
+        console.log('第一种方式：在head中加载');
+    </script>
+
+    <!-- 方式3：外部文件 -->
+    <script src="js/hello.js"></script>
+</head>
+<body>
+    <h3>引用JavaScript方式</h3>
+
+    <!-- 方式2：行内方式 -->
+    <button onclick="javascript:alert('第二种方式')">点我</button>
+    <input type="button" value="Click Me" onclick="alert('第二种方式')">
+    <div onclick="alert('点击了div')">我是div</div>
+
+    <!-- 点击超链接执行JavaScript代码时，必须添加javascript作为前缀 -->
+    <a href="javascript:alert('点击了超链接')">我是超链接</a>
+</body>
+</html>
+
+<script>
+    console.log('第一种方式：在body后面加载');
+</script>

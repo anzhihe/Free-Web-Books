@@ -8,6 +8,8 @@
 
 - [HTML+DIV+CSS零基础入门与制作企业站视频课程](https://edu.51cto.com/course/6849.html)
 
+- [JavaScript零基础入门（精品课）](https://edu.51cto.com/course/24691.html)
+
 - [Vue.js 2.0之全家桶系列视频课程（vue、vue-router、axios、vuex）](https://edu.51cto.com/course/10543.html)
 
 - [Less快速入门视频课程](https://edu.51cto.com/course/14762.html)

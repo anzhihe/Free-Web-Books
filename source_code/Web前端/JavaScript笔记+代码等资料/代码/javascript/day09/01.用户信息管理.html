@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/user.css">
+    <script src="js/user.js"></script>
+</head>
+<body>
+    <div id="container">
+        <h2>用户信息管理</h2>
+        <!-- table>(thead>tr>th*6)+(tbody>tr>td*6)+tfoot>tr>td*6 -->
+        <table id="mytbl">
+            <thead>
+                <tr>
+                    <th>全选 <input type="checkbox" id="all" onchange="checkAll()"></th>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>性别</th>
+                    <th>电话</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="tb">
+                <tr>
+                    <td><input type="checkbox" name="item" onchange="checkItem()"></td>
+                    <td>tom</td>
+                    <td>20</td>
+                    <td>male</td>
+                    <td>120</td>
+                    <!-- 此处的this表示事件源 -->
+                    <td><button onclick="deleteUser(this)">删除</button></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="item" onchange="checkItem()"></td>
+                    <td>jack</td>
+                    <td>20</td>
+                    <td>male</td>
+                    <td>120</td>
+                    <td><button onclick="deleteUser(this)">删除</button></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="item" onchange="checkItem()"></td>
+                    <td>alice</td>
+                    <td>20</td>
+                    <td>male</td>
+                    <td>120</td>
+                    <td><button onclick="deleteUser(this)">删除</button></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td><button onclick="deleteMultiple()">删除多个</button></td>
+                    <td colspan="5" class="btn-right">
+                        <button onclick="deleteFirst()">从首行删除</button>
+                        <button onclick="deleteLast()">从末行删除</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <hr>
+
+        <form id="myform">
+            姓名：<input type="text" id="name"> <br>
+            年龄：<input type="text" id="age"> <br>
+            性别：<input type="radio" name="sex" id="m" value="male" checked> 男
+                 <input type="radio" name="sex" id="f" value="female"> 女 <br>
+            电话：<input type="text" id="phone"> <br>
+            <input type="button" value="添    加" onclick="addUser()">
+            <input type="reset" value="重    置" id="btnReset">
+        </form>
+    </div>
+</body>
+</html>

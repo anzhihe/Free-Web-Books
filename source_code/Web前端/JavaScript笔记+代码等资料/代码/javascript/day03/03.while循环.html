@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  基本用法
+         */
+        // 循环输出10次：好好学习，天天向上
+        /* var i=1;
+        while(i<=10){
+            console.log('好好学习，天天向上'+i);
+            i++; // 自增
+        } */
+
+        // 案例1：计算100以内所有正整数之和
+        /* var sum=0;
+        var i=1;
+        while(i<=100){
+            sum+=i; // 累加求和，等价于sum=sum+i
+            i++;
+        }
+        console.log('100以内所有正整数之和为：'+sum); */
+
+        // 案例2：计算10到50之间所有奇数之和
+        /* var sum=0;
+        var i=10;
+        while(i<=50){
+            // 判断i是否为奇数
+            if(i%2!=0){
+                sum+=i;
+            }
+            i++;
+        }
+        console.log('10到50之间所有奇数之和：'+sum); */
+
+        // 案例3：在页面上输出[1,200]之间所有能被7整除，但不能被4整除的所有整数，并统计个数，同时要求输出时每行显示5个
+        var i=1;
+        var count=0; // 个数
+        while(i<=200){
+            if(i%7==0 && i%4!=0){
+                document.write(i+"&nbsp;&nbsp;&nbsp;&nbsp;");
+                // 统计个数
+                count++; 
+                // 判断每输出5个，换一行
+                if(count%5==0){
+                    document.write('<br>');
+                }
+            }
+            i++;
+        }
+        document.write('<br>共计：'+count+'个')
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

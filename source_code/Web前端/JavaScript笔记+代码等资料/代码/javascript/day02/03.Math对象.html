@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  Math.abs() 绝对值
+         */
+        // var a = -8;
+        // a = Math.abs(a);
+        // console.log(a); 
+        // console.log(Math.abs(a));
+
+        // var score1 = prompt('请输入第一个学生的成绩：');
+        // var score2 = prompt('请输入第二人学生的成绩：');
+        // console.log('相差的分数：'+Math.abs(score1-score2));
+
+        /**
+         *  Math.pow() 求次方
+         */
+        // console.log(3*3*3*3*3); 
+        // console.log(3**5);
+        // console.log(Math.pow(3,5)); // 参数可以有多个，以逗号隔开
+
+        /**
+         *  Math.round() 四舍五入
+         */
+        // console.log(Math.round(3.4415926)); // 不保留小数位，进行四舍五入
+        // 保留指定长度的小数位，用法：数值.toFixed(小数位)
+        // console.log(3.4415926.toFixed(1));
+
+        /**
+         *  Math.ceil() 向上取整
+         *  Math.floor() 向下取整
+         */
+        // console.log(2.4); 
+        // console.log(Math.ceil(2.4)); // 天花板函数，获取大于等于参数的最小整数
+        // console.log(Math.floor(2.4)); // 地板函数，获取小于等于参数的最大整数
+        // console.log(Math.floor(2));
+
+        /**
+         *  Math.random() 随机数
+         */
+        // console.log(Math.random()); // 返回一个[0,1)之间的随机小数
+        // console.log(Math.floor(Math.random()*100+1)); // 返回一个[1,100]之间的随机整数
+
+        /**
+         *  Math.max() 返回最大值
+         *  Math.min() 返回最小值
+         */
+        // console.log(Math.max(12,4,2,54,23,7)); 
+        // console.log(Math.min(12,4,2,54,23,7)); 
+
+        /**
+         *  Math.PI 圆周率
+         */
+        // console.log(Math.PI);  // 不能在后面添加小括号
+
+        var r = prompt('请输入圆的半径：');
+        var area = Math.PI * Math.pow(r,2);
+        console.log('圆的面积：' + area.toFixed(2));
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

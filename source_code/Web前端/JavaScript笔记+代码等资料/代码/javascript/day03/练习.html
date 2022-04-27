@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		/**
+		 * 练习1：
+		 * 提示用户输入三个整数，判断并输出其中的最大值、最小值（使用if结构）
+		 */
+		// var a = Number(prompt('请输入第一个整数：'));
+		// var b = Number(prompt('请输入第二个整数：'));
+		// var c = Number(prompt('请输入第三个整数：'));
+		// 方式1
+		/* // 先在a、b、c中找最大值
+		if(a>b&&a>c){
+			console.log('最大值：'+a);
+		}else if(b>a&&b>c){
+			console.log('最大值：'+b);
+		}else{
+			console.log('最大值：'+c);
+		}
+		// 然后在a、b、c中找最小值
+		if(a<b&&a<c){
+			console.log('最小值：'+a);
+		}else if(b<a&&b<c){
+			console.log('最小值：'+b);
+		}else{
+			console.log('最小值：'+c);
+		} */
+
+		// 方式2
+		/* var max,min;
+		// 先比较a和b
+		if(a>b){
+			max=a;
+			min=b;
+		}else{
+			max=b;
+			min=a;
+		}
+		// 然后将c与max、min进行比较
+		if(c>max){
+			max=c;
+		}
+		if(c<min){
+			min=c;
+		}
+		console.log(max,min); */
+
+
+		/**
+		 * 练习2：
+		 * 提示用户分别输入三角形的边a、b、c，范围必须在[1,100]之间
+         *　判断三角形的类型：
+		 *	1.非三角形a+b<c或a+c<b或b+c<a
+		 *	2.等边a=b=c
+		 *  3.等腰直角
+		 *	4.等腰a=b或a=c或b=c
+		 *	5.直角a*a+b*b=c*c或a*a+c*c=b*b或b*b+c*c=a*a
+		 *	6.普通
+		 */  
+		// 判断输入的数据是否符合要求 
+		/* var a = Number(prompt('请输入第一个边：')); 
+		while(a<1||a>100){
+			a = Number(prompt('输入无效，范围必须在[1,100]之间，请重新输入第一个边：'));
+		}
+		var b = Number(prompt('请输入第二个边：')); 
+		while(b<1||b>100){
+			b = Number(prompt('输入无效，范围必须在[1,100]之间，请重新输入第二个边：'));
+		}
+		var c = Number(prompt('请输入第三个边：')); 
+		while(c<1||c>100){
+			c = Number(prompt('输入无效，范围必须在[1,100]之间，请重新输入第三个边：'));
+		}
+		// 判断三角形的类型
+		if(a+b<c||a+c<b||b+c<a){
+			console.log('非三角形');
+		}else if(a==b&&a==c){
+			console.log('等边三角形');
+		}else if(a==b&&a*a+b*b==c*c||a==c&&a*a+c*c==b*b||b==c&&b*b+c*c==a*a){
+			console.log('等腰直角三角形');
+		}else if(a==b||a==c||b==c){
+			console.log('等腰三角形');
+		}else if(a*a+b*b==c*c||a*a+c*c==b*b||b*b+c*c==a*a){
+			console.log('直角三角形');
+		}else{
+			console.log('普通三角形');
+		} */
+
+
+		/**
+		 * 练习3：
+		 * 提示用户输入一个整数，如:237849172，将其倒序输出271948732
+		 */ 
+		/* var result='';
+		var num=Number(prompt('请输入一个整数：')); 
+		console.log(num);
+		while(num>0){
+			result+=num%10;
+			num=parseInt(num/10)
+		}
+		console.log(result); */
+
+
+		/**
+		 * 练习4：
+		 * 在页面上输出1到1000之间5的倍数，并统计个数，要求每输出8个换一行显示
+		 */ 
+		var count=0; 
+		for(var i=1;i<=1000;i++){
+			if(i%5==0){
+				document.write(i+'&nbsp;&nbsp;');
+				count++;
+				if(count%8==0){
+					document.write('<br>');
+				}
+			}
+		}
+		document.write('<br>共计'+count+'个');
+	  
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

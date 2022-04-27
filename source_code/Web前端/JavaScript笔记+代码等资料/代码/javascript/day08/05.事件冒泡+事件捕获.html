@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid black;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+        }
+        #div2{
+            width: 150px;
+            height: 150px;
+        }
+        #div3{
+            width: 100px;
+            height: 100px;
+        }
+        #div4{
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }
+
+        window.onload=function(){
+            /**
+             *  1.通过事件属性的方式绑定，采用的都是事件冒泡
+             *  2.可以通过addEventListener(事件名,回调函数,事件流方式)
+             */
+            $('div1').addEventListener('click',function(){
+                console.log('div1');
+            },false) // 第三个参数为false表示事件冒泡，true表示事件捕获，默认为false
+            $('div2').addEventListener('click',function(){
+                console.log('div2');
+            },false)
+            $('div3').addEventListener('click',function(event){
+                console.log('div3');
+                event.stopPropagation(); // 阻止事件传播
+            },false)
+            $('div4').addEventListener('click',function(){
+                console.log('div4');
+            },false)
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">div1
+        <div id="div2">div2
+            <div id="div3">div3
+                <div id="div4">div4</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

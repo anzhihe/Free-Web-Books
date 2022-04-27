@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function f1(){
+            console.log('方式1');
+        }
+
+        // 当页面加载完成后执行
+        window.onload=function(){
+            // 方式2：通过DOM对象的事件属性，为按钮绑定点击事件
+            var btn2=document.getElementById('btn2');
+            btn2.onclick=function(){
+                console.log('方式2');
+            }
+
+            // 方式3：通过为DOM对象进行事件监听addEventListener()
+            var btn3=document.getElementById('btn3');
+            // btn3.addEventListener('click',function(){
+            //     console.log('方式3');
+            // });
+
+        };
+
+    </script>
+</head>
+<body>
+    <!-- 方式1：通过标签的事件属性 -->
+    <button onclick="f1()">按钮1</button>
+
+    <button id="btn2">按钮2</button>
+
+    <button id="btn3">按钮3</button>
+
+
+    <!-- <script>
+        var btn2=document.getElementById('btn2');
+        console.log(btn2);
+    </script> -->
+</body>
+</html>

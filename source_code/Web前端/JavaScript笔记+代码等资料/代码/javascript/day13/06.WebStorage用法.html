@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  写入WebStorage
+         */
+        function writeStorage(){
+            // 存储到localStorage中
+            localStorage.setItem('name','alice');
+            localStorage.setItem('sex','female');
+            localStorage.setItem('name','tom'); // 如果key已存在，则表示修改
+            localStorage.address='南京';  // 不推荐
+
+            // 存储到sessionStorage中
+            // sessionStorage.setItem('age',18); // 会话结束时失败，即关闭浏览器则自动删除
+        }
+
+        /**
+         *  读取WebStorage
+         */
+        function readStorage(){
+            console.log(localStorage.getItem('address')); // 如果存在，返回值为string类型
+            // console.log(localStorage.getItem('age')); // 如果不存在，则返回null
+
+            // console.log(sessionStorage.getItem('age'));
+        } 
+
+        /**
+         *  删除WebStorage
+         */
+        function removeStorage(){
+            localStorage.removeItem('address');
+        } 
+
+        /**
+         *  其他操作
+         */
+        function doOther(){
+            // 根据索引来获取key
+            // console.log(localStorage.key(1));
+
+            // 清空数据
+            // localStorage.clear();
+
+            // 获取键值对的数量
+            // console.log(localStorage.length);
+
+            /**
+             *   WebStorage中只能存储字符串数据，如果要存储对象，需要先转换为字符串格式
+             */
+            // var stu={
+            //     id:'9527',
+            //     name:'唐伯虎',
+            //     age:30,
+            //     height:183.6
+            // };
+
+            // 1.将对象转换为字符串，然后存入
+            // localStorage.setItem('stu',JSON.stringify(stu));
+           
+            // 2.将读取的字符串转换为JSON对象
+            // var str=localStorage.getItem('stu');
+            // var obj=JSON.parse(str);    
+            // console.log(obj.name,obj.age);    
+
+
+            // 对象数组
+            var stus=[
+                {
+                    id:'9527',
+                    name:'唐伯虎',
+                    age:30,
+                    height:183.6
+                },
+                {
+                    id:'3306',
+                    name:'秋香',
+                    age:30,
+                    height:183.6
+                },
+                {
+                    id:'1433',
+                    name:'石榴姐',
+                    age:30,
+                    height:183.6
+                }
+            ];
+
+            localStorage.setItem('stus',JSON.stringify(stus));
+            var array=JSON.parse(localStorage.getItem('stus'));
+            console.log(array);
+        } 
+    </script>
+</head>
+<body>
+    <button onclick="writeStorage()">写入WebStorage</button>
+    <button onclick="readStorage()">读取WebStorage</button>
+    <button onclick="removeStorage()">删除WebStorage</button>
+    <button onclick="doOther()">其他操作</button>
+</body>
+</html>

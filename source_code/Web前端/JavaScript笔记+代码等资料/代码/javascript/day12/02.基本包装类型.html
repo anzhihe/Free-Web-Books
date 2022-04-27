@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>  
+        /**
+         *  数据类型:
+         *     1.基本类型 string  number  boolean....
+         *     2.引用类型 String  Number  Boolean  Array  Student......
+         */
+
+        /**
+         *  基本类型
+         */ 
+        // 使用字量面来定义，基本类型string  
+        // var stu='tom'; 
+        // 不能为基本类型添加属性，只有引用类型才能添加属性
+        /* stu.age=20;
+        stu.run=function(){
+            console.log('正在跑步....');
+        }
+        console.log(stu);
+        console.log(stu.age); // undefined
+        stu.run(); // 报错 */
+
+
+        /**
+         *  引用类型
+         */
+        // 使用构造函数，引用类型String
+        // var stu=new String('tom'); 
+        // stu.age=20;
+        // stu.run=function(){
+        //     console.log('正在跑步....');
+        // }
+        // console.log(stu);
+        // console.log(stu.age); 
+        // stu.run();   
+
+
+        /**
+         *  基本包装类型
+         *     string  ————> String
+         *     number  ————> Number
+         *     boolean ————> Boolean
+         */
+       /*  var stu='tom';
+        // console.log(stu.prototype); // 基本数据类型没有原型prototype
+        
+        // 基本数据类型本身是没有方法的，此时能调用方法是因为JS内部自动创建了对应的包装类型对象 
+        console.log(stu.charAt(1));
+        console.log(stu.toUpperCase()); */
+
+
+        // Number和Boolean也是相同的情况 
+        var num=520.456;
+        // console.log(typeof num);
+        console.log(num.toFixed(2));
+
+        var flag=true;
+        flag.valueOf();    
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

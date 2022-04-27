@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #logo{
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+    <script>
+        function change(){
+            if($('baidu').checked){
+                $('logo').src='images/baidu.png';
+                $('btnSearch').value='百度搜索';
+            }else if($('sogou').checked){
+                $('logo').src='images/sogou.png';
+                $('btnSearch').value='搜狗搜索';
+                $('frmSearch').action='https://www.sogou.com/web';
+                $('txtSearch').name='query';
+            }else{
+                $('logo').src='images/360.png';
+                $('btnSearch').value='360搜索';
+                $('frmSearch').action='https://www.so.com/s';
+                $('txtSearch').name='q';
+            }
+        }
+
+        /**
+         *  用来简化元素的获取
+         */
+        function $(id){
+            return document.getElementById(id);
+        } 
+    </script>
+</head>
+<body>
+    <input type="radio" name="search" id="baidu" checked onclick="change()"> <label for="baidu">百度</label>
+    <input type="radio" name="search" id="sogou" onclick="change()"> <label for="sogou">搜狗</label>
+    <input type="radio" name="search" id="360" onclick="change()"> <label for="360">360</label>
+    <br>
+
+    <form action="https://www.baidu.com/s" id="frmSearch">
+        <img src="images/baidu.png" id="logo">
+        <input type="text" id="txtSearch" name="wd" placeholder="请输入搜索关键字">
+        <input type="submit" value="百度搜索" id="btnSearch">
+    </form>
+</body>
+</html>

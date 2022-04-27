@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  解析器执行JavaScript代码的过程
+         */
+
+
+        /**
+         *  思考一：undefined
+         */
+        /* var num=10;
+        fn();
+        function fn(){
+            console.log(num);
+            var num=20;
+        } */
+
+        /* // 第1步：预解析（全局作用域）
+        var num;
+        function fn(){
+            // 第3步：预解析（局部作用域）
+            var num;
+
+            // 第4步：从上往下，一行一行执行代码
+            console.log(num); // undefined
+            num=20;
+        }
+
+        // 第2步：从上往下，一行一行执行代码
+        num=10;
+        fn(); */
+
+
+        /**
+         *  思考二：undefined 9
+         */
+        /* var a=18;
+        f1();
+        function f1(){
+            var b=9;
+            console.log(a);
+            console.log(b);
+            var a=77;
+        } */
+
+        /* var a;
+        function f1(){
+            var b;
+            var a;
+
+            b=9;
+            console.log(a); // undefined
+            console.log(b); // 9
+            a=77;
+        }
+
+        a=18;
+        f1(); */
+
+
+        /**
+         *  思考三：
+         */
+        /* f1();
+        console.log(c);
+        console.log(b);
+        console.log(a);
+        function f1(){
+            var a=b=c=9;
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        } */
+
+        /* function f1(){
+            var a; // a是局部变量
+
+            a=b=c=9; // b和c是全局变量
+            // var a=b=c=9; // 等价于 var a=9; b=9; c=9;
+            // var a=9,b=9,c=9; // 等价于 var a=9; var b=9; var c=9;
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+
+        f1();
+        console.log(c);
+        console.log(b);
+        console.log(a); //  a is not defined */
+
+
+        /**
+         *  区分：没有声明变量 和 变量未赋值
+         *       1.如果没有声明变量，报错：hobby is not defined
+         *       2.声明了变量，但未赋值，结果：undefined
+         */
+        // console.log(hobby);  // 报错：hobby is not defined
+        var age;
+        console.log(age); // undefined
+
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

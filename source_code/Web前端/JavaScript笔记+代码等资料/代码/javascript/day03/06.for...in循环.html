@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  基本用法
+         */
+        /* var str = "welcome";  // 字符串，可以将字符串看作是由许多字符组成的集合
+        for(var index in str){ // index表示集合中每个元素的索引/序号，索引从0开始，并不是元素本身
+            console.log(index,str[index]);
+        } */
+
+        // 案例：提示用户输入一段英文，统计并输出其中的元音字母（aeiou）的个数
+        var english = prompt('请输入一段英文：'); // adfasdfjlksajfwerw
+        var count=0;
+        for(var i in english){
+            if(english[i]=='a'||english[i]=='e'||english[i]=='i'||english[i]=='o'||english[i]=='u'){
+                count++;
+            }
+        }
+        console.log('共有'+count+'个元音字母');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

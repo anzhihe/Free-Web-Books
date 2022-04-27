@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr = [98,534,23,12,7];
+        arr[5] = 77;
+        arr['name'] = 'tom';
+        arr['age'] = 27;
+        arr['sex'] = 'female'
+
+        // console.log(arr[0]);
+        // console.log(arr);
+        // console.log(arr['age'],arr['sex']);
+
+        // length属性无法获取字符串索引的元素
+        // console.log(arr.length);
+
+        // 无法使用普通for循环获取数组中所有元素
+        // for(var i=0;i<arr.length;i++){
+        //     console.log(arr[i]);
+        // }
+
+        // 无法使用for...of遍历数组中所有元素    
+        // for(var item of arr){
+        //     console.log(item);
+        // }    
+
+        // 只能使用for...in遍历数组中所有元素
+        for(var i in arr){
+            console.log(i,arr[i]);
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
