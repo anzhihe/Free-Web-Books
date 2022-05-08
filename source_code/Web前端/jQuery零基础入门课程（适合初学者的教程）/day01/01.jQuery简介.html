@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery/jquery-1.9.0.js"></script>
+	<script type="text/javascript">
+		//使用原始JavaScript
+		/*window.onload=function(){
+			var mydiv=document.getElementById("mydiv"); //DOM对象
+			mydiv.style.fontSize="30px";
+			mydiv.style.color="red";
+		};*/
+
+		//使用jQuery
+		//ready()方法称为文档就绪方法，表示当页面加载后执行参数中的函数，作用类似于window.onload
+		// $(document).ready(function(){  //$(document).ready();可以缩写为$();
+		/*$(function(){
+			var mydiv=$("#mydiv"); //jQuery对象
+			mydiv.css("font-size","30px");
+			$("#mydiv").css("color","blue");
+		});*/
+
+		/*
+			$(document).ready()与window.onload的区别
+			1.个数
+			2.执行时机
+			3.是否可以简化缩写
+		*/
+
+		/*window.onload=function(){
+			console.log("aaa");
+		};
+
+		window.onload=function(){
+			console.log("bbb");
+		};
+
+		$(function(){
+			console.log("ccc");
+		});
+
+		$(function(){
+			console.log("ddd");
+		});*/
+
+		window.onload=function(){
+			alert("页面所有元素加载完成！");
+		};
+
+		$(function(){
+			alert("页面DOM结构加载完成！");
+		});
+	</script>
+</head>
+<body>
+	<div id="mydiv">Hello World!</div>
+</body>
+</html>

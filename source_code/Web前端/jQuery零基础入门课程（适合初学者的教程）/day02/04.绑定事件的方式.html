@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery/jquery-1.7.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//1.直接使用事件名方法
+			/*$("#btn").click(function(){
+				console.log("点击按钮");
+			});*/
+
+			//2.使用bind()或on()
+			/*$("#btn").bind("mouseover",function(){
+				console.log("鼠标经过按钮");
+			});
+
+			$("#btn").on("mouseout",function(){
+				console.log("鼠标离开按钮");
+			});*/
+
+			//同时绑定多个事件
+			/*$("#btn").on({
+				mouseover:function(){
+					console.log("鼠标经过按钮");
+				},
+				mouseout:function(){
+					console.log("鼠标离开按钮");
+				},
+				click:function(){
+					console.log("点击按钮");
+				}
+			});*/
+
+			//复合事件
+			$("#btn").hover(function(){
+				console.log("鼠标经过按钮");
+			},function(){
+				console.log("鼠标离开按钮");
+			});
+
+			//toggle()用于模拟鼠标连续点击事件，此方法在jQuery1.9及之后版本中已被删除
+			$("#btn").toggle(function(){
+				$(this).css("background","red");
+			},function(){
+				$(this).css("background","yellow");
+			},function(){
+				$(this).css("background","blue");
+			});
+		});
+
+		function doRemoveClick(){
+			$("#btn").unbind("click");
+		}
+
+		function doRemoveAll(){
+			$("#btn").unbind();
+		}
+
+	</script>	
+</head>
+<body>
+	<input type="button" value="绑定事件的多种方式" id="btn">
+	<hr>
+
+	<input type="button" value="移除点击事件" onclick="doRemoveClick()">
+	<input type="button" value="移除所有事件" onclick="doRemoveAll()">
+</body>
+</html>

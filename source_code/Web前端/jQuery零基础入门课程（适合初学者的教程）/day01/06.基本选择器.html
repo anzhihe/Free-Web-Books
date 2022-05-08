@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery/jquery-1.9.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#btn1").click(function(){
+				$("#first").css("background","red");
+				console.log("个数："+$("#first").length);
+			});
+
+			$("#btn2").click(function(){
+				$("div").css("background","yellow");
+				console.log($("div").length);
+			});
+
+			$("#btn3").click(function(){
+				$(".hehe").css("background","blue");
+				console.log($(".hehe").length);
+			});
+
+			$("#btn4").click(function(){
+				$("#first,.hehe,#last,p").css("background","pink");
+				console.log($("#first,.hehe,#last").length);
+			});
+
+			$("#btn5").click(function(){
+				$("p.hehe").css("background","pink");
+				console.log($("p.hehe").length);
+			});
+
+			$("#btn6").click(function(){
+				$("*").css("background","pink");
+				console.log($("*").length);
+			});
+		});
+	</script>	
+</head>
+<body>
+	<input type="button" value="ID选择器" id="btn1">
+	<input type="button" value="标签选择器" id="btn2">
+	<input type="button" value="类选择器" id="btn3">
+	<input type="button" value="并集选择器" id="btn4">
+	<input type="button" value="交集选择器" id="btn5">
+	<input type="button" value="全局选择器" id="btn6">
+	<hr>
+
+	<div id="first">itany1</div>
+	<div class="hehe">itany2</div>
+	<div>itany3</div>
+	<div class="hehe">itany4</div>
+	<div>itany5</div>
+	<div id="last">itany6</div>
+	<p class="hehe">p1</p>
+	<p>p2</p>
+	<p>p3</p>
+	<p>p4</p>
+	<p>p5</p>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery/jquery-1.9.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#btn1").click(function(){
+				$("div.hehe span:first").css("background","red");
+			});
+
+			$("#btn2").click(function(){
+				$("p:last").css("background","red");
+			});
+
+			$("#btn3").click(function(){
+				$("div.hehe").css("background","red");
+			});
+
+			$("#btn4").click(function(){
+				$("div:not(div.hehe)").css("background","blue");
+			});
+
+			$("#btn5").click(function(){
+				$("span:even").css("background","blue");
+				console.log($("span:even").length);
+			});
+
+			$("#btn6").click(function(){
+				$("span:odd").css("background","red");
+			});
+
+			$("table tr:even").css("background","yellow");
+
+			$("#btn7").click(function(){
+				$("span:eq(1)").css("background","pink");
+			});
+
+			$("#btn8").click(function(){
+				$("span:gt(2)").css("background","red");
+			});
+
+			$("#btn9").click(function(){
+				$("span:lt(1)").css("background","green");
+			});
+
+			$("#btn10").click(function(){
+				$(":header:first").css("background","green");
+			});
+		});
+	</script>	
+</head>
+<body>
+	<input type="button" value="选择第一个span元素" id="btn1">
+	<input type="button" value="选择最后一个p元素" id="btn2">
+	<input type="button" value="选择class为hehe的div元素" id="btn3">
+	<input type="button" value="选择class不为hehe的div元素" id="btn4">
+	<input type="button" value="选择索引为偶数的span元素" id="btn5">
+	<input type="button" value="选择索引为奇数的span元素" id="btn6">
+	<input type="button" value="选择索引等于1的span元素" id="btn7">
+	<input type="button" value="选择索引大于2的span元素" id="btn8">
+	<input type="button" value="选择索引小于1的span元素" id="btn9">
+	<input type="button" value="选择所有标题元素" id="btn10">
+
+	<hr>
+	
+	<div>最前面的div</div>
+	<div id="first">itany1
+		<p>
+			<span>span1</span>
+			<span>span2</span>
+			<br>
+			<span>ID为first的div中的p中的span</span>
+		</p>
+		<span>ID为fitst的div中的span</span>
+	</div>
+	<h2>二级标题</h2>
+	<div class="hehe">itany2
+		<p>
+			<span>span1</span>
+			<span>span2</span>
+			<div>class为hehe的div中的p中的div</div>
+		</p>
+	</div>
+	<div>itany3</div>
+	<div class="hehe">itany4</div>
+	<div>itany5</div>
+	<div id="last">itany6</div>
+	<p class="hehe">p1</p>
+	<p>p2</p>
+	<p>p3</p>
+	<p>p4</p>
+	<p>p5</p>
+	<h3>三级标题</h3>
+	<h5>五级标题</h5>
+
+	<table border="1px" width="500px">
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+		<tr>
+			<td>itany1</td>
+			<td>itany2</td>
+			<td>itany3</td>
+			<td>itany4</td>
+			<td>itany5</td>
+			<td>itany6</td>
+			<td>itany7</td>
+			<td>itany8</td>
+			<td>itany9</td>
+		</tr>
+	</table>
+</body>
+</html>

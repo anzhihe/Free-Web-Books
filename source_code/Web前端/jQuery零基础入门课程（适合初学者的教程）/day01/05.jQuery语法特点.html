@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery/jquery-1.9.0.js"></script>
+	<script type="text/javascript">
+		//1.读取和设置使用同一个方法
+		$(function(){
+			$("#btn1").click(function(){
+				// console.log($("#itany").html());
+				// console.log($("#itany").css("color"));
+				console.log($("#btn1").val());
+				console.log($("#btn2").val());
+
+			});
+
+			$("#btn2").click(function(){
+				// $("#itany").html("hello world");
+				// $("#itany").css("color","red");
+				$("#btn1").val("读取个锤子");
+				$("#btn2").val("设置个锤子");
+			});
+		});
+
+		//2.链式操作元素
+		$(function(){
+			$("#btn3").click(function(){
+				/*$("#itany").html("南京网博");
+				$("#itany").css("color","red");
+				$("#itany").css("font-size","30px");
+				$("#itany").css("border","1px solid #ccc");
+				$("#itany").width(300);
+				$("#itany").height(200);*/
+
+				// var obj=$("#itany").html("南京网博"); //返回当前对象
+				// obj.css("color","blue");
+
+				//链式写法
+				// $("#itany").html("南京网博").css("color","blue").css("font-size","30px").css("border","1px solid #ccc").width(300).height(200);
+
+				//传递JSON参数
+				$("#itany").html("南京网博").css({
+					"color":"pink",
+					"font-size":"30px",
+					"border":"1px solid red"
+				}).width(300).height(200);
+			});
+		});
+	</script>	
+</head>
+<body>
+	<input type="button" value="读取" id="btn1">
+	<input type="button" value="设置" id="btn2">
+	<input type="button" value="链式操作元素" id="btn3">
+	<hr>
+
+	<p id="itany">welcome to itany</p>
+</body>
+</html>

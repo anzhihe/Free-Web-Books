@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery/jquery-1.9.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#btn1").click(function(){
+				$("p:contains(wbs16073):last").css("background","red");
+			});
+
+			$("#btn2").click(function(){
+				$("p:empty").css("background","red").html("这原本是一个空div");
+			});
+
+			$("#btn3").click(function(){
+				$("div:has(span#hello)").css("background","red");
+			});
+
+			$("#btn4").click(function(){
+				$("p:parent").css("background","red");
+			});
+
+			$("#btn5").click(function(){
+				$("p:not(p:empty)").css("background","red");
+			});
+			
+		});
+	</script>	
+</head>
+<body>
+	<input type="button" value="选择包含wbs16073的最后一个p元素" id="btn1">
+	<input type="button" value="选择空p元素" id="btn2">
+	<input type="button" value="选择包含id为hello的span元素的div元素" id="btn3">
+	<input type="button" value="选择非空的p元素" id="btn4">
+	<input type="button" value="选择非空的p元素(方式2)" id="btn5">
+
+
+	<hr>
+	<p>welcome to 网博</p>
+	<div>
+		<p id="hello">hello itany</p>
+	</div>
+	<div>
+		<span id="hello"></span>
+		<p>今天星期五，相当的开心</p>
+	</div>
+	<p>welcome to wbs16073</p>
+	<p></p>
+	<p>Hello World!</p>
+	<p>welcome to wbs16073</p>
+	<div>happy wbs16073</div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jquery-1.9.0.js"></script>
+	<script>
+		$(function(){
+			//eq()
+			// $("ul li:eq(1)").css("color","red");
+			/*var n=Number(prompt("请输入您要获取第几个li："));
+			// $("ul li:eq("+(n-1)+")").css("color","red");
+			$("ul li").eq(n-1).css("color","red");*/
+
+			//first()和last()
+			// $("ul li").first().css("color","red");
+			// $("ul li").last().css("color","red");
+
+			//filter() 对当前选中元素进行过滤筛选
+			// $("li").filter(".hello").css("color","blue");
+			// $("li").filter("#first,:odd").css("color","blue");
+			//获取内部不含有span的p元素
+			/*$("p").filter(function(index) { //此处的this表示当前的DOM元素
+			  if($("span",this).length == 0){ //在this中查找span元素
+			  	return true; //符合条件则返回true
+			  }
+			}).css("color","red");*/
+
+			//find() 在当前元素内部进行查找
+			// $("ul").find(".hello").css("color","red");
+
+			//slice() 选取匹配的子集
+			// $("li").slice(3).css("color","red");
+			// $("li").slice(3,5).css("color","red");
+
+			//data()和removeData() 在元素上存放数据和移除数据
+			$("ul").data("name","tom");
+			$("ul").data("age",20);
+			console.log($("ul").data("name"));
+			console.log($("ul").data("age"));
+			$("ul").removeData("name");
+			console.log($("ul").data("name"));
+
+		});
+	</script>
+</head>
+<body>
+	<ul>
+		<li id="first">itany1
+			<span class="hello">span1</span>
+		</li>
+		<li>itany2</li>
+		<li>itany3</li>
+		<li class="hello">itany4</li>
+		<li>itany5</li>
+		<li>itany6</li>
+		<li>itany7</li>
+		<li>itany8</li>
+	</ul>
+
+	<p>
+		<ol>
+			<li><span>p1</span></li>
+		</ol>
+	</p>
+	<p>p2</p>
+	<p>
+		<span>p3</span>
+	</p>
+</body>
+</html>

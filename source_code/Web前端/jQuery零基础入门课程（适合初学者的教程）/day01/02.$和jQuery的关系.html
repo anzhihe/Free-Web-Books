@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery/jquery-1.9.0.js"></script>
+	<script type="text/javascript">
+		/*
+			在jQuery中，$其实是jQuery的别名，一般都直接使用$符号
+			许多JavaScript库都使用$作为标记，jQuery也一样，所以当同时使用多个JavaScript库时会出现冲突
+			解决：var jq=jQuery.noConflict(); 或 var jq=$.noConflict();
+		*/
+		function $(){  //如果$冲突，则不会认为是执行jQuery代码
+			alert("嘿嘿");
+		}
+
+		var jq=jQuery.noConflict(); //重新设置jQuery的别名，不再使用$
+
+		jq(function(){
+			alert("itany");
+		});
+		
+		jQuery(function(){
+			alert("hello");
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

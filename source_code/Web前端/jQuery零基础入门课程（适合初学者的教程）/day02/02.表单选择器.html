@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery/jquery-1.9.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("input:first").click(function(){
+				console.log($("form :input").length);
+				$("form :input").css("background","red");
+ 			});
+
+ 			$("input:eq(1)").click(function(){
+ 				console.log($("form :text").length);
+ 			});
+
+ 			$("input:eq(2)").click(function(){
+ 				console.log($("form :radio").length);
+ 				// console.log($("form :radio").val());
+ 				var radios=$("form :radio");
+ 				/*for(var i=0;i<radios.length;i++){
+ 					// console.log(radios[i].value);
+ 					// console.log($(radios[i]).val());
+ 				}*/
+
+ 				//使用jQuery提供的工具函数each()进行遍历循环操作
+ 				$.each(radios,function(index,item){
+ 					console.log(index+":"+$(item).val());
+ 				});
+ 			});
+
+ 			$("input:eq(3)").click(function(){
+ 				console.log($(":button").length);
+ 				$(":button").css("background","red");
+ 			});
+
+ 			$("input:eq(4)").click(function(){
+ 				console.log($("form :input:enabled").length);
+ 			});
+
+ 			$("input:eq(5)").click(function(){
+ 				console.log($("form :checked").length);
+ 				$.each($("form :checked"),function(index,item){
+ 					console.log($(item).val());
+ 				});
+ 			});
+
+ 			$("input:eq(6)").click(function(){
+ 				console.log($("form :selected").length);
+ 				console.log($("form :selected").val());
+ 			});
+		});
+	</script>	
+</head>
+<body>
+	<input type="button" value="选择表单中所有的:input">
+	<input type="button" value="选择所有的单行文本框">
+	<input type="button" value="选择所有单选按钮">
+	<input type="button" value="选择所有的button按钮">
+	<input type="button" value="选择表单中所有可用的:input	">
+	<input type="button" value="选择被选中的单选按钮和复选框">
+	<input type="button" value="选择被选中的下拉列表项">
+
+	<hr>
+
+	<form action="">
+		用户名： <input type="text" disabled="disabled"><br>
+		密码：<input type="password" name="" id=""><br>
+		性别：<input type="radio" name="sex" value="male">男 
+			<input type="radio" name="sex" value="female">女<br>
+		爱好：<input type="checkbox" name="hobby" value="eat">吃饭
+			<input type="checkbox" name="hobby" value="sleep">睡觉
+			<input type="checkbox" name="hobby" value="doudou">打豆豆<br>
+		头像：<input type="file">	<br>
+		学历：<select>
+			<option value="1">高中</option>
+			<option value="2">大专</option>
+			<option value="3">本科</option>
+			<option value="4">研究生</option>
+		</select>
+		简介：<textarea rows="5" cols="10"></textarea><br>
+		<input type="submit" value="提交">
+		<input type="reset" value="重置">
+		<input type="image" src="">
+
+	</form>
+</body>
+</html>

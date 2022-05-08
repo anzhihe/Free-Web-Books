@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jquery-1.9.0.js"></script>
+	<script>
+		//$()是jQuery的核心函数，包含多种用法
+
+		//注意：$是jQuery的别名，$等价于jQuery
+		// $(function(){
+		/*jQuery(function(){
+			console.log("hello");
+		});*/
+
+		//用法1：$(回调函数)，等价于$(document).ready()，简写形式
+
+		//用法2：$(选择器,[查找范围])，根据选择器在指定范围中查找元素，返回的是包含一个或多个元素的集合（jQuery对象）
+		/*$(function(){
+			// console.log($("#mydiv").length); //如果省略查找范围，默认在整个document中查找
+			// console.log($("p").length);
+			console.log($("p",$("#mydiv")).length); //在id为mydiv的元素内部查找p
+		});*/
+
+		//用法3：$(DOM对象)，将DOM对象转换为jQuery对象
+		/*$(function(){
+			var dom=document.getElementById("mydiv");
+			$(dom).css("color","red");
+		});*/
+
+		//用法4：$(HTML标签字符串)，根据提供的HTML标签字符串，创建一个由jQuery对象包装的DOM元素
+		// var p=$("<p>由jQuery创建的标签</p>");
+
+		//用法5：$()，创建一个空的jQuery对象
+		// console.log($().length);
+
+	</script>
+</head>
+<body>
+	<div id="mydiv">
+		welcome to itany
+		<p>p1</p>
+		<div>
+			<p>p2</p>
+		</div>
+	</div>
+	<p>p3</p>
+</body>
+</html>
