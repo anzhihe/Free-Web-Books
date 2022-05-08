@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery/jquery-1.7.js"></script>
+	<script type="text/javascript">
+		function addNode(){
+			//创建节点
+			/*var li=$("<li>");
+			li.html("编程");*/
+			var li1=$("<li>编程</li>");
+			var li2=$("<li title='movie'>电影</li>");
+			var p=$("<p>welcome to itany!</p>");
+
+			//添加节点
+			$("ul").append(li1);
+			// li2.appendTo($("ul")); //与append()相比，只是颠倒了顺序
+			// $("ul").prepend(li2);
+			li2.prependTo($("ul"));
+
+			$("ul").after(p);
+		}
+
+		function deleteNode(){
+			// $("ul li:first").remove(); //删除整个节点
+			$("ul li:first").empty(); //清空节点，只是将节点中的内容删除，节点还在
+		}
+
+		function copyNode(){
+			$("ul li:contains(睡觉)").click(function(){
+				console.log("点击了睡觉！");
+			});
+			$("ul li:contains(睡觉)").clone(true).appendTo($("ul")); //true表示复制元素的所有事件处理
+		}
+
+		function replaceNode(){
+			// $("ul li:first").replaceWith($("<li>跑步</li>"));
+			$("<li>跑步</li>").replaceAll($("ul li:first"));
+		}
+	</script>	
+</head>
+<body>
+	<input type="button" value="添加节点" onclick="addNode()">
+	<input type="button" value="删除节点" onclick="deleteNode()">
+	<input type="button" value="复制节点" onclick="copyNode()">
+	<input type="button" value="替换节点" onclick="replaceNode()">
+	<hr>	
+
+	<ul>
+		<li>吃饭</li>
+		<li>睡觉</li>
+		<li>打豆豆</li>
+	</ul>
+</body>
+</html>

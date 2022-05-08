@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQ应用示例：注册</title>
+	<script type="text/javascript" src="../jquery/jquery-1.7.min.js"></script>
+	<script type="text/javascript" src="js/person.js"></script>
+	<script type="text/javascript" src="js/register.js"></script>
+	<script type="text/javascript">
+	function doRead () {
+		 var cnt=localStorage.getItem("__user__count__");
+		 for(var i=0;i<cnt;i++){
+		 	var str=localStorage.getItem("__user__"+i+"__");
+		 	console.log(str);
+		 }
+		 
+
+	}
+	</script>
+</head>
+<body>
+	<input type="button" value="read" onclick="doRead()">
+	<form>
+		<table align="center">
+			<tbody>
+				<tr>
+					<td width="100">Name:</td>
+					<td width="400">
+						<input type="text" id="txtName" onblur="doCheckName()" value="tom"><span></span>
+					</td>
+				</tr>
+				<tr>
+					<td width="100">Password:</td>
+					<td width="400">
+						<input type="password" id="txtPass" value="111"><span></span>
+					</td>
+				</tr>
+				<tr>
+					<td>Age:</td>
+					<td>
+						<input type="text" id="txtAge" value="22" onblur="doCheckAge()"><span></span>
+					</td>
+				</tr>
+				<tr>
+					<td>Gender:</td>
+					<td>
+						<input type="radio" name="gender" value="Male" checked>
+						<label for="male">男</label>
+						<input type="radio" name="gender" value="Female">
+						<label for="female">女</label>
+					</td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td>
+						<input type="text" id="txtEmail" onblur="doCheckEmail()" value="tom@rr.tt"><span></span>
+					</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td>
+						<input type="button" value="Add" onclick="doAdd()">
+						<input type="reset" value="Reset">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+.submenu > ul{
+	margin:0px;
+	padding: 0px;
+	list-style: none;
+}
+
+.submenu > ul >li {
+	float: left;
+	display: inline-block;
+	width: 120px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #ccc;
+	color: #fff;
+	text-align: center;
+	margin-right: 2px;
+}
+
+.submenu > ul >li > div{
+	width: 120px;
+	background-color: pink;
+	color: blue;
+	position: absolute;
+}
+
+.submenu > ul >li > div a:link{
+	text-decoration: none;
+}

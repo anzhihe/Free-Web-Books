@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery/jquery-1.7.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("input:eq(0)").click(function(){
+				console.log($("ul").children().length);
+				$("ul").children().css("background","red");
+			});
+
+			$("input:eq(1)").click(function(){
+				// console.log($("li").parent().length);
+				// $("li").parent().css("background","yellow");
+				console.log($("li").parents().length);
+				$("li").parents().css("background","yellow");
+			});
+
+			$("input:eq(2)").click(function(){
+				console.log($("ul").next().length);
+				$("ul").next().css("background","red");
+			});
+
+			$("input:eq(3)").click(function(){
+				console.log($("ul").prev().length);
+				$("ul").prev().css("background","blue");
+			});
+
+			$("input:eq(4)").click(function(){
+				// console.log($("ul").siblings().length);
+				// $("ul").siblings().css("background","green");
+
+				//使用工具函数each()
+				/*$.each($("ul").siblings(),function(index,item){
+					console.log(item);
+				});*/
+			
+				//使用成员函数each()
+				$("ul").siblings().each(function(index,item){
+					console.log(item);
+				});
+
+			});
+		});
+	</script>
+</head>
+<body>
+	<input type="button" value="遍历子元素">
+	<input type="button" value="遍历前辈元素">
+	<input type="button" value="遍历同辈紧邻其后的元素">
+	<input type="button" value="遍历同辈紧邻其前的元素">
+	<input type="button" value="遍历同辈紧邻其前后所有的元素">
+	<hr>
+
+	<p>p1</p>
+	<p>p2</p>
+	<ul>
+		<li>itany1<span>ul中的li中的span</span></li>
+		<li>itany2</li>
+		<li>itany3</li>
+		<li>itany4</li>
+		<span>ul中的span</span>
+	</ul>
+	<div>div1</div>
+	<div>div1</div>
+	<div>div1</div>
+</body>
+</html>

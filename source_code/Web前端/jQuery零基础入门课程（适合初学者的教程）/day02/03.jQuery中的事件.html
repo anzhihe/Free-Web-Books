@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.over{
+			background: yellow;
+			color: red;
+			font-size: 20px;
+		}
+		.bg{
+			background: #ccc;
+		}
+	</style>
+	<script type="text/javascript" src="jquery/jquery-1.9.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+
+			//鼠标事件
+			/*$("li").click(function(){
+				console.log("点击了li，内容为："+$(this).html());
+			});*/
+
+			//$("li").mouseover(function(){
+				/*$(this).css("background","pink");
+				$(this).css("color","red");
+				$(this).css("font-size","14px");*/
+				/*$(this).css({
+					"background":"pink",
+					"font-size":"24px",
+				});*/
+				//$(this).addClass("over itany");
+			//}).mouseout(function(){
+				/*$(this).css("background","#fff");
+				$(this).css("color","#000");*/
+			//	$(this).removeClass("over");
+			//});
+
+			// $("li").bind({
+			//$("li").on({
+			/*$("li").one({  //绑定的事件只会触发一次
+				click:function(){
+					console.log("点击了li，内容为："+$(this).html());
+				},
+				mouseover:function(){
+					$(this).addClass("over itany");
+				},
+				mouseout:function(){
+					$(this).removeClass("over");
+				},
+			});*/
+
+			/*$(":button").click(function(){
+				$("li").unbind("mouseout");
+				// $("li").unbind("mouseover");
+				$("li").off("mouseover");
+			});*/
+
+			/*
+				事件参数：
+				1.在事件所绑定的回调函数中，可以接受一个参数，该参数用于记录事件状态
+				2.包括：
+					事件类型
+					发生位置（screen相对于屏幕、page相对于页面、client相对于浏览器、offset相对于自身）
+					事件源
+					时间戳等
+				3.根据事件类型不同，参数中存放的数据含义也有所不同，比如鼠标事件中的which属性表示哪个按钮	
+			*/
+			$("li").click(function(obj){
+				// console.log($(this).html());
+				/*for(var index in obj){
+					console.log(index+"="+obj[index]);
+				}*/
+				console.log(obj.type);	
+				console.log(obj.target==this);
+				// console.log(obj.timeStamp);
+				console.log(new Date(obj.timeStamp));
+
+			});
+
+
+			//键盘事件，执行顺序：keydown-->keypress-->keyup
+			$("#username").keydown(function(event){ //event表示键盘事件，包含事件相关信息
+				console.log(event.keyCode);
+				console.log("keydown");
+			}).keyup(function(){
+				console.log("keyup");
+			}).keypress(function() {
+				console.log("keypress");
+			});
+
+			$(document).keydown(function(event){
+				if(event.keyCode==13){
+					console.log("您按下了回车，确定要提交吗？");
+				}
+			});
+
+			//表单事件
+			$("#username").focus(function(){
+				$(this).addClass("bg");
+			}).blur(function(){
+				$(this).removeClass("bg");
+			});
+
+			//让普通按钮具有提交表单的功能
+			/*$("#btn").click(function(){
+				$("form").submit();
+			});*/
+
+			//阻止表单的提交
+			$("form").submit(function(){
+				if($("#username").val().trim()==""){
+					return checkInput(false);
+				}
+				return checkInput(true);
+			});
+
+		});
+
+		function checkInput(flag){
+			return flag;
+		};
+	</script>
+</head>
+<body>
+	<input type="button" value="移除事件">
+	<hr>
+	
+	<ul>
+		<li>itany1</li>
+		<li>itany2</li>
+		<li>itany3</li>
+	</ul>
+	
+	<form action="success.html" onsubmit="return checkInput(true)">
+		用户名：<input type="text" id="username">
+		<!-- <input type="button" value="提交" id="btn"> -->
+		<input type="submit" value="提交" id="btn">
+	</form>
+
+</body>
+</html>

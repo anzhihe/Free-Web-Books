@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery/jquery-1.9.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("input[type=button]:first").click(function(){
+				$("div a:first-child").css("background","red");
+			});
+
+			$("input[type=button]:eq(1)").click(function(){
+				$("div a:last-child").css("background","yellow");
+			});
+
+			$("input[type=button]:eq(2)").click(function(){
+				$("div a:nth-child(2)").css("background","blue");
+			});
+
+			$("input[type=button]:eq(3)").click(function(){
+				$("div a:nth-child(even)").css("background","blue");
+			});
+
+			$("input[type=button]:eq(4)").click(function(){
+				$("div a:only-child").css("background","blue");
+			});
+		});
+	</script>	
+</head>
+<body>
+	<input type="button" value="选择每个div元素下的第一个a元素">
+	<input type="button" value="选择每个div元素下的最后一个a元素">
+	<input type="button" value="选择每个div元素下的第2个a元素">
+	<input type="button" value="选择每个div元素下的偶数a元素">
+	<input type="button" value="选择只有一个a元素的div元素">
+	<hr>
+
+	<div>
+		<a>tom</a>
+		<a>jack</a>
+		<a>alice</a>
+	</div>
+	<div>
+		<a>张三</a>
+		<a>李四</a>
+		<a>赵六</a>
+	</div>
+	<p>
+		<a>小桌子</a>
+		<a>小凳子</a>
+		<a>小锤子</a>
+	</p>
+	<div>
+		<a>周末快乐</a>
+	</div>
+</body>
+</html>

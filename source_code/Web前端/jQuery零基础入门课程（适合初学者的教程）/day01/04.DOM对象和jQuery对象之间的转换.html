@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery/jquery-1.9.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//1.将DOM对象转换为jQuery对象
+			// var divDOM=document.getElementById("mydiv"); //DOM对象
+			// var divjQuery=$(divDOM); //jQuery对象
+			// console.log("使用DOM对象获取："+divDOM.innerHTML);
+			// console.log("使用jQuery对象获取："+divjQuery.html());
+
+			//2.将jQuery对象转换为DOM对象
+			var divjQuery=$("#mydiv"); //jQuery对象，实际上是一个数组，这里数组中只包含一个元素
+			// var divDOM=divjQuery[0]; //DOM对象
+			var divDOM=divjQuery.get(0) //DOM对象
+
+			// divjQuery.html("哈哈哈哈");
+			divDOM.innerHTML="嘻嘻嘻嘻";
+		});
+	</script>	
+</head>
+<body>
+	<div id="mydiv">嘿嘿</div>
+</body>
+</html>

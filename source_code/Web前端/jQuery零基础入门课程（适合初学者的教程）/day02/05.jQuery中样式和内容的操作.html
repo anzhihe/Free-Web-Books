@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.itany{
+			border: 1px solid #ccc;
+			font-size: 30px;
+		}
+		.hello{
+			text-decoration: underline;
+			font-weight: bold;
+			font-style: italic;
+		}
+	</style>
+	<script type="text/javascript" src="jquery/jquery-1.7.js"></script>
+	<script type="text/javascript">
+		function doStyle(){
+			// console.log($("div").css("color"));
+
+			// $("div").css("font-size","30px");
+			// $("div").css("color","blue");
+
+			/*$("div").css({
+				"font-size":"20px",
+				"font-weight":"bold",
+				"text-decoration":"underline",
+			});*/
+		
+			$("div").addClass("itany hello");
+			$("div").removeClass("itany");
+		}	
+
+		function doContent(){
+			//使用html()
+			// console.log($("div").html());
+			 // $("div").html("<h6>welcome to itany</h6>");
+
+			//使用text()
+			// console.log($("div").text());
+			$("div").text("<h6>welcome to itany</h6>");
+
+			//html()和text()的区别类似于innerHTML和innerText的区别
+		}
+
+		function doValue(){
+			// console.log($("#username").val());
+			$("#username").val("无名氏");
+
+			//val()方法主要针对表单元素进行操作
+		}
+
+		function doAttribute(){
+			// console.log($("#username").attr("type"));
+			// console.log($("#username").attr("hello"));
+			// console.log($("#username").attr("value")); //不建议通过attr()获取表单元素中的值
+
+			// $("#username").attr("hello","itany");
+			$("#username").attr({
+				hello:"itany",
+				title:"用户名",
+				value:"张三",
+			});
+
+			$("#username").removeAttr("value");
+		}
+	</script>	
+</head>
+<body>
+	<input type="button" value="样式操作" onclick="doStyle()">
+	<input type="button" value="内容操作" onclick="doContent()">
+	<input type="button" value="表单元素的value属性值操作" onclick="doValue()">
+	<input type="button" value="属性操作" onclick="doAttribute()">
+
+	<hr>
+	<div style="color:red"><h1>欢迎来到南京网博！</h1></div>
+
+	<input type="text" id="username" hello="world">
+</body>
+</html>

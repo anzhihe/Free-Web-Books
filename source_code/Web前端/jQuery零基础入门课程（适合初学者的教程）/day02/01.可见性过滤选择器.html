@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery/jquery-1.9.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("input[type=button]:first").click(function(){
+				$("div:visible").css("background","red");
+				console.log($("div:visible").length);
+			});
+
+			$("input[type=button]:eq(1)").click(function(){
+				console.log($("div:hidden").length);
+				$("div:hidden").css({
+					display:"block",
+					background:"yellow",
+				});
+			});
+
+			$("input[type=button]:eq(2)").click(function(){
+				console.log($("body :hidden").length);
+			});
+		});
+	</script>	
+</head>
+<body>
+	<input type="button" value="选择所有可见的div">
+	<input type="button" value="选择所有隐藏的div">
+	<input type="button" value="选择所有隐藏的元素">
+
+
+	<hr>
+
+	<div>可见div1</div>
+	<div>可见div2</div>
+	<div style="display:none;">不可见div</div>
+	<input type="hidden">
+	
+</body>
+</html>

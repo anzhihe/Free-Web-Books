@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery/jquery-1.9.0.js"></script>
+	<script type="text/javascript">
+		//使用原始JavaScript
+		window.onload=function(){
+			/*document.getElementById("btn").onclick=function(){
+				// console.log("点击了按钮！");
+				console.log(this.value); //this表示事件源，是DOM对象
+			};*/
+
+			/*var btns=document.getElementsByTagName("button");
+			for(var i=0;i<btns.length;i++){
+				btns[i].onclick=function(){
+					console.log(this.value);
+				};
+			}*/
+		};
+
+		//使用jQuery
+		$(function(){
+			/*$("#btn").click(function(){
+				// console.log(this.value); //调用DOM对象的value属性获取表单的value值
+				console.log($("#btn").val()); //调用jQuery对象的val()方法获取表单的value值
+			});*/
+
+			$("input").click(function(){ //获取的是jQuery对象数组，会自动进行隐式迭代(遍历)
+				// console.log(this.value);
+				console.log($(this).val()); //将DOM对象this转换为jQuery对象
+				// console.log($("input").val()); //不能使用此方式，获取到的始终是数组中第一个元素的值
+			});
+		});
+
+	</script>
+</head>
+<body>
+	<!-- <input type="button" value="点我" id="btn"> -->
+
+	<input type="button" value="按钮1">
+	<input type="button" value="按钮2">
+	<input type="button" value="按钮3">
+	<input type="button" value="按钮4">
+	<input type="button" value="按钮5">
+</body>
+</html>

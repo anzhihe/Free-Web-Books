@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery/jquery-1.7.js"></script>
+	<script type="text/javascript" src="js/myplugin.js"></script>
+	<script type="text/javascript">
+		//执行匿名函数，该函数会直接执行，称为自执行函数（重要）
+		/*(function(name){ //name是形参
+			console.log("执行匿名函数"+name);
+		})("tom"); //tom是实参*/
+		
+		// var $=12;
+
+		/*
+			为避免$标识符被重新定义，出现冲突，导致无法使用
+			通常会在外面增加一段匿名函数，在匿名函数中以$作为形参，在调用时以jQuery作为实参
+		*/
+		/*(function($){
+			// console.log(jQuery("<div>itany</div>").html());
+			console.log($("<div>itany</div>").html());
+		})(jQuery);*/
+
+		
+		function doGlobal(){
+			$.global();
+		}
+
+		function doLocal(){
+			// $("body").local();
+			// $().local(); //创建空jQuery对象，然后调用函数
+			
+			$("body").local().css("background","#ccc"); //链接操作
+		}
+		
+	</script>	
+</head>
+<body>
+	<input type="button" value="调用工具函数形式的插件" onclick="doGlobal()">
+	<input type="button" value="调用成员函数形式的插件" onclick="doLocal()">
+</body>
+</html>

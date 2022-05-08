@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery/jquery-1.9.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#btn1").click(function(){
+				$("div[hello]").css("background","red");
+			});
+
+			$("#btn2").click(function(){
+				$("p[hello=itany]").css("background","red");
+			});
+
+			$("#btn3").click(function(){
+				$("p[hello!=itany][hello]").css("background","red");
+			});
+
+			$("#btn4").click(function(){
+				$("p[id^=h]").css("background","red");
+			});
+
+			$("#btn5").click(function(){
+				$("p[id$=lo]").css("background","red");
+			});
+
+			$("#btn6").click(function(){
+				$("p[id*=ei]").css("background","red");
+			});
+
+			$("#btn7").click(function(){
+				$("p[id][hello^=wbs][class*=an]").css("background","red");
+			});
+		});
+	</script>
+</head>
+<body>
+	<input type="button" value="选择包含hello属性的div元素" id="btn1">
+	<input type="button" value="选择hello属性值等于itany的p元素" id="btn2">
+	<input type="button" value="选择hello属性值不等于itany的p元素" id="btn3">
+	<input type="button" value="选择id属性值以h开头的p元素" id="btn4">
+	<input type="button" value="选择id属性值以lo结尾的p元素" id="btn5">
+	<input type="button" value="选择id属性值包含ei的p元素" id="btn6">
+	<input type="button" value="选择包含属性id，并且属性hello的值以wbs开头，并且属性class的值中包含an的p元素" id="btn7">
+	<hr>
+
+	<p>welcome to 网博</p>
+	<div>
+		<p id="hello">hello itany</p>
+	</div>
+	<div>
+		<span id="hehe"></span>
+		<p id="heihei" hello="wbs16073" class="itany">今天星期五，相当的开心</p>
+	</div>
+	<p id="world">welcome to wbs16073</p>
+	<p></p>
+	<p hello="world">Hello World!</p>
+	<p hello="itany">welcome to wbs16073</p>
+	<div hello="welcome">happy wbs16073</div>
+</body>
+</html>

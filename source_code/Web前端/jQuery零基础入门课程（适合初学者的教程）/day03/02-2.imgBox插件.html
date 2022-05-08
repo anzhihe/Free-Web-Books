@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.imgbox.pack.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+    $(function() {
+        $("#img1").imgbox();
+        $("#img2").imgbox({
+            speedIn: 2000, //完成显示的时间
+            speedOut: 1000,
+            // alignment: "auto",
+            alignment: "center", //对齐方式
+            overlayShow: true, //以覆盖的形式显示
+            overlayOpacity:0.5, //覆盖时的透明度
+            allowMultiple: false,
+            hideOnOverlayClick:false, //点击覆盖区域时隐藏
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div id="content">
+        <a href="images/big1.jpg" id="img1" title="This is a photo"><img src="images/small1.jpg"></a>
+        <a href="images/big2.jpg" id="img2"><img src="images/small2.jpg"></a>
+    </div>
+</body>
+
+</html>

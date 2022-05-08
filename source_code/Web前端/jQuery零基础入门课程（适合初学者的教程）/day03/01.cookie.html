@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery/jquery-1.7.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<script type="text/javascript">
+		//通过配置tomcat，以web形式访问，不能使用本地访问的形式
+
+		function doAdd(){
+			$.cookie("username",$("#username").val());
+			$.cookie("password",$("#password").val(),{expires:7}); //指定有效期
+			$.cookie("name","tom;cruise"); //无需编解码
+		}
+
+		function doRead(){
+			//读取指定名称的Cookie
+			// console.log($.cookie("username"));
+
+			//读取所有Cookie
+			var cookies=$.cookie();
+			$.each(cookies,function(key,value){
+				console.log(key+"="+value);
+			});
+		}
+
+		function doDelete(){
+			$.removeCookie("username");
+		}
+ 	</script>
+</head>
+<body>
+	用户名：<input type="text" id="username"><br>
+	密码：<input type="password" id="password"><br>
+	<input type="button" value="添加Cookie" onclick="doAdd()">
+	<input type="button" value="读取Cookie" onclick="doRead()">
+	<input type="button" value="删除Cookie" onclick="doDelete()">
+</body>
+</html>

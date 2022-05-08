@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery/jquery-1.9.0.js"></script>
+	<script type="text/javascript">
+		//使用jQuery实现复选框全选和全不选的效果
+		$(function(){
+			//复选框的全选和全不选
+			$("#all").click(function(){
+				// console.log($(this).prop("checked")); //使用prop()获取复选框的checked状态，不建议使用attr()
+				$("input[name=stu]").prop("checked",$(this).prop("checked"));
+			});
+
+			//当选中下面所有复选框时自动选中全选
+			$("input[name=stu]").click(function(){
+				if($("input[name=stu]:checked").length==$("input[name=stu]").length){
+					$("#all").prop("checked",true);
+				}else{
+					$("#all").prop("checked",false);
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+		<table border="1px" width="500px">
+		<thead>
+			<tr>
+				<th><input type="checkbox" id="all"/>全选</th>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>性别</th>
+				<th>爱好</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="checkbox" name="stu" /></td>
+				<td>张三</td>
+				<td>21</td>
+				<td>男</td>
+				<td>编程</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="stu" /></td>
+				<td>李四</td>
+				<td>24</td>
+				<td>女</td>
+				<td>吃饭</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="stu" /></td>
+				<td>王五</td>
+				<td>24</td>
+				<td>男</td>
+				<td>睡觉</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="stu" /></td>
+				<td>赵六</td>
+				<td>26</td>
+				<td>男</td>
+				<td>打豆豆</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="stu" /></td>
+				<td>乔七</td>
+				<td>28</td>
+				<td>女</td>
+				<td>游戏</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

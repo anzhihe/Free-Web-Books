@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#mydiv{
+			width: 200px;
+			height: 200px;
+			background: red;
+		}
+	</style>
+	<script type="text/javascript" src="jquery/jquery-1.7.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#btnHide").click(function(){
+				$("#mydiv").hide(3000,function(){
+					console.log("已被隐藏！");
+				});
+			});
+
+			$("#btnShow").click(function(){
+				$("#mydiv").show("slow",function(){
+					console.log("显示完成！");
+				});
+			});
+
+			$("#btnFadeOut").click(function(){
+				$("#mydiv").fadeOut(2000);
+			});
+
+			$("#btnFadeIn").click(function(){
+				$("#mydiv").fadeIn(2000);
+			});
+
+			$("#btnUp").click(function(){
+				$("#mydiv").slideUp(3000);
+			});
+
+			$("#btnDown").click(function(){
+				$("#mydiv").slideDown(3000);
+			});
+
+			$("#btnAnimate").click(function(){
+				$("#mydiv").animate({
+					width:"400px",
+					height:"400px",
+					"font-size":"50px"
+				},3000,function(){
+					$("#mydiv").animate({
+						width:"0px",
+						height:"0px"
+					},2000,function(){
+						alert("动画完成！");
+					});
+				});
+			});
+		});
+	</script>	
+</head>
+<body>
+	<input type="button" value="隐藏" id="btnHide">
+	<input type="button" value="显示" id="btnShow">
+	<br>
+	<input type="button" value="淡出" id="btnFadeOut">
+	<input type="button" value="淡入" id="btnFadeIn">
+	<br>
+	<input type="button" value="上滑" id="btnUp">
+	<input type="button" value="下滑" id="btnDown">
+	<br>
+	<input type="button" value="自定义动画" id="btnAnimate">
+
+	<hr>
+
+	<div id="mydiv">我的DIV</div>
+</body>
+</html>

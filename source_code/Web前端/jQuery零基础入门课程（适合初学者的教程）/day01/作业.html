@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		/*
+			提示用户输入一个大于50的正整数，在控制台上输出该数字的所有求和表达式，如：用户输入90，则输出如下：
+				1+89=90
+				2+88=90
+				4+86=90
+				...
+				8+82=90
+				10+80=90
+				...
+				12+78=90
+				14+76=90
+
+				
+			要求：
+				1）判断用户的输入是否符合要求，如果不符合则提示用户并重新输入，直到输入符合为止
+				2）如果第一个加数中包含3或9，则不输出
+				3）不输出交换值，即如果输出2+88=90，则不输出88+2=90，但87+3=90需要输出	
+				4）使用正则表达式
+		*/
+		var num=Number((prompt("请输入一个大于50的正整数：")));
+		while(isNaN(num)||num%1!=0||num<=50){
+			num=Number((prompt("输入有误，请重新输入一个大于50的正整数：")));
+		};
+		var reg=/[39]/;
+		for(var i=1;i<num;i++){
+			if(i<=num/2){
+				if(!reg.test(i)){
+					console.log(i+"+"+(num-i)+"="+num);
+				}
+			}else{
+				if(!reg.test(i)&&reg.test(num-i)){
+					console.log(i+"+"+(num-i)+"="+num)
+				}
+			}	
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
