@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>使用$.getJSON()发送AJAX请求</title>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+	function doLoad(){
+		$.getJSON("course.json",function(data){
+			console.log(data);
+			//循环返回的json数组
+			$.each(data,function(index,course){
+				$("<p>").text(course.id+"  "+course.name+"  "+course.period).appendTo($("#info"));
+			});
+		});
+	}
+	
+	function doLoad2(){
+		$.ajax({
+			type:"post",
+			url:"course.json",
+			dataType:"json",
+			success:function(data){
+				$.each(data,function(index,course){
+					$("<p>").text(course.id+"  "+course.name+"  "+course.period).appendTo($("#info"));
+				});
+			},
+			error:function(){
+				$("#info").html("AJAX请求失败");
+			}
+		});
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="加载课程信息" onclick="doLoad2()" />
+	<h1>网博课程信息</h1>
+	<div id="info"></div>
+</body>
+</html>

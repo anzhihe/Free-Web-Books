@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>使用serialize()序列化表单</title>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+	function doLogin(){
+		/* var username=$("#username").val();
+		var pwd=$("#pwd").val();
+		var params="username="+username+"&pwd="+pwd; */
+		var params=$("#login").serialize();
+		console.log(params);
+	}
+</script>
+</head>
+<body>
+	<!-- 
+		要求：
+		1.必须使用<form>标签
+		2.表单元素必须指定name属性
+	 -->
+	<form id="login">
+		<label for="username">用户名：</label><input name="username" />
+		<label for="pwd">密码：</label><input type="password" name="pwd" />
+		<input type="button" value="登陆" onclick="doLogin()" />
+		<span id="loginInfo"></span>
+	</form>
+	<div id="content">
+		页面主体内容
+	</div>
+</body>
+</html>

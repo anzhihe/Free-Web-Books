@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>使用jQuery发送Ajax请求</title>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+	//使用$.ajax()发送AJAX请求
+	function doLogin(){
+		var username=$("#username").val();
+		var pwd=$("#pwd").val();
+		$.ajax({
+			//type:"post",
+			type:"get",
+			url:"login",
+			async:true,
+			//data:"username="+username+"&pwd="+pwd,
+			data:{
+				"username":username,
+				"pwd":pwd,
+			},
+			dataType:"text",
+			success:function(data){
+				if(data=="ok"){
+					$("#login").html("欢迎您："+username);
+				}else{
+					$("#loginInfo").html("用户名或密码不正确");
+					$("#loginInfo").css({
+						"font-size":"12px",
+						"color":"red"
+					});
+				}
+			},
+			error:function(){
+				$("#loginInfo").html("AJAX请求失败");
+			},
+			beforeSend:function(){
+				$("#loginInfo").html("正在登陆中......");
+			}
+		});
+	}
+	
+	//使用$.post()发送AJAX请求
+	function doLogin2(){
+		var username=$("#username").val();
+		var pwd=$("#pwd").val();
+		$.post("login",{
+			"username":username,
+			"pwd":pwd
+		},function(data){
+			if(data=="ok"){
+				$("#login").html("欢迎您："+username);
+			}else{
+				$("#loginInfo").html("用户名或密码不正确");
+				$("#loginInfo").css({
+					"font-size":"12px",
+					"color":"red"
+				});
+			}
+		});
+	}	
+</script>
+</head>
+<body>
+	<div id="login">
+		<label for="username">用户名：</label><input id="username" />
+		<label for="pwd">密码：</label><input type="password" id="pwd" />
+		<input type="button" value="登陆" onclick="doLogin2()" />
+		<span id="loginInfo"></span>
+	</div>
+	<div id="content">
+		页面主体内容
+	</div>
+</body>
+</html>

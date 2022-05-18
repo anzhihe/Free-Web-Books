@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<base href="http://localhost:8080/ajax03/">
+    <title>资源访问路径的问题</title>
+    <!-- <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script> -->
+    <!-- <script type="text/javascript" src="/ajax03/js/jquery-1.10.2.min.js"></script> -->
+    <!-- <script type="text/javascript" src="http://localhost:8080/ajax03/js/jquery-1.10.2.min.js"></script> -->
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+    		$(function(){
+    			$("body").css("color","red");
+    		});
+    		
+    		//$.get("hello",function(data){
+    		//$.get("../hello",function(data){
+    		//$.get("/ajax03/hello",function(data){
+    		//$.get("http://localhost:8080/ajax03/hello",function(data){
+    		$.get("hello",function(data){
+    			console.log(data);
+    		});
+    </script>
+  </head>
+  
+  <body>
+    <h1>资源访问路径的问题</h1>
+    <p>.表示当前目录，..表示上一级目录</p>
+    	<pre>
+    		解决方式：
+    		1.指定相对路径，相对路径是相对于当前页面所在位置，通过../指定准确的相对路径
+    		2.指定绝对路径，以正斜杠/开始的路径是绝对路径，以tomcat服务器作为起始路径，不推荐 
+    		3.在路径前指定完整URL
+    		4.在头部配置base标签，指定当前页面相对路径的根目录
+    	</pre>
+  </body>
+</html>

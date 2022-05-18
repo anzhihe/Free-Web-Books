@@ -12,7 +12,11 @@
 
 - [jQuery零基础入门课程（适合初学者的教程）](https://edu.51cto.com/course/14989.html)
 
+- [Ajax零基础入门课程（通俗易懂）](https://edu.51cto.com/course/16243.html)
+
 - [Vue.js 2.0之全家桶系列视频课程（vue、vue-router、axios、vuex）](https://edu.51cto.com/course/10543.html)
+
+- [TypeScript入门（通俗易懂）](https://edu.51cto.com/course/23736.html)
 
 - [Less快速入门视频课程](https://edu.51cto.com/course/14762.html)
 

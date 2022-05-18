@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>使用Ajax校验用户名，判断是否已存在</title>
+<script type="text/javascript">
+	/*
+		使用get方式发送请求
+		1.通过queryString形式发送请求参数，即附加在url后面
+		2.不能使用send()方法发送请求参数，该方法参数设置为null
+	*/
+	function checkExists(username){
+		var xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4&&xhr.status==200){
+				var data=xhr.responseText;
+				if(data=="true"){
+					document.getElementById("info").innerHTML="用户名可以使用";
+				}else{
+					document.getElementById("info").innerHTML="用户名已经被占用";
+					document.getElementById("username").select();
+				}
+			}
+		};
+		xhr.open("get", "checkUsername?username="+username, true);
+		xhr.send(null);
+	}
+	
+	/*
+		使用post方式发送请求
+		1.通过send()方法发送请求参数，必须设置请求头
+		2.虽然也可以通过url形式发送请求参数，但就会相当于使用get方式，不推荐
+	*/
+	function checkExists2(username){
+		var xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4&&xhr.status==200){
+				var data=xhr.responseText;
+				if(data=="true"){
+					document.getElementById("info").innerHTML="用户名可以使用";
+				}else{
+					document.getElementById("info").innerHTML="用户名已经被占用";
+					document.getElementById("username").select();
+				}
+			}
+		};
+		xhr.open("post", "checkUsername", true);
+		//设置请求头，可以指定字符集解决中文乱码，必须在open()方法之后
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8")
+		xhr.send("username="+username);
+	}
+</script>
+</head>
+<body>
+	<form>
+		用户名：<input type="text" id="username" onblur="checkExists(this.value)""/>
+		<span id="info"></span>
+	</form>
+	
+	<!-- 
+		GET和POST区别
+		GET方式：
+			1.数据通过url发送，显示在地址栏中
+			2.传递的数据大小有限
+			3.字符集默认会被自动转换为ISO-8859-1，一般需要在服务器端进行解码
+			解决乱码：1)服务器解码  2)使用过滤器   3)直接修改tomcat的配置文件server.xml，设置URIEncoding="utf-8"(推荐方式)
+			
+		POST方式：
+			1.数据通过请求头发送，不显示在地址栏中，相比较而言更安全
+			2.理论上数据大小没有限制
+			3.字符集可以在请求头中设置，服务器端会自动识别
+			4.文件上传时必须使用POST方式
+			5.POST方式相比于GET方式更安全，但需要注意的是两者都是以明文形式传输
+			
+			解决乱码：1)服务器设置字符集  2)使用过滤器(推荐方式)   3)客户端设置请求头
+		
+		
+	 -->
+</body>
+</html>

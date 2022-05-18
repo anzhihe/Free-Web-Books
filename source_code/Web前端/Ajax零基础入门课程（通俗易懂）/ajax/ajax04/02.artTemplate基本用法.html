@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>artTemplate基本用法</title>
+	<script src="js/jquery-1.10.1.min.js"></script>
+	<!-- 引入模板引擎js -->
+	<!-- <script src="js/template.js"></script> -->
+	<script src="js/template-native.js"></script>
+
+	<!-- 定义模板，使用简洁语法，简单，可读性高，推荐 -->
+	<script id="itany" type="text/html">
+		<h2>班级名称：{{className}}</h2>
+
+		<ul>
+			{{each students as student i}}
+				<li>序号：{{i+1}}，学号：{{student.id}}，姓名：{{student.name}} </li>
+			{{/each}}
+		</ul>
+
+		{{if className=="wbs16092"}}
+			<p>你是二楼wbs16092班的！</p>
+		{{else if className=="wbs16101"}}	
+			<p>你是一楼wbs16101班的！</p>
+		{{else}}
+			<p>你是哪个班的哦？</p>	
+		{{/if}}
+	</script>
+
+	<!-- 定义模板，使用原生语法，支持js语法，可读性差 -->
+	<script id="itany2" type="text/html">
+		<h2>班级名称：<%=className %></h2>
+
+		<ul>
+			<% for(var i=0;i<students.length;i++){ %>
+				<li>序号：<%=i+1%>，学号：<%=students[i].id%>，姓名：<%=students[i].name%> </li>
+			<% } %>	
+		</ul>
+
+		<% if(className="wbs16092"){ %>
+			<p>你是二楼wbs16092班的！</p>
+		<% }else if(className=="wbs16101"){ %>
+			<p>你是一楼wbs16101班的！</p>
+		<% }else{ %>		
+			<p>你是哪个班的哦？</p>	
+		<% } %>	
+	</script>
+	
+	<script>
+		var data={
+			className:"wbs16092",
+			students:[
+				{
+					id:1001,
+					name:"tom"
+				},
+				{
+					id:1002,
+					name:"mike"
+				},
+				{
+					id:1003,
+					name:"alice"
+				},
+				{
+					id:1004,
+					name:"jack"
+				},
+			],
+		};
+
+		//渲染模板
+		$(function(){
+			var result=template("itany2",data);
+			$("#info").html(result);
+		});
+
+	</script>
+</head>
+<body>
+	<div id="info"></div>
+</body>
+</html>

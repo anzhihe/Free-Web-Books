@@ -1,0 +1,28 @@
+package com.itany.dao.impl;
+
+import java.util.List;
+
+import com.itany.dao.CourseDao;
+import com.itany.entity.Course;
+import com.itany.mapper.CourseMapper;
+import com.itany.util.JdbcTemplate;
+import com.itany.util.RowMapper;
+
+public class CourseDaoImpl implements CourseDao {
+	
+	private JdbcTemplate<Course> jt=new JdbcTemplate<Course>();
+	private RowMapper<Course> rm=new CourseMapper();
+	
+	@Override
+	public List<Course> selectByItemId(int id) {
+		String sql="select * from course where itemid=?";
+		return jt.query(sql, rm, id);
+	}
+
+	@Override
+	public Course selectByCourseId(int id) {
+		String sql="select * from course where courseId=?";
+		return jt.queryForObject(sql, rm, id);
+	}
+
+}

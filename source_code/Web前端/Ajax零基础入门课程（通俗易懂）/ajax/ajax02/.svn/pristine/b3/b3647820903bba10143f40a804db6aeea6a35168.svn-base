@@ -1,0 +1,12 @@
+package com.itany.dao;
+
+import java.util.List;
+
+import com.itany.entity.Course;
+
+public interface CourseDao {	
+	
+	public List<Course> selectByItemId(int id);
+	
+	public Course selectByCourseId(int id);
+}

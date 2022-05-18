@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CORS实现跨域请求</title>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+	function doSend(){
+		//CORS支持POST请求，而JSONP只支持GET请求
+		$.post("http://127.0.0.1:8080/ajax03/jsonp",function(data){
+			console.log(data);
+		},"json"); //直接发送JSON请求
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="使用CORS实现跨域请求" onclick="doSend()" />
+</body>
+</html>

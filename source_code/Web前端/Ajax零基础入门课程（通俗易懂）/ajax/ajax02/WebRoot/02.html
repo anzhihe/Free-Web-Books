@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>培训项目和课程的选择(XML)</title>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$.get("trainItemXML",function(data){
+			var items=data.getElementsByTagName("TrainItem");
+			//console.log(items.length);
+			for(var i=0;i<items.length;i++){
+				var itemId=items[i].getElementsByTagName("itemId")[0].firstChild.nodeValue;
+				var itemName=items[i].getElementsByTagName("itemName")[0].firstChild.nodeValue;
+				var option=new Option(itemName,itemId);
+				$("#selTrainItem").append(option);
+			}
+			
+		},"xml"); //指定响应数据类型为xml，未指定时会根据响应头信息自动判断
+		
+		$("#selTrainItem").change(function(){
+			$("#selCourse")[0].length=1;
+			var itemId=this.value;
+			if(itemId==0){
+				return;
+			}
+			$.post("courseXML",{
+				"flag":"train",
+				"itemId":itemId
+			},function(data){
+				var courses=data.getElementsByTagName("Course");
+				for(var i=0;i<courses.length;i++){
+					var courseId=courses[i].getElementsByTagName("courseId")[0].firstChild.nodeValue;
+					var courseName=courses[i].getElementsByTagName("courseName")[0].firstChild.nodeValue;
+					var option=new Option(courseName,courseId);
+					$("#selCourse").append(option);
+				}
+			});//此处未指定响应数据类型，会自动识别为xml
+		});
+		
+		$("#selCourse").change(function(){
+			$("#info").empty();
+			var courseId=this.value;
+			if(courseId==0){
+				return;
+			}
+			$.get("courseXML",{
+				"flag":"course",
+				"courseId":courseId
+			},function(data){
+				var courses=data.getElementsByTagName("Course");
+				var courseName=courses[0].getElementsByTagName("courseName")[0].firstChild.nodeValue;
+				var period=courses[0].getElementsByTagName("period")[0].firstChild.nodeValue;
+				var details=courses[0].getElementsByTagName("details")[0].firstChild.nodeValue;
+				$("<h3>").text("课程名称："+courseName).appendTo($("#info"));
+				$("<h3>").text("课时数："+period).appendTo($("#info"));
+				$("<h3>").text("课程简介："+details).appendTo($("#info"));
+			});
+		});
+	});
+</script>
+<style type="text/css">
+	#info{
+		width:500px;
+		height: 300px;
+		border:1px solid red;
+		font-size:24px;
+	}
+</style>
+</head>
+<body>
+	<select id="selTrainItem">
+		<option value="0">--选择培训项目--</option>
+	</select>
+	<select id="selCourse">
+		<option value="0">--选择课程--</option>
+	</select>
+	<div id="info"></div>
+</body>
+</html>

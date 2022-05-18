@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>案例：使用artTemplate修改菜谱</title>
+	<script src="js/jquery-1.10.1.min.js"></script>
+	<script src="js/template.js"></script>
+	<script id="itany" type="text/html">
+		{{each data as dish  i}}
+			<div class='food'>
+		        <h2>标题：{{dish.title}} </h2>
+		        <p class='intro'>简介：{{dish.imtro}} </p>
+		        {{each dish.albums as img}}
+		        	<img src='{{img}}'>
+		        {{/each}}
+		        <p class='zl'>主料：{{dish.ingredients}} </p>
+		        <p class='fl'>辅料：{{dish.burden}} </p>
+		        <div class='steps'>
+		        	{{each dish.steps as step}}
+						<div class='st'>
+			                <p>{{step.step}} </p>
+			                <p><img src={{step.img}}></p>
+			            </div>
+		            {{/each}}
+		        </div>
+		    </div>
+		    <hr />
+		{{/each}}
+	</script>
+	<script>
+		$(function(){
+			$("#btnSearch").on("click",function(){
+				var menu=$("#menu");
+
+				//发送JSONP异步请求
+				$.ajax({
+					type:"get",
+					url:"http://apis.juhe.cn/cook/query?key=dd64a7d8a30f6bccb0589d233f2f7861&rn=5&pn=0&menu="+$("#txtSearch").val(),
+					dataType:"jsonp",
+					success:function(data){
+						//console.log(data);
+						menu.text(""); //清空原内容
+
+						//判断是否找到数据
+						if(data.resultcode!=200){
+							menu.text("未找到符合条件的菜谱！");
+							return;
+						}
+
+						//渲染模板
+						var result=template("itany",data.result);
+						menu.html(result);
+						
+					},
+					error:function(){
+						menu.html("搜索失败！");
+					},
+					beforeSend:function(){
+						menu.html("正在搜索中......");
+					}
+				});
+			});
+
+		});
+	</script>
+</head>
+<body>
+	<h2>菜谱搜索</h2>
+	<input type="text" id="txtSearch">
+	<input type="button" value="搜索" id="btnSearch">
+
+	<div id="menu"></div>
+</body>
+</html>

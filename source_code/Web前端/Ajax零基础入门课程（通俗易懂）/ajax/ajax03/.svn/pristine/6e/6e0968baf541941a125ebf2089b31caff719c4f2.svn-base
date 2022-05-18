@@ -1,0 +1,29 @@
+package com.itany.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class JSONPServlet extends HttpServlet {
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException, IOException {
+		//获取回调函数的名称
+		String callback=req.getParameter("callback");
+		
+		res.setContentType("text/plain;charset=utf-8");
+		//res.setContentType("text/javascript;charset=utf-8"); //也可以指定响应类型为text/javascript
+		PrintWriter out = res.getWriter();
+		//将数据包裹到回调函数中
+		String str=callback+"("+"{\"id\":1001,\"name\":\"tom\",\"age\":20}"+")";
+		System.out.println(str);
+		
+		out.print(str);
+		out.flush();
+		out.close();
+	}
+}
