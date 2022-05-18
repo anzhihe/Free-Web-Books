@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>案例：菜谱</title>
+	<script src="js/jquery-1.10.1.min.js"></script>
+	<script>
+		$(function(){
+			$("#btnSearch").on("click",function(){
+				var menu=$("#menu");
+				var txtSearch=$("#txtSearch").val();
+				txtSearch=encodeURIComponent(txtSearch);//对用户输入的内容进行url编码，对特殊字符进行处理
+
+				//发送JSONP异步请求
+				$.ajax({
+					type:"get",
+					url:"http://apis.juhe.cn/cook/query?key=dd64a7d8a30f6bccb0589d233f2f7861&rn=5&pn=0&menu="+txtSearch,
+					dataType:"jsonp",
+					success:function(data){
+						//console.log(data);
+						menu.text(""); //清空原内容
+
+						//判断是否找到数据
+						if(data.resultcode!=200){
+							menu.text("未找到符合条件的菜谱！");
+							return;
+						}
+						//循环遍历菜谱数据
+						for(var i=0;i<data.result.data.length;i++){
+							var dish=data.result.data[i]; //获取每一道菜
+							//菜品
+							var food=$("<div class='food'>");
+							food.appendTo(menu);
+							//标题
+							$("<h2>").text("标题："+dish.title).appendTo(food);
+							//简介
+							$("<p class='intro'>").text("简介："+dish.imtro).appendTo(food);
+							//图片
+							for(var j=0;j<dish.albums.length;j++){
+								$("<img>").attr("src",dish.albums[j]).appendTo(food);
+							}
+							//主料
+							$("<p class='zl'>").text("主料："+dish.ingredients).appendTo(food);
+							//辅料
+							$("<p class='fl'>").text("辅料："+dish.burden).appendTo(food);
+							//步骤
+							var steps=$("<div class='steps'>").appendTo(food);
+							for(var k=0;k<dish.steps.length;k++){
+								var step=dish.steps[k];
+								var st=$("<div class='st'>").appendTo(steps);
+								$("<p>").text(step.step).appendTo(st);
+								$("<p>").append($("<img>").attr("src",step.img)).appendTo(st);
+							}
+							//添加分隔线
+							$("<hr>").appendTo(food);
+						}
+					},
+					error:function(){
+						menu.html("搜索失败！");
+					},
+					beforeSend:function(){
+						menu.html("正在搜索中......");
+					}
+				});
+			});
+
+		});
+	</script>
+</head>
+<body>
+	<h2>菜谱搜索</h2>
+	<input type="text" id="txtSearch">
+	<input type="button" value="搜索" id="btnSearch">
+
+	<div id="menu"></div>
+</body>
+</html>

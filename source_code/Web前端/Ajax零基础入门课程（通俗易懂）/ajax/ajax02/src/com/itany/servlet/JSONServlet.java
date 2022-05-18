@@ -1,0 +1,83 @@
+package com.itany.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import com.itany.entity.User;
+
+public class JSONServlet extends HttpServlet {
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.setContentType("text/plain;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		//非规范JSON格式字符串
+		//out.print("{'id':1001,'name':'tom','age':20}");
+		
+		//规范JSON格式字符串
+		//out.print("{\"id\":1001,\"name\":\"tom\",\"age\":20}");
+		
+		//非规范JSON格式的数组
+		//out.print("[{'id':1001,'name':'tom','age':20},{'id':1002,'name':'alice','age':18},{'id':1003,'name':'mike','age':26}]");
+		
+		
+		/*
+		 * 使用第三方工具处理JSON数据，需要添加json.jar
+		 */
+		/*
+		 * 单个对象或Map集合，使用JSONObject类
+		 * 对象不能为null，需要做非空判断，否则会报空指针异常
+		 */
+		/*User user=new User(9527, "唐伯虎", "男", 25, 180.5);
+		user.setAddress(new Address("江苏", "南京", "秦淮"));
+		//user=null; //对象不能为空，否则会报空指针异常
+		String str="";
+		if(user!=null){ //判断是否非空
+			JSONObject obj=new JSONObject(user);
+			str=obj.toString();
+			System.out.println(str);
+		}*/
+		Map map=new HashMap();
+		map.put("id", 1001);
+		map.put("name","tom");
+		map.put("age",22);
+		map.put("height",180.5);
+		String str=new JSONObject(map).toString();
+		
+		/*
+		 * List集合或数组，使用JSONArray类
+		 * 可以为null或size为0，返回"[]"
+		 */
+		//List<User> users=new ArrayList<User>();
+		/*users.add(new User(9527, "唐伯虎", "男", 25, 180.5));
+		users.add(new User(3306, "秋香", "女", 22, 170.5));
+		users.add(new User(1521, "石榴姐", "女", 24, 168.5));*/
+		//users=null; //可以为空
+		/*JSONArray array=new JSONArray(users);
+		String str=array.toString();
+		System.out.println(str);*/
+		
+		out.print(str);
+		out.flush();
+		out.close();
+	}
+	
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

@@ -1,0 +1,35 @@
+package com.itany.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class JSONServlet extends HttpServlet {
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.setContentType("text/plain;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		//非规范JSON格式字符串
+		//out.print("{'id':1001,'name':'tom','age':20}");
+		
+		//规范JSON格式字符串
+		//out.print("{\"id\":1001,\"name\":\"tom\",\"age\":20}");
+		
+		//非规范JSON格式的数组
+		out.print("[{'id':1001,'name':'tom','age':20},{'id':1002,'name':'alice','age':18},{'id':1003,'name':'mike','age':26}]");
+		
+		out.flush();
+		out.close();
+	}
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

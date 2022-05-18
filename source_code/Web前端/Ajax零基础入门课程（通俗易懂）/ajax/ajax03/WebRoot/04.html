@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSONP原理：服务器端实现</title>
+<script type="text/javascript">
+	//回调函数，处理服务器端响应的数据
+	function handle(data){
+		//console.log(data);
+		//console.log(data.id+","+data.name+","+data.age);
+		
+		console.log(data.reason);
+		console.log(data.result);
+	}
+
+	function doSend(){
+		//动态创建script标签
+		var script=document.createElement("script");
+		//script.src="http://127.0.0.1:8080/ajax03/jsonp?callback=handle";
+		
+		//可以跨域，但响应数据为json格式，无法调用handle方法
+		//script.src="http://op.juhe.cn/189/bus/busline?key=d0f4b2871864e03a11e43c3ccfbe018c&city=%E5%8D%97%E4%BA%AC&bus=58&dtype=json";
+		//添加dtype=jsonp，同时指定callback=回调函数名,实现发送jsonp请求，响应数据包裹到回调函数中（juhe.cn聚合数据平台支持jsonp请求）
+		script.src="http://op.juhe.cn/189/bus/busline?key=d0f4b2871864e03a11e43c3ccfbe018c&city=%E5%8D%97%E4%BA%AC&bus=58&dtype=jsonp&callback=handle";
+		document.body.appendChild(script);
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="使用script标签发送跨域请求" onclick="doSend()" />
+	
+	<h2>服务器把json数据包裹到一个回调函数中，客户端提供一个对应的回调函数，可以处理服务器返回的数据</h2>
+	
+</body>
+</html>

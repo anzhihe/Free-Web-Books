@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<base href="http://localhost:8080/ajax03/">
+    <title>Ajax无法直接跨域</title>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+    		function doSend(){
+    			$.ajax({
+    				type:"get",
+    				//url:"http://127.0.0.1:8080/ajax03/hello",
+    				url:"http://op.juhe.cn/189/bus/busline?key=d0f4b2871864e03a11e43c3ccfbe018c&city=%E5%8D%97%E4%BA%AC&bus=58&dtype=json",
+    				//dataType:"text",
+    				dataType:"json",
+    				success:function(data){
+    					console.log(data);
+    				},
+    				error:function(){
+    					console.log("Ajax请求失败");
+    				}
+    			});
+    		}
+    </script>
+  </head>
+  
+  <body>
+    <input type="button" value="发送跨域请求" onclick="doSend()" />
+    
+    <!-- 
+    		Ajax是无法直接发送跨域请求的，报错：
+    		XMLHttpRequest cannot load http://127.0.0.1:8080/ajax03/hello. 
+    		No 'Access-Control-Allow-Origin' header is present on the requested resource. 
+    		Origin 'http://localhost:8080' is therefore not allowed access.
+     -->
+  </body>
+</html>

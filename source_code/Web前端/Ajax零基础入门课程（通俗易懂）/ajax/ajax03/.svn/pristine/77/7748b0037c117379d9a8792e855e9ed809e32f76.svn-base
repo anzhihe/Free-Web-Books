@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML中标签是支持跨域的</title>
+<script type="text/javascript">
+	//需要注意的是函数的定义必须放在前面，这里由于函数的定义和调用不在同一个<script>标签中，所以即使有变量提升也没用
+	function test(name){
+		console.log("姓名："+name);
+	}
+	
+	function callback(user){
+		console.log("姓名："+user.name+"，年龄："+user.age);
+	}
+</script>
+<script type="text/javascript" src="http://127.0.0.1:8080/ajax03/js/itany.js"></script>
+</head>
+<body>
+
+</body>
+</html>

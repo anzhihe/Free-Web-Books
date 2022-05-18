@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>使用jQuery发送跨域请求</title>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+	function doSend(){
+		/*
+			JSONP请求URL：http://127.0.0.1:8080/ajax03/jsonp?callback=jQuery110206416000141762197_1484708469636&_=1484708469637
+			第一个参数为JSONP参数，参数名默认为callback，回调函数名默认由jQuery自动生成，命名规则：jQuery*******
+			第二个参数是为了解决浏览器缓存数据的问题，参数名为_，参数值为当前时间的毫秒值
+		*/
+		$.ajax({
+			//type:"get",
+			type:"post", //JSONP不支持POST请求，即使指定为POST，也会自动变为GET
+			url:"http://127.0.0.1:8080/ajax03/jsonp",
+			//dataType:"json", //发送普通Ajax请求，无法跨域，报错
+			dataType:"jsonp", //发送JSONP请求
+			//jsonp:"cb", //指定JSONP请求时使用的参数名，此时服务器端也要修改，根据此参数获取回调函数名，不推荐
+			//jsonpCallback:"handle", //指定回调函数名，其他地方都无需修改，没意义，不推荐
+			success:function(data){
+				console.log(data);
+			},
+			error:function(){
+				console.log("请求失败");
+			}
+		});
+	}
+	
+	function doSend2(){
+		/*
+			这里可以不指定dtype=jsonp，因为当传递callback参数时，juhe.cn聚合数据平台会自动将JSON数据包裹到回调函数中
+		*/
+		$.get("http://op.juhe.cn/189/bus/busline?key=d0f4b2871864e03a11e43c3ccfbe018c&city=%E5%8D%97%E4%BA%AC&bus=58",function(data){
+			console.log(data);
+		},"jsonp");
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="使用jQuery发送跨域请求" onclick="doSend()" />
+	<input type="button" value="使用jQuery发送跨域请求2" onclick="doSend2()" />
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>培训项目和课程的选择(纯文本)</title>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$.get("trainItem",function(data){
+			var items=data.split(";");
+			for(var i=0;i<items.length;i++){
+				var item=items[i].split(",");
+				var option=new Option(item[1],item[0]);
+				$("#selTrainItem").append(option);
+			}
+		});
+		
+		$("#selTrainItem").change(function(){
+			$("#selCourse")[0].length=1;
+			var itemId=this.value;
+			if(itemId==0){
+				return;
+			}
+			$.post("course",{
+				"flag":"train",
+				"itemId":itemId
+			},function(data){
+				var courses=data.split(";");
+				for(var i=0;i<courses.length;i++){
+					var course=courses[i].split(",");
+					var option=new Option(course[1],course[0]);
+					$("#selCourse").append(option);
+				}
+			});
+		});
+		
+		$("#selCourse").change(function(){
+			$("#info").empty();
+			var courseId=this.value;
+			if(courseId==0){
+				return;
+			}
+			$.get("course",{
+				"flag":"course",
+				"courseId":courseId
+			},function(data){
+				var course=data.split(",");
+				$("<h3>").text("课程名称："+course[1]).appendTo($("#info"));
+				$("<h3>").text("课时数："+course[2]).appendTo($("#info"));
+				$("<h3>").text("课程简介："+course[3]).appendTo($("#info"));
+			});
+		});
+	});
+</script>
+<style type="text/css">
+	#info{
+		width:500px;
+		height: 300px;
+		border:1px solid red;
+		font-size:24px;
+	}
+</style>
+</head>
+<body>
+	<select id="selTrainItem">
+		<option value="0">--选择培训项目--</option>
+	</select>
+	<select id="selCourse">
+		<option value="0">--选择课程--</option>
+	</select>
+	<div id="info"></div>
+</body>
+</html>

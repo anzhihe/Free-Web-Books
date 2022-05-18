@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>案例：模拟百度搜索</title>
+	<script src="js/jquery-1.10.1.min.js"></script>
+	<script src="js/template.js"></script>
+	<script id="itany" type="text/html">
+		<ul>
+			{{each s as r}}
+				<li>{{r}} </li>
+			{{/each}}
+		</ul>
+	</script>
+	<script>
+		$(function(){
+			$("#txtSearch").keyup(function(){
+				var keyword=$(this).val();
+				var info=$("#info");
+
+				//分析百度搜索URL：https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=
+				$.ajax({
+					type:"get",
+					url:"https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+keyword,
+					dataType:"jsonp",
+					jsonp:"cb",
+					success:function(data){
+						//console.log(data);
+						/*for(var index in data){
+							console.log(index+"="+data[index]);
+						}*/
+
+						info.empty();//清空原内容
+
+						//判断是否找到匹配结果
+						if(data.s.length>0){
+							var result=template("itany",data);
+							info.html(result).show();
+						}
+					},
+					error:function(){
+						alert("亲，出错啦！");
+					}
+				});
+			});
+		});
+	</script>
+	<style>
+		#contents{
+			width:400px;
+			margin:20px auto;
+		}
+		#txtSearch{
+			width:300px;
+		}
+		#info{
+			width: 305px;
+			border: 1px solid #ccc;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="contents">
+		<input type="text" id="txtSearch">
+		<input type="button" value="搜索" id="btnSearch">
+		<div id="info"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>使用$(选择器).load()发送Ajax请求</title>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+	function doLoad(){
+		$("#info").load("course.html",function(){
+			$("#info").css("color","red");
+		});
+	}
+	
+</script>
+</head>
+<body>
+	<input type="button" value="加载课程信息" onclick="doLoad()" />
+	<h1>网博课程信息</h1>
+	<div id="info"></div>
+</body>
+</html>

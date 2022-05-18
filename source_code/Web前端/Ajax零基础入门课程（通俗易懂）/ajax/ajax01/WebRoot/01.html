@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax基本用法</title>
+<script>
+	function sendSync(){
+		//1.创建XMLHttpRequest对象
+		var xhr=new XMLHttpRequest();
+		//2.初始化连接，以get方式与服务器simple建立同步连接
+		xhr.open("get", "simple", false);
+		//3.发送请求
+		xhr.send(null); //客户端处于阻塞状态
+		//4.获取响应数据
+		var data=xhr.responseText;
+		alert(data);
+	}
+	
+	function sendAsync(){
+		var xhr=new XMLHttpRequest();
+		xhr.open("get", "simple", true);//建立异步请求
+		xhr.send(null); //客户端可以继续执行操作
+		var data=xhr.responseText; //无法获取响应数据，因为服务器还没响应
+		alert(data);
+	}
+	
+	//定义工厂函数，用于创建XMLHttpRequest对象，兼容不同浏览器
+	function createXHR(){
+		if(window.XMLHttpRequest){ //判断XMLHttpRequest对象是否可用
+			return new XMLHttpRequest();
+		}else{ 
+			return new ActiveXObject("Microsoft.XMLHTTP"); //IE老版本浏览器
+		}
+	}
+	
+	function sendAsync2(){
+		//var xhr=new XMLHttpRequest();
+		var xhr=createXHR();
+		//指定事件回调函数，当状态发生改变时触发执行(必须在执行send方法之前指定)
+		xhr.onreadystatechange=function(){
+			//alert(xhr.readyState); //xhr的状态，1、2、3、4
+			//alert(xhr.status); //http请求响应的状态
+			if(xhr.readyState==4&&xhr.status==200){ //&&两边的顺序不能颠倒，先判断readyState，再判断status
+				var data=xhr.responseText; 
+				alert(data);
+			}
+		};
+		xhr.open("get", "simple", true);
+		xhr.send(null); 
+		
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="发送同步请求" onclick="sendSync()">
+	<input type="button" value="发送异步请求" onclick="sendAsync()">
+	<input type="button" value="发送异步请求2" onclick="sendAsync2()">
+	<hr>
+	用户名：<input type="text" name="username" />
+	
+	<!-- 
+		XMLHttpRequest既支持发送异步请求，也支持发送同步请求
+		同步请求：在服务端响应之前浏览器处于阻塞状态，等待服务端响应，此时不能进行交互操作
+		异步请求：在服务端响应之前浏览器可以执行其他操作，无需等待服务器响应
+	 -->
+</body>
+</html>

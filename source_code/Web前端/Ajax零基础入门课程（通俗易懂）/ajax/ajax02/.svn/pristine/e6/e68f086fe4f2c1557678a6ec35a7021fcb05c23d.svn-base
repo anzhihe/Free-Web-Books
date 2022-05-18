@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>自动补全autocomplete</title>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="jqueryui/jquery-ui.min.js"></script>
+<link href="jqueryui/jquery-ui.min.css">
+<script type="text/javascript">
+	$(function(){
+		$("#keyword").autocomplete({
+			//minLength:2,
+			source:function(req,res){
+				var courseName=req.term;
+				$.get("course2","courseName="+courseName,function(data){
+					var courses=data.split(",");
+					res(courses);
+				});
+			},
+		});
+	});
+</script>
+</head>
+<body>
+	课程：<input type="text" id="keyword" placeholder="请输入课程名称" />
+</body>
+</html>

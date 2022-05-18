@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>使用JSON作为数据传输格式</title>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+	function getJSON(){
+		$.ajax({
+			url:"json",
+			dataType:"text",
+			success:function(data){
+				/* console.log(data);
+				console.log(typeof data); */
+				
+				/* 
+					处理单个JSON对象
+				 */
+				//使用原生的eval()解析
+				//var obj=eval("("+data+")"); //单个JSON对象需要拼接()
+				
+				//使用JSON.parse()解析，ES5中新增，必须是规范的JSON格式
+				//var obj=JSON.parse(data);
+				
+				//使用$.parseJSON()解析，jQuery中提供，必须是规范的JSON格式
+				//var obj=$.parseJSON(data);
+				
+				/* console.log(obj);
+				console.log(obj.name);
+				for(var index in obj){
+					console.log(index+"="+obj[index]);
+				} */
+				
+				/* 
+					处理JSON对象数组
+				 */
+				 var objs=eval(data); //JSON数组不需要拼接()
+				 //var objs=JSON.parse(data); //必须是规范的JSON格式
+				 
+				 //console.log(objs);
+				 for(var i in objs){
+				 	for(var index in objs[i]){
+				 		console.log(index+"="+objs[i][index]);
+				 	}
+				 	console.log("---------------");
+				 }
+			}
+		});
+	}
+</script>
+</head>
+<body>	
+	<input type="button" value="获取JSON格式字符串，自己解析" onclick="getJSON()" />
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>综合案例：城市公交查询</title>
+	<script src="js/jquery-1.10.1.min.js"></script>
+	<script src="js/template.js"></script>
+	<script id="itany" type="text/html">
+		<h3>{{result[0].key_name}}公交({{result[0].front_name}}——{{result[0].terminal_name}})，共{{result[0].stationdes.length}}站 )</h3>
+		<ul>
+			{{each result[0].stationdes as bus}}
+				<li>{{bus.stationNum}}.{{bus.name}} </li>
+			{{/each}}
+		</ul>
+	</script>
+	<script>
+		var cities;
+
+		$(function(){
+			//juhe.com聚合平台的省份城市API不支持jsonp请求
+			// $.get("http://v.juhe.cn/postcode/pcd?key=e30b66c95726d5f9d7bf4bf9019b5e1f",function(data){
+			//请求本地数据，需要部署到tomcat中访问
+
+			$.get("cities.json",function(data){
+				//console.log(data); 
+				cities=data;
+				for(var i=0;i<data.result.length;i++){
+					var option=new Option(data.result[i].province,data.result[i].id);
+					$("#province").append(option);
+				}
+			},"json");
+
+			$("#province").change(function(){
+				$("#city")[0].length=1;
+				var pid=this.value;
+				for(var i=0;i<cities.result.length;i++){
+					if(cities.result[i].id==pid){
+						var cs=cities.result[i].city;
+						for(var j=0;j<cs.length;j++){
+							var option=new Option(cs[j].city,cs[j].id);
+							$("#city").append(option);
+						}
+					}
+				}
+			});
+
+			$("#btnQuery").on("click",function(){
+				var city=$("#city :selected").html();
+				var bus=$("#bus").val();
+				$.get("http://op.juhe.cn/189/bus/busline?key=d0f4b2871864e03a11e43c3ccfbe018c&city="+city+"&bus="+bus,function(data){
+					//console.log(data);
+
+					var result=template("itany",data);
+					$("#info").empty();
+					//判断是否查询到数据
+					if(data.result==null){
+						$("#info").html("亲，未找到相关公交线路哦！");
+						return;
+					}
+					$("#info").append(result);
+
+				},"jsonp");
+			});
+
+		});
+	</script>
+</head>
+<body>
+	<!-- 
+		获取省份城市API接口：http://v.juhe.cn/postcode/pcd?key=e30b66c95726d5f9d7bf4bf9019b5e1f
+		获取全国公交API接口：http://op.juhe.cn/189/bus/busline?key=d0f4b2871864e03a11e43c3ccfbe018c&city=%E5%8D%97%E4%BA%AC&bus=190
+	 -->
+	<h2>城市公交查询</h2>
+	<div id="contents">
+		<p>
+			省份：
+			<select id="province">
+				<option value="0">--选择省份--</option>
+			</select>
+			城市：
+			<select id="city">
+				<option value="0">--选择城市--</option>
+			</select>
+		</p>
+		<p>
+			公交线路：
+			<input type="text" id="bus">
+		</p>
+		<p>
+			<input type="button" value="查询" id="btnQuery">
+		</p>
+	</div>
+	<div id="info">
+		
+	</div>
+</body>
+</html>

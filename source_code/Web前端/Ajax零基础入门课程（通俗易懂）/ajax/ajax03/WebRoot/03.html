@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSONP原理：纯JS实现</title>
+<script type="text/javascript">
+	//需要注意的是函数的定义必须放在前面，这里由于函数的定义和调用不在同一个<script>标签中，所以即使有变量提升也没用
+	function test(name){
+		console.log("姓名："+name);
+	}
+	
+	function callback(user){
+		console.log("姓名："+user.name+"，年龄："+user.age);
+	}
+</script>
+<script type="text/javascript" src="http://127.0.0.1:8080/ajax03/js/itany.js"></script>
+</head>
+<body>
+	<h2>HTML中标签是支持跨域的</h2>
+	<h2>通过HTML标签发送跨域请求，实现获取跨域的数据</h2>
+</body>
+</html>

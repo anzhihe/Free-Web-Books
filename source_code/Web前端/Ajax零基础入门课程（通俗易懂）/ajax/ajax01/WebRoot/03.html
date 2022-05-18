@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>使用Ajax实现无刷新的用户登陆</title>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+	function doLogin(){
+		var username=$("#username").val();
+		var pwd=$("#pwd").val();
+		var xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4&&xhr.status==200){
+				var data=xhr.responseText;
+				if(data=="ok"){
+					$("#login").html("欢迎您："+username);
+				}else{
+					$("#loginInfo").html("用户名或密码不正确");
+					$("#loginInfo").css({
+						"font-size":"12px",
+						"color":"red"
+					});
+				}
+			}
+		};
+		xhr.open("post","login");
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8")
+		xhr.send("username="+username+"&pwd="+pwd);
+	}
+</script>
+</head>
+<body>
+	<div id="login">
+		<label for="username">用户名：</label><input id="username" />
+		<label for="pwd">密码：</label><input type="password" id="pwd" />
+		<input type="button" value="登陆" onclick="doLogin()" />
+		<span id="loginInfo"></span>
+	</div>
+	<div id="content">
+		页面主体内容
+	</div>
+</body>
+</html>
