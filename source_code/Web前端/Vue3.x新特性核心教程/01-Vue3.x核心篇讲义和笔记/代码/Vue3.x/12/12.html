@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单输入绑定</title>
+</head>
+<body>
+
+<div id="app">
+    计算器：{{counter}}<br>
+    <input type="text" placeholder="请输入" v-model="message">
+    <div>{{message}}</div>
+
+    <input type="checkbox" id="checkbox" v-model="checked">
+    <label for="checkbox">{{checked}}</label><br>
+
+    <input type="checkbox" id="a" value="Mr.Lee" v-model="checkedNames">
+    <label for="a">Mr.Lee</label>
+
+    <input type="checkbox" id="b" value="Mr.Wang" v-model="checkedNames">
+    <label for="b">Mr.Wang</label>
+
+    <input type="checkbox" id="c" value="Mr.Zhang" v-model="checkedNames">
+    <label for="c">Mr.Zhang</label>
+
+    <div>{{checkedNames}}</div>
+
+    <input type="radio" id="one" value="男" v-model="gender">
+    <label for="one">男</label>
+
+    <input type="radio" id="two" value="女" v-model="gender">
+    <label for="two">女</label>
+
+    <div>{{gender}}</div>
+
+    <select v-model="selected">
+        <option>北京</option>
+        <option>上海</option>
+        <option>广州</option>
+        <option>深圳</option>
+    </select>
+
+    <div>{{selected}}</div>
+</div>
+
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 声明一个选项对象
+    const App = {
+        // 初始数据
+        data() {
+            return {
+                counter : 100,
+                message : 'Vue3.x~',
+                checked : true,
+                checkedNames : [],
+                gender : '男',
+                selected : ''
+            }
+        },
+
+        // 方法
+        methods : {
+
+        },
+
+        // 计算属性
+        computed : {
+
+        }
+    }
+
+    // 全局API对象.创建应用对象返回(选项对象).挂载方法(DOM节点)
+    const vm = Vue.createApp(App).mount('#app')
+
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件双向绑定</title>
+</head>
+<body>
+
+<div id="app">
+    <html-a v-model:parent-message="message"></html-a>
+<!--    <input type="text" v-model="message"><br>-->
+<!--    <input type="text" v-bind:value="message"-->
+<!--                       v-on:input="message = $event.target.value"><br>-->
+<!--    {{message}}-->
+
+
+</div>
+
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 定义一个局部组件
+    const htmlA = {
+        // 数据
+        data() {
+            return {
+                message : '子组件Vue3.x~'
+            }
+        },
+
+        //prop通信
+        props : ['parentMessage'],
+
+        // 模板
+        template : `
+            <div><input type="text" v-bind:value="parentMessage"
+                                    v-on:input="$emit('update:parentMessage', $event.target.value)"></div>
+            <div><input type="text" v-model="abc"></div>
+            <div>{{parentMessage}}</div>
+            <div>{{message}}</div>
+        `,
+
+        // 计算属性
+        computed : {
+            abc : {
+                get() {
+                    return this.parentMessage
+                },
+                set(value) {
+                    this.$emit('update:parentMessage', value)
+                }
+            }
+        }
+    }
+
+    // 创建一个Vue应用实例，这个本身也是一个组件，根组件，最顶层的
+    const app = Vue.createApp({
+        data() {
+            return {
+                message : '父组件Vue3.x~'
+            }
+        },
+
+        // 创建一个局部组件，也是一个子组件
+        components : {
+            'html-a' : htmlA
+        }
+    })
+
+    // 挂载
+    app.mount('#app')
+
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理能力</title>
+</head>
+<body>
+
+<div id="app">
+    计算器：{{counter}}<br>
+    <button v-on:click.once="counter++">counter++</button>
+    <button @keyup.enter="counter++">counter++</button>
+    <div v-on:click="counter++">
+        <button v-on:click.stop="addCounter(5, $event)">counter++</button>
+    </div>
+</div>
+
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 声明一个选项对象
+    const App = {
+        // 初始数据
+        data() {
+            return {
+                counter : 100,
+
+            }
+        },
+
+        // 方法
+        methods : {
+            addCounter(num, e) {
+                this.counter += num
+                //console.log(e.target.innerText)
+                //console.log(event)
+                console.log(e)
+            }
+        },
+
+        // 计算属性
+        computed : {
+
+        }
+    }
+
+    // 全局API对象.创建应用对象返回(选项对象).挂载方法(DOM节点)
+    const vm = Vue.createApp(App).mount('#app')
+
+</script>
+</body>
+</html>

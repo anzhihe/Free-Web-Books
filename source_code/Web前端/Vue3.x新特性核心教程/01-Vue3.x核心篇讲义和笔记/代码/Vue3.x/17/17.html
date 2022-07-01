@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件Prop类型</title>
+</head>
+<body>
+
+<div id="app">
+<!--    <html-a parent-message="字符串"></html-a>-->
+<!--    <html-a v-bind:parent-message="100"></html-a>-->
+<!--    <html-a v-bind:parent-message="post.likes"></html-a>-->
+<!--    <html-a v-bind:parent-message="{name : 'Mr.Lee'}"></html-a>-->
+<!--    <html-a v-bind:parent-message="post"></html-a>-->
+    <html-a v-bind="post"></html-a>
+</div>
+
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 定义一个局部组件
+    const htmlA = {
+        // 数据
+        data() {
+            return {
+                message : '子组件Vue3.x~'
+            }
+        },
+
+        //prop通信
+        // props : ['parentMessage'],
+        // props : {
+        //     parentMessage : Number
+        // },
+        props : {
+            parentMessage : Object
+        },
+
+        // 模板
+        template : `
+            <div>{{message}}</div>
+        `
+    }
+
+    // 创建一个Vue应用实例，这个本身也是一个组件，根组件，最顶层的
+    const app = Vue.createApp({
+        data() {
+            return {
+                message : '父组件Vue3.x~',
+                post : {
+                    likes : 100,
+                    id : 5
+                }
+            }
+        },
+
+        // 创建一个局部组件，也是一个子组件
+        components : {
+            'html-a' : htmlA
+        }
+    })
+
+    // 挂载
+    app.mount('#app')
+
+</script>
+</body>
+</html>

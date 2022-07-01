@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ref和$refs的使用</title>
+</head>
+<body>
+
+<div id="app">
+    <input type="text" value="Mr.Lee" ref="user"><br>
+    <html-a ref="child"></html-a>
+</div>
+
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 定义一个局部组件
+    const htmlA = {
+        // 数据
+        data() {
+            return {
+                message : '子组件Vue3.x~'
+            }
+        },
+
+        // 挂载后
+        // mounted() {
+        //     console.log(this.$refs.user.value)
+        // },
+
+        // 模板
+        template : `
+            <input type="text" value="Mr.Wang" ref="user">
+        `
+    }
+
+    // 创建一个应用实例，
+    const app = Vue.createApp({
+        data() {
+            return {
+                show : true
+            }
+        },
+
+        // 初始化
+        created() {
+            console.log(this.$refs.user)
+        },
+
+        // 挂载后
+        mounted() {
+            console.log(this.$refs.user.value)
+            console.log(this.$refs.child.$refs.user.value)
+        },
+
+        // 创建一个局部组件，也是一个子组件
+        components : {
+            'html-a' : htmlA
+        }
+    })
+
+    // 这是一个根组件实例
+    const vm = app.mount('#app')
+    console.log(vm.$refs.user.value)
+    console.log(vm.$refs.child.$refs.user.value)
+
+</script>
+</body>
+</html>

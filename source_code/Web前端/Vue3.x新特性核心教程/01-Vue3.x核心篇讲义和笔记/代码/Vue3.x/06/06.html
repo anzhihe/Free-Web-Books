@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Getter和Setter</title>
+</head>
+<body>
+
+<div id="app">
+    计算器：{{counter}}<br>
+    {{fullName}}
+</div>
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 声明一个选项对象
+    const App = {
+        // 初始数据
+        data() {
+            return {
+                counter : 100,
+                firstName : 'Mr.',
+                lastName : 'Lee'
+            }
+        },
+
+        // 方法
+        methods : {
+
+        },
+
+        // 计算属性
+        computed : {
+            // 全名
+            // fullName() {
+            //     return this.firstName + this.lastName
+            // }
+            fullName : {
+                get() {
+                    console.log('get')
+                    //console.log(this.firstName + this.lastName)
+                    return this.firstName + this.lastName
+                },
+                set(value) {
+                    //console.log(value)
+                    console.log('set')
+                    const str = value.split('.')
+                    this.firstName = str[0] + '.'
+                    this.lastName = str[1]
+                }
+            }
+        }
+    }
+
+    // 全局API对象.创建应用对象返回(选项对象).挂载方法(DOM节点)
+    const vm = Vue.createApp(App).mount('#app')
+    vm.fullName = 'Miss.Wang'
+
+</script>
+</body>
+</html>

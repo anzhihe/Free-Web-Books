@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>具名插槽和作用域</title>
+</head>
+<body>
+
+<div id="app">
+<!--    <html-a>****</html-a>-->
+<!--    <html-a v-slot:header>123</html-a>-->
+<!--    <html-a v-slot:default="slotProps">-->
+<!--        {{slotProps.message}}-->
+<!--    </html-a>-->
+
+<!--    <html-a v-slot="slotProps">-->
+<!--        {{slotProps.message}}-->
+<!--    </html-a>-->
+
+<!--    <html-a v-slot="{message}">-->
+<!--        {{message}}-->
+<!--    </html-a>-->
+
+    <html-a v-slot="{message : info}">
+        {{info}}
+    </html-a>
+</div>
+
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 定义一个局部组件
+    const htmlA = {
+        // 数据
+        data() {
+            return {
+                message : '子组件Vue3.x~'
+            }
+        },
+
+        // 模板
+        // template : `
+        //     <div>{{message}}</div>
+        //     <div><slot name="header">0000</slot></div>
+        //     <div><slot></slot></div>
+        // `
+
+         template : `
+            <div>{{message}}</div>
+            <div><slot v-bind:message="message"></slot></div>
+        `
+    }
+
+    // 创建一个Vue应用实例，这个本身也是一个组件，根组件，最顶层的
+    const app = Vue.createApp({
+        data() {
+            return {
+                message : '父组件Vue3.x~'
+            }
+        },
+
+        // 创建一个局部组件，也是一个子组件
+        components : {
+            'html-a' : htmlA
+        }
+    })
+
+    // 挂载
+    app.mount('#app')
+
+</script>
+</body>
+</html>

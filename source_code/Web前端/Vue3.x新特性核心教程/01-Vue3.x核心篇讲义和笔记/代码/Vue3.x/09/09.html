@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>循环渲染列表</title>
+</head>
+<body>
+
+<div id="app">
+    计算器：{{counter}}<br>
+    <ul>
+        <li v-for="(item, index) in array">{{index + 1}}.{{item.city}}</li>
+    </ul>
+    <ul>
+        <template v-for="item in array">
+            <li v-if="item.city !== '上海'">{{item.city}}</li>
+        </template>
+
+    </ul>
+    <ul>
+        <template  v-for="(item, index) in array">
+            <li>{{index + 1}}</li>
+            <li>{{item.city}}</li>
+        </template>
+    </ul>
+    <ul>
+        <li v-for="item in object">{{item}}</li>
+    </ul>
+    <ul>
+        <li v-for="(value, name, key) in object">{{key + 1}}.{{name}}.{{value}}</li>
+    </ul>
+
+    <span v-for="n in 10">{{n}}</span>
+</div>
+
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 声明一个选项对象
+    const App = {
+        // 初始数据
+        data() {
+            return {
+                counter : 100,
+                array : [
+                    {
+                        city : '北京'
+                    },
+                    {
+                        city : '上海'
+                    },
+                    {
+                        city : '广州'
+                    },
+                    {
+                        city : '深圳'
+                    },
+                ],
+                object : {
+                    name : 'Mr.Lee',
+                    gender : '男',
+                    age : 100
+                }
+            }
+        },
+
+        // 方法
+        methods : {
+
+        },
+
+        // 计算属性
+        computed : {
+
+        }
+    }
+
+    // 全局API对象.创建应用对象返回(选项对象).挂载方法(DOM节点)
+    const vm = Vue.createApp(App).mount('#app')
+
+
+</script>
+</body>
+</html>

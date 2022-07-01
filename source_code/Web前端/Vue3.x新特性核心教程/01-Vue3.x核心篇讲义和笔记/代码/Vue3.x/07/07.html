@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class和Style绑定</title>
+    <style>
+        .red {
+            color : red;
+        }
+        .big-font {
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    计算器：{{counter}}<br>
+    <span v-bind:class="className">Css绑定</span><br>
+    <span v-bind:class="{'red' : isRed, 'big-font' : isBigFont}">Css绑定</span><br>
+    <span v-bind:class="classObject">Css绑定</span><br>
+    <span v-bind:class="classObject2">Css绑定</span><br>
+    <span v-bind:class="[redClass, bigFontClass]">Css绑定</span><br>
+
+    <span v-bind:style="{color : styleColor}">Css绑定</span>
+
+</div>
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 声明一个选项对象
+    const App = {
+        // 初始数据
+        data() {
+            return {
+
+                counter : 100,
+                className : 'red',
+                styleColor : 'red',
+
+                isRed : true,
+                isBigFont : true,
+
+                classObject : {
+                    'red' : true,
+                    'big-font' : true
+                },
+
+                redClass : 'red',
+                bigFontClass : 'big-font'
+            }
+        },
+
+        // 方法
+        methods : {
+
+        },
+
+        // 计算属性
+        computed : {
+            classObject2() {
+                return {
+                    'red' : true,
+                    'big-font' : true
+                }
+            }
+        }
+    }
+
+    // 全局API对象.创建应用对象返回(选项对象).挂载方法(DOM节点)
+    const vm = Vue.createApp(App).mount('#app')
+
+
+</script>
+</body>
+</html>
