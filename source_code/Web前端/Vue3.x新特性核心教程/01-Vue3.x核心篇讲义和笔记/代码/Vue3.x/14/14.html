@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件的概念</title>
+</head>
+<body>
+
+<div id="app">
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+</div>
+
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 创建一个Vue应用实例
+    const app = Vue.createApp({})
+
+    // 定义一个全局组件
+    app.component('button-counter', {
+        // 数据
+        data() {
+            return {
+                counter : 100
+            }
+        },
+
+        // 模板
+        template : `
+            计算器：{{counter}}
+            <button v-on:click="counter++">counter++</button>
+            <br>
+        `
+    })
+
+    // 挂载
+    app.mount('#app')
+
+</script>
+</body>
+</html>

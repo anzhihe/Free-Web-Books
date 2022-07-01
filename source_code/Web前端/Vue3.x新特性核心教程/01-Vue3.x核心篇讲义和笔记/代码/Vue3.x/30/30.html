@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>混入可复用</title>
+</head>
+<body>
+
+<div id="app">
+    计数器：{{count}}<br>
+    信息：{{message}}<br>
+    <button v-on:click="getInfo">执行</button>
+</div>
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 创建可复用的混入
+    const baseMixin = {
+        data() {
+            return {
+                count : 0
+            }
+        },
+
+        created() {
+            this.count = 200
+            console.log('我是复用的钩子~')
+        },
+
+        methods : {
+            getInfo() {
+                console.log('我是复用的方法~')
+            }
+        }
+    }
+
+    // 创建一个应用实例，
+    const app = Vue.createApp({
+        // 载入混入
+        mixins: [baseMixin],
+
+        data() {
+            return {
+                count : 100,
+                message : 'Vue3.x~'
+            }
+        },
+
+        created() {
+            this.count = 300
+            console.log('我是组件内的钩子~')
+        },
+
+        methods : {
+            getInfo() {
+                console.log('我是组件内的方法~')
+            }
+        }
+    })
+
+    // 这是一个根组件实例
+    const vm = app.mount('#app')
+
+</script>
+</body>
+</html>

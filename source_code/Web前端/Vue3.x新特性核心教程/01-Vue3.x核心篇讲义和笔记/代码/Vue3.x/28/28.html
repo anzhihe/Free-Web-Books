@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>watch监听进阶</title>
+</head>
+<body>
+
+<div id="app">
+    <input type="text" v-model="user.name"><br>
+    {{user.name}}
+</div>
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 创建一个应用实例，
+    const app = Vue.createApp({
+        data() {
+            return {
+                user : {
+                    name : 'Mr.Lee',
+                    age : 100
+                }
+            }
+        },
+
+        // 方法
+        methods : {
+            // 方法名可自定义
+            // getUser(newValue, oldValue) {
+            //     console.log('new:' + newValue + ', old:' + oldValue)
+            // }
+            // 深度监听
+            getUser(obj) {
+                console.log('监听1')
+            },
+
+            getUser2(obj) {
+                console.log('监听2')
+            }
+        },
+
+        // 监听对象
+        watch : {
+            // 字符串形式
+            //'user.name' : 'getUser'
+
+            user : [
+                {
+                    handler : 'getUser',
+                    deep : true,
+                    immediate : true
+                },
+                {
+                    handler : 'getUser2',
+                    deep : true,
+                    immediate : true
+                }
+            ],
+
+        }
+
+    })
+
+    // 这是一个根组件实例
+    const vm = app.mount('#app')
+
+</script>
+</body>
+</html>

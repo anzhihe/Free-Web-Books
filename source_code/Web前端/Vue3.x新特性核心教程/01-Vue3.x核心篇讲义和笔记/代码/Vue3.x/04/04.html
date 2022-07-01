@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令及缩写</title>
+</head>
+<body>
+
+<div id="app">
+    计算器：{{counter}}<br>
+    <span v-if="flag">是否可见</span><br>
+    <a :[attrname]="url">百度或搜狗</a>
+</div>
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 声明一个选项对象
+    const App = {
+        // 初始数据
+        data() {
+            return {
+                counter : 100,
+                flag : false,
+                url : 'http://www.baidu.com',
+                attrname : 'url'
+            }
+        }
+    }
+
+    // 全局API对象.创建应用对象返回(选项对象).挂载方法(DOM节点)
+    const vm = Vue.createApp(App).mount('#app')
+    //vm.counter = 200
+    //console.log(vm.counter)
+
+</script>
+</body>
+</html>

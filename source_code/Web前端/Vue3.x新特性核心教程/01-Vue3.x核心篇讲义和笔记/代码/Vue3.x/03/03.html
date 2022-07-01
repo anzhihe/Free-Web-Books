@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本插值及指令</title>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    计算器：<span v-once>{{counter + 1}}</span><br>
+    是否解析HTML：{{rawContent}}<br>
+    是否解析HTML：<span v-html="rawContent"></span><br>
+    <span v-bind:class="className">Vue3.x</span><br>
+    {{false ? '真' : '假'}} {{'bbb@163.com'.split('@')}}
+</div>
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 声明一个选项对象
+    const App = {
+        // 初始数据
+        data() {
+            return {
+                counter : 100,
+                rawContent : '<span style="color:red;">Vue3.x</span>',
+                className : 'red'
+            }
+        }
+    }
+
+    // 全局API对象.创建应用对象返回(选项对象).挂载方法(DOM节点)
+    const vm = Vue.createApp(App).mount('#app')
+    //vm.counter = 200
+    //console.log(vm.counter)
+
+</script>
+</body>
+</html>

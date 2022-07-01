@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件渲染指令</title>
+</head>
+<body>
+
+<div id="app">
+    计算器：{{counter}}<br>
+    <div v-if="flag">是否显示</div>
+    <div v-else>404</div>
+
+    <div v-if="type === 'A'">A</div>
+    <div v-else-if="type === 'B'">B</div>
+    <div v-else-if="type === 'C'">C</div>
+    <div v-else>none</div>
+
+    <template v-if="flag">
+        <h2>标题</h2>
+        <h4>小标题</h4>
+        <div>内容。。。。</div>
+    </template>
+
+    <div v-show="flag">显示/隐藏</div>
+
+</div>
+
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 声明一个选项对象
+    const App = {
+        // 初始数据
+        data() {
+            return {
+                counter : 100,
+                flag : false,
+                type : 'D'
+            }
+        },
+
+        // 方法
+        methods : {
+
+        },
+
+        // 计算属性
+        computed : {
+
+        }
+    }
+
+    // 全局API对象.创建应用对象返回(选项对象).挂载方法(DOM节点)
+    const vm = Vue.createApp(App).mount('#app')
+
+
+</script>
+</body>
+</html>

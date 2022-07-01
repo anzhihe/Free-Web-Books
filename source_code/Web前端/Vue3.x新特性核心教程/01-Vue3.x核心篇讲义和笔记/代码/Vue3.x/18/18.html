@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件单向数据流</title>
+</head>
+<body>
+
+<div id="app">
+    <html-a v-bind:parent-message="message" v-bind:parent-counter="counter"></html-a>
+</div>
+
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 定义一个局部组件
+    const htmlA = {
+        // 数据
+        data() {
+            return {
+                message : '子组件Vue3.x~',
+                childCounter : this.parentCounter
+            }
+        },
+
+        //prop通信
+        props : ['parentMessage', 'parentCounter'],
+
+        // 模板
+        template : `
+            <div>{{parentMessage}}</div>
+            <div>{{parentCounter}}</div>
+            <div>{{childCounter}}</div>
+            <div>{{message}}</div>
+            <button v-on:click="parentCounter++">parentCounter+</button>
+            <button v-on:click="childCounter++">childCounter+</button>
+        `
+    }
+
+    // 创建一个Vue应用实例，这个本身也是一个组件，根组件，最顶层的
+    const vm = Vue.createApp({
+        data() {
+            return {
+                message : '父组件Vue3.x~',
+                counter : 100
+            }
+        },
+
+        // 创建一个局部组件，也是一个子组件
+        components : {
+            'html-a' : htmlA
+        }
+    }).mount('#app')
+
+</script>
+</body>
+</html>

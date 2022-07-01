@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>值绑定和修饰符</title>
+</head>
+<body>
+
+<div id="app">
+    计算器：{{counter}}<br>
+    <input type="checkbox" id="checkbox" v-model="checked" v-bind:value="checked">
+    <div>{{checked}}</div>
+
+    <input type="text" v-model.lazy="message">
+    <div>{{message}}</div>
+
+    <input type="number" v-model.number="counter">
+    <div>{{typeof counter}}</div>
+
+    <input type="text" v-model.trim="message">
+    <div>1{{message}}2</div>
+</div>
+
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 声明一个选项对象
+    const App = {
+        // 初始数据
+        data() {
+            return {
+                counter : 100,
+                message : 'Vue3.x~',
+                checked : true,
+            }
+        },
+
+        // 方法
+        methods : {
+
+        },
+
+        // 计算属性
+        computed : {
+
+        }
+    }
+
+    // 全局API对象.创建应用对象返回(选项对象).挂载方法(DOM节点)
+    const vm = Vue.createApp(App).mount('#app')
+
+</script>
+</body>
+</html>

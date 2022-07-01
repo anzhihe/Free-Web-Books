@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>key和数组检测</title>
+</head>
+<body>
+
+<div id="app">
+    计算器：{{counter}}<br>
+    <ul>
+        <li v-for="item in array" v-bind:key="item.id"><input type="checkbox">{{item.city}}</li>
+    </ul>
+    <button v-on:click="add">添加</button>
+</div>
+
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 声明一个选项对象
+    const App = {
+        // 初始数据
+        data() {
+            return {
+                counter : 100,
+                array : [
+                    {
+                        id : 1,
+                        city : '北京'
+                    },
+                    {
+                        id : 2,
+                        city : '上海'
+                    },
+                    {
+                        id : 3,
+                        city : '广州'
+                    },
+                    {
+                        id : 4,
+                        city : '深圳'
+                    },
+                ],
+
+            }
+        },
+
+        // 方法
+        methods : {
+            add() {
+                this.array.unshift({id : 5, city : '重庆'})
+            }
+        },
+
+        // 计算属性
+        computed : {
+
+        }
+    }
+
+    // 全局API对象.创建应用对象返回(选项对象).挂载方法(DOM节点)
+    const vm = Vue.createApp(App).mount('#app')
+    //vm.array.push({city : '重庆'})
+
+</script>
+</body>
+</html>

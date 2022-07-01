@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画和转场效果</title>
+    <style>
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity 0.5s ease;
+        }
+        .fade-enter-from, .fade-leave-to {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <button v-on:click="show = !show">切换{{show}}</button>
+
+    <transition name="fade">
+        <p v-if="show">显示/隐藏</p>
+    </transition>
+</div>
+
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 创建一个应用实例，
+    const app = Vue.createApp({
+        data() {
+            return {
+                show : true
+            }
+        },
+    })
+
+    // 这是一个根组件实例
+    const vm = app.mount('#app')
+
+
+</script>
+</body>
+</html>

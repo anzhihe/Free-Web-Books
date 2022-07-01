@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>watch监听入门</title>
+</head>
+<body>
+
+<div id="app">
+    <input type="text" v-model="user.name"><br>
+    {{user.name}}
+</div>
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 创建一个应用实例，
+    const app = Vue.createApp({
+        data() {
+            return {
+                user : {
+                    name : 'Mr.Lee'
+                }
+            }
+        },
+
+        // 方法
+        methods : {
+            // 方法名可自定义
+            getUser(newValue, oldValue) {
+                console.log('new:' + newValue + ', old:' + oldValue)
+            }
+        },
+
+        // 计算属性
+        computed : {
+            // 方法名可自定义
+            getUserName() {
+                return this.user.name
+            }
+        },
+
+        // 监听对象
+        watch : {
+            // // 方法名和双向绑定名称一致
+            // // 参数 1 为新值，参数 2 为上一次值
+            // user(newValue, oldValue) {
+            //     console.log('new:' + newValue + ', old:' + oldValue)
+            // }
+
+            // 监听封装到方法里
+            //user : 'getUser'
+
+            // 计算属性监听
+            getUserName : 'getUser'
+        }
+
+    })
+
+    // 这是一个根组件实例
+    const vm = app.mount('#app')
+
+</script>
+</body>
+</html>

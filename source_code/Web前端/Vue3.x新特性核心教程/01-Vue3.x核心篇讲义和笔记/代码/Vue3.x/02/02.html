@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>渲染和挂载</title>
+</head>
+<body>
+
+<div id="app">
+    计算器：{{counter}}
+</div>
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 声明一个选项对象
+    const App = {
+        // 初始数据
+        data() {
+            return {
+                counter : 100
+            }
+        }
+    }
+
+    // 全局API对象.创建应用对象返回(选项对象).挂载方法(DOM节点)
+    Vue.createApp(App).mount('#app')
+
+</script>
+</body>
+</html>

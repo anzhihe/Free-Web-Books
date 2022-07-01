@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$watch的方法</title>
+</head>
+<body>
+
+<div id="app">
+    <input type="text" v-model="user.name"><br>
+    {{user.name}}<br>
+    <input type="text" v-model="count"><br>
+    {{count}}
+</div>
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 创建一个应用实例，
+    const app = Vue.createApp({
+        data() {
+            return {
+                user : {
+                    name : 'Mr.Lee',
+                    age : 100
+                },
+
+                count : 0
+            }
+        },
+
+        // 初始化
+        created() {
+            // this.$watch('count', (newValue, oldValue) => {
+            //     console.log(newValue + ', ' + oldValue)
+            // })
+
+            // this.$watch(() => this.user.name, (newValue, oldValue) => {
+            //     console.log(newValue + ', ' + oldValue)
+            // })
+
+            this.$watch('user', (obj) => {
+                console.log(obj.age)
+            }, {
+                deep : true,
+                immediate : true
+            })
+        }
+
+
+    })
+
+    // 这是一个根组件实例
+    const vm = app.mount('#app')
+    // const unwatch = vm.$watch('count', (newValue, oldValue) => {
+    //     console.log(newValue + ', ' + oldValue)
+    // })
+
+    //
+    //unwatch()
+
+</script>
+</body>
+</html>

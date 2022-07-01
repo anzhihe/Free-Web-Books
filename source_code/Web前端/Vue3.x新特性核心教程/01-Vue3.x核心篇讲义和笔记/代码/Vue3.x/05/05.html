@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件和计算属性</title>
+</head>
+<body>
+
+<div id="app">
+    计算器：{{counter}}<br>
+    <button v-on:click="counter++">counter++</button>
+    <br>
+    <button v-on:click="counter+=2">counter+=2</button>
+    <br>
+    <button v-on:click="addCounter">counter+methods</button>
+    <br>
+    {{firstName}}{{lastName}}
+    <br>
+    {{firstName + lastName}}
+    <br>
+    {{fullName()}}
+    <br>
+    {{fullName2}}
+</div>
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 声明一个选项对象
+    const App = {
+        // 初始数据
+        data() {
+            return {
+                counter : 100,
+                firstName : 'Mr.',
+                lastName : 'Lee'
+            }
+        },
+
+        // 方法
+        methods : {
+            // 累加
+            addCounter() {
+                this.counter++
+            },
+
+            // 全名
+            fullName() {
+                return this.firstName + this.lastName
+            }
+        },
+
+        // 计算属性
+        computed : {
+            // 全名
+            fullName2() {
+                return this.firstName + this.lastName
+            }
+        }
+    }
+
+    // 全局API对象.创建应用对象返回(选项对象).挂载方法(DOM节点)
+    const vm = Vue.createApp(App).mount('#app')
+
+
+</script>
+</body>
+</html>

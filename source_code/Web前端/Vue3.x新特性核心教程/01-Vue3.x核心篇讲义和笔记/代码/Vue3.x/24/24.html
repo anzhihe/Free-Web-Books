@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>应用实例和生命周期</title>
+</head>
+<body>
+
+<div id="app">
+    <div id="abc"><b>{{count}}</b></div>
+</div>
+
+
+
+<script src="../vue.global.js"></script>
+<script>
+
+    // 创建一个应用实例，
+    const app = Vue.createApp({
+        data() {
+            return {
+                count : 0
+            }
+        },
+
+        // 初始化
+        created() {
+            this.count = 100
+
+            // 无法获取DOM
+            //console.log(document.getElementById('abc').innerText)
+        },
+
+        // 挂载后执行
+        mounted() {
+            // 获取DOM
+            console.log(document.getElementById('abc').innerHTML)
+        },
+
+        // 虚拟DOM被修改后执行
+        updated() {
+            console.log('数据被修改了~')
+        }
+    })
+
+    // 输出应用实例
+    //console.log(app)
+
+    // 这是一个根组件实例
+    const vm = app.mount('#app')
+    //console.log(vm)
+
+</script>
+</body>
+</html>
