@@ -78,6 +78,7 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 - [现代 JavaScript 教程](https://zh.javascript.info/)
 - [前端进阶积累](http://obkoro1.com/web_accumulate/)
 - [Vue 官网](https://cn.vuejs.org/v2/guide/)
+- [Vue.js 在线挑战平台](https://cn-vuejs-challenges.netlify.app/)
 - [React 官方中文文档](https://react.docschina.org/)
 - [TypeScript 中文网](https://www.tslang.cn/)
 - [Bootstrap中文网](https://www.bootcss.com/)
