@@ -86,6 +86,7 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 - [Can I use... Support tables for HTML5, CSS3, etc](https://caniuse.com/)
 - [Apache ECharts](https://echarts.apache.org/zh/index.html)
 - [PPChart - 让图表更简单](http://ppchart.com)
+- [Web前端面试](https://vue3js.cn/interview/)
 - [Gixy: Nginx configuration static analyzer](https://github.com/yandex/gixy)
 - [resources.oreilly.com-examples](https://resources.oreilly.com/examples)
 - [nginx config file formatter/beautifier written in Python with no additional dependencies.](https://github.com/slomkowski/nginx-config-formatter)
