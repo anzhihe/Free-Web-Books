@@ -77,6 +77,7 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 - [ES6 教程](https://wangdoc.com/es6/index.html)
 - [现代 JavaScript 教程](https://zh.javascript.info/)
 - [前端进阶积累](http://obkoro1.com/web_accumulate/)
+- [冴羽的博客](https://github.com/mqyqingfeng/Blog)
 - [Vue 官网](https://cn.vuejs.org/v2/guide/)
 - [Vue.js 在线挑战平台](https://cn-vuejs-challenges.netlify.app/)
 - [React 官方中文文档](https://react.docschina.org/)
