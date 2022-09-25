@@ -71,6 +71,7 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 - [Web 開發人員的路線圖](https://github.com/goodjack/developer-roadmap-chinese)
 - [前端自学学习路线](https://juejin.cn/post/6979778540044550152)
 - [前端导航](https://www.kwgg2020.com/) | [GitHub前端学习资源](https://github.com/FrontEndGitHub/FrontEndGitHub)
+- [Web开发者应该掌握的CSS tricks](https://lhammer.cn/You-need-to-know-css/#/zh-cn/)
 - [部落阁(Blog)](https://www.yuque.com/crper/blog)
 - [SimbaJS的个人空间_哔哩哔哩](https://space.bilibili.com/425325651)
 - [JavaScript 教程](https://wangdoc.com/javascript/index.html)
