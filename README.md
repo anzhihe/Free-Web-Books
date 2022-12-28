@@ -78,6 +78,7 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 - [JavaScript 教程](https://wangdoc.com/javascript/index.html)
 - [ES6 教程](https://wangdoc.com/es6/index.html)
 - [现代 JavaScript 教程](https://zh.javascript.info/)
+- [每个 JavaScript 工程师都应懂的33个概念](https://github.com/stephentian/33-js-concepts)
 - [前端进阶积累](http://obkoro1.com/web_accumulate/)
 - [冴羽的博客](https://github.com/mqyqingfeng/Blog)
 - [Vue 官网](https://cn.vuejs.org/v2/guide/)
