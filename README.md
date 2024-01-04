@@ -85,6 +85,7 @@ You can find all the books listed below in [**book**](/book) folder of this repo
 - [Vue.js 在线挑战平台](https://cn-vuejs-challenges.netlify.app/)
 - [React 官方中文文档](https://react.docschina.org/)
 - [TypeScript 中文网](https://www.tslang.cn/)
+- [TypeScript 教程](https://wangdoc.com/typescript/)
 - [Bootstrap中文网](https://www.bootcss.com/)
 - [BootCDN - Bootstrap 中文网开源项目免费 CDN 加速服务](https://www.bootcdn.cn/)
 - [Can I use... Support tables for HTML5, CSS3, etc](https://caniuse.com/)
